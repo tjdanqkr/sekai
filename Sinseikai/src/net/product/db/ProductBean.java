@@ -53,7 +53,6 @@ public class ProductBean {
 	public void setDiscountRate(float discountRate) {
 		this.discountRate = discountRate;
 	}
-	
 	public float getRating() {
 		return rating;
 	}

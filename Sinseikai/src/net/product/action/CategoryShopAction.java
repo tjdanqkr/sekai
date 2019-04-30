@@ -1,25 +1,27 @@
 package net.product.action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.product.Menu;
 import net.product.db.ProductBean;
 import net.product.db.ProductDAO;
 
-public class GoodsDetailAction implements Action {
+public class CategoryShopAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ProductDAO dao = new ProductDAO();
-		ProductBean bean = new ProductBean();
-		bean.setProductNumber(Integer.parseInt(request.getParameter("productNumber")));
+		List<ProductBean> beans = null;
+		Menu bean = new Menu();
+		bean.setCategoryName(request.getParameter("categoryName"));
 		
-		bean = dao.getProduct(bean);
+		beans = dao.getCategoryShop(bean);
 		dao.close();
-		if(bean != null) {
-			request.setAttribute("productBean", bean);
-			
-			// option 테이블과 codexbrand 테이블도 불러야함.
+		if(beans != null) {
+			request.setAttribute("productBeans", beans);
 			
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(false);

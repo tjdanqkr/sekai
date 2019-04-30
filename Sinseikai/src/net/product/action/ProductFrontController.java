@@ -20,10 +20,17 @@ public class ProductFrontController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		
-		if(command.equals("/memberLogin.me")) {
+		if(command.equals("/")) { // ¿œ¥‹ ≥≤∞‹µ“.
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("/member/LoginForm.jsp");
+			forward.setPath("/.jsp");
+		}else if(command.equals("/display-fo/categoryShop")) {
+			action = new GoodsDetailAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}else if(command.equals("/goods-fo/goodsDetail")) {
 			action = new GoodsDetailAction();
 			try {
@@ -55,5 +62,4 @@ public class ProductFrontController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		process(request, response);
 	}
-
 }
