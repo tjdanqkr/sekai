@@ -1,0 +1,59 @@
+package net.product.action;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class ProductFrontController
+ */
+public class ProductFrontController extends HttpServlet {
+       
+	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String RequestURI = request.getRequestURI();
+		String contentPath = request.getContextPath();
+		String command = RequestURI.substring(contentPath.length());
+		ActionForward forward = null;
+		Action action = null;
+		
+		if(command.equals("/memberLogin.me")) {
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/member/LoginForm.jsp");
+		}else if(command.equals("/goods-fo/goodsDetail")) {
+			action = new GoodsDetailAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(forward.isRedirect()) {
+			response.sendRedirect(forward.getPath());
+		}else {
+			RequestDispatcher dispatcher = 
+					request.getRequestDispatcher(forward.getPath());
+			dispatcher.forward(request, response);
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		process(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		process(request, response);
+	}
+
+}
