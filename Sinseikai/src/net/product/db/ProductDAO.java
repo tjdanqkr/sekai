@@ -28,12 +28,12 @@ public class ProductDAO implements DAO{
 			DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/OracleDB");
 			con = ds.getConnection();
 		}catch(Exception e) {
-			System.out.println("DB ���� ����: " + e);
+			System.out.println("Failed connect DB: " + e);
 			return;
 		}
 	}
 	
-	// 1���� ��ǰ�� ���� ���� �θ���.
+	// Call the information about one product. 
 	public ProductBean getProduct(ProductBean bean) {
 		try {
 			pstmt = con.prepareStatement("select * from product where productnumber=?");
@@ -42,7 +42,7 @@ public class ProductDAO implements DAO{
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				// productNumber�� �̹� �������Ƿ� set�Լ� ȣ�⿡�� ������.
+				// Excepted from call the setter bacause productNumber is already inserted.
 				bean.setBrandName(rs.getString("brandname"));
 				bean.setModelNumber(rs.getString("modelnumber"));
 				bean.setMedelName(rs.getString("modelname"));
@@ -66,19 +66,19 @@ public class ProductDAO implements DAO{
 		return null;
 	}
 	
-	// ī�װ��� �´� ��ǰ�� �θ���.
-	public List<ProductBean> getCategoryShop(Menu menuBean) {
+	// Call the product correct to category.
+	public List<ProductBean> getCategoryShop(MenuBean menuBean) {
 		List<ProductBean> beans = null;
 		try {
 			pstmt = con.prepareStatement("select * "
 					+ "from (select c0.categorycode from codexcategory c0 where c0.categoryname=?) c "
-					+ "inner join product p on c.categorycode = p.categorycode"); // mysql���. oraclesql�� �ٸ� �� ����. ã�ƺ� ��.
+					+ "inner join product p on c.categorycode = p.categorycode");
 			pstmt.setString(1, menuBean.getCategoryName());
 			
 			rs = pstmt.executeQuery();
 			
 			beans = new ArrayList<ProductBean>();
-			while(rs.next()) { // ī�װ��� �´� ��ǰ�� �ֱ�.
+			while(rs.next()) { // Put the products correct to category.
 				ProductBean bean = new ProductBean();
 				
 				bean.setProductNumber(rs.getInt("productnumber"));

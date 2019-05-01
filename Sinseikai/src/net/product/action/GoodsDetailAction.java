@@ -21,11 +21,11 @@ public class GoodsDetailAction implements Action {
 		if(bean != null) {
 			request.setAttribute("productBean", bean);
 			
-			// option ���̺�� codexbrand ���̺� �ҷ�����.
+			// you should coding dao option and codexbrand.
 			
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(false);
-//			forward.setPath(����� ��δ�); // ���� ����.
+//			forward.setPath(address); // set at after.
 			return forward;
 		}
 		
