@@ -8,7 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import net.action.FrontController;
+=======
+import net.action.Action;
+import net.action.ActionForward;
+>>>>>>> branch 'master' of https://github.com/kgc815/sekai.git
 
 /**
  * Servlet implementation class ProductFrontController
