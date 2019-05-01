@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.action.Action;
+import net.action.ActionForward;
 import net.product.Menu;
 import net.product.db.ProductBean;
 import net.product.db.ProductDAO;
@@ -25,7 +27,7 @@ public class CategoryShopAction implements Action {
 			
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(false);
-//			forward.setPath(¾îµò°¡ÀÇ °æ·Î´Ù); // ¼öÁ¤ ¿¹Á¤.
+//			forward.setPath(ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Î´ï¿½); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			return forward;
 		}
 		

@@ -1,4 +1,4 @@
-package net.product.action;
+package net.action;
 
 public class ActionForward {
 	private boolean isRedirect = false;

@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.action.Action;
+import net.action.ActionForward;
+
 /**
  * Servlet implementation class ProductFrontController
  */
@@ -20,7 +23,7 @@ public class ProductFrontController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		
-		if(command.equals("/")) { // ÀÏ´Ü ³²°ÜµÒ.
+		if(command.equals("/")) { // ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Üµï¿½.
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/.jsp");
