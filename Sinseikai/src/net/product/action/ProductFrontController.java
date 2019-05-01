@@ -8,19 +8,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.action.FrontController;
+
 /**
  * Servlet implementation class ProductFrontController
  */
-public class ProductFrontController extends HttpServlet {
-       
-	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class ProductFrontController extends HttpServlet implements FrontController {
+      @Override
+	public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String RequestURI = request.getRequestURI();
 		String contentPath = request.getContextPath();
 		String command = RequestURI.substring(contentPath.length());
 		ActionForward forward = null;
 		Action action = null;
 		
-		if(command.equals("/")) { // ÀÏ´Ü ³²°ÜµÒ.
+		if(command.equals("/")) { // ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Üµï¿½.
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/.jsp");

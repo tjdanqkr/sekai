@@ -10,12 +10,13 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import net.db.DAO;
 import net.product.Menu;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 
-public class ProductDAO {
+public class ProductDAO implements DAO{ 
 	Connection con;
 	PreparedStatement pstmt;
 	Statement stmt;
@@ -27,12 +28,12 @@ public class ProductDAO {
 			DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/OracleDB");
 			con = ds.getConnection();
 		}catch(Exception e) {
-			System.out.println("DB ¿¬°á ½ÇÆÐ: " + e);
+			System.out.println("DB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: " + e);
 			return;
 		}
 	}
 	
-	// 1°³ÀÇ »óÇ°¿¡ ´ëÇÑ Á¤º¸ ºÎ¸£±â.
+	// 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ï¿½ï¿½.
 	public ProductBean getProduct(ProductBean bean) {
 		try {
 			pstmt = con.prepareStatement("select * from product where productnumber=?");
@@ -41,7 +42,7 @@ public class ProductDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				// productNumber´Â ÀÌ¹Ì µé¾î°¡ÀÖÀ¸¹Ç·Î setÇÔ¼ö È£Ãâ¿¡¼­ Á¦¿ÜÇÔ.
+				// productNumberï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ setï¿½Ô¼ï¿½ È£ï¿½â¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 				bean.setBrandName(rs.getString("brandname"));
 				bean.setModelNumber(rs.getString("modelnumber"));
 				bean.setMedelName(rs.getString("modelname"));
@@ -65,19 +66,19 @@ public class ProductDAO {
 		return null;
 	}
 	
-	// Ä«Å×°í¸®¿¡ ¸Â´Â »óÇ°µé ºÎ¸£±â.
+	// Ä«ï¿½×°ï¿½ï¿½ï¿½ ï¿½Â´ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½Î¸ï¿½ï¿½ï¿½.
 	public List<ProductBean> getCategoryShop(Menu menuBean) {
 		List<ProductBean> beans = null;
 		try {
 			pstmt = con.prepareStatement("select * "
 					+ "from (select c0.categorycode from codexcategory c0 where c0.categoryname=?) c "
-					+ "inner join product p on c.categorycode = p.categorycode"); // mysql¹æ½Ä. oraclesql°ú ´Ù¸¦ ¼ö ÀÖÀ½. Ã£¾Æº¼ °Í.
+					+ "inner join product p on c.categorycode = p.categorycode"); // mysqlï¿½ï¿½ï¿½. oraclesqlï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. Ã£ï¿½Æºï¿½ ï¿½ï¿½.
 			pstmt.setString(1, menuBean.getCategoryName());
 			
 			rs = pstmt.executeQuery();
 			
 			beans = new ArrayList<ProductBean>();
-			while(rs.next()) { // Ä«Å×°í¸®¿¡ ¸Â´Â »óÇ°µé ³Ö±â.
+			while(rs.next()) { // Ä«ï¿½×°ï¿½ï¿½ï¿½ ï¿½Â´ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½Ö±ï¿½.
 				ProductBean bean = new ProductBean();
 				
 				bean.setProductNumber(rs.getInt("productnumber"));
