@@ -51,7 +51,7 @@
 
             <td><b>아이디</b></td>
 
-            <td colspan="3"><input type="text" style="width: 170px" id="email"
+            <td ><input type="text" style="width: 170px" id="email"
                name="email" /> ※메일 형식으로 입력해주세요 </td>
 			<td><input type="button" value="중복 검사" onclick="idcheck()"></td>
          </tr>

@@ -10,13 +10,13 @@
 </head>
 <body>
 
-
-<img alt="" src="elLotte.png">
+<div><%@include file="headerside.jsp" %></div><br>
+<img alt="" src="elLotte.png"><br>
 <div><%@include file="main.jsp" %></div>
 <div><%@include file="slide.html" %></div>
 <div align="center" ><h2>5월 선물 BEST</h2></div>
 
 
-
+<div></div>
 </body>
 </html>
