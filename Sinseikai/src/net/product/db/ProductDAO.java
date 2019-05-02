@@ -44,7 +44,7 @@ public class ProductDAO implements DAO{
 				// Excepted from call the setter bacause productNumber is already inserted.
 				bean.setBrandName(rs.getString("brandname"));
 				bean.setModelNumber(rs.getString("modelnumber"));
-				bean.setMedelName(rs.getString("modelname"));
+				bean.setModelName(rs.getString("modelname"));
 				bean.setCoupon(rs.getString("coupon"));
 				bean.setPrice(rs.getInt("price"));
 				bean.setDiscountRate(rs.getFloat("discountrate"));
@@ -81,7 +81,7 @@ public class ProductDAO implements DAO{
 				bean.setProductNumber(rs.getInt("productnumber"));
 				bean.setBrandName(rs.getString("brandname"));
 				bean.setModelNumber(rs.getString("modelnumber"));
-				bean.setMedelName(rs.getString("modelname"));
+				bean.setModelName(rs.getString("modelname"));
 				bean.setCoupon(rs.getString("coupon"));
 				bean.setPrice(rs.getInt("price"));
 				bean.setDiscountRate(rs.getFloat("discountrate"));
