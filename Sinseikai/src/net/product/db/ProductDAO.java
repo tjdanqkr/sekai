@@ -11,7 +11,6 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import net.db.DAO;
-import net.product.Menu;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -34,7 +33,7 @@ public class ProductDAO implements DAO{
 	}
 	
 	// Call the information about one product. 
-	public ProductBean getProduct(ProductBean bean) {
+	public ProductBean getProductByProductNumber(ProductBean bean) {
 		try {
 			pstmt = con.prepareStatement("select * from product where productnumber=?");
 			pstmt.setInt(1, bean.getProductNumber());
@@ -66,14 +65,12 @@ public class ProductDAO implements DAO{
 		return null;
 	}
 	
-	// Call the product correct to category.
-	public List<ProductBean> getCategoryShop(MenuBean menuBean) {
+	// Get the products correct to category.
+	public List<ProductBean> getProductsByCategorycode(CodexCategoryBean codexCategoryBean) {
 		List<ProductBean> beans = null;
 		try {
-			pstmt = con.prepareStatement("select * "
-					+ "from (select c0.categorycode from codexcategory c0 where c0.categoryname=?) c "
-					+ "inner join product p on c.categorycode = p.categorycode");
-			pstmt.setString(1, menuBean.getCategoryName());
+			pstmt = con.prepareStatement("select * from product where categorycode=?");
+			pstmt.setInt(1, codexCategoryBean.getCategorycode());
 			
 			rs = pstmt.executeQuery();
 			
