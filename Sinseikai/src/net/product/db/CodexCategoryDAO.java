@@ -39,7 +39,9 @@ public class CodexCategoryDAO implements DAO{
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				bean.setCategorycode(rs.getInt("categorycode"));
+				bean.setCategorycode(rs.getInt("categorycode")); // Found categorycode.
+			}else {
+				bean.setCategorycode(0); // None categorycode correct to categoryname.
 			}
 			
 			return bean;
