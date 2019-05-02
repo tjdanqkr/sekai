@@ -1,0 +1,100 @@
+
+body{
+   margin: 0;
+   padding: 0;
+   font-family: sans-serif;
+   background: #34495e;
+}
+.table{
+   position: absolute;
+   border: 2px solid #3498db;
+   background: #ffffff;
+   text-align: left;
+}
+.table h1{ 
+   color: #ff0000;
+    
+   text-transform: uppercase;
+   font-weight: 500;
+   
+}
+.table input[type="text"]{
+   border: 0;
+   background: none;
+   display: block;
+   text-align: left;
+   border: 2px solid #000000;
+
+   outline: none;
+   color: black;
+   border-radius: 5px;
+   transition: 0.25s;
+   
+}
+.table input[type="password"]{
+   border: 0;
+   background: none;
+   display: block;
+  
+   text-align: left;
+   border: 2px solid #000000;
+ 
+   outline: none;
+   color: black;
+   border-radius: 5px;
+   transition: 0.25s;
+   
+}
+.table input[type="text"]:focus{
+  
+   border-color:#2ecc71;
+}
+.table input[type="password"]:focus{
+ 
+   border-color:#2ecc71;
+}
+.table input[type="submit"]{
+   border: 0;
+   background: none;
+   display: block;
+   margin: 20px auto;
+   text-align: center;
+   border: 2px solid #00ccff;
+   padding: 14px 40px;
+   outline: none;
+   color: white;
+   border-radius: 24px;
+   transition: 0.25s;
+   cursor: pointer;
+    background: #00ccff;
+}
+.table input[type="reset"]{
+   border: 0;
+   background: none;
+   display: block;
+   margin: 20px auto;
+   text-align: center;
+   border: 2px solid #00ccff;
+   padding: 14px 40px;
+   outline: none;
+   color: white;
+   border-radius: 24px;
+   transition: 0.25s;
+   cursor: pointer;
+    background: #00ccff;
+}
+.table input[value="돌아가기"]{
+   border: 0;
+   background: none;
+   display: block;
+   margin: 20px auto;
+   text-align: center;
+   border: 2px solid #00ccff;
+   padding: 14px 40px;
+   outline: none;
+   color: white;
+   border-radius: 24px;
+   transition: 0.25s;
+   cursor: pointer;
+    background: #00ccff;
+}
