@@ -30,6 +30,13 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/.jsp");
+		}else if(command.equals("/menu.pr")) {
+			action = new CategoryMenuAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}else if(command.equals("/display-fo/categoryShop.pr")) {
 			action = new CategoryShopAction();
 			try {
