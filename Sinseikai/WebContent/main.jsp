@@ -11,6 +11,7 @@
 <body>
 <div class="menubar">
 <ul>
+
  <li><a href="#">Home</a></li>
  <li><a href="#" id="current">Men</a>
 	<ul>
@@ -43,6 +44,8 @@
      <li><a href="#">가죽/모피</a></li>
      <li><a href="#">코디아이템</a></li>
 </ul>
+</li>
+
 </div>
 </body>
 </html>

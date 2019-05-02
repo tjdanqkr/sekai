@@ -31,9 +31,9 @@ public class MemberDAO implements DAO {
 		String sql="";
 		
 		int result=0;
-		
+		System.out.println(member.getAddress()+"ㅇㅇ");
 		try{
-			
+			System.out.println(member.getAddress()+"ㅇㅇ");
 			
 			sql= "insert into member values (?,?,?,?,?,?,?)";
 			
@@ -46,7 +46,7 @@ public class MemberDAO implements DAO {
 		       pstmt.setInt(5, member.getAge());
 		       pstmt.setString(6, member.getPhone());
 		       pstmt.setString(7, member.getAddress());
-		      
+		       System.out.println(member.getAddress());
 			pstmt.executeUpdate();
 			
 			result=result+1;
