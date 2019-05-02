@@ -14,6 +14,7 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <link href="http://fonts.googleapis.com/earlyaccess/nanumpenscript.css"
    rel="stylesheet">
+   <link href="join.css" rel="stylesheet">
 <style>
 .np {
    font-family: 'Nanum Pen Script', cursive;
@@ -25,9 +26,9 @@
 <body>
 
    <form name="Join" onsubmit="return validate();"
-      action="joinProcess.jsp">
+      action="MemberAddAction.me">
 
-      <table width="700" height="400" border="0" align="center"
+      <table class="table" width="700" height="400" border="0" align="center"
          cellspacing="1">
          <td height="5" align="center" colspan="5" style="background: pink;"><font
             color=white size="5em"><p class="np">회원가입정보</p></font></td>
@@ -50,7 +51,7 @@
 
             <td><b>아이디</b></td>
 
-            <td colspan="3"><input type="text" style="width: 170px" id="email"
+            <td ><input type="text" style="width: 170px" id="email"
                name="email" /> ※메일 형식으로 입력해주세요 </td>
 			<td><input type="button" value="중복 검사" onclick="idcheck()"></td>
          </tr>
@@ -76,10 +77,10 @@
 
             <td><b>주민등록번호:</b></td>
 
-            <td colspan="4"><input type="text" name="num1" id="num1" size="10"
-               maxlength="6">-</input>
+            <td><input type="text" name="num1" id="num1" size="10"
+               maxlength="6"></td><td>
                <input type="password" name="num2"
-               id="num2" size="10" maxlength="7"></input> ※ 123456-1234567</td>
+               id="num2" size="10" maxlength="7"></input></td> <td>※ 123456-1234567</td>
 
          </tr>
          <tr>
@@ -115,16 +116,16 @@
          </tr>
 
 
-      </table>
+      
 
-      <center>
+      	<tr>
 
-         <br /> <input type="submit" value="회원가입" style="border-radius: 5px;" />
-
-         <input type="reset" value="다시입력" style="border-radius: 5px;" /> <input
-            type="button" value="돌아가기" style="border-radius: 5px;"
-            onclick="location.href='login.me'  " />
-      </center>
+        <td> <br /> <input type="submit" value="회원가입" style="border-radius: 5px;" /></td>
+		<td><br />
+         <input type="reset" value="다시입력" style="border-radius: 5px;" /> </td>
+        <td><br /> <input type="button" value="돌아가기" style="border-radius: 5px;"
+            onclick="location.href='login.me'  " /></td> </tr>
+     </table>
 
    </form>
 
