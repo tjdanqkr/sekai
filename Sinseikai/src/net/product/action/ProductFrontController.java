@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import net.action.FrontController;
 
 import net.action.Action;
@@ -18,7 +17,8 @@ import net.action.ActionForward;
  * Servlet implementation class ProductFrontController
  */
 public class ProductFrontController extends HttpServlet implements FrontController {
-      @Override
+    
+	@Override
 	public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String RequestURI = request.getRequestURI();
 		String contentPath = request.getContextPath();
@@ -26,18 +26,18 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 		ActionForward forward = null;
 		Action action = null;
 		
-		if(command.equals("/")) { // �ϴ� ���ܵ�.
+		if(command.equals("/")) {
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/.jsp");
-		}else if(command.equals("/display-fo/categoryShop")) {
-			action = new GoodsDetailAction();
+		}else if(command.equals("/display-fo/categoryShop.pr")) {
+			action = new CategoryShopAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/goods-fo/goodsDetail")) {
+		}else if(command.equals("/goods-fo/goodsDetail.pr")) {
 			action = new GoodsDetailAction();
 			try {
 				forward = action.execute(request, response);
