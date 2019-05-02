@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -29,7 +31,29 @@ public class MenuDAO implements DAO{
 		}
 	}
 	
-	
+	// Get category menu.
+	public List<MenuBean> getMenu() {
+		List<MenuBean> beans = new ArrayList<MenuBean>();
+		try {
+			stmt = con.createStatement();
+			
+			rs = stmt.executeQuery("select * from menu");
+			
+			while(rs.next()) {
+				MenuBean bean = new MenuBean();
+				bean.setMajorName(rs.getString("majorname"));
+				bean.setMinorName(rs.getString("minorname"));
+				bean.setCategoryName(rs.getString("categoryname"));
+				beans.add(bean);
+			}
+			
+			return beans;
+		} catch (SQLException se) {
+			// TODO Auto-generated catch block
+			se.printStackTrace();
+		}
+		return null;
+	}
 	
 	@Override
 	public void close() {
