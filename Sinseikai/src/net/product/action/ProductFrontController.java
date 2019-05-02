@@ -16,7 +16,8 @@ import net.action.ActionForward;
  * Servlet implementation class ProductFrontController
  */
 public class ProductFrontController extends HttpServlet implements FrontController {
-      @Override
+    
+	@Override
 	public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String RequestURI = request.getRequestURI();
 		String contentPath = request.getContextPath();

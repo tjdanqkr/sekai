@@ -33,7 +33,7 @@ public class ProductDAO implements DAO{
 	}
 	
 	// Call the information about one product. 
-	public ProductBean getProductAsProductNumber(ProductBean bean) {
+	public ProductBean getProductAsProductnumber(ProductBean bean) {
 		try {
 			pstmt = con.prepareStatement("select * from product where productnumber=?");
 			pstmt.setInt(1, bean.getProductNumber());

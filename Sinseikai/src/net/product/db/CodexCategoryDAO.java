@@ -34,7 +34,7 @@ public class CodexCategoryDAO implements DAO{
 	}
 	
 	// Get categoryCode as categoryName in bean.
-	public CodexCategoryBean getCategoryCode(CodexCategoryBean bean) {
+	public CodexCategoryBean getCategorycode(CodexCategoryBean bean) {
 		try {
 			pstmt = con.prepareStatement("select categorycode from codexcategory where categoryname=?");
 			pstmt.setString(1, bean.getCategoryName());

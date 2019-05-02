@@ -23,10 +23,10 @@ public class CategoryShopAction implements Action {
 		List<ProductBean> productBeans = null;
 		
 		codexCategoryBean.setCategoryName(request.getParameter("categoryName"));
-		codexCategoryBean = codexCategoryDAO.getCategoryCode(codexCategoryBean); // Find categoryCode as categoryName.
+		codexCategoryBean = codexCategoryDAO.getCategorycode(codexCategoryBean); // Find categoryCode as categoryName.
 		codexCategoryDAO.close();
 		if(codexCategoryBean == null) {
-			System.err.println("ERROR - Fail get the categoryCode");
+			System.err.println("ERROR - Failed get the categoryCode");
 			return null;
 		}
 		
@@ -34,10 +34,11 @@ public class CategoryShopAction implements Action {
 		productBeans = productDAO.getProductsAsCategorycode(codexCategoryBean); // Find Products as categoryCode.
 		productDAO.close();
 		if(productBeans == null) {
-			System.err.println("ERROR - Fail get the products");
+			System.err.println("ERROR - Failed get the products");
 			return null;
 		}
-		request.setAttribute("productBeans", productBeans);
+		
+		request.setAttribute("productBeans", productBeans); // Put the result.
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
