@@ -1,9 +1,9 @@
 package net.product.db;
 
-public class OptionBean {
+public class Option1Bean {
 	private int productNumber;
 	private String majorName;
-	private int majiorNumber;
+	private int majorNumber;
 	private int minorNumber;
 	private String minorName;
 	private String minorImg;
@@ -21,11 +21,11 @@ public class OptionBean {
 	public void setMajorName(String majorName) {
 		this.majorName = majorName;
 	}
-	public int getMajiorNumber() {
-		return majiorNumber;
+	public int getMajorNumber() {
+		return majorNumber;
 	}
-	public void setMajiorNumber(int majiorNumber) {
-		this.majiorNumber = majiorNumber;
+	public void setMajorNumber(int majorNumber) {
+		this.majorNumber = majorNumber;
 	}
 	public int getMinorNumber() {
 		return minorNumber;

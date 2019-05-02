@@ -1,6 +1,6 @@
-package net.product;
+package net.product.db;
 
-public class Menu {
+public class MenuBean {
 	private String majorName;
 	private String minorName;
 	public String getMajorName() {

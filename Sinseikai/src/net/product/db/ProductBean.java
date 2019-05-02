@@ -5,10 +5,10 @@ public class ProductBean {
 	private String brandName;
 	private String modelNumber;
 	private String medelName;
-	private String coupon; // boolean으로 변경하는 게 좋을까?
+	private String coupon;
 	private int price;
-	private float discountRate; // db에서 소수점 방식이라 변경.
-	private float rating; // 없어서 추가함.
+	private float discountRate;
+	private float rating;
 	private String imgAddr;
 	private String imgAddr2;
 	public int getProductNumber() {
