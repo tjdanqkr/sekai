@@ -1,4 +1,4 @@
-
+var idch=0;
 	function idcheck(){
 		 var id = document.getElementById("email").value;
 		 if(id.length<1 || id==null){
@@ -7,6 +7,7 @@
 		 }
 		 var url = "/Sinseikai/idch.me?id=" + id;
 		 window.open(url, "get");
+		 idch=1;
 		}
 
 
@@ -145,7 +146,7 @@ function validate() {
 	            return false;
 	        }else{
 	        alert("회원가입을 축하합니다");
-	        $("#frm").submit();
+	        join.submit();
 	        }
 	    }
 

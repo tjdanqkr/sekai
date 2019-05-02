@@ -19,15 +19,16 @@ public class MemberAddAction implements Action {
 	   	MemberBean memberdata=new MemberBean();
 	   	ActionForward forward=new ActionForward();
 	   	boolean result=false;
-   		int age= Integer.parseInt(request.getParameter("age").substring(0,1));
+	   	System.out.println("ddd");
+   		int age= Integer.parseInt(request.getParameter("age"));
    			try{
    				memberdata.setPhone(request.getParameter("phone"));
-   				memberdata.setAddress(request.getParameter("address"));
+   				memberdata.setAddress(request.getParameter("post")+request.getParameter("roadAddress"));
    				memberdata.setPw(request.getParameter("pw"));
    				memberdata.setEmail(request.getParameter("email"));
    				memberdata.setName(request.getParameter("name"));
    				memberdata.setNum1(request.getParameter("num1"));
-   				memberdata.setAge(Calendar.DAY_OF_YEAR-1900-age);
+   				memberdata.setAge(age);
    				
    		   		result=memberdao.memberInsert(memberdata);
    		   	if(result==false){
