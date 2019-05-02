@@ -33,7 +33,7 @@ public class ProductDAO implements DAO{
 	}
 	
 	// Call the information about one product. 
-	public ProductBean getProductByProductNumber(ProductBean bean) {
+	public ProductBean getProductAsProductNumber(ProductBean bean) {
 		try {
 			pstmt = con.prepareStatement("select * from product where productnumber=?");
 			pstmt.setInt(1, bean.getProductNumber());
@@ -66,7 +66,7 @@ public class ProductDAO implements DAO{
 	}
 	
 	// Get the products correct to category.
-	public List<ProductBean> getProductsByCategorycode(CodexCategoryBean codexCategoryBean) {
+	public List<ProductBean> getProductsAsCategorycode(CodexCategoryBean codexCategoryBean) {
 		List<ProductBean> beans = null;
 		try {
 			pstmt = con.prepareStatement("select * from product where categorycode=?");

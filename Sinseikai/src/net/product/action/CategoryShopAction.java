@@ -31,7 +31,7 @@ public class CategoryShopAction implements Action {
 		}
 		
 		productDAO = new ProductDAO();
-		productBeans = productDAO.getProductsByCategorycode(codexCategoryBean); // Find Products as categoryCode.
+		productBeans = productDAO.getProductsAsCategorycode(codexCategoryBean); // Find Products as categoryCode.
 		productDAO.close();
 		if(productBeans == null) {
 			System.err.println("ERROR - Fail get the products");
