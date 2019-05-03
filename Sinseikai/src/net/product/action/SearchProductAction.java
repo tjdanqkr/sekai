@@ -1,5 +1,7 @@
 package net.product.action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,6 +20,7 @@ public class SearchProductAction implements Action {
 		ProductDAO productDAO = null;
 		
 		CodexCategoryBean codexCategoryBean = new CodexCategoryBean();
+		List<ProductBean> productBeans = null;
 		ProductBean productBean = null;
 		
 		String search = request.getParameter("search?"); // Get search text.
@@ -39,12 +42,17 @@ public class SearchProductAction implements Action {
 			System.err.println("ERROR - Failed get the categoryCode");
 			return null;
 		}
-		if(codexCategoryBean.getCategorycode() != 0) {
-			// Exist the possibility that search keyword is categoryname.
-			productBean.setCategorycode(codexCategoryBean.getCategorycode());
+		productBean.setCategorycode(codexCategoryBean.getCategorycode());
+		
+		productDAO = new ProductDAO();
+		productBeans = productDAO.searchAsKeyword(productBean);
+		productDAO.close();
+		if(productBeans == null) {
+			System.err.println("ERROR - Failed get the products");
+			return null;
 		}
 		
-		// YOU SHOULD CODING productDAO.searchAsKeyword.
+		request.setAttribute("productBeans", productBeans); // Put the result.
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

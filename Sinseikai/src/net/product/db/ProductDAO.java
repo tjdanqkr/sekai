@@ -104,6 +104,54 @@ public class ProductDAO implements DAO{
 		return null;
 	}
 	
+	// Search the product as keyword.
+	public List<ProductBean> searchAsKeyword(ProductBean keywordBean) {
+		List<ProductBean> beans = null;
+		try {
+			pstmt = con.prepareStatement("select * from product where "
+					+ "productnumber=? or "
+					+ "brandname=? or "
+					+ "modelnumber=? or "
+					+ "modelname=? or "
+					+ "categorycode=?");
+			pstmt.setInt(1, keywordBean.getProductNumber());
+			pstmt.setString(2, keywordBean.getBrandName());
+			pstmt.setString(3, keywordBean.getModelNumber());
+			pstmt.setString(4, keywordBean.getModelName());
+			pstmt.setInt(5, keywordBean.getCategorycode());
+			
+			rs = pstmt.executeQuery();
+			
+			beans = new ArrayList<ProductBean>();
+			while(rs.next()) { // Put the products correct to category.
+				ProductBean bean = new ProductBean();
+				
+				bean.setProductNumber(rs.getInt("productnumber"));
+				bean.setBrandName(rs.getString("brandname"));
+				bean.setModelNumber(rs.getString("modelnumber"));
+				bean.setModelName(rs.getString("modelname"));
+				bean.setCoupon(rs.getString("coupon"));
+				bean.setPrice(rs.getInt("price"));
+				bean.setDiscountRate(rs.getFloat("discountrate"));
+				bean.setRating(rs.getFloat("rating"));
+				bean.setImgAddr(rs.getString("imgaddr"));
+				bean.setImgAddr2(rs.getString("imgaddr2"));
+				bean.setImgAddr3(rs.getString("imgaddr3"));
+				bean.setImgAddr4(rs.getString("imgaddr4"));
+				bean.setImgAddr5(rs.getString("imgaddr5"));
+				bean.setDeliveryPeriod(rs.getInt("deliveryperiod"));
+				bean.setCategorycode(rs.getInt("categorycode"));
+				
+				beans.add(bean);
+			}
+			return beans;
+		} catch (SQLException se) {
+			// TODO Auto-generated catch block
+			se.printStackTrace();
+		}
+		return null;
+	}
+	
 	public void close() {
 		if(con != null) {
 			try {

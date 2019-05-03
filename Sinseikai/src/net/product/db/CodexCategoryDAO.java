@@ -40,8 +40,6 @@ public class CodexCategoryDAO implements DAO{
 			
 			if(rs.next()) {
 				bean.setCategorycode(rs.getInt("categorycode")); // Found categorycode.
-			}else {
-				bean.setCategorycode(0); // None categorycode correct to categoryname.
 			}
 			
 			return bean;
