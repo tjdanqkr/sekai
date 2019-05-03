@@ -4,7 +4,7 @@ public class ProductBean {
 	private int productNumber;
 	private String brandName;
 	private String modelNumber;
-	private String medelName;
+	private String modelName;
 	private String coupon;
 	private int price;
 	private float discountRate;
@@ -29,11 +29,11 @@ public class ProductBean {
 	public void setModelNumber(String modelNumber) {
 		this.modelNumber = modelNumber;
 	}
-	public String getMedelName() {
-		return medelName;
+	public String getModelName() {
+		return modelName;
 	}
-	public void setMedelName(String medelName) {
-		this.medelName = medelName;
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
 	}
 	public String getCoupon() {
 		return coupon;
