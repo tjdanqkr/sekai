@@ -25,10 +25,7 @@ public class CategoryMenuAction implements Action {
 		
 		request.setAttribute("menuBeans", beans); // Put the result.
 		
-		ActionForward forward = new ActionForward();
-		forward.setRedirect(false);
-		forward.setPath("."); // set at after.
-		return forward;
+		return null;
 	}
 
 }
