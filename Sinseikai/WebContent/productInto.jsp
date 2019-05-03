@@ -77,20 +77,10 @@
         </div>
         <div id="sidebar">
             <h3>Sidebar</h3>
-            <p id="ads">
-                <img src="http://store.blueb.co.kr/data/201009/IJ12847097607005/ad.png" alt="ad" />
-                <img src="http://store.blueb.co.kr/data/201009/IJ12847097607005/ad.png" alt="ad" />
-                <img src="http://store.blueb.co.kr/data/201009/IJ12847097607005/ad.png" alt="ad" />
-                <img src="http://store.blueb.co.kr/data/201009/IJ12847097607005/ad.png" alt="ad" />
-            </p>
+            
             <h4>Sub header</h4>
             <ul>
-                <li>In hac habitasse platea dictumst.</li>
-                <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                <li>Aliquam tincidunt mauris eu risus.</li>
-                <li>Vestibulum auctor dapibus neque lobortis.</li>
-                <li>Donec sagittis congue facilisis.</li>
-                <li>Sed mi leo, vulputate sit amet pretium sed, vitae neque.</li>
+              	오케이4달라
             </ul>                               
         </div>
         <div id="comments">
