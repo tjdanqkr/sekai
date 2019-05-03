@@ -3,7 +3,7 @@
 .flipster {
   display: block;
   overflow-x: hidden;
-  overflow-y: visible;
+  overflow-y: hidden;
   position: relative;
 }
 .flipster:focus {
@@ -249,7 +249,9 @@
   transform: rotateY(0deg);
 }
 /* @end */
-
+div#flat{
+	width 2000%;
+}
 /* @group Flat */
 .flipster--flat .flipster__container,
 .flipster--flat .flipster__item,

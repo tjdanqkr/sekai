@@ -6,21 +6,17 @@
 
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>신세카이 백화점</title>
 </head>
 <body>
 
-<div><%@include file="headerside.jsp" %></div><br>
-<img alt="" src="./img/elLotte.png"><br>
-<div><%@include file="main.jsp" %></div>
-<div><%@include file="slide.html" %></div>
-<div align="center" ><h2>5월 선물 BEST</h2></div>
+<div><%@include file="headmenu.jsp" %></div><br>
+<div><%@include file="slide.html" %></div><!-- 이벤트 슬라이드 -->
+<div align="center" ><h2>5월 선물 BEST</h2></div>	
+<div><%@include file="index.jsp"  %></div><!--이미지슬라이드 타일형  -->
+<div><%@include file="indexslide.html" %></div><!--이미지 슬라이드 창형  -->
 
-		
-		<div><%@include file="index.html"  %></div>
-		<div><%@include file="indexslide.html" %></div>
-
-
+<div></div>
 
 	
 
