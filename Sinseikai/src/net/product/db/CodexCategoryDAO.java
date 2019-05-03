@@ -10,7 +10,6 @@ import javax.sql.DataSource;
 
 import net.db.DAO;
 
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 
@@ -40,7 +39,7 @@ public class CodexCategoryDAO implements DAO{
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				bean.setCategorycode(rs.getInt("categorycode"));
+				bean.setCategorycode(rs.getInt("categorycode")); // Found categorycode.
 			}
 			
 			return bean;
