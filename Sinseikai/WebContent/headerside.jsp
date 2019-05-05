@@ -9,8 +9,11 @@
 </head>
 <body>
 <ul class="util_list">
+							<li class="login"><a href="login.me">로그인</a></li>
 						
-						<li class="login"><a href="login.me">로그인</a></li>
+							<li class="login"><a href="login.me">로그아웃</a></li>
+						
+						
 						
 						<li class="join"><a href="join.me">회원가입</a></li>
 						
