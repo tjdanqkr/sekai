@@ -1,0 +1,42 @@
+@charset "EUC-KR";
+
+        body { font-family: Lucida Sans Unicode, Arial, Sans-Serif; font-size:13px;}
+
+        /* Structure */
+        #header, #content, #comments, #sidebar, #footer { background-color:#F6F6F6; margin:10px 0px;
+             -moz-border-radius:10px;  -webkit-border-radius:10px; padding:30px;}
+        #header h1 { float:right; margin: 20px 0 0 0; font-size:36px; font-weight:bold;}
+        #header h2 {font-size:16px; font-weight:normal; margin:0px; padding:0px;}
+        #header { width:900px; margin:0px auto;}
+        
+        #main {width:960px; margin:0px auto; overflow:hidden;}
+        #toolbox { text-align:right; float:right;}
+        #content { width:540px; float:left;}
+        #comments { width:540px; float:left;}
+        #comments p span {display:block; font-size:16px; color:#B0232A;}
+        #sidebar { width:280px; margin-left:20px; float:right;}
+        #sidebar #ads { width:100%; overflow:hidden;}
+        #sidebar #ads img { float:left; margin:5px; display:block;}
+        #footer { width:900px; margin:0px auto;}
+          
+        /* Change view sprites */
+        .toolbox { float:right; margin-left:10px;}
+        .toolbox a { width:30px; height:20px; float:right; }
+
+        #wideView {background: transparent url(http://store.blueb.co.kr/data/201009/IJ12847097607005/buttons.png) no-repeat scroll 0px 0px; }
+        #wideView:hover { background-position:-30px 0px; }
+        #wideView.wide {background-position:0px -20px; }
+        #wideView.wide:hover { background-position:-30px -20px; }
+     
+        /* Different views */
+        #content.wide { width:900px;}
+        #toolbox.wide { width:960px;}
+        #content.compact, #comments.compact { width:690px;}
+        #sidebar.compact { width:130px;}
+       
+        a { color:#0000ff;}
+        h3 { font-size:24px; font-weight:normal; padding:0; margin:0; color:#B0232A;}
+        em { font-size:10px;}
+    
+    
+   
