@@ -1,5 +1,4 @@
 @charset "EUC-KR";
-p{color: black;}
 .menubar{
 
 border:none;
@@ -12,7 +11,7 @@ font-weight:bold;
 }
 
 .menubar ul{
-background: rgb(000,000,000);
+background: rgb(109,109,109);
 height:50px;
 list-style:none;
 margin:0;
@@ -25,7 +24,7 @@ padding:0px;
 }
 
 .menubar li a{
-background: rgb(000,000,000);
+background: rgb(109,109,109);
 color:#cccccc;
 display:block;
 font-weight:normal;
@@ -43,7 +42,7 @@ text-decoration:none;
 }
 
 .menubar li ul{
-background: rgb(000,000,000);
+background: rgb(109,109,109);
 display:none; /* 평상시에는 드랍메뉴가 안보이게 하기 */
 height:auto;
 padding:0px;
@@ -60,10 +59,8 @@ z-index:200;
 display:block; /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
 }
 
-
-
-.menubar ul li ul li a {
-background: rgb(255,255,255);
+.menubar li li {
+background: rgb(109,109,109);
 display:block;
 float:none;
 margin:0px;
@@ -90,7 +87,7 @@ background: rgb(71,71,71);
 border:0px;
 color:#ffffff;
 text-decoration:none;
-transition: all 0.09s;
+transition: all 2s;
 }
 
 .menubar p{
