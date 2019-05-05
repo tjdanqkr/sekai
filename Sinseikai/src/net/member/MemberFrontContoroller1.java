@@ -59,6 +59,13 @@ public class MemberFrontContoroller1 extends HttpServlet {
 				   forward=new ActionForward();
 				   forward.setRedirect(false);
 				   forward.setPath("/idch2.jsp");
+			   }else if(command.equals("/logout.me")) {
+				   action  = new logout();
+				   try {
+					   forward=action.execute(request, response );
+				   } catch (Exception e) {
+					   e.printStackTrace();
+				   }
 			   }
 			 if(forward.isRedirect()){
 				   response.sendRedirect(forward.getPath());

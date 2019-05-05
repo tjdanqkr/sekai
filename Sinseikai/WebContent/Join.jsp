@@ -25,7 +25,7 @@
 
 <body>
 
-   <form name="Join" onsubmit="return validate();" class="jo" action="MemberAddAction.me" method="post">
+   <form name="join" onsubmit="return validate();" class="jo" action="MemberAddAction.me" method="post">
 
       <table class="table"> 
           <tr><td colspan="5"><h1>회원가입정보</h1></td></tr>

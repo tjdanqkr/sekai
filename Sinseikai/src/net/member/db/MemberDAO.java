@@ -68,11 +68,12 @@ public class MemberDAO implements DAO {
 		  String id = member.getEmail();
 		  try{
 		   
-		   String sql = "select * from member where id=?";
+		   String sql = "select * from member where email=?";
 		   pstmt = con.prepareStatement(sql);
 		   pstmt.setString(1, id);
 		   rs = pstmt.executeQuery();
 		   if(rs.next()){
+			  
 			   rst= true;
 		   }
 		  }catch(Exception e){
@@ -86,7 +87,7 @@ public class MemberDAO implements DAO {
 		
 		int result=0;
 		try{
-			 sql = "select email,pw from member";
+			 sql = "select email,pw,name from member";
 			
 		      int f = 0;
 		      PreparedStatement stmt = con.prepareStatement(sql);
@@ -97,6 +98,7 @@ public class MemberDAO implements DAO {
 		         if (id1.equals(member.getEmail()) && pw1.equals(member.getPw())) {
 		            f = 1;
 		            result=+1;
+		            member.setName(rs.getString("name"));
 		            return true;
 		         }
 		      }
