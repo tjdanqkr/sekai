@@ -55,18 +55,6 @@ function validate() {
 
 	}
 
-	if (join.email.value == join.pw.value) {
-
-		alert("아이디와 비밀번호가 동일합니다. 다시 입력해주세요.");
-
-		join.email.value = "";
-
-		join.pw.focus();
-
-		return false;
-
-	}
-
 	if (join.pw.value != join.checkpw.value) {
 
 		alert("비밀번호가 다릅니다. 다시 확인해 주세요.");
@@ -92,7 +80,7 @@ function validate() {
 	// -------------- 주민번호 -------------
 
 	for (var i = 0; i < num1.value.length; i++) {
-
+		
 		arrNum1[i] = num1.value.charAt(i);
 
 	} // 주민번호 앞자리를 배열에 순서대로 담는다.
@@ -111,7 +99,7 @@ function validate() {
 		tempSum += arrNum1[i] * (2 + i);
 
 	} // 주민번호 검사방법을 적용하여 앞 번호를 모두 계산하여 더함
-	s
+	
 	for (var i = 0; i < num2.value.length - 1; i++) {
 
 		if (i >= 2) {
@@ -141,7 +129,7 @@ function validate() {
 		return false;
 
 	}if(confirm("회원가입을 하시겠습니까?")){
-	        if(idck==0){
+	        if(idch==0){
 	            alert('아이디 중복체크를 해주세요');
 	            return false;
 	        }else{
