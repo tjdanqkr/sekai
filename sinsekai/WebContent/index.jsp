@@ -25,7 +25,7 @@
     <div id="flat">
         <ul>
             <li data-flip-title="Red">
-                <a href ="productInto.pr?productNumber=1"><img src="img/text1.jpg"><br></a>
+                <a href ="productInto.pr"><img src="img/text1.jpg"><br></a>
                 	<h2>엘페</h2><br>	라운드투톤호리젠탈프메일자켓<br>           	
                 	10,000원                         <!-- 상품별로 보낼때 아이디값이있어야할거같은데 어떻게하는거지? -->
             </li>

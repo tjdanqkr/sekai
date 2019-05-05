@@ -9,7 +9,6 @@
     <servlet-name>MemberFrontControll</servlet-name>
     <url-pattern>*.me</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>BoardFrontController</servlet-name>
     <servlet-class>
@@ -19,7 +18,6 @@
     <servlet-name>BoardFrontController</servlet-name>
     <url-pattern>*.bo</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>ProductFrontController</servlet-name>
     <servlet-class>
