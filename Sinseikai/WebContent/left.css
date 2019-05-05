@@ -1,0 +1,92 @@
+.mylotte_cont .nav_set {
+    width: 180px;
+    margin-right: 24px;
+    padding: 31px 0;
+    border-top: 3px solid #000;
+    border-bottom: 3px solid #000;
+}
+.nav_set .nav_question li a {
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+}
+ol, ul {
+    list-style: none;
+}
+body, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, img, button {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-top: 33px;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+      font-family: 'Roboto', 'Noto Sans KR',
+         'Malgun Gothic', 'AppleSDGothicNeo',
+          'Helvetica', sans-serif;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    list-style: none;
+    padding-top: 33px;
+      font-family: 'Roboto', 'Noto Sans KR',
+         'Malgun Gothic', 'AppleSDGothicNeo',
+          'Helvetica', sans-serif;
+}
+.nav_set {
+    float: left;
+    width: 210px;
+    padding: 0 0 30px;
+    margin-right: 62px;
+    border-bottom: 2px solid #000;
+}
+.nav_set .nav_list > li .nav_tit {
+    font-size: 16px;
+    font-weight: 500;
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', 'AppleSDGothicNeo', 'Helvetica', sans-serif;
+    font-size: 400;
+}
+div {
+    display: block;
+}
+.nav_set .nav_list > li {
+    margin-top: 32px;
+    padding-top: 33px;
+    padding-left: 24px;
+    border-top: 1px solid #b3b3b3;
+}
+.nav_set .nav_list-sub > li a {
+    display: block;
+    color: #666;
+}
+body {
+    background: #fff;
+    font-size: 14px;
+}
+.nav_set .nav_list-sub > li a:hover, .mylotte_cont .nav_set .nav_list-sub > li a:focus {
+    color: #000;
+}
+
+	
