@@ -44,3 +44,4 @@ local.properties
 .tern-project
 .springBeans
 .recommenders/
+/build/

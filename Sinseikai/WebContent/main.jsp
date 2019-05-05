@@ -14,18 +14,12 @@
 
  <li><a href="#">Home</a></li>
  <li><a href="#" id="current">Men</a>
-	<ul>
-     <li><a href="#">넥타이</a></li>
-     <li><a href="#">정장</a></li>
-     <li><a href="#">자켓</a></li>
-     <li><a href="#">코트</a></li>
+	<ul> 
+     <li><a href="#">정장,자켓,코트</a></li>
      <li><a href="#">티셔츠</a></li>
-     <li><a href="#">가디건</a></li>
-     <li><a href="#">니트</a></li>
+     <li><a href="#">가디건,니트</a></li>
      <li><a href="#">팬츠</a></li>
-     <li><a href="#">무스탕</a></li>
-     <li><a href="#">ACC/기타</a></li>
-     
+     <li><a href="#">ACC/기타</a></li>   
     </ul>
  </li>
  <li><a href="#" id="current">Woman</a>
@@ -36,16 +30,10 @@
      <li><a href="#">원피스</a></li>
      <li><a href="#">스커트</a></li>
      <li><a href="#">팬츠</a></li>
-     <li><a href="#">베스트</a></li>
-     <li><a href="#">가디건</a></li>
-     <li><a href="#">재킷</a></li>
-     <li><a href="#">코트</a></li>
-     <li><a href="#">점퍼</a></li>
-     <li><a href="#">가죽/모피</a></li>
-     <li><a href="#">코디아이템</a></li>
+     <li><a href="#">아우터</a></li>
 </ul>
 </li>
-
+</ul>
 </div>
 </body>
 </html>
