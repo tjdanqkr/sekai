@@ -8,8 +8,11 @@
 	List<MenuBean> beans = (List<MenuBean>)request.getAttribute("menuBeans");
 	System.out.println("be : " +  beans.size());
 	for(int i = 0; i < beans.size(); i++){
-		result += "<h1>" + beans.get(i).getMajorName() + "</h1><h2>" + 
-				beans.get(i).getMinorName() + "</h2><h3>" + 
+		for(int j=0;j<beans.size();j++){
+			
+		}
+		result += "<h1>" + beans.get(i).getMajorName() + "</h1><h2>" + beans.get(i).getMinorName() + "</h2><h3>" + 
+				
 				beans.get(i).getCategoryName() + "</h3>";
 	}
 	
@@ -24,29 +27,19 @@
 </head>
 
 <body>
-${result}
 <div class="menubar">
 <ul>
 
- <li><a href="#">Home</a></li>
- <li><a href="#" id="current">Men</a>
+ <li><a href="">Home</a></li>
+ <li><a href="" id="current">${result}</a>
 	<ul> 
      <li><a href="">정장,자켓,코트</a></li>
-     <li><a href="productshirt.jsp">티셔츠</a></li>
-     <li><a href="#">가디건,니트</a></li>
-     <li><a href="#">팬츠</a></li>
-     <li><a href="#">ACC/기타</a></li>   
     </ul>
  </li>
  <li><a href="#" id="current">Woman</a>
 	<ul>
 	<li><a href="#">셔츠/블라우스</a></li>
-     <li><a href="#">티셔츠</a></li>
-     <li><a href="#">니트/스웨터</a></li>
-     <li><a href="#">원피스</a></li>
-     <li><a href="#">스커트</a></li>
-     <li><a href="#">팬츠</a></li>
-     <li><a href="#">아우터</a></li>
+   
 </ul>
 </li>
 </ul>

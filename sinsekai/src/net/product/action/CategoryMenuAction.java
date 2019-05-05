@@ -14,7 +14,9 @@ public class CategoryMenuAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("1");
 		MenuDAO dao = new MenuDAO();
+		System.out.println("2");
 		List<MenuBean> beans = dao.getMenu();
 		dao.close();
 		System.out.println("gd");
