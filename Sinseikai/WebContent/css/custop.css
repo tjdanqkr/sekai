@@ -1,0 +1,252 @@
+.mylotte_cont.not_login .sub_cont header:first-child .page_title {
+    padding-top: 0;
+}
+.mylotte_cont .sub_cont {
+    float: left;
+    width: 996px;
+}
+.sub_cont header .title_button [class^="btn_"] {
+    height: 40px;
+    padding: 0 24px;
+    margin-left: 8px;
+    font-size: 14px;
+    line-height: 38px;
+}
+.sub_cont [class^="btn_normal"] {
+    border: 1px solid #b3b3b3;
+    background-color: #fff;
+    color: #000;
+    display: inline-block;
+    text-align: center;
+}
+.mylotte_cont.not_login .sub_cont header:first-child {
+    border-top: 0;
+}.sub_cont header {
+    position: relative;
+    border-top: 3px solid #000;
+    display: block;
+}
+.sub_cont {
+    float: left;
+    width: 83.0%;
+    width: calc(100% - 272px);
+    font-size: 14px;
+}
+.sub_cont header .page_title {
+    padding: 16px 0 14px;
+    font-size: 24px;
+    font-weight: normal;
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', 'AppleSDGothicNeo', 'Helvetica', sans-serif;
+    font-weight: 400;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', 'AppleSDGothicNeo', 'Helvetica', sans-serif;
+    font-weight: 400;
+
+}
+.sub_cont h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.sub_cont {
+    float: left;
+    width: 83.0%;
+    width: calc(100% - 272px);
+    font-size: 14px;
+}
+.sub_cont p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.sub_cont header .title_button {
+    position: absolute;
+    right: 0;
+    top: 15px;
+    font-size: 0;
+}
+.sub_cont fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;
+
+}
+.sub_cont caption, legend {
+    position: absolute;
+    left: -9999px;
+}
+.sub_cont label {
+    cursor: default;
+}
+.search_faq-form input[type="text"] {
+    width: 100%;
+    height: 54px;
+    padding-left: 20px;
+    padding-right: 60px;
+    border: 0;
+    border-radius: 2px;
+    background-color: #f2f2f2;
+    font-size: 18px;
+}
+.sub_cont input {
+	-webkit-writing-mode: horizontal-tb !important;
+	font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', 'AppleSDGothicNeo', 'Helvetica', sans-serif;
+    font-weight: 400;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+}
+.search_faq-form input[type="submit"] {
+    position: absolute;
+    right: 82px;
+    top: 52px;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 480px auto;
+    background-repeat: no-repeat;
+    background-position: -5px -84px;
+    font-size: 0;
+    cursor: pointer;
+}
+.search_faq-form input[type="submit" i] {
+    padding: 1px 6px;
+}
+.search_faq-form input[type="submit" i] {
+    align-items: flex-start;
+    -webkit-appearance: push-button;
+    user-select: none;
+    white-space: pre;
+    text-align: center;
+    cursor: default;
+    color: buttontext;
+    background-color: buttonface;
+    box-sizing: border-box;
+    padding: 2px 6px 3px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;
+}
+
+.a11y_sr-only {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.search_faq-form {
+    position: relative;
+    margin: 0 0 80px;
+    padding: 40px 58px 0;
+    border-top: 1px solid #ededed;
+}
+.sub_cont {
+    float: left;
+    width: 83.0%;
+    width: calc(100% - 272px);
+    font-size: 14px;
+}
+.search_faq-form .rank {
+    margin-top: 16px;
+}
+.rank body, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, img, button,a {
+    margin: 0;
+    padding: 0;
+        text-decoration: none;
+}
+.search_faq-form .rank li {
+    float: left;
+    color: #666;
+}
+.rank li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    
+    list-style: none;
+}
+.rank a {
+    text-decoration: none;
+    color: inherit;
+}
+.sub_cont a {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: none;
+}
+.rank ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+.faq_category-list:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.search_faq-form .rank li:not(:first-child) {
+    margin-left: 20px;
+    padding-left: 20px;
+    position: relative;
+}
+.search_faq-form .rank li:not(:first-child):before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 15px;
+    margin-top: -8px;
+    background-color: #d8d8d8;
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', 'AppleSDGothicNeo', 'Helvetica', sans-serif;
+    font-weight: 400;
+}

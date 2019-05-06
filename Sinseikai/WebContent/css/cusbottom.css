@@ -1,0 +1,258 @@
+.faq_category-list {
+    margin-top: 20px;
+    border-top: 1px solid #f0f0f0;
+    border-left: 1px solid #f0f0f0;
+}
+.faq_category-list .depth_menu {
+    margin-top: 20px;
+    padding: 0 20px 0 40px;
+}
+
+.faq_category-list body, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, img, button {
+    margin: 0;
+    padding: 0;
+	list-style: none;
+}
+.faq_category-list > li h3 {
+    padding: 0 16px;
+    font-size: 24px;
+    text-align: center;
+    line-height: 33px;
+    background-position: 50% 20px;
+    background-repeat: no-repeat;
+}
+.faq_category-list ul ul {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+.faq_category-list .depth_menu > li a {
+    color: #666;
+}
+.faq_category-list a {
+    text-decoration: none;
+    color: inherit;
+}
+.faq_category-list h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', 'AppleSDGothicNeo', 'Helvetica', sans-serif;
+    font-weight: 400;
+}
+.faq_category-list ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+.faq_category-list > li {
+    float: left;
+    width: 25%;
+    height: 373px;
+    padding-top: 20px;
+    border-right: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.faq_category-list .shipping:before {
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 384px auto;
+    background-repeat: no-repeat;
+    background-position: -320px -608px;
+}
+.faq_category-list > li:before {
+    content: '';
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 8px;
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 480px auto;
+    background-repeat: no-repeat;
+    background-position: -40px -480px;
+}
+.faq_category-list > li:before {
+    content: '';
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 8px;
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 480px auto;
+    background-repeat: no-repeat;
+    background-position: -40px -480px;
+}
+.faq_category-list .return:before {
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 384px auto;
+    background-repeat: no-repeat;
+    background-position: -32px -992px;
+}
+.faq_category-list .order:before {
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 384px auto;
+    background-repeat: no-repeat;
+    background-position: -192px -992px;
+}
+.faq_category-list > li:before {
+    content: '';
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 8px;
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 480px auto;
+    background-repeat: no-repeat;
+    background-position: -40px -480px;
+}
+.faq_category-list > li:before {
+    content: '';
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 8px;
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 480px auto;
+    background-repeat: no-repeat;
+    background-position: -40px -480px;
+}
+.faq_category-list .cancel:before {
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 384px auto;
+    background-repeat: no-repeat;
+    background-position: -64px -992px;
+}
+.faq_category-list > li:before {
+    content: '';
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 8px;
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 480px auto;
+    background-repeat: no-repeat;
+    background-position: -40px -480px;
+}
+.faq_category-list .member:before {
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 384px auto;
+    background-repeat: no-repeat;
+    background-position: 0 -992px;
+}
+.faq_category-list > li:before {
+    content: '';
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 8px;
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 480px auto;
+    background-repeat: no-repeat;
+    background-position: -40px -480px;
+}
+.faq_category-list > li:before {
+    content: '';
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 8px;
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 480px auto;
+    background-repeat: no-repeat;
+    background-position: -40px -480px;
+}
+.faq_category-list .benefit:before {
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 384px auto;
+    background-repeat: no-repeat;
+    background-position: 0 -384px;
+}
+.faq_category-list .documentary:before {
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 384px auto;
+    background-repeat: no-repeat;
+    background-position: -224px -992px;
+}
+.faq_category-list > li:before {
+    content: '';
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 8px;
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 480px auto;
+    background-repeat: no-repeat;
+    background-position: -40px -480px;
+}
+.faq_category-list .etc:before {
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 384px auto;
+    background-repeat: no-repeat;
+    background-position: -352px -992px;
+}
+.faq_category-list > li:before {
+    content: '';
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 8px;
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 480px auto;
+    background-repeat: no-repeat;
+    background-position: -40px -480px;
+}
