@@ -6,6 +6,33 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
+  <script type="text/javascript">
+  <script type="text/javascript">
+  var naverLogin = new naver.LoginWithNaverId(
+  		{
+  			clientId: "HICTyiQbY5EEz1krtPvC",
+  			callbackUrl: "http://localhost:8090/Sinseikai/product_into.jsp",
+  			isPopup: false,
+  			callbackHandle: false
+  		}
+  	);
+
+  	naverLogin.init();
+  	
+  	naverLogin.getLoginStatus(function (status) {
+  		if (status) {
+  			var email = naverLogin.user.getEmail();
+  			var name = naverLogin.user.getNickName();
+  			var profileImage = naverLogin.user.getProfileImage();
+  			var birthday = naverLogin.user.getBirthday();			
+  			var uniqId = naverLogin.user.getId();
+  			var age = naverLogin.user.getAge();
+  		} else {
+  			console.log("AccessToken이 올바르지 않습니다.");
+  		}
+  	});</script>
+
+  </script>
     <title>네이버로그인</title>
   </head>
   <body>
@@ -49,6 +76,8 @@
     } catch (Exception e) {
       System.out.println(e);
     }
+    
   %>
+  
   </body>
 </html>
