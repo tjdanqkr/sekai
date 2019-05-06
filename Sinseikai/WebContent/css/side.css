@@ -21,12 +21,12 @@
     margin-inline-end: 0px;
     padding-inline-start: 40px;
 }
-li{
+.util_list li{
 float:left;
 padding:0px;
     text-align: -webkit-match-parent;
 }
-li a{
+.util_list li a{
 background: rgb(109,109,109);
 color:#cccccc;
 display:block;
@@ -37,9 +37,9 @@ padding:0px 25px;
 text-align:center;
 text-decoration:none;
 }
- li a{
+.util_list li a{
 background:none;
 }
-li{
+.util_list li{
 	list-style: none;
 }

@@ -31,8 +31,9 @@ public class loginAction implements Action {
 				
 			} else {
 				forward.setRedirect(true);
-				forward.setPath("./BoardList.bo");
+				forward.setPath("./product_into.jsp");
 				String name= memberdata.getName();
+				System.out.println("nan: " + memberdata.getName());
 				session.setAttribute("name", name);
 			}
 			return forward;

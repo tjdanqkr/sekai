@@ -5,6 +5,7 @@ import java.util.Calendar;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -14,7 +15,9 @@ import net.member.db.MemberBean;
 public class MemberAddAction implements Action {
 	String address = "";
 	@Override
+	
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		request.setCharacterEncoding("UTF-8");
 		MemberDAO memberdao=new MemberDAO();
 	   	MemberBean memberdata=new MemberBean();
 	   	ActionForward forward=new ActionForward();

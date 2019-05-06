@@ -1,4 +1,4 @@
-package net.member;
+package net.cus.action;
 
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class MemberFrontContoroller1
  */
 
-public class MemberFrontContoroller1 extends HttpServlet {
+public class CustomerFrontContoroller1 extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) 
 		 	throws ServletException, IOException {
 			 
