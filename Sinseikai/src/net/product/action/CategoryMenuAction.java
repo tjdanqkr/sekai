@@ -26,7 +26,7 @@ public class CategoryMenuAction implements Action {
 		request.setAttribute("menuBeans", repackaging(beans)); // Put the result.
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/product_into.jsp");
+		forward.setPath("/product/product_into.jsp");
 		return forward;
 	}
 	
