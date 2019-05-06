@@ -6,6 +6,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
+ 
     <title>네이버로그인</title>
   </head>
   <body>
@@ -44,11 +45,19 @@
       }
       br.close();
       if(responseCode==200) {
-        out.println(res.toString());
-      }
+    	  System.out.println(res.toString());
+    	    JSONParser parsing = new JSONParser();
+    	    Object obj = parsing.parse(res.toString());
+    	    JSONObject jsonObj = (JSONObject)obj;
+    	                 
+    	    access_token = (String)jsonObj.get("access_token");
+    	    refresh_token = (String)jsonObj.get("refresh_token");
+    	}
     } catch (Exception e) {
       System.out.println(e);
     }
+    
   %>
+  
   </body>
 </html>

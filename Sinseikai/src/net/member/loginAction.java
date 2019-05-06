@@ -12,6 +12,7 @@ public class loginAction implements Action {
 	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String name="";
 		HttpSession session = request.getSession();
 		MemberDAO memberdao = new MemberDAO();
 		MemberBean memberdata = new MemberBean();
@@ -30,10 +31,17 @@ public class loginAction implements Action {
 				forward.setPath("./login.me");
 				
 			} else {
-				forward.setRedirect(true);
-				forward.setPath("./product_into.jsp");
-				String name= memberdata.getName();
-				System.out.println("nan: " + memberdata.getName());
+				if(email.equals("admin")) {
+					forward.setRedirect(true);
+					forward.setPath("./product_into.jsp");
+					name= memberdata.getName();
+				}else {
+					forward.setRedirect(true);
+					forward.setPath("./product_into.jsp");
+					name= memberdata.getName();
+					
+				}
+				
 				session.setAttribute("name", name);
 			}
 			return forward;

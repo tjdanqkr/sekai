@@ -27,12 +27,6 @@ pageContext.setAttribute("majorbeans",request.getAttribute("menuBeans"));
  <li><a href="#" id="current">Woman</a>
 	<ul>
 	<li><a href="#">셔츠/블라우스</a></li>
-     <li><a href="#">티셔츠</a></li>
-     <li><a href="#">니트/스웨터</a></li>
-     <li><a href="#">원피스</a></li>
-     <li><a href="#">스커트</a></li>
-     <li><a href="#">팬츠</a></li>
-     <li><a href="#">아우터</a></li>
 </ul>
 </li>
 </ul>

@@ -3,13 +3,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+<% 
+String contentPage=request.getParameter("contentPage");
+    if(contentPage==null)
+        contentPage="cusbottom.jsp";
+    %>
+
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<table>
-<tr><td colspan="2"><jsp:include page="./product/headmenu.jsp"></jsp:include></td></tr>
-<tr><td><jsp:include page="left.jsp"></jsp:include></td><td><jsp:include page="center.jsp"></jsp:include></td></tr>
-</table>
+
+<div><jsp:include page="headmenu.jsp"></jsp:include></div>
+<div><jsp:include page="left.jsp"></jsp:include></div>
+<div><jsp:include page="custop.jsp"></jsp:include></div>
+<div><jsp:include page="<%=contentPage %>"></jsp:include></div>
+
 </body>
 </html>
