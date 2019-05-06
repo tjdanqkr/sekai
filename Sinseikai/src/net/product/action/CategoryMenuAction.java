@@ -15,17 +15,17 @@ public class CategoryMenuAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		MenuDAO dao = new MenuDAO();
-		
 		List<MenuBean> beans = dao.getMenu();
 		dao.close();
 		if(beans == null) {
 			System.err.println("ERROR - Failed get the category menu");
 			return null;
-		}
-		
+		}		
 		request.setAttribute("menuBeans", beans); // Put the result.
-		
-		return null;
+		ActionForward forward = new ActionForward();
+		forward.setRedirect(false);
+		forward.setPath("/product_into.jsp");
+		return forward;
 	}
 
 }

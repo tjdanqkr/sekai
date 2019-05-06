@@ -1,0 +1,399 @@
+.faq_category-list .depth_menu > li:not(:first-child) {
+     margin-top: 8px; 
+}
+.depth_menu {
+    margin-top: 20px;
+    padding: 0 20px 0 40px;
+}
+body, h1, h2, h3, h4, h5, h6, ul, li,  ol, dl, dt, dd, p, img, button {
+    margin: 0;
+    padding: 0;
+    
+}
+li {
+	margin: 0px, 0px, 0px, 20px;
+	padding: 0px, 0px, 0px, 20px;
+}
+.faq_category-list .depth_menu {
+    margin-top: 20px;
+    padding: 0 20px 0 40px;
+}
+.faq_category-list > li h3 {
+    padding: 0 16px;
+    font-size: 24px;
+    text-align: center;
+    line-height: 33px;
+    background-position: 50% 20px;
+    background-repeat: no-repeat;
+}
+.rank li:not(:first-child) {
+    margin-left: 20px;
+    padding-left: 20px;
+    position: relative;
+}
+
+
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+       margin-left: 20px;
+    padding-left: 20px;
+    position: relative;
+    
+}
+
+
+ol, ul {
+    list-style: none;
+s
+}
+
+ul ul {
+    list-style-type: circle;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+li {
+    text-align: -webkit-match-parent;
+    font-family: 'Roboto', 'Noto Sans KR',
+         'Malgun Gothic', 'AppleSDGothicNeo',
+          'Helvetica', sans-serif;
+    list-style: none;
+    display: list-item;
+
+}
+
+
+ul {
+    list-style-type: disc;
+    margin-top: 8px; 
+}
+
+ul .rank {
+	color: #000000;
+	font: 14px,'Roboto', 'Noto Sans KR',
+         'Malgun Gothic', 'AppleSDGothicNeo',
+          'Helvetica', sans-serif;
+	margin: 16px, 0px, 0px;
+		
+
+}
+
+.sub_cont {
+    float: left;
+    width: 83.0%;
+    width: calc(100% - 272px);
+    font-size: 14px;
+    
+}
+
+body {
+    background: #fff;
+    font-size: 14px;
+}
+
+html {
+    color: -internal-root-color;
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', 'AppleSDGothicNeo', 'Helvetica', sans-serif;
+    font-size: 400;
+    white-space: nowrap;
+}
+.faq_category-list {
+    margin-top: 20px;
+    border-top: 1px solid #f0f0f0;
+    border-left: 1px solid #f0f0f0;
+}
+.faq_category-list > li {
+    float: left;
+    width: 25%;
+    height: 373px;
+    padding-top: 20px;
+    border-right: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+
+input[type="submit" i] {
+	padding: 1px 6px;
+    -webkit-appearance: push-button;
+    user-select: none;
+    white-space: pre;
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    color: buttontext;
+    background-color: buttonface;
+    box-sizing: border-box;
+    padding: 2px 6px 3px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;
+}
+.a11y_sr-only {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;li {
+    text-align: -webkit-match-parent;
+}
+}
+search_faq-form .fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+.search_faq-form {
+    position: relative;
+    margin: 0 0 80px;
+    padding: 40px 58px 0;
+    border-top: 1px solid #ededed;
+}
+.search_faq-form .rank li {
+    float: left;
+    color: #666;
+}
+search_faq-form .fieldset {
+   
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;
+}
+.search_faq-form input[type="submit"] {
+    position: absolute;
+    right: 82px;
+    top: 52px;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(./el_icons.png);
+    background-size: 480px auto;
+    background-repeat: no-repeat;
+    background-position: -5px -84px;
+    font-size: 0;
+}
+.faq_category-list .shipping:before {
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(./el_icons.png);
+    background-size: 384px auto;
+    background-repeat: no-repeat;
+    background-position: -320px -608px;
+}
+ .sub_cont {
+    float: left;
+    width: 996px;
+}
+
+.faq_category-list > li:before {
+    content: '';
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 8px;
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(./el_icons.png);
+    background-size: 480px auto;
+    background-repeat: no-repeat;
+    background-position: -40px -480px;
+}
+.faq_category-list .return:before {
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(./el_icons.png);
+    background-size: 384px auto;
+    background-repeat: no-repeat;
+    background-position: -32px -992px;
+}
+.faq_category-list .order:before {
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(./el_icons.png);
+    background-size: 384px auto;
+    background-repeat: no-repeat;
+    background-position: -192px -992px;
+}
+.faq_category-list .cancel:before {
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(./el_icons.png);
+    background-size: 384px auto;
+    background-repeat: no-repeat;
+    background-position: -64px -992px;
+}
+.faq_category-list .member:before {
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(./el_icons.png);
+    background-size: 384px auto;
+    background-repeat: no-repeat;
+    background-position: 0 -992px;
+}
+.faq_category-list .benefit:before {
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(./el_icons.png);
+    background-size: 384px auto;
+    background-repeat: no-repeat;
+    background-position: 0 -384px;
+}
+.faq_category-list .documentary:before {
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(./el_icons.png);
+    background-size: 384px auto;
+    background-repeat: no-repeat;
+    background-position: -224px -992px;
+}
+.faq_category-list .etc:before {
+    display: block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(./el_icons.png);
+    background-size: 384px auto;
+    background-repeat: no-repeat;
+    background-position: -352px -992px;
+}
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    
+        font-family: 'Roboto', 'Noto Sans KR',
+         'Malgun Gothic', 'AppleSDGothicNeo',
+          'Helvetica', sans-serif;
+}
+a {
+    text-decoration: none;
+    color: -webkit-link;
+    cursor: pointer;
+    
+    color: inherit;
+      font-family: 'Roboto', 'Noto Sans KR',
+         'Malgun Gothic', 'AppleSDGothicNeo',
+          'Helvetica', sans-serif;
+             margin-left: 20px;
+    padding-left: 20px;
+    position: relative;
+    white-space: nowrap;
+}
+caption, legend {
+    position: absolute;
+    left: -9999px;
+}
+legend {
+    display: block;
+    padding-inline-start: 2px;
+    padding-inline-end: 2px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+}
+.search_faq-form input[type="text"] {
+    width: 100%;
+    height: 54px;
+    padding-left: 20px;
+    padding-right: 60px;
+    border: 0;
+    border-radius: 2px;
+    background-color: #f2f2f2;
+    font-size: 18px;
+}
+.search_faq-form .rank li:not(:first-child):before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 15px;
+    margin-top: -8px;
+    background-color: #d8d8d8;
+    
+
+}
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"], select {
+    height: 40px;
+    padding: 4px 12px 5px;
+    border: 1px solid #D9D9D9;
+    background-color: #FFF;
+    color: #000;
+    font-size: 14px;
+    padding: 4px 6px 5px 12px\9;
+}
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"], textarea, select {
+    border: 1px solid #D9D9D9;
+    background-color: #fff;
+    color: #000;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+
+input {
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    padding: 1px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+.sub_cont {
+    float: left;
+    width: 83.0%;
+    width: calc(100% - 272px);
+    font-size: 14px;
+    padding: 1px 0px;
+    -webkit-writing-mode: horizontal-tb !important;
+}
+
+body {
+    background: #fff;
+    font-size: 14px;
+}
+
+html {
+    color: -internal-root-color;
+}
+
+label {
+    cursor: default;
+}
