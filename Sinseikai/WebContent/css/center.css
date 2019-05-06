@@ -49,7 +49,7 @@ ol, ul {
 s
 }
 
-ul ul {
+ul ,ul {
     list-style-type: circle;
 }
 
