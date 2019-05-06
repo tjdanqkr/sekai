@@ -49,7 +49,7 @@ public class ProductDAO implements DAO{
 				bean.setPrice(rs.getInt("price"));
 				bean.setDiscountRate(rs.getFloat("discountrate"));
 				bean.setRating(rs.getFloat("rating"));
-				bean.setImgAddr(rs.getString("imgaddr"));
+				bean.setImgAddr(rs.getString("imgaddr1"));
 				bean.setImgAddr2(rs.getString("imgaddr2"));
 				bean.setImgAddr3(rs.getString("imgaddr3"));
 				bean.setImgAddr4(rs.getString("imgaddr4"));

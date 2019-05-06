@@ -17,10 +17,8 @@ pageContext.setAttribute("majorbeans",request.getAttribute("menuBeans"));
 <div class="menubar">
 <ul>
 
- <li><a href="#"><c:forEach items="${majorbeans}" var="list" varStatus="status">
- <c:out value = "${status.index }   " />
- </c:forEach>
- </a></li>
+ <li>
+ </li>
  <li><a href="#" id="current">Men</a>
 	<ul> 
      <li><a href="#">정장,자켓,코트</a></li>

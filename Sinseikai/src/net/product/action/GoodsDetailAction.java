@@ -44,7 +44,7 @@ public class GoodsDetailAction implements Action {
 		}
 		
 		codexBrandDAO = new CodexBrandDAO();
-		codexBrandBean = codexBrandDAO.getBrandcodeAsBrandname(codexBrandBean); // Get brandcode as brandname.
+		codexBrandBean = codexBrandDAO.getBrandcodeAsBrandname(productBean); // Get brandcode as brandname.
 		codexBrandDAO.close();
 		if(codexBrandBean == null) {
 			System.err.println("ERROR - Failed get the brandcode");
@@ -57,7 +57,7 @@ public class GoodsDetailAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("."); // set at after.
+		forward.setPath("/product/productInto.jsp"); // set at after.
 		return forward;
 	}
 

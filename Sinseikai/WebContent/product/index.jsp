@@ -25,7 +25,7 @@
     <div id="flat">
         <ul>
             <li data-flip-title="Red">
-                <img src="./img/text1.jpg"><br>
+               <a href="productInto.pr?productNumber=1"><img src="./img/text1.jpg"></a><br>
                 	<h2>엘페</h2>	라운드투톤호리젠탈프메일자켓<br><br>           	
                 	10,000원                         
             </li>

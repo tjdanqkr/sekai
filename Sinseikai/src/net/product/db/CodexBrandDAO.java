@@ -31,18 +31,20 @@ public class CodexBrandDAO implements DAO{
 	}
 	
 	// Get brandcode as brandname in bean.
-	public CodexBrandBean getBrandcodeAsBrandname(CodexBrandBean bean) {
+	public CodexBrandBean getBrandcodeAsBrandname(ProductBean productBean) {
+		CodexBrandBean codexBrandBean = new CodexBrandBean();
 		try {
-			pstmt = con.prepareStatement("select brandcode from codexbrand where brandname=?");
-			pstmt.setString(1, bean.getBrandName());
+			pstmt = con.prepareStatement("select * from codexbrand where brandname=?");
+			pstmt.setString(1, productBean.getBrandName());
 			
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				bean.setBrandCode(rs.getInt("brandcode"));
+				codexBrandBean.setBrandName(rs.getString("brandname"));
+				codexBrandBean.setBrandCode(rs.getInt("brandcode"));
 			}
 			
-			return bean;
+			return codexBrandBean;
 		} catch (SQLException se) {
 			// TODO Auto-generated catch block
 			se.printStackTrace();
