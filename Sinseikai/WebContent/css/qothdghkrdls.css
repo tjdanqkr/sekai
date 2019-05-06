@@ -1,0 +1,90 @@
+header .page_title {
+    padding: 16px 0 14px;
+    font-size: 24px;
+    font-weight: normal;
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', 'AppleSDGothicNeo', 'Helvetica', sans-serif;
+    font-weight: 400;
+    
+}
+.tab_col9faq_tabmanual_fn ol, ul {
+    list-style: none;
+}
+.tab_col9faq_tabmanual_fn ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+.tab_col9faq_tabmanual_fn {
+    float: left;
+    width: 83.0%;
+    width: calc(100% - 272px);
+    font-size: 14px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', 'AppleSDGothicNeo', 'Helvetica', sans-serif;
+    font-weight: 400;
+}
+
+.tab_col9faq_tabmanual_fn body, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, img, button {
+    margin: 0;
+    padding: 0;
+}
+.tab_col9faq_tabmanual_fn button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+        -webkit-writing-mode: horizontal-tb !important;
+        -webkit-appearance: button;
+}
+[role="tablist"] li button[aria-selected="true"]:after {
+    display: none;
+}
+[role="tablist"] li {
+    display: table-cell;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: center;
+}
+[role="tablist"] {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+[role="tablist"] li button[aria-selected="true"] {
+    border: 0;
+    border-bottom: 3px solid #3D3D3D;
+    font-weight: 500;
+}
+[role="tablist"] li button {
+    display: inline-block;
+    min-width: 120px;
+    padding: 21px 24px;
+    border: 0;
+    background: transparent;
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+}
+.tab_col9faq_tabmanual_fn li button {
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+

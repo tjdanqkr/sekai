@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.member.loginAction;
+
 /**
  * Servlet implementation class MemberFrontContoroller1
  */
@@ -22,45 +24,12 @@ public class CustomerFrontContoroller1 extends HttpServlet {
 			 String command=RequestURI.substring(contextPath.length());
 			 ActionForward forward=null;
 			 Action action=null;
-			 if(command.equals("/MemberAddAction.me")){
-				 action  = new MemberAddAction();
-				   try {
-					   forward=action.execute(request, response );
-				   } catch (Exception e) {
-					   e.printStackTrace();
-				   }
-			   }else if(command.equals("/login.me")){
-				   forward=new ActionForward();
+			 if(command.equals("/cus.cus")){
+				 forward=new ActionForward();
 				   forward.setRedirect(false);
-				   forward.setPath("/Login.jsp");
-			   }else if(command.equals("/join.me")){
-				   forward=new ActionForward();
-				   forward.setRedirect(false);
-				   forward.setPath("/Join.jsp");
-			   }else if(command.equals("/loginAction.me")){
-				   action  = new loginAction();
-				   try {
-					   forward=action.execute(request, response );
-				   } catch (Exception e) {
-					   e.printStackTrace();
-				   }
-			   }else if(command.equals("/idch.me")){
-				   action  = new idch();
-				   try {
-					   forward=action.execute(request, response );
-				   } catch (Exception e) {
-					   e.printStackTrace();
-				   }
-			   }else if(command.equals("/idch1.me")){
-				   forward=new ActionForward();
-				   forward.setRedirect(false);
-				   forward.setPath("/idch.jsp");
-			   }else if(command.equals("/idch2.me")){
-				   forward=new ActionForward();
-				   forward.setRedirect(false);
-				   forward.setPath("/idch2.jsp");
-			   }else if(command.equals("/logout.me")) {
-				   action  = new logout();
+				   forward.setPath("/custem.jsp");
+			   }else if(command.equals("/cusghkrdls.cus")){
+				   action  = new cuga();
 				   try {
 					   forward=action.execute(request, response );
 				   } catch (Exception e) {
