@@ -9,7 +9,15 @@
     <servlet-name>MemberFrontControll</servlet-name>
     <url-pattern>*.me</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <servlet-name>CustomerFrontControll</servlet-name>
+    <servlet-class>
+		net.cus.action.CustomerFrontContoroller1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CustomerFrontControll</servlet-name>
+    <url-pattern>*.cus</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>BoardFrontController</servlet-name>
     <servlet-class>
