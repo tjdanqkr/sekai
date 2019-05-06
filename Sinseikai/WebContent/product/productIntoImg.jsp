@@ -35,5 +35,11 @@ a, a:visited, a:hover, a:active {color:#000;}
 	<li><a href="#nogo">04<img class="landscape" src="img/a4.jpg" /></a></li>
 </ul>
 </div>
+<script type="text/javascript">
+
+
+
+</script>
 </body>
+
 </html>

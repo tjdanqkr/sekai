@@ -8,7 +8,7 @@
 </head><!-- 상단 헤더관련은 여기에 붙이세요 -->
 <body>
 <div><%@include file="headerside.jsp" %></div><br>
-<a href="./product_into.jsp"><img alt="" src="./img/elLotte.png" ></a><br>
+<a href="./start.jsp"><img alt="" src="./img/elLotte.png" ></a><br>
 <div><%@include file="main.jsp" %></div><!-- 상단 메뉴바 -->
 </body>
 </html>
