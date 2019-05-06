@@ -10,18 +10,18 @@
     font-size: 18px;
     font-weight: 500;
 }
-ol, ul {
+.nav_set ol, ul {
     list-style: none;
 }
-body, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, img, button {
+.nav_set body, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, img, button {
     margin: 0;
     padding: 0;
 }
-a {
+.nav_set a {
     text-decoration: none;
     color: inherit;
 }
-p {
+.nav_set p {
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -29,7 +29,7 @@ p {
     margin-inline-end: 0px;
     padding-top: 33px;
 }
-ul {
+.nav_set ul {
     display: block;
     list-style-type: disc;
     margin-block-start: 1em;
@@ -41,7 +41,7 @@ ul {
          'Malgun Gothic', 'AppleSDGothicNeo',
           'Helvetica', sans-serif;
 }
-li {
+.nav_set li {
     display: list-item;
     text-align: -webkit-match-parent;
     list-style: none;
@@ -68,7 +68,7 @@ li {
     font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', 'AppleSDGothicNeo', 'Helvetica', sans-serif;
     font-size: 400;
 }
-div {
+.nav_set div {
     display: block;
 }
 .nav_set .nav_list > li {
@@ -81,7 +81,7 @@ div {
     display: block;
     color: #666;
 }
-body {
+.nav_set body {
     background: #fff;
     font-size: 14px;
 }
