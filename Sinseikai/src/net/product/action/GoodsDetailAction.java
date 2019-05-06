@@ -1,5 +1,6 @@
 package net.product.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -52,7 +53,7 @@ public class GoodsDetailAction implements Action {
 		}
 		
 		request.setAttribute("productBean", productBean); // Put the result.
-		request.setAttribute("option1Beans", option1Beans);
+		request.setAttribute("option1Beans", repackagingOption(option1Beans));
 		request.setAttribute("codexBrandBean", codexBrandBean);
 		
 		ActionForward forward = new ActionForward();
@@ -61,4 +62,35 @@ public class GoodsDetailAction implements Action {
 		return forward;
 	}
 
+	// Option of product is 2D list. so, repackaging the beans.
+	private List<List<Option1Bean>> repackagingOption(List<Option1Bean> beans) {
+		List<List<Option1Bean>> majorBeans = new ArrayList<List<Option1Bean>>();
+		List<Option1Bean> minorBeans = null;
+		
+		for(Option1Bean bean : beans) {
+			int majorIndex = checkMajor(majorBeans, bean);
+			
+			if(majorIndex != -1) { // Exist major category.
+				majorBeans.get(majorIndex).add(bean);
+			}
+			else { // New major category!
+				minorBeans = new ArrayList<Option1Bean>();
+				minorBeans.add(bean);
+				majorBeans.add(minorBeans);
+			}
+		}
+
+		return majorBeans;
+	}
+	private int checkMajor(List<List<Option1Bean>> majorBeans, Option1Bean bean) {
+		for(int i = 0; i < majorBeans.size(); i++) {
+			String majorName = majorBeans.get(i).get(0).getMajorName();
+			if(majorName.equals(bean.getMajorName())) {
+				return i; // Exist major category.
+			}
+		}
+		
+		return -1; // New major category!
+	}
+	
 }
