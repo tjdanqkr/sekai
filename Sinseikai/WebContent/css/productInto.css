@@ -3,7 +3,7 @@
         body { font-family: Lucida Sans Unicode, Arial, Sans-Serif; font-size:13px;}
 
         /* Structure */
-        #header, #content, #comments, #sidebar, #footer { background-color:#F6F6F6; margin:10px 0px;
+        #header, #content, #comments, #sidebar, #footer, #gg { background-color:#F6F6F6; margin:10px 0px;
              -moz-border-radius:10px;  -webkit-border-radius:10px; padding:30px;}
         #header h1 { float:right; margin: 20px 0 0 0; font-size:36px; font-weight:bold;}
         #header h2 {font-size:16px; font-weight:normal; margin:0px; padding:0px;}
@@ -17,17 +17,8 @@
         #sidebar { width:280px; margin-left:20px; float:right;}
         #sidebar #ads { width:100%; overflow:hidden;}
         #sidebar #ads img { float:left; margin:5px; display:block;}
-        #footer { width:900px; margin:0px auto;}
-          
-        /* Change view sprites */
-        .toolbox { float:right; margin-left:10px;}
-        .toolbox a { width:30px; height:20px; float:right; }
-
-        #wideView {background: transparent url(http://store.blueb.co.kr/data/201009/IJ12847097607005/buttons.png) no-repeat scroll 0px 0px; }
-        #wideView:hover { background-position:-30px 0px; }
-        #wideView.wide {background-position:0px -20px; }
-        #wideView.wide:hover { background-position:-30px -20px; }
-     
+        #footer { width:900px; margin:0px auto;}        
+       
         /* Different views */
         #content.wide { width:900px;}
         #toolbox.wide { width:960px;}
@@ -35,7 +26,8 @@
         #sidebar.compact { width:130px;}
        
         a { color:#0000ff;}
-        h3 { font-size:24px; font-weight:normal; padding:0; margin:0; color:#B0232A;}
+        h3 { font-size:30px; font-weight:bold; padding:0; margin:0; color:#B0232A;}
         em { font-size:10px;}
+        gg {text-decoration: line-through;}
     </style>
     

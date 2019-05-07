@@ -1,7 +1,16 @@
+<%@page import="net.cus.db.cusbean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="net.cus.db.*" %>
+
 <!DOCTYPE html>
 <html>
+<%
+List<cusbean> boardList=(List<cusbean>)request.getAttribute("boardlist");
+String title;
+%>
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <script type="text/javascript" src="js/ajax.js"></script>
@@ -11,49 +20,32 @@
 <title>Insert title here</title>
 </head>
 <body>
-<header>
+	<div class="information_tableanswer_areacol_type">
+		<table width=50% border="0" cellpadding="0" cellspacing="0">
+			<tr align="center" valign="middle" bordercolor="#333333">
+				<td style="font-family: Tahoma; font-size: 20pt;" width="30%"
+					height="26">
+					<div align="center">번호</div>
+				</td>
+				<td style="font-family: Tahoma; font-size: 20pt;" width="50%">
+					<div align="center">제목</div>
+				</td>
 
-<h3 class="page_title">FAQ 배송</h3>
-</header>
-<ul class="tab_col9faq_tabmanual_fn" role="tablist" aria-label="FAQ 주문/결제">
-				<li>
-					<button type="button" role="tab" aria-selected="false" id="faq_tabP00009" aria-controls="tab_pan-P00009" data-faqclsfcd="P00009">배송확인</button>
-					<!-- aria-selected="true" 활성 상태로 시작 -->
-				</li>
-				<li>
-					<button type="button" role="tab" aria-selected="false" id="faq_tabP00011" aria-controls="tab_pan-P00011" data-faqclsfcd="P00011">배송지변경</button>
-					<!-- aria-selected="true" 활성 상태로 시작 -->
-				</li>
-				<li>
-					<button type="button" role="tab" aria-selected="false" id="faq_tabP00012" aria-controls="tab_pan-P00012" data-faqclsfcd="P00012">배송비</button>
-					<!-- aria-selected="true" 활성 상태로 시작 -->
-				</li>
-				<li>
-					<button type="button" role="tab" aria-selected="false" id="faq_tabP00013" aria-controls="tab_pan-P00013" data-faqclsfcd="P00013">선물포장</button>
-					<!-- aria-selected="true" 활성 상태로 시작 -->
-				</li>
-				<li>
-					<button type="button" role="tab" aria-selected="false" id="faq_tabP00015" aria-controls="tab_pan-P00015" data-faqclsfcd="P00015">스마트픽</button>
-					<!-- aria-selected="true" 활성 상태로 시작 -->
-				</li>
-			</ul>
-			<div class="information_table answer_area col_type">
-						<table>
-							<caption></caption>
-							<colgroup>
-								<col style="width:105px"></col>
-								<col></col>
-							</colgroup>
-							<thead>
-								<tr>
-									<th scope="col">번호</th>
-									<th scope="col">질문</th>
-								</tr>
-							</thead>
-							<tbody class="accordion manual_fn" data-allowMulti="true" id="div_faqBbsList-P00009">
-							</tbody>
-						</table>
-					</div>
+			</tr>
+			<%for(int i=0; i<boardList.size();i++){
+				cusbean bl=(cusbean)boardList.get(i);%>
+			<tr align="center" valign="middle" bordercolor="#333333">
+				<td >
+					<div align="center"><%=i+1 %></div>
+				</td>
+				<td >
+					<div align="center" class="iii"><a target="_blank" href="http://localhost:8090/Sinseikai/detail.cus?title=<%=bl.getTitle()%>"><%=bl.getTitle()%></a></div>
+				</td>
 
+			</tr>
+			<%}%>
+			
+		</table>
+	</div>
 </body>
 </html>
