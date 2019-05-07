@@ -23,7 +23,7 @@ header .page_title {
     margin-inline-end: 0px;
     padding-inline-start: 40px;
 }
-.tab_col9faq_tabmanual_fn {
+.tab_col9faq_tabmanual_fn .page_title{
     float: left;
     width: 83.0%;
     width: calc(100% - 272px);
@@ -86,5 +86,9 @@ header .page_title {
     padding: 10px 0;
     font-size: 14px;
 }
-
+.iii a {
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;  
+}
 
