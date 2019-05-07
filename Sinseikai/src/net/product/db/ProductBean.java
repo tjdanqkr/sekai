@@ -9,8 +9,13 @@ public class ProductBean {
 	private int price;
 	private float discountRate;
 	private float rating;
-	private String imgAddr;
+	private String imgAddr1;
 	private String imgAddr2;
+	private String imgAddr3;
+	private String imgAddr4;
+	private String imgAddr5;
+	private int deliveryPeriod;
+	private int categorycode;
 	public int getProductNumber() {
 		return productNumber;
 	}
@@ -60,10 +65,10 @@ public class ProductBean {
 		this.rating = rating;
 	}
 	public String getImgAddr() {
-		return imgAddr;
+		return imgAddr1;
 	}
-	public void setImgAddr(String imgAddr) {
-		this.imgAddr = imgAddr;
+	public void setImgAddr(String imgAddr1) {
+		this.imgAddr1 = imgAddr1;
 	}
 	public String getImgAddr2() {
 		return imgAddr2;
@@ -101,9 +106,5 @@ public class ProductBean {
 	public void setCategorycode(int categorycode) {
 		this.categorycode = categorycode;
 	}
-	private String imgAddr3;
-	private String imgAddr4;
-	private String imgAddr5;
-	private int deliveryPeriod;
-	private int categorycode;
+	
 }

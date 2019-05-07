@@ -1,5 +1,5 @@
 @charset "EUC-KR";
-
+<style type="text/css">
         body { font-family: Lucida Sans Unicode, Arial, Sans-Serif; font-size:13px;}
 
         /* Structure */
@@ -37,6 +37,5 @@
         a { color:#0000ff;}
         h3 { font-size:24px; font-weight:normal; padding:0; margin:0; color:#B0232A;}
         em { font-size:10px;}
+    </style>
     
-    
-   
