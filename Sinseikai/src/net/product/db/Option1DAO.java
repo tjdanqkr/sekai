@@ -37,7 +37,7 @@ public class Option1DAO implements DAO{
 		List<Option1Bean> beans = null;
 		try {
 			pstmt = con.prepareStatement("select * from option1 where productnumber=? "
-					+ "order by majornumber, minornumber"); // Sort by major, minor number.
+					+ "order by majornumber, paminornumber, minornumber"); // Sort by major, paminor, minor number.
 			pstmt.setInt(1, productBean.getProductNumber());
 			
 			rs = pstmt.executeQuery();
@@ -45,6 +45,7 @@ public class Option1DAO implements DAO{
 			beans = new ArrayList<Option1Bean>();
 			while(rs.next()) { // Put the options.
 				Option1Bean bean = new Option1Bean();
+				
 				bean.setProductNumber(rs.getInt("productnumber"));
 				bean.setMajorName(rs.getString("majorname"));
 				bean.setMajorNumber(rs.getInt("majornumber"));
@@ -53,6 +54,9 @@ public class Option1DAO implements DAO{
 				bean.setMinorImg(rs.getString("minorimg"));
 				bean.setMinorPrice(rs.getInt("minorprice"));
 				bean.setMinorStock(rs.getInt("minorstock"));
+				bean.setPaMajorNumber(rs.getInt("pamajornumber"));
+				bean.setPaMinorNumber(rs.getInt("paminornumber"));
+				
 				beans.add(bean);
 			}
 			
