@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head><!-- 여기는상품상세란 -->
 <body>
-<div><%@include file="headmenu.jsp" %></div><br>
+<div><%@include file="/product/headmenu.jsp" %></div><br>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <head>
@@ -68,7 +68,7 @@
         <div id="content">
             <div class="toolbox">크게보기: <a id="wideView" href="#"></a></div>
             <h3>상품 이미지</h3>
-          <span> <%@include file="productIntoImg.jsp" %></span>
+          <span> <%@include file="/product/productIntoImg.jsp" %></span>
                 <span style="float:left; margin:0 10px 10px 0;" ><br /></span>
                
                
