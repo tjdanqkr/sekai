@@ -10,7 +10,8 @@
     <title>네이버로그인</title>
   </head>
   <body>
-  <%
+
+<%
     String clientId = "HICTyiQbY5EEz1krtPvC";//애플리케이션 클라이언트 아이디값";
     String clientSecret = "tOt4k7jYW_";//애플리케이션 클라이언트 시크릿값";
     String code = request.getParameter("code");
@@ -44,18 +45,7 @@
         res.append(inputLine);
       }
       br.close();
-      if(responseCode==200) {
-    	  System.out.println(res.toString());
-    	    JSONParser parsing = new JSONParser();
-    	    Object obj = parsing.parse(res.toString());
-    	    JSONObject jsonObj = (JSONObject)obj;
-    	                 
-    	    access_token = (String)jsonObj.get("access_token");
-    	    refresh_token = (String)jsonObj.get("refresh_token");
-    	}
-    } catch (Exception e) {
-      System.out.println(e);
-    }
+      
     
   %>
   
