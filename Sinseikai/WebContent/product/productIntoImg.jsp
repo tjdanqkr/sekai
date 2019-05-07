@@ -33,6 +33,7 @@ a, a:visited, a:hover, a:active {color:#000;}
 	<li><a href="#nogo">02<img class="landscape" src="img/a2.jpg" /></a></li>
 	<li><a href="#nogo">03<img class="landscape" src="img/a3.jpg" /></a></li>
 	<li><a href="#nogo">04<img class="landscape" src="img/a4.jpg" /></a></li>
+	<li><a href="#nogo">05<img class="landscape" src="img/a5.jpg" /></a></li>
 </ul>
 </div>
 <script type="text/javascript">

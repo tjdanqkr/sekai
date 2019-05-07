@@ -1,3 +1,47 @@
+
+
+.sub_cont body, h1, h2, h3, h4, h5, h6, ul, li,  ol, dl, dt, dd, p, img, button {
+    margin: 0;
+    padding: 0;
+    
+}
+
+.sub_cont li {
+	margin: 0px, 0px, 0px, 20px;
+	padding: 0px, 0px, 0px, 20px;
+}
+search_faq-form .fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+.search_faq-form {
+    position: relative;
+    margin: 0 0 80px;
+    padding: 40px 58px 0;
+    border-top: 1px solid #ededed;
+}
+.search_faq-form .rank li {
+    float: left;
+    color: #666;
+}
+search_faq-form .fieldset {
+   
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;
+}
+
+
 .mylotte_cont.not_login .sub_cont header:first-child .page_title {
     padding-top: 0;
 }
@@ -174,12 +218,7 @@
     height: 1px;
     overflow: hidden;
 }
-.search_faq-form {
-    position: relative;
-    margin: 0 0 80px;
-    padding: 40px 58px 0;
-    border-top: 1px solid #ededed;
-}
+
 .sub_cont {
     float: left;
     width: 83.0%;
@@ -194,10 +233,7 @@
     padding: 0;
         text-decoration: none;
 }
-.search_faq-form .rank li {
-    float: left;
-    color: #666;
-}
+
 .rank li {
     display: list-item;
     text-align: -webkit-match-parent;
@@ -249,4 +285,5 @@
     -moz-box-sizing: border-box;
     font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', 'AppleSDGothicNeo', 'Helvetica', sans-serif;
     font-weight: 400;
+
 }

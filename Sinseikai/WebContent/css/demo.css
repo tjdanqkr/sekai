@@ -65,7 +65,7 @@ h2 { font-size: 22px; }
   bottom: 0;
   left: 0;
   width: 20%;
-  background: #eee;
+  background: #ffffff;
   padding: 1em;
 }
 
@@ -117,7 +117,7 @@ h2 { font-size: 22px; }
 
 .code {
   display: block;
-  background: #eee;
+  background: #ffffff;
   padding: 1em;
   border-radius: 1em;
   margin: 2em auto;
