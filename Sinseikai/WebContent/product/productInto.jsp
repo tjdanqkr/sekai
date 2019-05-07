@@ -2,9 +2,13 @@
     pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%
+pageContext.setAttribute("option1Bans",request.getAttribute("option1Beans"));
+%>
 <script language = "javascript">
 function showBig(val) {
  var obj = document.getElementById("big");
@@ -16,20 +20,30 @@ function showBig(val) {
 </head><!-- 여기는상품상세란 -->
 <body>
 <div><%@include file="/product/headmenu.jsp" %></div><br>
-<%request.getAttribute("productBean"); %>
-<%request.getAttribute("option1Beans"); %>
-<%request.getAttribute("codexBrandBean"); %>
+
 <head>
     <title></title>
      <link href="css/productInto.css" rel="stylesheet">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
-            $("#wideView").click(function() {
-                $("#content").toggleClass("wide");
-                $(this).toggleClass("wide");
-            });
-        });
+    function selectmenu() {
+        var x = document.getElementById("option1").value;
+        var y = document.getElementById("option2").value;      
+        document.getElementById("demo").innerHTML = "You selected: " + x + y;     
+    }
+    function checkmenu() {
+    	var x = document.getElementById("option1").value;
+        var y = document.getElementById("option2").value;
+        var z = false;
+        if(x!="색상" && y!="사이즈"){  
+        	z=true;  }else{
+        		z=false;
+        	};
+        if(z==true){  alert("rnt");            };
+        	
+    }
+    	
+    
     </script>
     
 </head>
@@ -57,22 +71,38 @@ function showBig(val) {
             <h2 align="left" >${productBean.modelName}</h2>
             <ul>
             <fmt:parseNumber var="test" value="${Math.floor(100*productBean.discountRate)}%" integerOnly="true" /> ${test}%off
-             <gg>${productBean.price}원</gg><h2><c:set var="no" value="${Math.round(productBean.price*(1-productBean.discountRate))}"/>${no}원</h2>
+             
             
             <hr>
-      	 	<span style="font-size:0.5em;"> *카드할인삼성카드 5%청구할인  할인 혜택 내역</span>
+      	 	<span style="font-size:0.7em;"> *카드할인삼성카드 5%청구할인  할인 혜택 내역</span>
            	<hr>
-           	
+           	<gg>${productBean.price}원</gg><h2><c:set var="no" value="${Math.round(productBean.price*(1-productBean.discountRate))}"/>${no}원</h2>
             </ul>                               
         </div>
         
         <div  id="sidebar">
-        	왜 안 들 어 가
         <ul>
-        <li>상품 번호 : ${productBean.modelNumber} </li>       
-        <li>포인트 적립${productBean.rating} </li>
-        <li>배송기간 ${productBean.deliveryPeriod} </li>
+    <div class="selectbox"  >
+    <label for="select">옵션선택</label> 
+        <c:forEach var="minorBeans" items="${option1Beans}">	
+        <select id="option${minorBeans.get(0).majorNumber}"  onchange="selectmenu()">		       
+	 		<option>${minorBeans.get(0).majorName}</option> 	
+	 			<c:forEach var="bean" items="${minorBeans}">
+	 				<option>${bean.minorName} </option>
+	 			</c:forEach>		
+	 	</select>
+ 		</c:forEach>
+	</div>
+	<br><br><br>
+	<p id="demo"></p>
+	<p id="demo1"></p>
+	<input  type="button" value="추가하기" id="menulist" onclick="checkmenu()" >
+	<hr><span align="right">
+       상품 번호 : ${productBean.modelNumber} <br>
+       포인트 적립률 :${productBean.rating}% <br>	
+      배송소요기간 :${productBean.deliveryPeriod}일 
         </ul>
+        </span>
         </div>
         
         <div id="comments">
