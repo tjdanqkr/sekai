@@ -52,13 +52,17 @@ public class GoodsDetailAction implements Action {
 			return null;
 		}
 		
+		List<List<Option1Bean>> majorBeans = repackagingOption(option1Beans);
+		
 		request.setAttribute("productBean", productBean); // Put the result.
-		request.setAttribute("option1Beans", repackagingOption(option1Beans));
+		request.setAttribute("optionHTML",  listToHTML(majorBeans));
+		request.setAttribute("optionJS", createJSForOption(majorBeans));
 		request.setAttribute("codexBrandBean", codexBrandBean);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("/product/productInto.jsp"); // set at after.
+		
 		return forward;
 	}
 
@@ -93,4 +97,120 @@ public class GoodsDetailAction implements Action {
 		return -1; // New major category!
 	}
 	
+	// Table option1 is complex. so, change to HTML in here.
+	private String listToHTML(List<List<Option1Bean>> majorBeans) {
+		String html = "";
+				
+		for(List<Option1Bean> minorBeans : majorBeans) {
+			if(minorBeans.get(0).getPaMajorNumber() == 0) {
+				html += createIndependentSelectElement(minorBeans);
+			}else {
+				html += createDependentSelectElement(minorBeans);
+			}
+			html += "<br />\n";
+		}
+		
+		return html;
+	}
+	private String createIndependentSelectElement(List<Option1Bean> minorBeans) {
+		// This option can select freely.
+		
+		// Example) <select name="option1">
+		String html = "<select name=\"option" + minorBeans.get(0).getMajorNumber() + "\">\n";
+		
+		// Basic option.
+		html += "<option value=\"0\">" + minorBeans.get(0).getMajorName() + "</option>\n";
+		
+		// Example) <option value="1">first</option>
+		for(Option1Bean bean : minorBeans) {
+			html +=  "<option value=\"" + bean.getMinorNumber() + "\">" +
+					bean.getMinorName() + "</option>\n";
+		}
+		
+		html += "</select>\n";
+		
+		return html;
+	}
+	private String createDependentSelectElement(List<Option1Bean> minorBeans) {
+		// This option can select after parent option is selected.
+		String html = "";
+		
+		int index = 0;
+		
+		// Basic option.
+		html += "<select name=\"option" + minorBeans.get(0).getMajorNumber()+ "\">\n";
+		html += "<option value=\"0\">" + minorBeans.get(0).getMajorName() + "</option>\n";
+		html += "</select>\n";
+		
+		for(int i = 0; i < minorBeans.size(); i++) {
+			if(minorBeans.get(i).getPaMinorNumber() != index) {
+				
+				// Example) <select name="option2">
+				html += "<select name=\"option" + minorBeans.get(0).getMajorNumber()+ "\" " + 
+						"style=\"display: none;\">\n";
+				
+				html += "<option value=\"0\">" + minorBeans.get(0).getMajorName() + "</option>\n";
+				
+				index = minorBeans.get(i).getPaMinorNumber();
+			}
+			
+			// Example) <option value="1">small</option>
+			html += "<option value=\"" + minorBeans.get(i).getMinorNumber() + "\">" + 
+					minorBeans.get(i).getMinorName() + "</option>\n";
+			
+			try {
+				if(minorBeans.get(i+1).getPaMinorNumber() != index) {
+					html += "</select>\n"; // End of option that parent is equal.
+				}
+			}catch(IndexOutOfBoundsException ioobe) {
+				html += "</select>\n"; // Last option.
+			}
+		}
+		
+		return html;
+	}
+	
+	// Create the java script for option.
+	private String createJSForOption(List<List<Option1Bean>> majorBeans) {
+		String js = "";
+		
+		for(List<Option1Bean> minorBeans : majorBeans) {
+			for(List<Option1Bean> maybeChildBeans : majorBeans) {
+				if(maybeChildBeans.get(0).getPaMajorNumber() == minorBeans.get(0).getMajorNumber()) {
+					// Should create the java script.
+					int parentNum = minorBeans.get(0).getMajorNumber();
+					int childNum = maybeChildBeans.get(0).getMajorNumber();
+					
+					// Ready the addEventListener.
+					js += "var options" + parentNum + 
+							"= document.getElementsByName('option" + parentNum + "');\n";
+					
+					// AddEventListener.
+					js += "for(var i = 0; i < options" + parentNum + ".length; i++){\n" + 
+						      "\toptions" + parentNum + "[i].addEventListener('change', function(){\n" + 
+							      "\t\tshowOption" + childNum + "(this.value);\n" + 
+						      "\t});\n" + 
+						  "}\n";
+					
+					// function hideOptions
+					js += "function hideOptions" + childNum + "(){\n" +
+						      "\tvar options = document.getElementsByName('option" + childNum + "');\n" +
+						      "\tfor(var i = 0; i < options.length; i++){\n" +
+						          "\t\toptions[i].value = 0;" + 
+						          "\t\toptions[i].style.display = 'none';\n" + 
+						      "}\n" + 
+						  "}\n";
+					
+					// function showOption
+					js += "function showOption" + childNum + "(value){\n" +
+						      "\thideOptions" + childNum + "();\n" + 
+						      "\tdocument.getElementsByName('option" + childNum + 
+						      "')[value].style.display = 'block';\n" + 
+						  "}";
+				}
+			}
+		}
+		
+		return js;
+	}
 }
