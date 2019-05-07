@@ -17,7 +17,7 @@ public class logout implements Action {
 		System.out.println("dd");
 		System.out.println("�Խ��� ��� ����");
 		forward.setRedirect(true);
-		forward.setPath("./product_into.pr");
+		forward.setPath("./product_into.jsp");
 		 
 			
 		return forward;

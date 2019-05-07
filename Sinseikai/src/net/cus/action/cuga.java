@@ -22,7 +22,6 @@ public class cuga implements Action{
    			try{
    				cusbean.setName(request.getParameter(arg0));
    				
-   		   		result=memberdao.memberInsert(memberdata);
    		   	if(result==false){
 	   			System.out.println("�Խ��� ��� ����");
 	   			return null;
