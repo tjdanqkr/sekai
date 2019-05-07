@@ -1,3 +1,5 @@
+
+
 .faq_category-list .depth_menu > li:not(:first-child) {
      margin-top: 8px; 
 }
@@ -43,7 +45,6 @@
     
 }
 
-
 .sub_cont ol, ul {
     list-style: none;
 
@@ -53,11 +54,8 @@
     list-style-type: circle;
 }
 
-.sub_cont ul {
-    list-style-type: disc;
-}
-
 .sub_cont li {
+
     text-align: -webkit-match-parent;
     font-family: 'Roboto', 'Noto Sans KR',
          'Malgun Gothic', 'AppleSDGothicNeo',
@@ -73,7 +71,7 @@
     margin-top: 8px; 
 }
 
-.sub_cont ul .rank {
+ ul .rank{
 	color: #000000;
 	font: 14px,'Roboto', 'Noto Sans KR',
          'Malgun Gothic', 'AppleSDGothicNeo',
@@ -83,7 +81,7 @@
 
 }
 
-.sub_cont {
+sub_cont {
     float: left;
     width: 83.0%;
     width: calc(100% - 272px);
@@ -148,57 +146,12 @@
     text-align: -webkit-match-parent;
 }
 }
-search_faq-form .fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-}
-.search_faq-form {
-    position: relative;
-    margin: 0 0 80px;
-    padding: 40px 58px 0;
-    border-top: 1px solid #ededed;
-}
-.search_faq-form .rank li {
-    float: left;
-    color: #666;
-}
-search_faq-form .fieldset {
-   
-    display: block;
-    margin-inline-start: 2px;
-    margin-inline-end: 2px;
-    padding-block-start: 0.35em;
-    padding-inline-start: 0.75em;
-    padding-inline-end: 0.75em;
-    padding-block-end: 0.625em;
-    min-inline-size: min-content;
-    border-width: 2px;
-    border-style: groove;
-    border-color: threedface;
-    border-image: initial;
-}
-.search_faq-form input[type="submit"] {
-    position: absolute;
-    right: 82px;
-    top: 52px;
-    width: 30px;
-    height: 30px;
-    border: 0;
-    display: inline-block;
-    vertical-align: middle;
-    background-color: transparent;
-    background-image: url(./el_icons.png);
-    background-size: 480px auto;
-    background-repeat: no-repeat;
-    background-position: -5px -84px;
-    font-size: 0;
-}
+
 .faq_category-list .shipping:before {
     display: block;
     vertical-align: middle;
     background-color: transparent;
-    background-image: url(./el_icons.png);
+    background-image: url(../images/el_icons.png);
     background-size: 384px auto;
     background-repeat: no-repeat;
     background-position: -320px -608px;
@@ -216,7 +169,7 @@ search_faq-form .fieldset {
     display: block;
     vertical-align: middle;
     background-color: transparent;
-    background-image: url(./el_icons.png);
+    background-image: url(../images/el_icons.png);
     background-size: 480px auto;
     background-repeat: no-repeat;
     background-position: -40px -480px;
@@ -225,7 +178,7 @@ search_faq-form .fieldset {
     display: block;
     vertical-align: middle;
     background-color: transparent;
-    background-image: url(./el_icons.png);
+    background-image: url(../images/el_icons.png);
     background-size: 384px auto;
     background-repeat: no-repeat;
     background-position: -32px -992px;
@@ -234,7 +187,7 @@ search_faq-form .fieldset {
     display: block;
     vertical-align: middle;
     background-color: transparent;
-    background-image: url(./el_icons.png);
+    background-image: url(../images/el_icons.png);
     background-size: 384px auto;
     background-repeat: no-repeat;
     background-position: -192px -992px;
@@ -243,7 +196,7 @@ search_faq-form .fieldset {
     display: block;
     vertical-align: middle;
     background-color: transparent;
-    background-image: url(./el_icons.png);
+    background-image: url(../images/el_icons.png);
     background-size: 384px auto;
     background-repeat: no-repeat;
     background-position: -64px -992px;
@@ -252,7 +205,7 @@ search_faq-form .fieldset {
     display: block;
     vertical-align: middle;
     background-color: transparent;
-    background-image: url(./el_icons.png);
+    background-image: url(../images/el_icons.png);
     background-size: 384px auto;
     background-repeat: no-repeat;
     background-position: 0 -992px;
@@ -261,7 +214,7 @@ search_faq-form .fieldset {
     display: block;
     vertical-align: middle;
     background-color: transparent;
-    background-image: url(./el_icons.png);
+    background-image: url(../images/el_icons.png);
     background-size: 384px auto;
     background-repeat: no-repeat;
     background-position: 0 -384px;
@@ -270,7 +223,7 @@ search_faq-form .fieldset {
     display: block;
     vertical-align: middle;
     background-color: transparent;
-    background-image: url(./el_icons.png);
+    background-image: url(../images/el_icons.png);
     background-size: 384px auto;
     background-repeat: no-repeat;
     background-position: -224px -992px;
@@ -279,7 +232,7 @@ search_faq-form .fieldset {
     display: block;
     vertical-align: middle;
     background-color: transparent;
-    background-image: url(./el_icons.png);
+    background-image: url(../images/el_icons.png);
     background-size: 384px auto;
     background-repeat: no-repeat;
     background-position: -352px -992px;
@@ -324,29 +277,7 @@ search_faq-form .fieldset {
     border-color: initial;
     border-image: initial;
 }
-.search_faq-form input[type="text"] {
-    width: 100%;
-    height: 54px;
-    padding-left: 20px;
-    padding-right: 60px;
-    border: 0;
-    border-radius: 2px;
-    background-color: #f2f2f2;
-    font-size: 18px;
-}
-.search_faq-form .rank li:not(:first-child):before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 1px;
-    height: 15px;
-    margin-top: -8px;
-    background-color: #d8d8d8;
-    
 
-}
 .sub_cont input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"], select {
     height: 40px;
     padding: 4px 12px 5px;
