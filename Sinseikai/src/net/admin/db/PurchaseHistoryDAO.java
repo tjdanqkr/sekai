@@ -37,11 +37,10 @@ public class PurchaseHistoryDAO implements DAO{
 		List<PurchaseHistoryBean> beans = new ArrayList<PurchaseHistoryBean>();
 		try {
 			stmt = con.createStatement();
-			stmt.executeQuery("select * from purchasehistory");
 			
-			rs = pstmt.executeQuery();
+			rs = stmt.executeQuery("select * from purchasehistory");
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				PurchaseHistoryBean bean = new PurchaseHistoryBean();
 
 				bean.setNumber(rs.getInt("number"));
