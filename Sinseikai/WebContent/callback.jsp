@@ -44,7 +44,18 @@
         res.append(inputLine);
       }
       br.close();
-      
+      if(responseCode==200) {
+    	  System.out.println(res.toString());
+    	    JSONParser parsing = new JSONParser();
+    	    Object obj = parsing.parse(res.toString());
+    	    JSONObject jsonObj = (JSONObject)obj;
+    	                 
+    	    access_token = (String)jsonObj.get("access_token");
+    	    refresh_token = (String)jsonObj.get("refresh_token");
+    	}
+    } catch (Exception e) {
+      System.out.println(e);
+    }
     
   %>
   

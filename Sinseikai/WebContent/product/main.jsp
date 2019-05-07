@@ -15,33 +15,20 @@ pageContext.setAttribute("majorbeans",request.getAttribute("menuBeans"));
 
 <body>
 <div class="menubar">
-
 <ul>
- <c:forEach var="minorBeans" items="${menuBeans}">
- 	<li>
-	 	<a href="#" id="current">${minorBeans.get(0).get(0).majorName}</a>
-	 	<ul>
-	 	<c:forEach var="categoryBeans" items="${minorBeans}">
-				<li><b>${categoryBeans.get(0).minorName}</b></a>
-				<c:forEach var="bean" items="${categoryBeans}">
-					<li><a href="#">${bean.categoryName}</a></li>
-				</c:forEach>
-	 	</c:forEach>
-	 	</ul>
- 	</li>
- </c:forEach>
- 	<li>
- 		<a href="#" id="current">Men</a>
-		<ul> 
-     		<li><a href="#">정장,자켓,코트</a></li>
-    	</ul>
- 	</li>
-	<li>
- 		<a href="#" id="current">Woman</a>
-		<ul>
-			<li><a href="#">셔츠/블라우스</a></li>
-		</ul>
-	</li>
+
+ <li>
+ </li>
+ <li><a href="#" id="current">Men</a>
+	<ul> 
+     <li><a href="#">정장,자켓,코트</a></li>
+    </ul>
+ </li>
+ <li><a href="#" id="current">Woman</a>
+	<ul>
+	<li><a href="#">셔츠/블라우스</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </body>
