@@ -56,7 +56,7 @@ public class SearchProductAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("."); // set at after.
+		forward.setPath("/.jsp");
 		return forward;
 	}
 
