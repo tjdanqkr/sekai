@@ -15,7 +15,7 @@
 				<h3>배송</h3>
 				<ul class="depth_menu">
 					<li>
-						<a href="cusghkrdls.cus">배송확인</a>
+						<a href="qothdghkrdls.jsp">배송확인</a>
 					</li>
 					<li>
 						<a href="/cca-fo/faq/viewFAQ/P00001/P00011">배송지변경</a>
