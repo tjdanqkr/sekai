@@ -5,6 +5,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script language = "javascript">
+function showBig(val) {
+ var obj = document.getElementById("big");
+  obj.src = "./img/" + val;
+} 
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>상세물품정보</title>
 </head><!-- 여기는상품상세란 -->
@@ -31,41 +37,52 @@
     <div id="main">
         <div id="content">
             <h3>상품 이미지</h3>
-          <span> <%@include file="/product/productIntoImg.jsp" %></span>
+          
+          <img src="img/a1.jpg" width="100%" height="100%" id="big" />
+	<br /><br />
+	<img src="img/a1.jpg" width="15%" height="15%" onmouseover="showBig('a1.jpg');" />
+	<img src="img/a2.jpg" width="15%" height="15%" onmouseover="showBig('a2.jpg');" />
+	<img src="img/a3.jpg" width="15%" height="15%" onmouseover="showBig('a3.jpg');" />
+	<img src="img/a4.jpg" width="15%" height="15%" onmouseover="showBig('a4.jpg');" />
+	<img src="img/a5.jpg" width="15%" height="15%" onmouseover="showBig('a5.jpg');" />
+	<img src="" width="15%" height="15%" onmouseover="showBig('.jpg');" />
                 <span style="float:left; margin:0 10px 10px 0;" ><br /></span>
          
         </div>
         
         <div id="sidebar">
 
-            <h3></h3>
+            <h3>${productBean.brandName}</h3>
            
-            <h4>Sub header</h4>
+            <span><h2 align="center">${productBean.modelName}</h2></span>
             <ul>
             
             <li><h2>${productBean.price}원</h2></li> 
       	 	<li><h2><fmt:parseNumber var="test" value="${Math.floor(100*productBean.discountRate)}%" integerOnly="true" /> ${test}%</h2></li> 
             </ul>                               
         </div>
+        <div>
+        <ul>
+        <li>상품 번호${productBean.modelNumber} </li>
+        <li>상품 명${productBean.modelName}</li>
+        <li>${productBean.rating} </li>
+        <li>배송기간 ${productBean.deliveryPeriod} </li>
+        </ul>
+        </div>
         <div id="comments">
             <h3>Comments</h3>
             <p>
                 <span>Visitor 1</span>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, 
-                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of 
-                the Semantics, a large language ocean.
+               	<img src="img/b1.png" width="100%" height="100%" />
             </p>
             <p>
                 <span>Visitor 2</span>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, 
-                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of 
-                the Semantics, a large language ocean.
+                	나는설명2단
             </p>
             <p>
                 <span>Visitor 3</span>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, 
-                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of 
-                the Semantics, a large language ocean.
+                	나는 설명3단
+                
             </p>
         </div>
     </div>
