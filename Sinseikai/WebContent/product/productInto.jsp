@@ -45,30 +45,36 @@ function showBig(val) {
 	<img src="img/a3.jpg" width="15%" height="15%" onmouseover="showBig('a3.jpg');" />
 	<img src="img/a4.jpg" width="15%" height="15%" onmouseover="showBig('a4.jpg');" />
 	<img src="img/a5.jpg" width="15%" height="15%" onmouseover="showBig('a5.jpg');" />
-	<img src="" width="15%" height="15%" onmouseover="showBig('.jpg');" />
+	
                 <span style="float:left; margin:0 10px 10px 0;" ><br /></span>
          
         </div>
         
-        <div id="sidebar">
+        <div align="right" id="sidebar">
 
-            <h3>${productBean.brandName}</h3>
+            <h3 align="left">${productBean.brandName}</h3>
            
-            <span><h2 align="center">${productBean.modelName}</h2></span>
+            <h2 align="left" >${productBean.modelName}</h2>
             <ul>
+            <fmt:parseNumber var="test" value="${Math.floor(100*productBean.discountRate)}%" integerOnly="true" /> ${test}%off
+             <gg>${productBean.price}원</gg><h2><c:set var="no" value="${Math.round(productBean.price*(1-productBean.discountRate))}"/>${no}원</h2>
             
-            <li><h2>${productBean.price}원</h2></li> 
-      	 	<li><h2><fmt:parseNumber var="test" value="${Math.floor(100*productBean.discountRate)}%" integerOnly="true" /> ${test}%</h2></li> 
+            <hr>
+      	 	<span style="font-size:0.5em;"> *카드할인삼성카드 5%청구할인  할인 혜택 내역</span>
+           	<hr>
+           	
             </ul>                               
         </div>
-        <div>
+        
+        <div  id="sidebar">
+        	왜 안 들 어 가
         <ul>
-        <li>상품 번호${productBean.modelNumber} </li>
-        <li>상품 명${productBean.modelName}</li>
-        <li>${productBean.rating} </li>
+        <li>상품 번호 : ${productBean.modelNumber} </li>       
+        <li>포인트 적립${productBean.rating} </li>
         <li>배송기간 ${productBean.deliveryPeriod} </li>
         </ul>
         </div>
+        
         <div id="comments">
             <h3>Comments</h3>
             <p>
