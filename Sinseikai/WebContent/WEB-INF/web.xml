@@ -27,7 +27,6 @@
     <servlet-name>BoardFrontController</servlet-name>
     <url-pattern>*.bo</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>ProductFrontController</servlet-name>
     <servlet-class>
@@ -45,7 +44,7 @@
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>start.jsp</welcome-file>
   </welcome-file-list>
   <resource-ref>
     <description>Connection</description>

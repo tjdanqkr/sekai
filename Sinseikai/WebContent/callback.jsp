@@ -6,6 +6,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
+ 
     <title>네이버로그인</title>
   </head>
   <body>
@@ -43,12 +44,9 @@
         res.append(inputLine);
       }
       br.close();
-      if(responseCode==200) {
-        out.println(res.toString());
-      }
-    } catch (Exception e) {
-      System.out.println(e);
-    }
+      
+    
   %>
+  
   </body>
 </html>
