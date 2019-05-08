@@ -9,6 +9,9 @@ public class Option1Bean {
 	private String minorImg;
 	private int minorPrice;
 	private int minorStock;
+	private int paMajorNumber;
+	private int paMinorNumber;
+	
 	public int getProductNumber() {
 		return productNumber;
 	}
@@ -56,6 +59,18 @@ public class Option1Bean {
 	}
 	public void setMinorStock(int minorStock) {
 		this.minorStock = minorStock;
+	}
+	public int getPaMajorNumber() {
+		return paMajorNumber;
+	}
+	public void setPaMajorNumber(int paMajorNumber) {
+		this.paMajorNumber = paMajorNumber;
+	}
+	public int getPaMinorNumber() {
+		return paMinorNumber;
+	}
+	public void setPaMinorNumber(int paMinorNumber) {
+		this.paMinorNumber = paMinorNumber;
 	}
 	
 }
