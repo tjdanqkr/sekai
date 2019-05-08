@@ -66,6 +66,32 @@ public class OrderListDAO implements DAO{
 		return null;
 	}
 	
+	// Insert to orderList using buyer.
+	public boolean insertOrderList(OrderListBean bean) {
+		try {
+			pstmt = con.prepareStatement(
+					"insert into orderlist values(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			
+			pstmt.setString(1, bean.getOrderId());
+			pstmt.setString(2, bean.getBuyer());
+			pstmt.setString(3, bean.getSeller());
+			pstmt.setInt(4, bean.getProductNumber());
+			pstmt.setBoolean(5, bean.isCoupon());
+			pstmt.setInt(6, bean.getPrice());
+			pstmt.setString(7, bean.getOption());
+			pstmt.setInt(8, bean.getAmount());
+			pstmt.setString(9, bean.getStatus());
+			
+			if(pstmt.executeUpdate() != 0) {
+				return true;
+			}
+		} catch (SQLException se) {
+			// TODO Auto-generated catch block
+			se.printStackTrace();
+		}
+		return false;
+	}
+	
 	public void close() {
 		if(con != null) {
 			try {
