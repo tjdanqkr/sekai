@@ -3,8 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%
+String contentPage;
+String kkk;
+%>
 <link rel="stylesheet" href="css/cusbottom.css">
 <meta charset="UTF-8">
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -15,19 +20,19 @@
 				<h3>배송</h3>
 				<ul class="depth_menu">
 					<li>
-						<a href="cusghkrdls.cus">배송확인</a>
+						<a href="?contentPage=qothd.cus&kkk=1">배송확인</a>
 					</li>
 					<li>
-						<a href="/cca-fo/faq/viewFAQ/P00001/P00011">배송지변경</a>
+						<a href="?contentPage=qothd.cus&kkk=2">배송지변경</a>
 					</li>
 					<li>
-						<a href="/cca-fo/faq/viewFAQ/P00001/P00012">배송비</a>
+						<a href="?contentPage=qothd.cus&kkk=3">배송비</a>
 					</li>
 					<li>
-						<a href="/cca-fo/faq/viewFAQ/P00001/P00013">선물포장</a>
+						<a href="?contentPage=qothd.cus&kkk=4">선물포장</a>
 					</li>
 					<li>
-						<a href="/cca-fo/faq/viewFAQ/P00001/P00015">스마트픽</a>
+						<a href="?contentPage=qothd.cus&kkk=5">스마트픽</a>
 					</li>
 				</ul>
 				

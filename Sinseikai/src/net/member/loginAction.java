@@ -23,7 +23,7 @@ public class loginAction implements Action {
 			String pw = request.getParameter("pw");
 			memberdata.setEmail(email);
 			memberdata.setPw(pw);
-			memberdao.memberlogin(memberdata);
+			
 			result = memberdao.memberlogin(memberdata);
 			if (result == false) {
 				System.out.println("�Խ��� ��� ����");
