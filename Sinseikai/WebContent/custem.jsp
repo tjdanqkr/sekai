@@ -8,7 +8,12 @@ String contentPage=request.getParameter("contentPage");
     if(contentPage==null)
         contentPage="cusbottom.jsp";
     %>
-
+<%
+String recent=request.getParameter("recent");
+if (recent==null){
+	recent = "recentshop.jsp";
+}
+%>
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -19,6 +24,8 @@ String contentPage=request.getParameter("contentPage");
 <div><jsp:include page="left.jsp"></jsp:include></div>
 <div><jsp:include page="custop.jsp"></jsp:include></div>
 <div><jsp:include page="<%=contentPage %>"></jsp:include></div>
+<div>
+<jsp:include page="<%=recent%>"></jsp:include></div>
 
 </body>
 </html>
