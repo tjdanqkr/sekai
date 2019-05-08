@@ -25,12 +25,14 @@
     <div id="flat">
         <ul>
             <li data-flip-title="Red">
-               <a href="productInto.pr?productNumber=1"><img src="./img/text1.jpg"></a><br>
-                	<h2>엘페</h2>	라운드투톤호리젠탈프메일자켓<br><br>           	
-                	10,000원                         
+               <a href="productInto.pr?productNumber=1"><img src="./img/test1.png" width="100%" height="100%"></a><br>
+                	<h2>엘페</h2>	나이키 반팔티<br><br>           	
+                	40,000원                         
             </li>
             <li data-flip-title="Razzmatazz" data-flip-category="Purples">
                 <img src="./img/text2.gif">
+                <h2>엘페</h2>	상품2<br><br>           	
+                	얼마게 원                         
              </li>
             <li data-flip-title="Deep Lilac" data-flip-category="Purples">
                 <img src="./img/text3.gif">

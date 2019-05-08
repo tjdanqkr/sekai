@@ -4,9 +4,15 @@
 <html>
 <head>
 <% 
-String contentPage=request.getParameter("contentPage");
-    if(contentPage==null)
-        contentPage="cusbottom.jsp";
+
+String kkk = request.getParameter("kkk");
+String contentPage=request.getAttribute("contentPage")+"";
+
+    if(contentPage.equals("null")){
+        contentPage="cusbottom.jsp";}
+    
+    request.setAttribute("kkk", request.getParameter("kkk"));
+   
     %>
 <%
 String recent=request.getParameter("recent");
@@ -26,6 +32,7 @@ if (recent==null){
 <div><jsp:include page="<%=contentPage %>"></jsp:include></div>
 <div>
 <jsp:include page="<%=recent%>"></jsp:include></div>
+
 
 </body>
 </html>
