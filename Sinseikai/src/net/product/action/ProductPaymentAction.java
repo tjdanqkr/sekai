@@ -24,7 +24,7 @@ public class ProductPaymentAction implements Action {
 		bean.setBuyer(request.getParameter("buyer"));
 		bean.setSeller(request.getParameter("seller"));
 		bean.setProductNumber(Integer.parseInt(request.getParameter("productNumber")));
-		bean.setCoupon(request.getParameter("coupon"));
+		bean.setCoupon(!request.getParameter("coupon").equals("0"));
 		bean.setPrice(Integer.parseInt(request.getParameter("price")));
 		bean.setOption(request.getParameter("option"));
 		bean.setAmount(Integer.parseInt(request.getParameter("amount")));
