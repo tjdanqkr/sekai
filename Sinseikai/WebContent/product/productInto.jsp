@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-   
+   <link rel="stylesheet" href="./product/kaisu.css">
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,6 +14,12 @@ function showBig(val) {
  var obj = document.getElementById("big");
   obj.src = "./img/" + val;
 } 
+function kessai(){
+	
+	
+}
+
+
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>상세물품정보</title>
@@ -25,26 +31,7 @@ function showBig(val) {
     <title></title>
      <link href="css/productInto.css" rel="stylesheet">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
-    <script type="text/javascript">
-    function selectmenu() {
-    	var c = document.body.children;
-        var x = document.getElementsById("option1").value;
-        var y = document.getElementById("option2").value;      
-        document.getElementById("demo").innerHTML = "선택 옵션: " + x + y;     
-    }
-    function checkmenu() {
-    	var x = document.getElementById("option1").value;
-        var y = document.getElementById("option2").value;
-        var z = false;
-        if(x!="0" && y!="사이즈"){  
-        	z=true;  }else{
-        		z=false;
-        	};
-        if(z!=true){  alert("나머지 옵션을 선택해 주세요");};        	
-    }
-   
-   </script>
-    
+     
 </head>
 <body>  
     <div id="main">
@@ -81,30 +68,36 @@ function showBig(val) {
         
         <div  id="sidebar">
         <ul>
-    <div class="selectbox"  >
-    <label for="select">옵션선택</label> 
-    ${optionHTML}
-        <c:forEach var="minorBeans" items="${option1Beans}">	
+    <div class="selectbox" >
+    <label  for="select">옵션선택</label> 
+    
+        <c:forEach   var="minorBeans" items="${option1Beans}">	
         
-        <select  id="option${minorBeans.get(0).majorNumber}"  onchange="selectmenu()">		       
+        <select  id="option${minorBeans.get(0).majorNumber}"  >		       
 	 		<option>${minorBeans.get(0).majorName}</option> 	
 	 			<c:forEach var="bean" items="${minorBeans}">
 	 				<option>${bean.minorName} ${bean.minorStock} </option>
 	 			</c:forEach>		
 	 	</select>
  		</c:forEach>
-	</div>
+	${optionHTML}
 	<br><br><br>
-	<p id="demo"></p>
-	${demo }
+	<p id="demo">
+	</p>
+	현재개수:
 	
-	<input  type="button" value="추가하기" id="menulist" onclick="checkmenu()" >
+	
+	<div class="abb"><!--선택시 나오는 개수정하기 -->
+     <button class="btn-1">[ + ]</button> <button class="btn-1">[ - ]</button>
+	</div>
+	
+
 	<hr><span align="right">
        상품 번호 : ${productBean.modelNumber} <br>
        포인트 적립률 :${productBean.rating}% <br>	
       배송소요기간 :${productBean.deliveryPeriod}일 
-        </ul>
-        </span>
+        </ul> </span>
+       
         </div>
         
         <div id="comments">

@@ -26,7 +26,7 @@ if (recent==null){
 </head>
 <body>
 
-<div><jsp:include page="product/headmenu.jsp"></jsp:include></div>
+<div><jsp:include page="../product/headmenu.jsp"></jsp:include></div>
 <div><jsp:include page="left.jsp"></jsp:include></div>
 <div><jsp:include page="custop.jsp"></jsp:include></div>
 <div><jsp:include page="<%=contentPage %>"></jsp:include></div>
