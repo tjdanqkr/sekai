@@ -26,8 +26,8 @@
         <ul>
             <li data-flip-title="Red">
                <a href="productInto.pr?productNumber=1"><img src="./img/test1.png" width="100%" height="100%"></a><br>
-                	<h2>엘페</h2>	나이키 반팔티<br><br>           	
-                	40,000원                         
+                	<h2>나이키</h2>	나이키 반팔티<br><br>           	
+                	36,000원                        
             </li>
             <li data-flip-title="Razzmatazz" data-flip-category="Purples">
                 <img src="./img/text2.gif">

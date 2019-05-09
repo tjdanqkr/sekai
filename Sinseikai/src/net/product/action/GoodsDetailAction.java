@@ -103,16 +103,21 @@ public class GoodsDetailAction implements Action {
 				
 		for(List<Option1Bean> minorBeans : majorBeans) {
 			if(minorBeans.get(0).getPaMajorNumber() == 0) {
-				html += createIndependentSelectElement(minorBeans);
+				html += createIndependentSelectElement(minorBeans, majorBeans);
 			}else {
-				html += createDependentSelectElement(minorBeans);
+				html += createDependentSelectElement(minorBeans, majorBeans);
 			}
 			html += "<br />\n";
 		}
 		
 		return html;
 	}
-	private String createIndependentSelectElement(List<Option1Bean> minorBeans) {
+	
+	/*
+	 * All options have possibility that they is parent.
+	 * argument majorBeans is used to that confirm the options is parent. 
+	 */
+	private String createIndependentSelectElement(List<Option1Bean> minorBeans, List<List<Option1Bean>> majorBeans) {
 		// This option can select freely.
 		
 		// Example) <select name="option1">
@@ -124,14 +129,25 @@ public class GoodsDetailAction implements Action {
 		// Example) <option value="1">first</option>
 		for(Option1Bean bean : minorBeans) {
 			html +=  "<option value=\"" + bean.getMinorNumber() + "\">" +
-					bean.getMinorName() + "</option>\n";
+					bean.getMinorName();
+			
+			if(!isExistChildOption(bean, majorBeans)) {
+				html += " " + bean.getMinorStock() + "개";
+			}
+			
+			html += "</option>\n";
 		}
 		
 		html += "</select>\n";
 		
 		return html;
 	}
-	private String createDependentSelectElement(List<Option1Bean> minorBeans) {
+	
+	/*
+	 * All options have possibility that they is parent.
+	 * argument majorBeans is used to that confirm the options is parent. 
+	 */
+	private String createDependentSelectElement(List<Option1Bean> minorBeans, List<List<Option1Bean>> majorBeans) {
 		// This option can select after parent option is selected.
 		String html = "";
 		
@@ -156,7 +172,13 @@ public class GoodsDetailAction implements Action {
 			
 			// Example) <option value="1">small</option>
 			html += "<option value=\"" + minorBeans.get(i).getMinorNumber() + "\">" + 
-					minorBeans.get(i).getMinorName() + "</option>\n";
+					minorBeans.get(i).getMinorName();
+			
+			if(!isExistChildOption(minorBeans.get(i), majorBeans)) {
+				html += " " + minorBeans.get(i).getMinorStock() + "개";
+			}
+			
+			html += "</option>\n";
 			
 			try {
 				if(minorBeans.get(i+1).getPaMinorNumber() != index) {
@@ -196,9 +218,9 @@ public class GoodsDetailAction implements Action {
 					js += "function hideOptions" + childNum + "(){\n" +
 						      "\tvar options = document.getElementsByName('option" + childNum + "');\n" +
 						      "\tfor(var i = 0; i < options.length; i++){\n" +
-						          "\t\toptions[i].value = 0;" + 
+						          "\t\toptions[i].value = 0;\n" + 
 						          "\t\toptions[i].style.display = 'none';\n" + 
-						      "}\n" + 
+						      "\t}\n" + 
 						  "}\n";
 					
 					// function showOption
@@ -212,5 +234,13 @@ public class GoodsDetailAction implements Action {
 		}
 		
 		return js;
+	}
+	private boolean isExistChildOption(Option1Bean maybeParent, List<List<Option1Bean>> maybeChildren) {
+		for(List<Option1Bean> maybeChild : maybeChildren) {
+			if(maybeChild.get(0).getPaMajorNumber() == maybeParent.getMajorNumber()) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
