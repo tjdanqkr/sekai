@@ -149,6 +149,7 @@ public class GoodsDetailAction implements Action {
 	 */
 	private String createDependentSelectElement(List<Option1Bean> minorBeans, List<List<Option1Bean>> majorBeans) {
 		// This option can select after parent option is selected.
+		
 		String html = "";
 		
 		int index = 0;
@@ -167,6 +168,14 @@ public class GoodsDetailAction implements Action {
 				
 				html += "<option value=\"0\">" + minorBeans.get(0).getMajorName() + "</option>\n";
 				
+				if(minorBeans.get(i).getPaMinorNumber() != index + 1) {
+					// Sadly, this parent option has no child option at this time.
+					html += "</select>\n";
+					i--;
+					index++;
+					
+					continue;
+				}
 				index = minorBeans.get(i).getPaMinorNumber();
 			}
 			
@@ -227,7 +236,7 @@ public class GoodsDetailAction implements Action {
 					js += "function showOption" + childNum + "(value){\n" +
 						      "\thideOptions" + childNum + "();\n" + 
 						      "\tdocument.getElementsByName('option" + childNum + 
-						      "')[value].style.display = 'block';\n" + 
+						      "')[value].style.display = 'inline';\n" + 
 						  "}";
 				}
 			}
