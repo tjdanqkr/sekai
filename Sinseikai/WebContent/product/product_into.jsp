@@ -6,8 +6,12 @@
 <% String name= request.getParameter("name"); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>신세카이 백화점</title>
+
+<script type="text/javascript" src="./js/product_into.js"></script>
+
 </head>
-<body>
+<body onload="onLoad()">
+<div id="container">
 
 <div><%@include file="headmenu.jsp" %></div><br>
 <div><%@include file="slide.html" %></div><!-- 이벤트 슬라이드 -->
@@ -20,6 +24,6 @@
 	<%=name %>
 
 
-
+</div>
 </body>
 </html>
