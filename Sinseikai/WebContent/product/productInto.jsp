@@ -7,7 +7,7 @@
 <html>
 <head>
 <%
-pageContext.setAttribute("option1Bans",request.getAttribute("option1Beans"));
+pageContext.setAttribute("option1Beans",request.getAttribute("option1Beans"));
 %>
 <script language = "javascript">
 function showBig(val) {
@@ -27,24 +27,23 @@ function showBig(val) {
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
     <script type="text/javascript">
     function selectmenu() {
-        var x = document.getElementById("option1").value;
+    	var c = document.body.children;
+        var x = document.getElementsById("option1").value;
         var y = document.getElementById("option2").value;      
-        document.getElementById("demo").innerHTML = "You selected: " + x + y;     
+        document.getElementById("demo").innerHTML = "선택 옵션: " + x + y;     
     }
     function checkmenu() {
     	var x = document.getElementById("option1").value;
         var y = document.getElementById("option2").value;
         var z = false;
-        if(x!="색상" && y!="사이즈"){  
+        if(x!="0" && y!="사이즈"){  
         	z=true;  }else{
         		z=false;
         	};
-        if(z==true){  alert("rnt");            };
-        	
+        if(z!=true){  alert("나머지 옵션을 선택해 주세요");};        	
     }
-    	
-    
-    </script>
+   
+   </script>
     
 </head>
 <body>  
@@ -84,18 +83,21 @@ function showBig(val) {
         <ul>
     <div class="selectbox"  >
     <label for="select">옵션선택</label> 
+    ${optionHTML}
         <c:forEach var="minorBeans" items="${option1Beans}">	
-        <select id="option${minorBeans.get(0).majorNumber}"  onchange="selectmenu()">		       
+        
+        <select  id="option${minorBeans.get(0).majorNumber}"  onchange="selectmenu()">		       
 	 		<option>${minorBeans.get(0).majorName}</option> 	
 	 			<c:forEach var="bean" items="${minorBeans}">
-	 				<option>${bean.minorName} </option>
+	 				<option>${bean.minorName} ${bean.minorStock} </option>
 	 			</c:forEach>		
 	 	</select>
  		</c:forEach>
 	</div>
 	<br><br><br>
 	<p id="demo"></p>
-	<p id="demo1"></p>
+	${demo }
+	
 	<input  type="button" value="추가하기" id="menulist" onclick="checkmenu()" >
 	<hr><span align="right">
        상품 번호 : ${productBean.modelNumber} <br>
@@ -113,16 +115,23 @@ function showBig(val) {
             </p>
             <p>
                 <span>Visitor 2</span>
-                	나는설명2단
+                	평점
             </p>
             <p>
                 <span>Visitor 3</span>
-                	나는 설명3단
+                	추가할거있으면 추가
                 
             </p>
         </div>
     </div>
     <div id="footer">Copyright © JankoAtWarpSpeed 2009.</div>
+    <script>
+   
+    ${optionJS}
+    
+    </script> 
+    
+    
 </body>
 </html>
 
