@@ -27,7 +27,8 @@ function showBig(val) {
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
     <script type="text/javascript">
     function selectmenu() {
-        var x = document.getElementById("option1").value;
+    	var c = document.body.children;
+        var x = document.getElementsById("option1").value;
         var y = document.getElementById("option2").value;      
         document.getElementById("demo").innerHTML = "선택 옵션: " + x + y;     
     }
@@ -35,7 +36,7 @@ function showBig(val) {
     	var x = document.getElementById("option1").value;
         var y = document.getElementById("option2").value;
         var z = false;
-        if(x!="색상" && y!="사이즈"){  
+        if(x!="0" && y!="사이즈"){  
         	z=true;  }else{
         		z=false;
         	};
@@ -92,12 +93,10 @@ function showBig(val) {
 	 			</c:forEach>		
 	 	</select>
  		</c:forEach>
- 		<select id = "amount" > 
- 		<option>s</option>
- 		</select>
 	</div>
 	<br><br><br>
 	<p id="demo"></p>
+	${demo }
 	
 	<input  type="button" value="추가하기" id="menulist" onclick="checkmenu()" >
 	<hr><span align="right">
@@ -116,11 +115,11 @@ function showBig(val) {
             </p>
             <p>
                 <span>Visitor 2</span>
-                	나는설명2단
+                	평점
             </p>
             <p>
                 <span>Visitor 3</span>
-                	나는 설명3단
+                	추가할거있으면 추가
                 
             </p>
         </div>
