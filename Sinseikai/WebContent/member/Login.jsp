@@ -17,7 +17,7 @@
     apiURL += "&state=" + state;
     session.setAttribute("state", state);
  %>
-<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="./css/login.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
