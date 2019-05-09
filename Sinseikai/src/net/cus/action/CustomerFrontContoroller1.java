@@ -19,7 +19,7 @@ import net.member.loginAction;
 public class CustomerFrontContoroller1 extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("aaa");
+		
 		String RequestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command = RequestURI.substring(contextPath.length());
@@ -45,6 +45,7 @@ public class CustomerFrontContoroller1 extends HttpServlet {
 			}
 			
 		} else if(command.equals("/detail.cus")) {
+			System.out.println("디테일");
 			action  = new DetailAction();
 			System.out.println("vava");
 			   try {

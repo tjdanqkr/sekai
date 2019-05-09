@@ -7,11 +7,12 @@
 <%
 	cusbean board = (cusbean)request.getAttribute("detailbean");
 %>
+<link rel="stylesheet" href="./css/cusdtail.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<h3>제목 : <%=board.getTitle() %></h3><br>
+<h3>제목 : <%=board.getTitle() %></h3>
 <h4>내용 : <%=board.getCon() %></h4>
 
 </body>

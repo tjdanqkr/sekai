@@ -90,5 +90,23 @@ header .page_title {
     color: inherit;
     cursor: pointer;
     text-decoration: none;  
+    
 }
-
+.bol td{
+    padding: 10px ;
+    font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', 'AppleSDGothicNeo', 'Helvetica', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+.uppo td{
+    padding: 10px ;
+    font-size: 30px;
+    background: #FAFAFA;
+    font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', 'AppleSDGothicNeo', 'Helvetica', sans-serif;
+    text-align: center;
+    vertical-align: middle;
+}
+.information_tableanswer_areacol_type table{
+	width: 70%;
+}

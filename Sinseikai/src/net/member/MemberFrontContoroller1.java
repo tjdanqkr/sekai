@@ -66,6 +66,13 @@ public class MemberFrontContoroller1 extends HttpServlet {
 				   } catch (Exception e) {
 					   e.printStackTrace();
 				   }
+			   }else if(command.equals("/naverlogin.me")) {
+				   action  = new naverlo();
+				   try {
+					   forward=action.execute(request, response );
+				   } catch (Exception e) {
+					   e.printStackTrace();
+				   }
 			   }
 			 if(forward.isRedirect()){
 				   response.sendRedirect(forward.getPath());
