@@ -29,19 +29,18 @@ public class cusdao implements DAO {
 		}
 	}
 
-	public List getList(cusbean bean) {
+	public List<cusbean> getList(cusbean bean) {
 
-		List list = new ArrayList();
+		List<cusbean> list = new ArrayList<cusbean>();
 		try {
 			pstmt = con.prepareStatement("select * from cusboard where name=?");
 			pstmt.setString(1, bean.getName());
 			rs = pstmt.executeQuery();
-
 			while (rs.next()) {
-				
-				bean.setTitle(rs.getString("title"));
-				bean.setCon(rs.getString("con"));
-				list.add(bean);
+				cusbean bean1 = new cusbean();
+				bean1.setTitle(rs.getString("title"));
+				bean1.setCon(rs.getString("con"));
+				list.add(bean1);
 
 			}
 			return list;

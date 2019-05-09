@@ -117,6 +117,69 @@ public class MemberDAO implements DAO {
 		if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
 	}
 	return false;
+	}public boolean naverInsert(NaverBean member){
+		int num =0;
+		String sql="";
+		
+		int result=0;
+		
+		try{
+			System.out.println("인설트");
+			sql= "insert into naver values (?,?,?)";
+			
+			 pstmt= con.prepareStatement(sql);
+			
+		       pstmt.setString(1, member.getId());
+		       pstmt.setString(2, member.getAge());
+		       pstmt.setString(3, member.getName());
+			pstmt.executeUpdate();
+			
+			result=result+1;
+			if(result==0) {
+			
+				return false;
+			}
+			
+			return true;
+		}catch(Exception ex){
+			System.out.println("boardInsert ���� : "+ex);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+		}
+		return false;
+	}
+	public boolean naverCheck(NaverBean member){
+		int num =0;
+		String sql="";
+		
+		int result=0;
+		
+		try{
+			
+			sql= "select*from naver where id=?";
+			
+			 pstmt= con.prepareStatement(sql);
+			
+		       pstmt.setString(1, member.getId());
+		       rs = pstmt.executeQuery();
+		       if(rs.next()){
+					  
+		    	   result=result+1;
+			   }
+			if(result==0) {
+			
+				return false;
+			}
+			
+			return true;
+		}catch(Exception ex){
+			System.out.println("boardInsert ���� : "+ex);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+		}
+		return false;
 	}
 	@Override
 	public void close() {
