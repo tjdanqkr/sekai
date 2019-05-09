@@ -7,7 +7,7 @@
 String contentPage;
 String kkk;
 %>
-<link rel="stylesheet" href="css/cusbottom.css">
+<link rel="stylesheet" href="./css/cusbottom.css">
 <meta charset="UTF-8">
 
 <title>Insert title here</title>

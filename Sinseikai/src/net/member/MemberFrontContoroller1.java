@@ -32,11 +32,11 @@ public class MemberFrontContoroller1 extends HttpServlet {
 			   }else if(command.equals("/login.me")){
 				   forward=new ActionForward();
 				   forward.setRedirect(false);
-				   forward.setPath("/Login.jsp");
+				   forward.setPath("./member/Login.jsp");
 			   }else if(command.equals("/join.me")){
 				   forward=new ActionForward();
 				   forward.setRedirect(false);
-				   forward.setPath("/Join.jsp");
+				   forward.setPath("./member/Join.jsp");
 			   }else if(command.equals("/loginAction.me")){
 				   action  = new loginAction();
 				   try {
@@ -54,11 +54,11 @@ public class MemberFrontContoroller1 extends HttpServlet {
 			   }else if(command.equals("/idch1.me")){
 				   forward=new ActionForward();
 				   forward.setRedirect(false);
-				   forward.setPath("/idch.jsp");
+				   forward.setPath("./member/idch.jsp");
 			   }else if(command.equals("/idch2.me")){
 				   forward=new ActionForward();
 				   forward.setRedirect(false);
-				   forward.setPath("/idch2.jsp");
+				   forward.setPath("./member/idch2.jsp");
 			   }else if(command.equals("/logout.me")) {
 				   action  = new logout();
 				   try {

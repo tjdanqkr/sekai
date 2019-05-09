@@ -40,7 +40,7 @@ public class MemberAddAction implements Action {
 	   		}
 	   		System.out.println("�Խ��� ��� �Ϸ�");
    		   	forward.setRedirect(true);
-	   		forward.setPath("./login.me");
+	   		forward.setPath("/login.me");
 	   		
 	   		return forward;
    			}catch(Exception ex){

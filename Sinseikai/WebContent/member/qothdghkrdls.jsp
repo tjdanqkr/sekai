@@ -13,8 +13,8 @@ String title;
 %>
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 
-<script type="text/javascript" src="js/ajax.js"></script>
-<link rel="stylesheet" href="css/qothdghkrdls.css">
+<script type="text/javascript" src="./js/ajax.js"></script>
+<link rel="stylesheet" href="./css/qothdghkrdls.css">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>

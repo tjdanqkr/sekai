@@ -28,14 +28,14 @@ public class CustomerFrontContoroller1 extends HttpServlet {
 		if (command.equals("/cus.cus")) {
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("/custem.jsp");
+			forward.setPath("./member/custem.jsp");
 			try {
 				request.setAttribute("contentPage", request.getParameter("contentPage"));
 				String contentPage = request.getAttribute("contentPage") + "";
-				System.out.println(contentPage + "adad");
+				
 				if (contentPage.equals("qothd.cus")) {
 					action = new cuga();
-					System.out.println("디비안됨");
+					
 					request.setAttribute("contentPage", "qothdghkrdls.jsp");
 					action.execute(request, response);
 				}
