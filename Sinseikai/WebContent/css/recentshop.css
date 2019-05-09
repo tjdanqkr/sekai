@@ -1,0 +1,114 @@
+
+.skyscraper {
+    position: fixed;
+    right: -465px;
+    bottom: 0;
+    width: 465px;
+    height: 100%;
+    min-height: 360px;
+    z-index: 110;
+    transition: right 0.3s ease-in-out;
+    list-style: none;
+}
+.sky_bnr {
+    position: absolute;
+    left: -80px;
+    bottom: 60px;
+    width: 80px;
+    
+    max-height: 179px;
+    text-align: center;
+    background: #ffffff;
+    font-size: 14px;
+	display: block;
+	
+     
+    
+}
+
+.sky_bnr li{
+	display: list-item;
+    color: #ffffff;
+}
+
+
+.sky_bnr li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+.sky_bnr .recently {
+    height: 68px;
+    padding-top: 16px;
+    background-color: #000000;
+    font-size: 12px;
+    overflow: hidden;
+    
+    padding: 16px 0px 0px;
+   
+}
+
+
+.sky_bnr .recently  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+	text-decoration: none;
+    color: inherit;
+
+}
+.sky_bnr .recently p {
+    height: 29px;
+    font-size: 14px;
+    color: #8d685a;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    
+}
+.sky_bnr .recently .a span {
+    display: block;
+    height: 13px;
+    margin-top: 10px;
+    line-height: 0;
+    text-align: center;
+}
+.sky_bnr .gotop {
+    height: 43px;
+    padding-bottom: 16px;
+    background-color: #000000;
+ 
+    font-size: 12px;
+    border-right: 0;
+    overflow: hidden;
+    padding: 0px 0px 16px;
+    
+}
+
+.sky_bnr .gotop a {
+    
+    text-decoration: none;
+    color: inherit;
+
+}
+
+.sky_bnr .gotop:before {
+    content: '';
+    display: block;
+    width: 66px;
+    height: 1px;
+    background-color: rgba(255,255,255,0.2);
+    margin: 0 auto 12px;
+}
+
+
+
+body, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, img, button {
+    margin: 0;
+    padding: 0;
+}
+

@@ -7,7 +7,7 @@
 <html>
 <head>
 <%
-pageContext.setAttribute("option1Bans",request.getAttribute("option1Beans"));
+pageContext.setAttribute("option1Beans",request.getAttribute("option1Beans"));
 %>
 <script language = "javascript">
 function showBig(val) {
@@ -29,7 +29,7 @@ function showBig(val) {
     function selectmenu() {
         var x = document.getElementById("option1").value;
         var y = document.getElementById("option2").value;      
-        document.getElementById("demo").innerHTML = "You selected: " + x + y;     
+        document.getElementById("demo").innerHTML = "선택 옵션: " + x + y;     
     }
     function checkmenu() {
     	var x = document.getElementById("option1").value;
@@ -39,12 +39,10 @@ function showBig(val) {
         	z=true;  }else{
         		z=false;
         	};
-        if(z==true){  alert("rnt");            };
-        	
+        if(z!=true){  alert("나머지 옵션을 선택해 주세요");};        	
     }
-    	
-    
-    </script>
+   
+   </script>
     
 </head>
 <body>  
@@ -84,18 +82,23 @@ function showBig(val) {
         <ul>
     <div class="selectbox"  >
     <label for="select">옵션선택</label> 
+    ${optionHTML}
         <c:forEach var="minorBeans" items="${option1Beans}">	
-        <select id="option${minorBeans.get(0).majorNumber}"  onchange="selectmenu()">		       
+        
+        <select  id="option${minorBeans.get(0).majorNumber}"  onchange="selectmenu()">		       
 	 		<option>${minorBeans.get(0).majorName}</option> 	
 	 			<c:forEach var="bean" items="${minorBeans}">
-	 				<option>${bean.minorName} </option>
+	 				<option>${bean.minorName} ${bean.minorStock} </option>
 	 			</c:forEach>		
 	 	</select>
  		</c:forEach>
+ 		<select id = "amount" > 
+ 		<option>s</option>
+ 		</select>
 	</div>
 	<br><br><br>
 	<p id="demo"></p>
-	<p id="demo1"></p>
+	
 	<input  type="button" value="추가하기" id="menulist" onclick="checkmenu()" >
 	<hr><span align="right">
        상품 번호 : ${productBean.modelNumber} <br>
@@ -123,6 +126,13 @@ function showBig(val) {
         </div>
     </div>
     <div id="footer">Copyright © JankoAtWarpSpeed 2009.</div>
+    <script>
+   
+    ${optionJS}
+    
+    </script> 
+    
+    
 </body>
 </html>
 

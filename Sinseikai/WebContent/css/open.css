@@ -1,0 +1,414 @@
+.skyscraper.opens {
+    right: -90px;
+}
+.skyscraper {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    right: -465px;
+    width: 465px;
+    height: 100%;
+    min-height: 360px;
+    z-index: 110;
+    transition: right 0.3s ease-in-out;
+    list-style: none;
+}
+
+.skyscraper .sky_bnr {
+    position: absolute;
+    left: -80px;
+    bottom: 60px;
+    width: 80px;
+    max-height: 179px;
+    text-align: center;
+    background: #ffffff;
+    font-size: 14px;
+	display: block;
+    color: -internal-root-color;
+     
+    
+}
+
+.sky_bnr li{
+	display: list-item;
+    color: #ffffff;
+}
+
+
+.sky_bnr li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+.sky_bnr .recently {
+    height: 68px;
+    padding-top: 16px;
+    background-color: #000000;
+    font-size: 12px;
+    overflow: hidden;
+    
+    padding: 16px 0px 0px;
+   
+}
+
+
+.sky_bnr .recently  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+	text-decoration: none;
+    color: inherit;
+
+}
+.sky_bnr .recently p {
+    height: 29px;
+    font-size: 14px;
+    color: #8d685a;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    
+}
+.sky_bnr .recently .a span {
+    display: block;
+    height: 13px;
+    margin-top: 10px;
+    line-height: 0;
+
+}
+.sky_bnr .gotop {
+    height: 43px;
+    padding-bottom: 16px;
+    background-color: #000000;
+ 
+    font-size: 12px;
+    border-right: 0;
+    overflow: hidden;
+    padding: 0px 0px 16px;
+    
+}
+
+.sky_bnr .gotop a {
+    
+    text-decoration: none;
+    color: inherit;
+    
+    
+}
+
+.sky_bnr .gotop:before {
+    content: '';
+    display: block;
+    width: 66px;
+    height: 1px;
+    background-color: rgba(255,255,255,0.2);
+    margin: 0 auto 12px;
+}
+
+.skyscraper html {
+    color: -internal-root-color;
+}
+
+body, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, img, button {
+    margin: 0;
+    padding: 0;
+}
+
+
+.skyscraper.open {
+    right: -90px;
+    background: #ffffff;
+    font-size: 14px;
+    position: fixed;
+    right: 465;
+    bottom: 0;
+    right: -465px;
+    width: 465px;
+    height: 100%;
+    min-height: 360px;
+    z-index: 110;
+    transition: right 0.3s ease-in-out;
+}
+.sky_cont {
+	
+    position: absolute;
+    bottom: 0;
+    width: 375px;
+    min-height: 300px;
+    background-color: #262626;
+}
+
+.sky_cont .sky_wrap {
+    height: 100%;
+}
+
+.sky_cont .sky_wrap h2 {
+    display: block;
+    height: 54px;
+    line-height: 54px;
+    background-color: #222;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.1em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.sky_cont .counter {
+    display: inline-block;
+    height: 18px;
+    border-radius: 9px;
+    padding: 1px 10px 2px;
+    background: #8d685a;
+    color: #FFFFFF;
+    font-size: 12px;
+    line-height: normal;
+    vertical-align: middle;
+}
+.skyscraper .close {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.skyscraper .close button {
+    border: none;
+    background: transparent;
+}
+.sky_cont button {
+  	align-items: flex-start;
+    text-align: center;
+    color: buttontext;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    font: 400 13.3333px Arial;
+    
+}
+.skyscraper .ico_closer {
+    position: relative;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+img, [class^="ico_"] {
+
+    vertical-align: middle;
+}
+
+.skyscraper .ico_closer:before, .skyscraper .ico_closer:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 1px;
+    background-color: #fff;
+}
+.a11y_sr-only {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.sky_cont .sky_wrap .list.nodata {
+    min-height: 100px;
+    line-height: 100px;
+    position: relative;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+}
+.sky_cont .sky_wrap .list {
+    position: relative;
+    height: 100%;
+}
+.sky_cont .sky_wrap .list:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 46px;
+    z-index: 5;
+    width: 1px;
+    height: 100%;
+    background: #555;
+}
+.sky_cont .sky_wrap .list {
+    position: relative;
+    height: 100%;
+    min-height: 300px;
+}
+.sky_cont .sky_wrap .clear_items {
+    padding: 10px 10px 15px 15px;
+    text-align: right;
+}
+.sky_cont .sky_wrap .clear_items button {
+    border: none;
+    background: transparent;
+    color: #999;
+}
+.sky_cont button {
+    border: 0;
+    background: transparent;
+}
+.sky_cont .sky_wrap .clear_items button:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    margin-right: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(./el_icons.png);
+    background-size: 192px auto;
+    background-repeat: no-repeat;
+    background-position: -128px -208px;
+    background-position-x: -128px;
+    background-position-y: -208px;
+    opacity: .4;
+}
+template {
+    display: none;
+}
+.sky_cont .sky_wrap .list ul {
+    position: relative;
+    width: 100%;
+    margin-left: 17px;
+    z-index: 9;
+    max-height: 595px;
+    overflow: hidden;
+    overflow-y: auto;
+    list-style: none;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+.sky_cont .sky_wrap .list ol {
+    list-style: none;
+}
+.sky_cont .sky_wrap .item:first-child {
+    margin-top: 0;
+}
+.sky_cont .sky_wrap .item .figure {
+    width: 90px;
+}
+.sky_cont .sky_wrap .item .figure, .sky_cont .sky_wrap .item .info, .sky_cont .sky_wrap .item .favorite {
+    float: left;
+}
+.sky_cont .sky_wrap .item .figure .photo {
+    height: 72px;
+    overflow: hidden;
+}
+.sky_cont .sky_wrap .item .figure .photo, .sky_cont .sky_wrap .item .figure .category, .sky_cont .sky_wrap .item .figure .search {
+    width: 72px;
+    text-align: center;
+}
+.sky_cont .sky_wrap .item .figure .photo img {
+    max-width: 100%;
+}
+img, [class^="ico_"] {
+    display: inline-block;
+    vertical-align: middle;
+}
+img {
+    border: 0;
+}
+.sky_cont .sky_wrap .item .info {
+    display: block;
+    width: calc(100% - 170px);
+    margin-right: 30px;
+    margin-top: 3px;
+    color: #fff;
+    font-size: 12px;
+}
+.sky_cont .sky_wrap .item .info .seller {
+    margin: -3px 0 4px;
+    color: #999;
+    font-size: 11px;
+    font-weight: 500;
+    min-height: 17px;
+    position: relative;
+    padding-top: 25px;
+    height: 42px;
+    margin-bottom: 5px;
+    line-height: 1.42;
+}
+@media (max-width: 1599px) .item .seller {
+    font-size: 12px;
+}
+.sky_cont .sky_wrap .item .info .title {
+    height: 30px;
+    margin-bottom: 10px;
+    white-space: normal;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    line-height: 15px;
+    color: inherit;
+}
+.sky_cont .sky_wrap .item .info .price {
+    padding-bottom: 6px;
+}
+.sky_cont .sky_wrap .item .favorite .ico_favorite {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(./el_icons.png);
+    background-size: 360px auto;
+    background-repeat: no-repeat;
+    background-position: -180px -660px;
+}
+.sky_cont .sky_wrap .item {
+    margin-top: 40px;
+}
+.sky_cont .sky_wrap .item .figure .category, .sky_cont .sky_wrap .item .figure .search {
+    height: 22px;
+    padding: 4px 0 3px;
+    background-color: #fff;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
