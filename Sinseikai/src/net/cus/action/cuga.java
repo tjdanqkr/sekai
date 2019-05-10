@@ -36,7 +36,7 @@ public class cuga implements Action {
 			}
 			System.out.println("�Խ��� ��� �Ϸ�");
 			forward.setRedirect(false);
-			forward.setPath("./qothdghkrdls.jsp");
+			forward.setPath("./member/qothdghkrdls.jsp");
 
 			return null;
 		} catch (Exception ex) {

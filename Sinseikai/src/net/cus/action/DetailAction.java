@@ -22,13 +22,10 @@ public class DetailAction implements Action{
 			String title=request.getParameter("title");
 			cusbean.setTitle(title);
 			cusbean= cusdao.Detail(cusbean);
-			System.out.println(result);
 			cusdao.close();
-			System.out.println(cusbean.getCon()+"이건 내용");
-			System.out.println(cusbean.getTitle()+"이건 이름");
 			request.setAttribute("detailbean", cusbean);
 			forward.setRedirect(false);
-			forward.setPath("./CusDetail.jsp");
+			forward.setPath("./member/CusDetail.jsp");
 			return forward;
 		}catch (Exception e) {
 			// TODO: handle exception
