@@ -27,7 +27,10 @@ public class AdminMenuAction implements Action {
 			return null;
 		}		
     
-		request.setAttribute("adminMenuBeans", repackaging(beans)); // Put the result.
+		/*
+		 * Admin menu is need always. so set to session.
+		 */
+		request.getSession().setAttribute("adminMenuBeans", repackaging(beans)); // Put the result.
 
 		return null;
 	}
