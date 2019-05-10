@@ -3,16 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<<<<<<< HEAD
-<% String name= request.getParameter("name"); %>
-=======
 
-<% String name= request.getParameter("name"); 
-String recent=request.getParameter("recent");
-if (recent==null){
-	recent = "recentshop.jsp";
-}%>
->>>>>>> branch 'master' of https://github.com/kgc815/sekai.git
+<% String name= request.getParameter("name"); %>
+
 
 
 

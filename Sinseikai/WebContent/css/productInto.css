@@ -25,9 +25,13 @@
         #content.compact, #comments.compact { width:690px;}
         #sidebar.compact { width:130px;}
        
+       #myP {display:block }
+       
         a { color:#0000ff;}
         h3 { font-size:30px; font-weight:bold; padding:0; margin:0; color:#B0232A;}
         em { font-size:10px;}
         gg {text-decoration: line-through;}
+    	p {display:block; font-size:16px; color:#B0232A;}
+  		
     </style>
     
