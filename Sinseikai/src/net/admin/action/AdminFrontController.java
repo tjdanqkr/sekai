@@ -65,6 +65,15 @@ public class AdminFrontController extends HttpServlet implements FrontController
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/manageCategory.ad")) { // Admin menu.
+			/*
+			 * In here, get admin menu.
+			 * and go to ~.pr, will get category menu.
+			 */
+			
+			forward = new ActionForward();
+			forward.setRedirect(true);
+			forward.setPath("manageCategory.pr");
 		}
 		
 		if(forward.isRedirect()) {
