@@ -4,8 +4,8 @@
 */
 %>
 
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
 <%
 	String id = session.getAttribute("id") + "";
@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Admin Page</title>
 <style>
 	body{
@@ -24,8 +24,12 @@
 		margin: 0px;
 	}
 	#leftContainer{
+		flex-grow: 1;
 		height: 100vh;
 		background:gray;
+	}
+	#centerContainer{
+		flex-grow: 6;
 	}
 </style>
 </head>
