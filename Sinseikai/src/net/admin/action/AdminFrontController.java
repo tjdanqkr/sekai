@@ -27,16 +27,19 @@ public class AdminFrontController extends HttpServlet implements FrontController
 		ActionForward forward = null;
 		Action action = null;
 		
-		/*
-		 * action = new AdminMenuAction(); // Admin menu is call always. try {
-		 * action.execute(request, response); }catch(Exception e) { e.printStackTrace();
-		 * }
-		 */
 		
-		if(command.equals("/")) {
+		action = new AdminMenuAction(); // Admin menu is call always. 
+		try {
+			action.execute(request, response); 
+		}catch(Exception e) { 
+			e.printStackTrace();
+		}
+		 
+		
+		if(command.equals("/admin.ad")) { // Admin main menu.
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("/.jsp");
+			forward.setPath("/admin/adminContainer.jsp");
 		}else if(command.equals("/overview.ad")) {
 			action = new OverviewAction();
 			try {

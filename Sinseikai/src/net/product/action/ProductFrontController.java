@@ -76,6 +76,17 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/manageCategory.pr")) { // Admin menu.
+			/*
+			 * Category menu is called always when uri is end as ".pr".
+			 * so not call action.
+			 */
+			request.setAttribute("centerUri", "/admin/??.jsp");
+			
+			forward = new ActionForward();
+			
+			forward.setRedirect(false);
+			forward.setPath("/admin/adminContainer.jsp");
 		}
 		
 		if(forward.isRedirect()) {
