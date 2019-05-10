@@ -2,6 +2,8 @@ package net.product.db;
 
 public class CodexCategoryBean {
 	private String categoryName;
+	private int categorycode;
+	
 	public String getCategoryName() {
 		return categoryName;
 	}
@@ -14,5 +16,4 @@ public class CodexCategoryBean {
 	public void setCategorycode(int categorycode) {
 		this.categorycode = categorycode;
 	}
-	private int categorycode;
 }
