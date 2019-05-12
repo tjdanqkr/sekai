@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -49,6 +51,47 @@ public class CodexCategoryDAO implements DAO{
 		}
 		return null;
 	}
+	
+	// Get categoryCode as categoryName in bean.
+	public List<CodexCategoryBean> getCategoryCodes() {
+		List<CodexCategoryBean> beans = new ArrayList<CodexCategoryBean>();
+		
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select categorycode from codexcategory");
+			
+			while(rs.next()) {
+				CodexCategoryBean bean = new CodexCategoryBean();
+				
+				bean.setCategorycode(rs.getInt("categorycode"));
+				
+				beans.add(bean);
+			}
+			
+			return beans;
+		} catch (SQLException se) {
+			// TODO Auto-generated catch block
+			se.printStackTrace();
+		}
+		return null;
+	}
+	
+	// Insert categoryName and categoryCode.
+		public boolean insertCodexCategory(CodexCategoryBean bean) {
+			try {
+				pstmt = con.prepareStatement("insert into codexcategory values(?, ?)");
+				pstmt.setString(1, bean.getCategoryName());
+				pstmt.setInt(2, bean.getCategorycode());
+				
+				if(pstmt.executeUpdate() == 1) {
+					return true;
+				}
+			} catch (SQLException se) {
+				// TODO Auto-generated catch block
+				se.printStackTrace();
+			}
+			return false;
+		}
 	
 	public void close() {
 		if(con != null) {

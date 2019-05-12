@@ -55,6 +55,25 @@ public class MenuDAO implements DAO{
 		return null;
 	}
 	
+	// Insert category menu.
+	public Boolean insertMenu(MenuBean bean) {
+		try {
+			pstmt = con.prepareStatement("insert into menu values(?, ?, ?)");
+			
+			pstmt.setString(1, bean.getMajorName());
+			pstmt.setString(2, bean.getMinorName());
+			pstmt.setString(3, bean.getCategoryName());
+			
+			if(pstmt.executeUpdate() == 1) {
+				return true;
+			}
+		} catch (SQLException se) {
+			// TODO Auto-generated catch block
+			se.printStackTrace();
+		}
+		return false;
+	}
+	
 	@Override
 	public void close() {
 		if(con != null) {
