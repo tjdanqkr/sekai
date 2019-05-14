@@ -53,7 +53,6 @@ public class GoodsDetailAction implements Action {
 		}
 		
 		List<List<Option1Bean>> majorBeans = repackagingOption(option1Beans);
-		
 		request.setAttribute("productBean", productBean); // Put the result.
 		request.setAttribute("optionHTML",  listToHTML(majorBeans));
 		request.setAttribute("optionJS", createJSForOption(majorBeans));
@@ -184,7 +183,7 @@ public class GoodsDetailAction implements Action {
 					minorBeans.get(i).getMinorName();
 			
 			if(!isExistChildOption(minorBeans.get(i), majorBeans)) {
-				html += " " + minorBeans.get(i).getMinorStock() + "개";
+				html += " "+ "&nbsp" + "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp" + minorBeans.get(i).getMinorStock() + "개 재고";
 			}
 			
 			html += "</option>\n";
@@ -197,7 +196,6 @@ public class GoodsDetailAction implements Action {
 				html += "</select>\n"; // Last option.
 			}
 		}
-		
 		return html;
 	}
 	

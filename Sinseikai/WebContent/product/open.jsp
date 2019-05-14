@@ -6,7 +6,7 @@
 <%
 String recent;
 %>
-<link rel="stylesheet" href="css/open.css">
+<link rel="stylesheet" href="./css/open.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -15,7 +15,7 @@ String recent;
 		<div class="sky_bnr">
 			<ul>
 
-				<li class="recently"><a href="?recent=recentshop.jsp"
+				<li class="recently"><a href="?recent=./product/recentshop.jsp"
 					onClick="gaEventCommon('PC_공통_액션바', '최근 본 쇼핑', '최근 본 쇼핑', '', '');">
 						<span>최근 본 쇼핑</span>
 						<p class="recent_shopping_infomation_count">0</p>

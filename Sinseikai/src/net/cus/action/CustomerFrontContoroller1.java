@@ -19,7 +19,7 @@ import net.member.loginAction;
 public class CustomerFrontContoroller1 extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("aaa");
+		
 		String RequestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command = RequestURI.substring(contextPath.length());
@@ -28,14 +28,14 @@ public class CustomerFrontContoroller1 extends HttpServlet {
 		if (command.equals("/cus.cus")) {
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("/custem.jsp");
+			forward.setPath("./member/custem.jsp");
 			try {
 				request.setAttribute("contentPage", request.getParameter("contentPage"));
 				String contentPage = request.getAttribute("contentPage") + "";
-				System.out.println(contentPage + "adad");
+				
 				if (contentPage.equals("qothd.cus")) {
 					action = new cuga();
-					System.out.println("디비안됨");
+					
 					request.setAttribute("contentPage", "qothdghkrdls.jsp");
 					action.execute(request, response);
 				}
@@ -45,6 +45,7 @@ public class CustomerFrontContoroller1 extends HttpServlet {
 			}
 			
 		} else if(command.equals("/detail.cus")) {
+			System.out.println("디테일");
 			action  = new DetailAction();
 			System.out.println("vava");
 			   try {

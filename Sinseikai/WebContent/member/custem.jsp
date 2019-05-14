@@ -14,12 +14,7 @@ String contentPage=request.getAttribute("contentPage")+"";
     request.setAttribute("kkk", request.getParameter("kkk"));
    
     %>
-<%
-String recent=request.getParameter("recent");
-if (recent==null){
-	recent = "../product/recentshop.jsp";
-}
-%>
+
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -30,8 +25,7 @@ if (recent==null){
 <div><jsp:include page="left.jsp"></jsp:include></div>
 <div><jsp:include page="custop.jsp"></jsp:include></div>
 <div><jsp:include page="<%=contentPage %>"></jsp:include></div>
-<div>
-<jsp:include page="<%=recent%>"></jsp:include></div>
+
 
 
 </body>
