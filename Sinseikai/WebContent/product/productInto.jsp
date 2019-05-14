@@ -38,19 +38,50 @@ function kessai(){
 			$( document ).ready( function() {
 				var jb;
 				var jb1;
-				function myFunction() {
-					  document.getElementById("myP").style.visibility = "visible";
+				var jb2;
+				var temp;
+				function input(){
+					var input = document.getElementById("quantity").value;
+					return input;
 					}
+					
 				$( 'button#jbButton' ).click( function() {		
 					  jb = $("select[name='option1'] option:selected").text();			
 					document.getElementById("demo").innerHTML = jb;
 					 jb1 = $("select[name='option2'] option:selected").text();	
 					 jb1= jb1.substring(3);
 					 document.getElementById("demo1").innerHTML = jb1;
-				} );				
+								
+				$( 'button#jbButton2' ).click( function() {		
+						
+						 jb2=input();
+						 document.getElementById("demo4").innerHTML = jb;		 
+						 document.getElementById("demo5").innerHTML = jb1;
+						 document.getElementById("demo").innerHTML = " ";		 
+						 document.getElementById("demo1").innerHTML = " ";
+						 document.getElementById("demo6").innerHTML = jb2;
+					
+						
+
+
+				} );			
+				} );
 				
 			} );
-	
+			 function modifyProductQuantity(id, quantity){
+			        
+		         if(isNaN($("#"+id).val())){
+		              alert( '숫자만 입력가능 합니다.' );
+		              $("#"+id).focus();
+		              $("#"+id).val(0);
+		              return;
+		         }			        
+		         //var v = parseFloat($("#"+id).val())+parseFloat(quantity);    
+		         //$("#"+id).val(Math.round(v*10)/10);			         
+		         var q = parseInt($("#"+id).val())+parseInt(quantity);    
+		         $("#"+id).val(q);
+		    };
+			
 			</script>
 </head>
 <body>
@@ -96,20 +127,38 @@ function kessai(){
 			<div id="sidebar">
 
 
-			<label for="select">옵션선택</label>
-			
+			<label for="select">색상,사이즈 선택</label>			
 			${optionHTML}<!-- 얘가 텍스트박스 생성 -->
-			<button id="jbButton" onclick="gasu()">Click</button>
-			
+			<button id="jbButton" >Click</button>
+			<div>
   			주문한 색상: 	<p id="demo"></p>
   			주문한 사이즈:	<p align="left" id="demo1"></p>
-  <p  style="visibility:hidden;"id="myP" >	주문 개수:	<input  type ="text" id="su" style="width:30px;" value="1">			</p>	<br>
-			  	 
+  			주문 개수:
+    <input name="quantity" id="quantity" style="vertical-align:middle; text-align:right" size="5" maxlength="4" value="1"/>
+    <img style="vertical-align:middle;" alt="수량 증가 감소" src="btn_cnt.gif" usemap="#map_name_quantity"/>
+    <map id="map_name_quantity" name="map_name_quantity">
+        <area href="javascript:modifyProductQuantity('quantity',1);" shape="rect" alt="수량 증가" coords="0,0,9,10"/>
+        <area href="javascript:modifyProductQuantity('quantity',-1);" shape="rect" alt="수량 감소" coords="0,10,9,20"/>
+    </map>
+			<br>
+			</div>
     			<div>
-			 <br>
-			<br>
-			<br>
+			<button id="jbButton2" >추가하기</button>
+	
+			<div class="blue-box">
+	<span class="tl"></span><span class="tr"></span>
+	<div class="box-content">
+		<h2>제목</h2>
+		<p id ="demo4"></p>
+		<p id ="demo5"></p>
+		<p id ="demo6"></p>
+	</div>
+	<span class="bl"></span><span class="br"></span>
+
+</div>
+	
 			
+	
 			<hr>
 			<span> 상품 번호 : ${productBean.modelNumber} <br>
 				포인트 적립률 :${productBean.rating}% <br> 배송소요기간
@@ -118,6 +167,25 @@ function kessai(){
 			</div>
 			</div>
 			</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	<div id="comments">
 		<h3>Comments</h3>
@@ -133,7 +201,7 @@ function kessai(){
 
 		</p>
 	</div>
-</div>
+
 	<div id="footer">Copyright © JankoAtWarpSpeed 2009.</div>
 	
 	
