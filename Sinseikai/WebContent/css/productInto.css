@@ -33,5 +33,50 @@
         gg {text-decoration: line-through;}
     	p {display:block; font-size:16px; color:#B0232A;}
   		
+  		
+.blue-box {
+	background: #09F;
+	color: #FFF;
+	width: 200px;
+	overflow: hidden;
+	margin: 10px 0;
+}
+.blue-box .tl {	background-position: -320px 0px;}
+.blue-box .tr {	background-position: -330px 0px;}
+.blue-box .bl {	background-position: -320px 10px;}	
+.blue-box .br {	background-position: -330px 10px;}
+
+h1 {
+	margin-bottom: 0.5em;
+	font-size: 1.4em;	
+}
+h2 {
+	font-size: 1.2em;
+	line-height: 1;
+}
+.tl, .tr, .bl, .br {
+	background: url(http://www.blueb.co.kr/SRC2/_image/corners.gif);
+	width: 10px;
+	height: 10px;
+	font-size: 0;
+}
+.tl, .bl {
+	float: left;	
+}
+.tr, .br {
+	float: right;	
+}
+.box-content {
+	clear: both;
+	padding: 0 10px;
+	overflow: hidden;	
+}
+* html .box-content {
+	height: 1%;	
+}
+
+  		
+  		
+  		
     </style>
     

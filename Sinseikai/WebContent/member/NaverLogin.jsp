@@ -9,6 +9,8 @@ session.setAttribute("age", request.getParameter("age"));
 String Name= request.getParameter("name");
 String name = URLDecoder.decode(Name, "UTF-8") ;
 session.setAttribute("name", name);
+session.setAttribute("email", request.getParameter("email"));
+System.out.println(session.getAttribute("email"));
 %>
 <meta charset="UTF-8">
 <title>Insert title here</title>

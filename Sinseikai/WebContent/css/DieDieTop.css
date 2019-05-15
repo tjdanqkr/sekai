@@ -1,0 +1,20 @@
+.sub_cont header{
+    float: left;
+    width: 996px;
+    font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', 'AppleSDGothicNeo', 'Helvetica', sans-serif;
+    -webkit-box-sizing: border-box;
+    padding: 16px 0 14px;
+    font-size: 24px;
+    font-weight: normal;
+}
+.bull_list-dash li {
+	color: #666;
+    font-size: 14px;
+    line-height: 20px;
+	display: list-item;
+    list-style: none;
+    position: relative;
+    margin-top: 4px;
+    padding-left: 9px;
+    word-break: break-all;
+}
