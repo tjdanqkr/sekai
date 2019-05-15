@@ -9,7 +9,7 @@
 
 <meta charset="UTF-8">
 
-<script src="../js/join.js"></script>
+<script src="./js/join.js"></script>
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <link href="http://fonts.googleapis.com/earlyaccess/nanumpenscript.css"
