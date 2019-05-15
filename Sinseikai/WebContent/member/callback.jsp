@@ -48,8 +48,8 @@
 					var age = naverLogin.user.getAge();
 					
 					var Name = naverLogin.user.getName();
-					
-					window.location.replace("http://localhost:8090/Sinseikai/member/NaverLogin.jsp?id="+uniqId+"&age="+age+"&name="+encodeURI(encodeURIComponent(Name))
+					var Email = naverLogin.user.getEmail();
+					window.location.replace("http://localhost:8090/Sinseikai/member/NaverLogin.jsp?id="+uniqId+"&age="+age+"&name="+encodeURI(encodeURIComponent(Name)+"&email="+Email)
 
 );
 				} else {

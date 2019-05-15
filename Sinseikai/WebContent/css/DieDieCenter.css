@@ -1,0 +1,166 @@
+.information_table table {
+    table-layout: fixed;
+    width: 70%;
+    border-top: 1px solid #000;
+    border: 0;
+    border-spacing: 0;
+    display: table;
+    border-collapse: separate;
+    font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', 'AppleSDGothicNeo', 'Helvetica', sans-serif;
+    font-weight: 400;
+}
+.information_table tr {
+	padding: 16px;
+    text-align: left;
+    vertical-align: middle;
+    line-height: 1.43;
+}
+.information_table th {
+
+    background: #fafafa;
+}
+.information_table tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.information_table input[type="checkbox"], input[type="radio"] {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    border-radius: 0;
+    background: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    opacity: 0;
+}
+.information_table input[type="checkbox"]+label:before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-top: -4px;
+    margin-right: 5px;
+    vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 480px auto;
+    background-repeat: no-repeat;
+    background-position: -9px -9px;
+}.information_table input[type=checkbox]:checked + label:before { 
+    background-color: transparent;
+    background-image: url(../images/el_icons.png);
+    background-size: 480px auto;
+    background-repeat: no-repeat;
+    background-position: -9px -9px;
+     }
+.information_table table td .btn_normal-medium {
+    min-width: 130px;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 40px;
+}.information_table [class^="btn_normal"] {
+    border: 1px solid #b3b3b3;
+    background-color: #fff;
+    color: #000;
+}.information_table [class^="btn_"] {
+    display: inline-block;
+    text-align: center;
+}.information_table button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    -webkit-writing-mode: horizontal-tb !important;
+}
+.information_table table th, .information_table table td {
+    padding: 16px;
+    text-align: left;
+    vertical-align: middle;
+}.information_table table td {
+    line-height: 1.43;
+}.information_table input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"], textarea, select {
+    border: 1px solid #D9D9D9;
+    background-color: #fff;
+    color: #000;
+    font-size: 14px;
+    vertical-align: middle;
+}.information_table [class$="-full"] {
+    display: block;
+    width: 70%;
+}
+
+
+.select_order-item {
+    margin: 20px 0 -16px;
+    text-align: left;
+}
+
+
+.information_table button {
+    cursor: pointer;
+}
+.information_table table td .btn_normal-medium {
+    min-width: 130px;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 40px;
+}.information_table table td textarea {
+    width: 70%;
+    height: 200px;
+    resize: none;
+}.information_table textarea {
+    padding: 14px 16px 13px;
+}.information_table div[class^="btn_area"] input[type="submit"][class^="btn_"] {
+    cursor: pointer;
+    vertical-align: top;
+}.information_table div[class^="btn_area"] [class^="btn_"] {
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    
+}.information_table input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"], select {
+    height: 40px;
+    padding: 4px 12px 5px;
+    border: 1px solid #D9D9D9;
+    background-color: #FFF;
+    color: #000;
+    font-size: 14px;
+    padding: 4px 6px 5px 12px\9;
+}
+.information_table [class^="btn_default"] {
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+}.information_table [class^="btn_"] {
+    display: inline-block;
+    text-align: center;
+    outline: none;
+    text-decoration:none;
+}.information_table div[class^="btn_area"] [class^="btn_"] {
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+}
