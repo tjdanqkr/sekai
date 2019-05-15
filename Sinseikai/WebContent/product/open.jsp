@@ -19,12 +19,15 @@ function defaultSet() {
 }
 function changeMenu(){
 	var container = document.getElementsByClassName("skyscraper")[0];
-	alert("틴트");
+	var container1 = document.getElementsByClassName("skyscraper open")[0];
 	if(container.getAttribute("class") == "skyscraper") {
-		alert("볼터치");
+		
 		container.setAttribute("class", "skyscraper open");
-		return 0;
+		
+	}else if(container1.getAttribute("class") == "skyscraper open") {
+		container1.setAttribute("class", "skyscraper");
 	}
+	return 0;
 }
 function count(){
 	
