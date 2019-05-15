@@ -117,7 +117,7 @@ body, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, img, button {
 
 .skyscraper.open {
     right: -90px;
-    background: #ffffff;
+    
     font-size: 14px;
     position: fixed;
     bottom: 0;
