@@ -3,22 +3,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%
-String recent;
-%>
+<%-- <%
+	String recent;
+%> --%>
 <link rel="stylesheet" href="./css/open.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+function defaultSet() {
+	
+	var recently = document.getElementsByClassName("recently");
+	recently[0].addEventListener("click", changeMenu());
+	document.getElementsByClassName("sky_cont")[0].addEventListener("click",changeMenu());
+
+}
+function changeMenu(){
+	var container = document.getElementsByClassName("skyscraper")[0];
+	var container1 = document.getElementsByClassName("skyscraper open")[0];
+	if(container.getAttribute("class") == "skyscraper") {
+		
+		container.setAttribute("class", "skyscraper open");
+		
+	}else if(container1.getAttribute("class") == "skyscraper open") {
+		container1.setAttribute("class", "skyscraper");
+	}
+	return 0;
+}
+function count(){
+	
+	var container = document.getElementById("count")[0].innerHTML = Count();
+}
+</script>
 </head>
 <body>
-	<div class="skyscraper opens">
+	<div class="skyscraper">
 		<div class="sky_bnr">
 			<ul>
 
-				<li class="recently"><a href="?recent=./product/recentshop.jsp"
-					onClick="gaEventCommon('PC_공통_액션바', '최근 본 쇼핑', '최근 본 쇼핑', '', '');">
+				<li class="recently"><a href="javascript:void(0);" onclick="defaultSet()">
 						<span>최근 본 쇼핑</span>
-						<p class="recent_shopping_infomation_count">0</p>
+						<p class="recent_shopping_infomation_count" id="count"></p>
 				</a></li>
 
 				<li class="gotop"><a href="#top">TOP</a></li>
