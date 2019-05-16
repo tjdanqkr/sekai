@@ -27,13 +27,14 @@ public class Die implements Action{
 		NaverBean nabean= new NaverBean();
 		ActionForward forward = new ActionForward();
 		boolean result = false;
+		
 		try {
 			
-			mebean.setName(session.getAttribute("email")+"");
+			mebean.setEmail(session.getAttribute("Email")+"");
 			result= medao.dieinf(mebean);
 			session.setAttribute("email", mebean.getEmail());
 			session.setAttribute("phone", mebean.getPhone());
-			System.out.println(result);
+			System.out.println(result+"리졸튼");
 			if(result==false) {
 				
 				nabean.setId(session.getAttribute("id")+"");
