@@ -16,13 +16,13 @@
 		<%if(session.getAttribute("name")==null){ %>
 		
 		<ul class="nav_question">
-			<li><a href="http://localhost:8090/Sinseikai/login.me" >1:1 문의하기</a></li>
-			<li><a href="http://localhost:8090/Sinseikai/login.me" >1:1 답변확인 <em class="count" id="qnaCnt"></em ></a>	</li>
+			<li><a href="./login.me" >1:1 문의하기</a></li>
+			<li><a href="./login.me" >1:1 답변확인 <em class="count" id="qnaCnt"></em ></a>	</li>
 		</ul>
 		<%}else{ %>
 		<ul class="nav_question">
-			<li><a href="http://localhost:8090/Sinseikai/cus.cus?contentPage=diedie.cus" >1:1 문의하기</a></li>
-			<li><a href="http://localhost:8090/Sinseikai/cus.cus?contentPage=diedieok.cus" >1:1 답변확인 <em class="count" id="qnaCnt"></em ></a>	</li>
+			<li><a href="./cus.cus?contentPage=diedie.cus" >1:1 문의하기</a></li>
+			<li><a href="./cus.cus?contentPage=diedieok.cus" >1:1 답변확인 <em class="count" id="qnaCnt"></em ></a>	</li>
 		</ul>
 		<%} %>
 		<ul class="nav_list">
