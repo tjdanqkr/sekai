@@ -4,12 +4,17 @@
 <html>
 <head>
 
+
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head><!-- 상단 헤더관련은 여기에 붙이세요 -->
-<body>
-<div><%@include file="headerside.jsp" %></div><br>
+<body onload="onLoad()">
 
+
+<div><%@include file="headerside.jsp" %></div><br>
+<div><jsp:include page="open.jsp"></jsp:include></div>
 <a href="./start.jsp"><img alt="" src="./img/elLotte.png" ></a><br>
 <div><%@include file="main.jsp" %></div><!-- 상단 메뉴바 -->
 </body>

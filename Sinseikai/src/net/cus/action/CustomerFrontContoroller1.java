@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import net.member.MemberAddAction;
 import net.member.loginAction;
+import net.product.action.CategoryMenuAction;
 
 /**
  * Servlet implementation class MemberFrontContoroller1
@@ -27,7 +28,8 @@ public class CustomerFrontContoroller1 extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		HttpSession session = request.getSession();
-		System.out.println(session.getAttribute("id"));
+		
+		
 		if (command.equals("/cus.cus")) {
 			forward = new ActionForward();
 			forward.setRedirect(false);
