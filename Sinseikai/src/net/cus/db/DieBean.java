@@ -6,6 +6,13 @@ public class DieBean {
 	private String title;
 	private String subject;
 	private String phone;
+	private String reple;
+	public String getReple() {
+		return reple;
+	}
+	public void setReple(String reple) {
+		this.reple = reple;
+	}
 	public String getEmail() {
 		return email;
 	}

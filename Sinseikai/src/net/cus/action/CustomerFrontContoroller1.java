@@ -46,6 +46,9 @@ public class CustomerFrontContoroller1 extends HttpServlet {
 				}else if (contentPage.equals("diedie.cus")){
 					action = new Die();
 					request.setAttribute("contentPage", "DieDieCenter.jsp");
+				}else if (contentPage.equals("diedieok.cus")){
+					action = new DieCh();
+					request.setAttribute("contentPage", "DieCh.jsp");
 				}
 				action.execute(request, response);
 			} catch (Exception e) {
@@ -57,6 +60,13 @@ public class CustomerFrontContoroller1 extends HttpServlet {
 			System.out.println("디테일");
 			action  = new DetailAction();
 			System.out.println("vava");
+			   try {
+				   forward=action.execute(request, response );
+			   } catch (Exception e) {
+				   e.printStackTrace();
+			   }
+		}else if(command.equals("/detaildie.cus")) {
+			action  = new DieDetail();
 			   try {
 				   forward=action.execute(request, response );
 			   } catch (Exception e) {

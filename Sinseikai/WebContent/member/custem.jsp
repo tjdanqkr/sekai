@@ -24,7 +24,6 @@ String contentPage=request.getAttribute("contentPage")+"";
 <div><jsp:include page="../product/headmenu.jsp"></jsp:include></div>
 <div><jsp:include page="left.jsp"></jsp:include></div>
 
-<div><jsp:include page="custop.jsp"></jsp:include></div>
 <div><jsp:include page="../product/open.jsp"></jsp:include></div>
 
 <% if(contentPage.equals("DieDieCenter.jsp")){%>

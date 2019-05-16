@@ -1,5 +1,8 @@
 package net.cus.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -8,10 +11,8 @@ import net.action.Action;
 import net.action.ActionForward;
 import net.cus.db.DieBean;
 import net.cus.db.DieDAO;
-import net.cus.db.cusbean;
-import net.cus.db.cusdao;
 
-public class DieInsert implements Action{
+public class DieCh implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -21,28 +22,21 @@ public class DieInsert implements Action{
 		DieBean dieBean= new DieBean();
 		ActionForward forward = new ActionForward();
 		boolean result = false;
+		List boardlist=new ArrayList();
 		try {
-			String product= "";
-			String email= session.getAttribute("email")+"";
-			String phone= request.getParameter("ansCellNo");
-			String title= request.getParameter("inqTitl");
-			String subject= request.getParameter("inqCnts");
-			dieBean.setEmail(email);
-			dieBean.setPhone(phone);
-			dieBean.setProduct(product);
-			dieBean.setSubject(subject);
-			dieBean.setTitle(title);
-			System.out.println("시작");
-			result=dieDAO.DieInsert(dieBean);
-			if(result==false) {
+			dieBean.setEmail(session.getAttribute("Email")+"");
+			boardlist = dieDAO.getList(dieBean);
+			dieDAO.close();
+			
+			request.setAttribute("boardlist", boardlist);
+			if (boardlist==null) {
+				System.out.println("보드가 없네");
 				return null;
 			}
-			forward.setRedirect(true);
-			forward.setPath("./cus.cus");
+			forward.setRedirect(false);
+			forward.setPath("./member/DieCh.jsp");
 			return forward;
-			
 		}catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		

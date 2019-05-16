@@ -294,7 +294,7 @@ public class MemberDAO implements DAO {
 		int result = 0;
 		try {
 			sql = "select email,name,phone from member where email=?";
-
+			System.out.println(member.getEmail());
 			int f = 0;
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, member.getEmail());
@@ -303,12 +303,10 @@ public class MemberDAO implements DAO {
 				member.setName(rs.getString("name"));
 				member.setEmail(rs.getString("email"));
 				member.setPhone(rs.getString("phone"));
-				result=1;
-				
+				f=1;
 			}
-
-			if (result == 0) {
-
+		
+			if (f == 0) {
 				return false;
 			}
 			return true;
