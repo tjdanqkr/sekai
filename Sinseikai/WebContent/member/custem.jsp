@@ -14,18 +14,17 @@ String contentPage=request.getAttribute("contentPage")+"";
     request.setAttribute("kkk", request.getParameter("kkk"));
    
     %>
-
+<script type="text/javascript" src="../js/product_into.js"></script>
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body onload="onLoad()">
 
 <div><jsp:include page="../product/headmenu.jsp"></jsp:include></div>
 <div><jsp:include page="left.jsp"></jsp:include></div>
 
-<div><jsp:include page="custop.jsp"></jsp:include></div>
-<div><jsp:include page="../product/open.jsp"></jsp:include></div>
+
 
 <% if(contentPage.equals("DieDieCenter.jsp")){%>
 

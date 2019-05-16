@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.action.Action;
+import net.action.ActionForward;
 import net.cus.db.DieBean;
 import net.cus.db.DieDAO;
 import net.cus.db.cusbean;

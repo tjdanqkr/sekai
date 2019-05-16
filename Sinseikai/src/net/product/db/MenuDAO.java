@@ -41,6 +41,7 @@ public class MenuDAO implements DAO{
 			
 			while(rs.next()) {
 				MenuBean bean = new MenuBean();
+				
 				bean.setMajorName(rs.getString("majorname"));
 				bean.setMinorName(rs.getString("minorname"));
 				bean.setCategoryName(rs.getString("categoryname"));

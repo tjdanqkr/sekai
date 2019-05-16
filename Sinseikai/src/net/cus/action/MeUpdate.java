@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.action.Action;
+import net.action.ActionForward;
 import net.member.db.MemberBean;
 import net.member.db.MemberDAO;
 import net.member.db.NaverBean;

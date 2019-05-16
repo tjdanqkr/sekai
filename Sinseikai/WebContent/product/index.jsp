@@ -12,7 +12,6 @@
 
     <link rel="stylesheet" href="./dist/jquery.flipster.min.css">
 
-    <script src="jquery.min.js"></script>
     <script src="./dist/jquery.flipster.min.js"></script>
 </head>
 <body>

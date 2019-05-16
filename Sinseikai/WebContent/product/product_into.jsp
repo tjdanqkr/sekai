@@ -6,9 +6,6 @@
 
 <% String name= request.getParameter("name"); %>
 
-
-
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>신세카이 백화점</title>
 
