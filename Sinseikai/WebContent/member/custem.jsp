@@ -14,17 +14,21 @@ String contentPage=request.getAttribute("contentPage")+"";
     request.setAttribute("kkk", request.getParameter("kkk"));
    
     %>
-
+<script type="text/javascript" src="../js/product_into.js"></script>
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body onload="onLoad()">
 
 <div><jsp:include page="../product/headmenu.jsp"></jsp:include></div>
 <div><jsp:include page="left.jsp"></jsp:include></div>
 
+<<<<<<< HEAD
 <div><jsp:include page="../product/open.jsp"></jsp:include></div>
+=======
+
+>>>>>>> branch 'master' of https://github.com/tjdanqkr/sekai.git
 
 <% if(contentPage.equals("DieDieCenter.jsp")){%>
 

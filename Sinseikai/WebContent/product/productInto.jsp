@@ -160,6 +160,7 @@ function kessai(){
 			
 	
 			<hr>
+			<a href="./payment/productPay.py">주문하기</a>
 			<span> 상품 번호 : ${productBean.modelNumber} <br>
 				포인트 적립률 :${productBean.rating}% <br> 배송소요기간
 				:${productBean.deliveryPeriod}일
