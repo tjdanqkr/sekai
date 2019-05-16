@@ -29,10 +29,10 @@
 			<li>
 				<p class="nav_tit">나의 쇼핑정보</p>
 				<ul class="nav_list-sub">
-					<li><a href="https://order.ellotte.com/order-fo/claim/orderDelivery?bypass" >주문배송조회</a></li>
-					<li><a href="https://order.ellotte.com/order-fo/claim/smartpicks?bypass" >스마트픽 관리</a></li>
-					<li><a href="https://order.ellotte.com/order-fo/claim/claims?bypass" >취소/교환/반품 조회</a></li>
-					<li><a href="https://order.ellotte.com/order-fo/claim/receipt?bypass" >영수증 확인/출력</a></li>
+					<li><a href="./orderDelivery?bypass" >주문배송조회</a></li>
+					<li><a href="./smartpicks?bypass" >스마트픽 관리</a></li>
+					<li><a href="./claims?bypass" >취소/교환/반품 조회</a></li>
+					<li><a href="./receipt?bypass" >영수증 확인/출력</a></li>
 					<li><a href="#" id="showPastOrdListMenu">이전 쇼핑내역<span class="st">(2018.10.31 이전)</span></a></li> <!-- 20181005 추가 -->
 				</ul>
 			</li>

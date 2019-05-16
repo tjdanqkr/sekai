@@ -30,7 +30,11 @@ public class CustomerFrontContoroller1 extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		HttpSession session = request.getSession();
+
 		action = new CategoryMenuAction();
+
+		
+
 		
 		if (command.equals("/cus.cus")) {
 			forward = new ActionForward();
