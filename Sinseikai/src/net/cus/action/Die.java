@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.action.Action;
+import net.action.ActionForward;
 import net.cus.db.cusbean;
 import net.cus.db.cusdao;
 import net.member.db.MemberBean;
@@ -31,7 +33,7 @@ public class Die implements Action{
 			result= medao.dieinf(mebean);
 			session.setAttribute("email", mebean.getEmail());
 			session.setAttribute("phone", mebean.getPhone());
-			
+			System.out.println(result);
 			if(result==false) {
 				
 				nabean.setId(session.getAttribute("id")+"");

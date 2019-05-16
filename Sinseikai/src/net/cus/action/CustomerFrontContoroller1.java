@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.action.Action;
+import net.action.ActionForward;
 import net.member.MemberAddAction;
 import net.member.loginAction;
 import net.product.action.CategoryMenuAction;
@@ -28,7 +30,11 @@ public class CustomerFrontContoroller1 extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		HttpSession session = request.getSession();
+
+		action = new CategoryMenuAction();
+
 		
+
 		
 		if (command.equals("/cus.cus")) {
 			forward = new ActionForward();
