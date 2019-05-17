@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="./css/DieDetail.css">
 <head>
 <%
 	DieBean board = (DieBean)request.getAttribute("detailbean");
@@ -11,15 +12,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>제목 : <%=board.getTitle() %></h3>
-<h4>물품 : <%=board.getProduct()%></h4>
-<h4>내용 : <%=board.getSubject()%></h4>
-<h4>이메일 : <%=board.getEmail()%></h4>
-<h4>폰 : <%=board.getPhone()%></h4>
+<table class="detai">
+<tr class="tp">
+<td>Title <%=board.getTitle() %></td>
+<td>Product <%=board.getProduct()%></td>
+</tr><br>
+<tr class="ep">
+<td>Email <%=board.getEmail()%></td>
+<td>Phone <%=board.getPhone()%></td>
+</tr>
+<tr class="ct">
+<td colspan="2">Content</td>
+</tr>
+<tr class="ct">
+<td colspan="2"><%=board.getSubject()%></td>
+</tr>
+<tr>
+<td colspan="2" class="rp">
 <%if(board.getReple()==null){ %>
-<h4>관리자 말 : 아직 답변을 못했어요</h4>
+아직 답변을 못했어요
 <%}else{ %>
-<h4>관리자 말 : <%=board.getReple() %></h4>
-<%} %>
+관리자   <%=board.getReple() %>
+<%} %></td>
+</tr>
+</table>
 </body>
 </html>
