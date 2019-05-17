@@ -39,7 +39,7 @@ String title;
 					<div align="left" ><%=i+1 %></div>
 				</td>
 				<td >
-					<div align="left" class="iii"><a target="_blank" href="http://localhost:8090/Sinseikai/detail.cus?title=<%=URLEncoder.encode(bl.getTitle(), "UTF-8")%>"><%=bl.getTitle()%></a></div>
+					<div align="left" class="iii"><a target="_blank" href="./detail.cus?title=<%=URLEncoder.encode(bl.getTitle(), "UTF-8")%>"><%=bl.getTitle()%></a></div>
 				</td>
 
 			</tr>
