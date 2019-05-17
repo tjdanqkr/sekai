@@ -25,10 +25,10 @@ String title;
 		<table width=50% border="0" cellpadding="0" cellspacing="0">
 			<tr align="center" valign="middle" bordercolor="#333333" class="uppo" >
 				<td width="30%">
-					<div align="left">번호</div>
+					<div align="left">Number</div>
 				</td>
 				<td >
-					<div align="center">제목</div>
+					<div align="left">Title</div>
 				</td>
 
 			</tr>
@@ -36,10 +36,14 @@ String title;
 				cusbean bl=(cusbean)boardList.get(i);%>
 			<tr align="center" valign="middle" bordercolor="#333333" class="bol">
 				<td width="30%">
-					<div align="left" ><%=i+1 %></div>
+					<div class="o" align="left" ><h2><%=i+1 %></h2></div>
 				</td>
 				<td >
-					<div align="left" class="iii"><a target="_blank" href="http://localhost:8090/Sinseikai/detail.cus?title=<%=URLEncoder.encode(bl.getTitle(), "UTF-8")%>"><%=bl.getTitle()%></a></div>
+<<<<<<< HEAD
+					<div align="left" class="iii"><a target="_blank" href="./detail.cus?title=<%=URLEncoder.encode(bl.getTitle(), "UTF-8")%>"><%=bl.getTitle()%></a></div>
+=======
+					<div  align="left" class="iii"><a target="_blank" href="./detail.cus?title=<%=URLEncoder.encode(bl.getTitle(), "UTF-8")%>"><%=bl.getTitle()%></a></div>
+>>>>>>> branch 'master' of https://github.com/kgc815/sekai.git
 				</td>
 
 			</tr>

@@ -25,10 +25,10 @@ String contentPage=request.getAttribute("contentPage")+"";
 <div><jsp:include page="left.jsp"></jsp:include></div>
 
 <<<<<<< HEAD
-<div><jsp:include page="../product/open.jsp"></jsp:include></div>
 =======
+<div><jsp:include page="../product/open.jsp"></jsp:include></div>
+>>>>>>> branch 'master' of https://github.com/kgc815/sekai.git
 
->>>>>>> branch 'master' of https://github.com/tjdanqkr/sekai.git
 
 <% if(contentPage.equals("DieDieCenter.jsp")){%>
 
