@@ -90,6 +90,15 @@ header .page_title {
     color: inherit;
     cursor: pointer;
     text-decoration: none;  
+    color: black;
+    font-size: 22px;
+    
+}
+.iii a:hover{
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;  
+    color: red;
     
 }
 .bol td{
@@ -98,14 +107,31 @@ header .page_title {
     font-size: 20px;
     text-align: center;
     vertical-align: middle;
+    
 }
+
+.o h2{
+	    color: gray;
+	    font-size: 20px;
+}
+.o {
+	    color: gray;
+	    font-size: 20px;
+}
+
 .uppo td{
     padding: 10px ;
-    font-size: 30px;
+    font-size: 25px;
     background: #FAFAFA;
     font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', 'AppleSDGothicNeo', 'Helvetica', sans-serif;
     text-align: center;
     vertical-align: middle;
+}
+.uppo div{
+	font-size: 20px;
+	font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', 'AppleSDGothicNeo', 'Helvetica', sans-serif;
+	font-style: italic;
+	color: gray;
 }
 .information_tableanswer_areacol_type table{
 	width: 70%;

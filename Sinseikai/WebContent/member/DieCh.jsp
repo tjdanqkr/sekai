@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="./css/qothdghkrdls.css">
 <%
 List<DieBean> boardList=(List)request.getAttribute("boardlist");
 %>
@@ -18,10 +19,10 @@ List<DieBean> boardList=(List)request.getAttribute("boardlist");
 		<table width=50% border="0" cellpadding="0" cellspacing="0">
 			<tr align="center" valign="middle" bordercolor="#333333" class="uppo" >
 				<td width="30%">
-					<div align="left">번호</div>
+					<div align="left">Number</div>
 				</td>
 				<td >
-					<div align="center">제목</div>
+					<div align="left">Title</div>
 				</td>
 
 			</tr>
@@ -29,7 +30,7 @@ List<DieBean> boardList=(List)request.getAttribute("boardlist");
 				DieBean bl=(DieBean)boardList.get(i);%>
 			<tr align="center" valign="middle" bordercolor="#333333" class="bol">
 				<td width="30%">
-					<div align="left" ><%=i+1 %></div>
+					<div class="o" align="left" ><%=i+1 %></div>
 				</td>
 				<td >
 					<div align="left" class="iii"><a target="_blank" href="./detaildie.cus?title=<%=URLEncoder.encode(bl.getTitle(), "UTF-8")%>"><%=bl.getTitle()%></a></div>
