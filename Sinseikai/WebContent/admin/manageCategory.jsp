@@ -68,7 +68,7 @@
 		MajorName <input type="text" name="majorName" oninput="validate()" />
 		MinorName <input type="text" name="minorName" oninput="validate()" />
 		CategoryName <input type="text" name="categoryName" oninput="validate()" />
-		CategoryCode <input type="text" name="categorycode" oninput="validate()"/>
+		CategoryCode <input type="text" name="categoryCode" oninput="validate()"/>
 		<input type="submit" value="등록" />
 	</form>
 	<p id="noticeCategory"></p>
@@ -96,8 +96,8 @@
 		category: -1
 	};
 	var majorList = [];
-	var codexCategoryList = [];
-
+	var categoryCodeList = [];
+	
 	<c:forEach var="minorBeans" items="${majorBeans}">
 		var minorList = [];
 		<c:forEach var="categoryBeans" items="${minorBeans}">
@@ -106,20 +106,17 @@
 				var category = {
 					majorName : '${bean.majorName}',
 					minorName : '${bean.minorName}',
-					categoryName : '${bean.categoryName}'
+					categoryName : '${bean.categoryName}',
+					categoryCode : '${bean.categoryCode}'
 				};
+				
+				categoryCodeList.push(category.categoryCode);
 				categoryList.push(category);
 			</c:forEach>
 			minorList.push(categoryList);
 		</c:forEach>
 		majorList.push(minorList);
 	</c:forEach>
-	
-	
-	<c:forEach var="bean" items="${categoryCodeBeans}">
-		codexCategoryList.push('${bean.categorycode}');
-	</c:forEach>	
-	
 	
 	$('#majorCategory').children().on('click', function(event){
 		openMinorCategory(event.target.value);
@@ -160,12 +157,23 @@
 		
 		for(var i = 0; i < categoryList.length; i++){
 			var li = $('<li></li>');
+			var button = $('<button></button>');
+			
 			li.attr('class', 'categoryButton');
 			li.val(i);
 			li.html(categoryList[i].categoryName);
 			li.on('click', function(event){
-				
+				// Modified.
 			})
+			
+			button.val(i);
+			button.html('삭제');
+			button.on('click', function(event){
+				// Delete category.
+				deleteCategoryIfWant(selected.major, selected.minor, event.target.value);
+			});
+			
+			li.append(button);
 			$('#category').append(li);
 		}
 
@@ -202,8 +210,8 @@
 	}
 	
 	function checkOverlapCode(){
-		for(var i = 0; i < codexCategoryList.length; i++){
-			if($('input[name=categorycode]').val() == codexCategoryList[i]){
+		for(var i = 0; i < categoryCodeList.length; i++){
+			if($('input[name=categoryCode]').val() == categoryCodeList[i]){
 				$('#noticeCode').html('동일한 카테고리 코드가 있습니다');
 				return false;
 			}
@@ -228,7 +236,7 @@
 		var majorName = $('input[name=majorName]').val();
 		var minorName = $('input[name=minorName]').val();
 		var categoryName = $('input[name=categoryName]').val();
-		var categorycode = $('input[name=categorycode]').val();
+		var categoryCode = $('input[name=categoryCode]').val();
 		
 		if((!checkOverlap()) || (!checkOverlapCode())){
 			return false;
@@ -246,12 +254,39 @@
 		}
 		
 		reg = /^\d{1,}$/; // Check number.
-		if(!reg.test(categorycode)){
+		if(!reg.test(categoryCode)){
 			return false;
 		}
 
 		$('#noticeConfirm').html('추가 가능합니다!');
 		return true;
+	}
+	
+	// Question that are you sure delete the category?
+	function deleteCategoryIfWant(major, minor, category){
+		var categoryData = majorList[major][minor][category];
+		
+		if(confirm('정말 삭제?\n' + categoryData.majorName + ' - ' + categoryData.minorName + ' - ' + categoryData.categoryName)){
+			// Request category delete to server.
+			var form = $('<form></form>');
+			var input = $('<input />')
+			
+			form.attr('action', 'manageCategoryDelete.pr');
+			form.attr('method', 'post');
+			form.css('display', 'none');
+			
+			input.attr('name', 'categoryCode');
+			input.val(categoryData.categoryCode);
+			
+			form.append(input[0]);
+			form.append(input[1]);
+			form.append(input[2]);
+			form.append(input[3]);
+			
+			$('body').append(form);
+			
+			form.submit();
+		}
 	}
 </script>
 	

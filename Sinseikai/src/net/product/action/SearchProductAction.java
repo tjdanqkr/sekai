@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.action.Action;
 import net.action.ActionForward;
-import net.product.db.CodexCategoryBean;
-import net.product.db.CodexCategoryDAO;
 import net.product.db.ProductBean;
 import net.product.db.ProductDAO;
 
@@ -16,17 +14,12 @@ public class SearchProductAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		CodexCategoryDAO codexCategoryDAO = new CodexCategoryDAO();
 		ProductDAO productDAO = null;
 		
-		CodexCategoryBean codexCategoryBean = new CodexCategoryBean();
 		List<ProductBean> productBeans = null;
-		ProductBean productBean = null;
+		ProductBean productBean = new ProductBean();
 		
 		String search = request.getParameter("search?"); // Get search text.
-		
-		codexCategoryBean.setCategoryName(search);
-		
 		
 		// Set search keyword to bean.
 		try{ // search keyword is number?
@@ -36,13 +29,10 @@ public class SearchProductAction implements Action {
 		productBean.setModelNumber(search);
 		productBean.setModelName(search);
 		
-		codexCategoryBean = codexCategoryDAO.getCategorycode(codexCategoryBean);
-		codexCategoryDAO.close();
-		if(codexCategoryBean == null) {
-			System.err.println("ERROR - Failed get the categoryCode");
-			return null;
-		}
-		productBean.setCategorycode(codexCategoryBean.getCategorycode());
+		// Set search keyword to bean.
+		try{ // search keyword is number?
+			productBean.setCategorycode(Integer.parseInt(search));
+		}catch(NumberFormatException nfe) {}
 		
 		productDAO = new ProductDAO();
 		productBeans = productDAO.searchAsKeyword(productBean);
