@@ -160,12 +160,23 @@
 		
 		for(var i = 0; i < categoryList.length; i++){
 			var li = $('<li></li>');
+			var button = $('<button></button>');
+			
 			li.attr('class', 'categoryButton');
 			li.val(i);
 			li.html(categoryList[i].categoryName);
 			li.on('click', function(event){
-				
+				// Modified.
 			})
+			
+			button.val(i);
+			button.html('삭제');
+			button.on('click', function(event){
+				// Delete category.
+				deleteCategoryIfWant(selected.major, selected.minor, event.target.value);
+			});
+			
+			li.append(button);
 			$('#category').append(li);
 		}
 
@@ -252,6 +263,36 @@
 
 		$('#noticeConfirm').html('추가 가능합니다!');
 		return true;
+	}
+	
+	// Question that are you sure delete the category?
+	function deleteCategoryIfWant(major, minor, category){
+		if(confirm('정말 삭제?' + major + ' ' + minor + ' ' + category)){
+			// Request category delete to server.
+			var form = $('<form></form>');
+			var input = [
+					$('<input />'),
+					$('<input />'),
+					$('<input />')
+				];
+			var categoryData = majorList[major][minor][category];
+			
+			form.attr('action', 'manageCategoryDelete.pr');
+			form.attr('method', 'post');
+			form.css('display', 'none');
+			
+			input[0].val(categoryData.majorName);
+			input[1].val(categoryData.minorName);
+			input[2].val(categoryData.categoryName);
+			
+			form.append(input[0]);
+			form.append(input[1]);
+			form.append(input[2]);
+			
+			$('body').append(form);
+			
+			form.submit();
+		}
 	}
 </script>
 	
