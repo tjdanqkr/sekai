@@ -45,6 +45,7 @@ public class MenuDAO implements DAO{
 				bean.setMajorName(rs.getString("majorname"));
 				bean.setMinorName(rs.getString("minorname"));
 				bean.setCategoryName(rs.getString("categoryname"));
+				bean.setCategoryCode(rs.getInt("categorycode"));
 				beans.add(bean);
 			}
 			
@@ -59,11 +60,12 @@ public class MenuDAO implements DAO{
 	// Insert category menu.
 	public Boolean insertMenu(MenuBean bean) {
 		try {
-			pstmt = con.prepareStatement("insert into menu values(?, ?, ?)");
+			pstmt = con.prepareStatement("insert into menu values(?, ?, ?, ?)");
 			
 			pstmt.setString(1, bean.getMajorName());
 			pstmt.setString(2, bean.getMinorName());
 			pstmt.setString(3, bean.getCategoryName());
+			pstmt.setInt(4, bean.getCategoryCode());
 			
 			if(pstmt.executeUpdate() == 1) {
 				return true;
@@ -78,11 +80,9 @@ public class MenuDAO implements DAO{
 	// Delete category menu.
 	public Boolean deleteMenu(MenuBean bean) {
 		try {
-			pstmt = con.prepareStatement("delete from menu where majorname=? and minorname=? and categoryname=?");
+			pstmt = con.prepareStatement("delete from menu where categorycode=?");
 			
-			pstmt.setString(1, bean.getMajorName());
-			pstmt.setString(2, bean.getMinorName());
-			pstmt.setString(3, bean.getCategoryName());
+			pstmt.setInt(1, bean.getCategoryCode());
 			
 			if(pstmt.executeUpdate() == 1) {
 				return true;
