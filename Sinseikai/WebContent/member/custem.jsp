@@ -24,8 +24,10 @@ String contentPage=request.getAttribute("contentPage")+"";
 <div><jsp:include page="../product/headmenu.jsp"></jsp:include></div>
 <div><jsp:include page="left.jsp"></jsp:include></div>
 
-
+<<<<<<< HEAD
+=======
 <div><jsp:include page="../product/open.jsp"></jsp:include></div>
+>>>>>>> branch 'master' of https://github.com/kgc815/sekai.git
 
 
 <% if(contentPage.equals("DieDieCenter.jsp")){%>
@@ -35,8 +37,5 @@ String contentPage=request.getAttribute("contentPage")+"";
 <div><jsp:include page="custop.jsp"></jsp:include></div>
 <div><jsp:include page="<%=contentPage %>"></jsp:include></div>
 <%} %>
-
-<div id=footer><%@include file="../product/footer.jsp" %>  </div>
-
 </body>
 </html>

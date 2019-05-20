@@ -165,7 +165,27 @@ function showBig(val) {
 			</span>
 			</div>
 			</div>
-			
+			</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	<div id="comments">
 		<h3>Comments</h3>
 		<p>
@@ -181,7 +201,7 @@ function showBig(val) {
 		</p>
 	</div>
 
-	
+	<div id="footer">Copyright © JankoAtWarpSpeed 2009.</div>
 	
 	
 	
@@ -192,8 +212,8 @@ function showBig(val) {
     </script>
 
 
-</div>
-<div id=footer> <%@include file="footer.jsp" %>  </div>
+
+
 
 </body>
 </html>
