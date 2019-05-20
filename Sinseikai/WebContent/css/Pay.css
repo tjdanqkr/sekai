@@ -14,15 +14,20 @@ margin-left:20px;
 padding-top:60px;
 padding-left: 25px;
 }
-#imgdiv{
+#imgspan{
 margin:auto;
 width:30%;
 height:10%;
 float:left;
 }  
+#gurim{
+float:left;
+	
+	
+}
 #setumei{
 margin:auto;
-width:60%;
-height:10%;
-float:left;
+width:30%;
+height:500px;
+float:center;
 }  

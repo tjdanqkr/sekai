@@ -19,13 +19,14 @@ pageContext.setAttribute("option1Beans",session.getAttribute("option1Beans"));
 <hr class="my-hr1">
 <h2>주문상품</h2>
 <hr class="my-hr2">
-<div align="left" class="imgdiv"><img src="./img/test1.png" width="200px" height="200px"><!--이미지 -->
-<div class="setumei">
-<span>${productBean.brandName}</span>
-<span>${productBean.modelNumber }</span>
-<span> ${productBean.rating}%</span>
-<span>${productBean.modelName}</span>
-</div>
+<div align="left" class="imgspan"><img src="./img/test1.png" id="gurim"><!--이미지 -->
+<br><br><br><br><span class="setumei">
+<h2><b>${productBean.brandName}</b></h2><br><br>
+상품명 : ${productBean.modelName}<br><br>
+모델번호 : ${productBean.modelNumber}<br><br>
+포인트 적립률 : ${productBean.rating}%<br><br>
+</span><br><br><br><br><br>
+
 </div><!-- 컨테이너꺼 -->
 <hr class= "my-hr1">
 <h2>주문고객</h2>
