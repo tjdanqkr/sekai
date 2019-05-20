@@ -7,6 +7,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <link rel="stylesheet" href="./product/kaisu.css">
 <%
 	String cp= request.getContextPath();
@@ -15,6 +16,8 @@
 	Cookie c1= new Cookie("price",URLEncoder.encode(request.getParameter("productBean.price") ,"utf-8"));	
 	Cookie c2= new Cookie("img",URLEncoder.encode("img/a1.jpg" ,"utf-8"));
 %>
+<%@ page session = "true" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,10 +46,6 @@ function showBig(val) {
  var obj = document.getElementById("big");
   obj.src = "./img/" + val;
 } 
-function kessai(){
-	
-	
-}
 
 
 </script>
@@ -54,11 +53,11 @@ function kessai(){
 <title>상세물품정보</title>
 </head>
 <!-- 여기는상품상세란 -->
-<body>
+
 	<div><%@include file="/product/headmenu.jsp"%></div>
 	<br>
-<head>
-<title></title>
+
+
 <link href="css/productInto.css" rel="stylesheet">
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
@@ -89,9 +88,9 @@ function kessai(){
 						 document.getElementById("demo").innerHTML = " ";		 
 						 document.getElementById("demo1").innerHTML = " ";
 						 document.getElementById("demo6").innerHTML = jb2;
-					
-						
-
+						 
+						 sessionStorage.setItem( 'color', 'jb' );
+						 sessionStorage.setItem( 'size', 'jb1' );
 
 				} );			
 				} );
@@ -110,7 +109,9 @@ function kessai(){
 		         var q = parseInt($("#"+id).val())+parseInt(quantity);    
 		         $("#"+id).val(q);
 		    };
-			
+		   
+
+		   
 			</script>
 </head>
 <body>
@@ -189,34 +190,14 @@ function kessai(){
 			
 	
 			<hr>
-			<a href="./payment/productPay.py">주문하기</a>
+			<a href="./productPay.pr">주문하기</a>
 			<span> 상품 번호 : ${productBean.modelNumber} <br>
 				포인트 적립률 :${productBean.rating}% <br> 배송소요기간
 				:${productBean.deliveryPeriod}일
 			</span>
 			</div>
 			</div>
-			</div>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
 	<div id="comments">
 		<h3>Comments</h3>
 		<p>
@@ -232,7 +213,7 @@ function kessai(){
 		</p>
 	</div>
 
-	<div id="footer">Copyright © JankoAtWarpSpeed 2009.</div>
+	
 	
 	
 	
@@ -243,8 +224,8 @@ function kessai(){
     </script>
 
 
-
-
+</div>
+<div id=footer> <%@include file="footer.jsp" %>  </div>
 
 </body>
 </html>
