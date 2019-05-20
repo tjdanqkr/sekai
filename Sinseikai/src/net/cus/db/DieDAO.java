@@ -28,7 +28,7 @@ public class DieDAO implements DAO{
 		}
 	}public boolean DieInsert(DieBean bean) {
 		
-		String sql="insert into diedie values(?,?,?,?,?,?)";
+		String sql="insert into diedie values(?,?,?,?,?,?,?)";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, bean.getEmail());
@@ -37,6 +37,7 @@ public class DieDAO implements DAO{
 			pstmt.setString(4, bean.getSubject());
 			pstmt.setString(5, bean.getPhone());
 			pstmt.setString(6, bean.getReple());
+			pstmt.setString(7, bean.getId());
 			pstmt.executeUpdate();
 
 			
@@ -61,8 +62,8 @@ public class DieDAO implements DAO{
 
 		List<DieBean> list = new ArrayList<DieBean>();
 		try {
-			pstmt = con.prepareStatement("select * from diedie where email=?");
-			pstmt.setString(1, bean.getEmail());
+			pstmt = con.prepareStatement("select * from diedie where id=?");
+			pstmt.setString(1, bean.getId());
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				DieBean bean1= new DieBean();
@@ -82,10 +83,11 @@ public class DieDAO implements DAO{
 
 		
 		try {
-			pstmt = con.prepareStatement("select * from diedie where title=?");
+			pstmt = con.prepareStatement("select * from diedie where title=? and id=?");
 			pstmt.setString(1, bean.getTitle());
+			pstmt.setString(2, bean.getId());
 			rs = pstmt.executeQuery();
-
+			
 			while (rs.next()) {
 				
 				bean.setTitle(rs.getString("title"));

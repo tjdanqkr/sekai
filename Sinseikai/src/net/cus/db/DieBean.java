@@ -7,6 +7,13 @@ public class DieBean {
 	private String subject;
 	private String phone;
 	private String reple;
+	private String id;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getReple() {
 		return reple;
 	}
