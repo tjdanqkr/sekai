@@ -22,6 +22,7 @@
 <input type="text" name="email" placeholder="id">
 <input type="password" name="pw" placeholder="password">
 <input type="submit" value="Login" >
+<button formaction="join.me">Join</button>
 <!-- 네이버아이디로로그인 버튼 노출 영역 -->
 <div id="naverIdLogin"></div>
 <!-- //네이버아이디로로그인 버튼 노출 영역 -->
@@ -33,7 +34,7 @@
 			clientId: "HICTyiQbY5EEz1krtPvC",
 			callbackUrl: "http://localhost:8090/Sinseikai/member/callback.jsp",
 			isPopup: false, /* 팝업을 통한 연동처리 여부 */
-			loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
+			loginButton: {color: "black", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
 		}
 	);
 	
@@ -41,7 +42,7 @@
 	naverLogin.init();
 	
 </script>
-<button formaction="join.me">Join</button>
+
 </form>
 </body>
 </html>
