@@ -32,14 +32,14 @@ public class Die implements Action{
 			
 			mebean.setEmail(session.getAttribute("Email")+"");
 			result= medao.dieinf(mebean);
-			session.setAttribute("email", mebean.getEmail());
+			session.setAttribute("email1", mebean.getEmail());
 			session.setAttribute("phone", mebean.getPhone());
 			System.out.println(result+"리졸튼");
 			if(result==false) {
 				
 				nabean.setId(session.getAttribute("id")+"");
 				result=medao.dieinfN(nabean);
-				session.setAttribute("email", nabean.getEmail());
+				session.setAttribute("email1", nabean.getEmail());
 				session.setAttribute("phone", nabean.getPhone());
 				
 			}

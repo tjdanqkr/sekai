@@ -27,7 +27,7 @@ public class GoodsDetailAction implements Action {
 		ProductBean productBean = new ProductBean();
 		List<Option1Bean> option1Beans = null;
 		CodexBrandBean codexBrandBean = null;
-		
+		HttpSession session = request.getSession();
 		productBean.setProductNumber(Integer.parseInt(request.getParameter("productNumber")));
 		
 		productBean = productDAO.getProductAsProductnumber(productBean); // Get product as productnumber.

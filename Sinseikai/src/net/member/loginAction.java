@@ -41,7 +41,7 @@ public class loginAction implements Action {
 					name= memberdata.getName();
 					
 				}
-				session.setAttribute("Email", email);
+				session.setAttribute("id", email);
 				session.setAttribute("name", name);
 			}
 			return forward;
