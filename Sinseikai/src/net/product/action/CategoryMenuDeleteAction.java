@@ -8,7 +8,7 @@ import net.action.ActionForward;
 import net.product.db.MenuBean;
 import net.product.db.MenuDAO;
 
-public class CategoryMenuInsertAction implements Action {
+public class CategoryMenuDeleteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -20,21 +20,16 @@ public class CategoryMenuInsertAction implements Action {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		// Insert to category menu.
-		menuDAO = new MenuDAO();
-		menuBean.setMajorName(request.getParameter("majorName"));
-		menuBean.setMinorName(request.getParameter("minorName"));
-		menuBean.setCategoryName(request.getParameter("categoryName"));
 		menuBean.setCategoryCode(Integer.parseInt(request.getParameter("categoryCode")));
 		
-		result = menuDAO.insertMenu(menuBean);
+		result = menuDAO.deleteMenu(menuBean);
 		menuDAO.close();
 		if(!result) {
-			System.err.println("ERROR - Failed insert to category menu");
+			System.err.println("ERROR - Failed delete from category menu");
 			
 			return null;
 		}
-
+		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
 		forward.setPath("manageCategory.pr");

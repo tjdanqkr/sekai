@@ -66,11 +66,11 @@ public class ProductDAO implements DAO{
 	}
 	
 	// Get the products correct to category.
-	public List<ProductBean> getProductsAsCategorycode(CodexCategoryBean codexCategoryBean) {
+	public List<ProductBean> getProductsAsCategorycode(MenuBean menuBean) {
 		List<ProductBean> beans = null;
 		try {
 			pstmt = con.prepareStatement("select * from product where categorycode=?");
-			pstmt.setInt(1, codexCategoryBean.getCategorycode());
+			pstmt.setInt(1, menuBean.getCategoryCode());
 			
 			rs = pstmt.executeQuery();
 			
