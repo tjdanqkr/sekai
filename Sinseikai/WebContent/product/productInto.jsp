@@ -1,14 +1,43 @@
+<%@page import="java.net.URLEncoder"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="net.cus.db.OpenBean"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <link rel="stylesheet" href="./product/kaisu.css">
+<%
+	String cp= request.getContextPath();
+	request.setCharacterEncoding("UTF-8");
+	Cookie c= new Cookie("productname",URLEncoder.encode(request.getParameter("productBean.brandName")+" "+ request.getParameter("productBean.modelName") ,"utf-8"));
+	Cookie c1= new Cookie("price",URLEncoder.encode(request.getParameter("productBean.price") ,"utf-8"));	
+	Cookie c2= new Cookie("img",URLEncoder.encode("img/a1.jpg" ,"utf-8"));
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<%
-pageContext.setAttribute("option1Beans",request.getAttribute("option1Beans"));
-%>
+<script type="text/javascript">
+
+function checkCookie() {
+    var itemID = getCookie("itemID");
+	var thisItem='img/a1.jpg:${productBean.brandName}+${productBean.modelName}:${productBean.price}원';   // 제품 아이디와 이미지 이름을 저장  2차원 배열처럼 쓸려고 짱구를 굴림...  json 형태로 저장도 가능할텐데.... 그건 취향대로 
+	if (thisItem){
+		if (itemID != "" && itemID != null) {
+			if (itemID.indexOf(thisItem) ==-1 ){ //값이 없으면 
+					setCookie("itemID",thisItem+"&"+itemID,1);
+			 }
+		} else {
+			if (itemID == "" || itemID == null) {
+				setCookie("itemID",thisItem+"&",1);
+			}
+		}
+	}
+}
+checkCookie();
+</script>
+
 <script language="javascript">
 function showBig(val) {
  var obj = document.getElementById("big");

@@ -26,7 +26,7 @@ public class naverlo implements Action{
 				memberdata.setName(session.getAttribute("name")+"");
 				memberdata.setEmail(session.getAttribute("email")+"");
 				result= memberdao.naverCheck(memberdata);
-				
+				session.setAttribute("Email", "");
 				if(result==false) {
 					
 		   		result=memberdao.naverInsert(memberdata);}

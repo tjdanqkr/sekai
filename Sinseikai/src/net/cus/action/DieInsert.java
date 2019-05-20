@@ -27,6 +27,7 @@ public class DieInsert implements Action{
 			String phone= request.getParameter("ansCellNo");
 			String title= request.getParameter("inqTitl");
 			String subject= request.getParameter("inqCnts");
+			dieBean.setId(session.getAttribute("id")+"");
 			dieBean.setEmail(email);
 			dieBean.setPhone(phone);
 			dieBean.setProduct(product);

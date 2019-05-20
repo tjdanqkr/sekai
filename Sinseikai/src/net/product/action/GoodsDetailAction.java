@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.action.Action;
 import net.action.ActionForward;
@@ -26,7 +27,7 @@ public class GoodsDetailAction implements Action {
 		ProductBean productBean = new ProductBean();
 		List<Option1Bean> option1Beans = null;
 		CodexBrandBean codexBrandBean = null;
-		
+		HttpSession session = request.getSession();
 		productBean.setProductNumber(Integer.parseInt(request.getParameter("productNumber")));
 		
 		productBean = productDAO.getProductAsProductnumber(productBean); // Get product as productnumber.
