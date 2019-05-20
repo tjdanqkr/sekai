@@ -33,7 +33,7 @@
 
          <tr>
 
-            <td><b>이름:</b></td>
+            <td><b>이름</b></td>
 
             <td ><input type="text" id="name" name="name" maxlength="12" /></td>
             <td colspan="3"></td>
@@ -51,14 +51,14 @@
          </tr>
          <tr>
 
-            <td><b>비번</b></td>
+            <td><b>비밀번호</b></td>
             <td><input type="password" id="pw" name="pw" maxlength="12" /></td>
             <td colspan="2">※4-12자의 영문 대소문자와 숫자로만 입력해주세요</td>
             <td></td>
          </tr>
          <tr>
 
-            <td><b>비번확인:</b></td>
+            <td><b>비밀번호확인</b></td>
 
             <td colspan="4"><input type="password"  id="checkpw"
                maxlength="12" /></td>
@@ -66,7 +66,7 @@
          </tr>
          <tr>
 
-            <td><b>주민등록번호:</b></td>
+            <td><b>주민등록번호</b></td>
 
             <td><input type="text" name="num1" id="num1"  maxlength="6"></input></td>
            <td>
@@ -109,9 +109,6 @@
          </tr>
 
 
-     
-
-      
 <tr>
          <td><br /> <input type="submit" value="회원가입" style="border-radius: 5px;" /></td>
 
