@@ -12,7 +12,6 @@
 
     <link rel="stylesheet" href="./dist/jquery.flipster.min.css">
 
-    <script src="jquery.min.js"></script>
     <script src="./dist/jquery.flipster.min.js"></script>
 </head>
 <body>
@@ -20,8 +19,6 @@
 
 
 <article id="demo-default" class="demo">
-    <h2>Flipster Flat</h2>
-
     <div id="flat">
         <ul>
             <li data-flip-title="Red">
@@ -30,33 +27,33 @@
                 	36,000원                        
             </li>
             <li data-flip-title="Razzmatazz" data-flip-category="Purples">
-                <img src="../img/text2.gif">
+                <img src="./img/text2.gif">
                 <h2>엘페</h2>	상품2<br><br>           	
                 	얼마게 원                         
              </li>
             <li data-flip-title="Deep Lilac" data-flip-category="Purples">
-                <img src="../img/text3.gif">
+                <img src="./img/text3.gif">
             </li>
             <li data-flip-title="Daisy Bush" data-flip-category="Purples">
-                <img src="../img/text4.gif">
+                <img src="./img/text4.gif">
             </li>
             <li data-flip-title="Cerulean Blue" data-flip-category="Blues">
-                <img src="../img/text5.gif">
+                <img src="./img/text5.gif">
             </li>
             <li data-flip-title="Dodger Blue" data-flip-category="Blues">
-                <img src="../img/text6.gif">
+                <img src="./img/text6.gif">
             </li>
             <li data-flip-title="Cyan" data-flip-category="Blues">
-                <img src="../img/text7.jpg">
+                <img src="./img/text7.jpg">
             </li>
             <li data-flip-title="Robin's Egg" data-flip-category="Blues">
-                <img src="../img/text8.gif">
+                <img src="./img/text8.gif">
             </li>
             <li data-flip-title="Deep Sea" data-flip-category="Greens">
-                <img src="../img/text9.gif">
+                <img src="./img/text9.gif">
             </li>
             <li data-flip-title="Apple" data-flip-category="Greens">
-                <img src="../img/text10.gif">
+                <img src="./img/text10.gif">
             </li>
         </ul>
         

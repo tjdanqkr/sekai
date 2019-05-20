@@ -3,22 +3,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%
-String recent;
-%>
+
 <link rel="stylesheet" href="./css/open.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+function defaultSet() {
+	
+	var recently = document.getElementsByClassName("recently");
+	recently[0].addEventListener("click", changeMenu());
+	document.getElementsByClassName("sky_cont")[0].addEventListener("click",changeMenu());
+
+}
+function changeMenu(){
+	var container = document.getElementsByClassName("skyscraper")[0];
+	var container1 = document.getElementsByClassName("skyscraper open")[0];
+	if(container.getAttribute("class") == "skyscraper") {
+		
+		container.setAttribute("class", "skyscraper open");
+		
+	}else if(container1.getAttribute("class") == "skyscraper open") {
+		container1.setAttribute("class", "skyscraper");
+	}
+	return 0;
+}
+function count(){
+	
+	var container = document.getElementById("count")[0].innerHTML = Count();
+}
+</script>
 </head>
 <body>
-	<div class="skyscraper opens">
+	<div class="skyscraper">
 		<div class="sky_bnr">
 			<ul>
 
-				<li class="recently"><a href="?recent=./product/recentshop.jsp"
-					onClick="gaEventCommon('PC_공통_액션바', '최근 본 쇼핑', '최근 본 쇼핑', '', '');">
+				<li class="recently"><a href="javascript:void(0);" onclick="defaultSet()">
 						<span>최근 본 쇼핑</span>
-						<p class="recent_shopping_infomation_count">0</p>
+						<p class="recent_shopping_infomation_count" id="count"></p>
 				</a></li>
 
 				<li class="gotop"><a href="#top">TOP</a></li>
@@ -84,5 +106,139 @@ String recent;
 			</div>
 		</div>
 	</div>
+	 <script>
+
+	//
+
+	// recent item    
+
+	 var Cpage;   // 현재 페이지 
+
+	var pagingSize = 4;   // 원하는 페이지 사이즈로 조정하세용 
+
+	function chkRecent(a){
+
+	var itemID = getCookie("itemID");
+
+	$("#right_zzim ul").html('');    // 일단 Ul 내용 지우기... 
+
+	if(itemID){
+
+		var totcount = itemID.split('&').length-1;   //
+
+		var totpage = Math.ceil(totcount / pagingSize) *1;
+
+		
+
+		Cpage = (totpage >= a )? a:1;
+
+		Cpage = (Cpage <1)? totpage:Cpage;
+
+		
+
+		var start = (Cpage-1) * pagingSize;    
+
+	
+
+		for (i = start ; i <= start+(pagingSize-1) ;i++){
+
+		var  thisItem = itemID.split('&')[i];
+
+			if(thisItem){
+
+				var itemId = thisItem.split(':')[0];
+
+				var itemImg = thisItem.split(':')[1];
+				var itemPrice = thisItem.split(':')[2];
+				
+
+			$("#right_zzim ul").append('<li><a href="/_detail.php?id='+itemId+'" target="_top"><img src="http://www.xxx.com/images/s'+itemImg+'"  width="75" border=1></a><div class="detail"><a href="javascript:removeRecentItem(\''+thisItem+'\')" class="btn_delete">삭제</a></div></li>')
+
+			}
+
+		}
+
+		
+
+		$("#paging").show();
+
+	}else{
+
+		$("#right_zzim ul").append('<p class="noData">최근 본 상품이<br> 없습니다.</p>');
+
+		$("#paging").hide();$("#recentCnt").text('');
+
+	}
+
+	
+
+	
+
+	updateRecentPage(totcount, Cpage);
+
+	
+
+}
+
+chkRecent(1);
+
+
+
+	function removeRecentItem(itemname){
+
+		var itemID = getCookie("itemID");
+
+		itemID = itemID.replace(itemname+"&","");			
+
+		setCookie("itemID",itemID,1);
+
+		chkRecent(Cpage);
+
+	}
+
+
+
+
+
+	function updateRecentPage(totcount,Cpage){  //  
+
+	
+
+		$("#recentCnt").text(totcount);  //
+
+		
+
+		$("#totalPageCount").text("/"+Math.ceil((totcount / pagingSize) *1)); 
+
+		if(Math.ceil((totcount / pagingSize) *1) < Cpage){
+
+		$("#currentPage").text(Math.ceil((totcount / pagingSize) *1));
+
+		}else{
+
+		$("#currentPage").text(Cpage);  //
+
+		}
+
+	}
+
+
+
+	$(".btn_next").on('click',function(){
+
+	chkRecent(Cpage + 1);
+
+	 
+
+	});
+
+	
+
+	$(".btn_prev").on('click',function(){
+
+	chkRecent(Cpage - 1);
+
+	});
+	 </script>	
 </body>
 </html>

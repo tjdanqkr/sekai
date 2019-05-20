@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.action.Action;
 import net.action.ActionForward;
@@ -22,11 +23,11 @@ public class GoodsDetailAction implements Action {
 		ProductDAO productDAO = new ProductDAO();
 		Option1DAO option1DAO = null;
 		CodexBrandDAO codexBrandDAO = null;
-		
+		HttpSession session = request.getSession();
 		ProductBean productBean = new ProductBean();
 		List<Option1Bean> option1Beans = null;
 		CodexBrandBean codexBrandBean = null;
-		
+		HttpSession session = request.getSession();
 		productBean.setProductNumber(Integer.parseInt(request.getParameter("productNumber")));
 		
 		productBean = productDAO.getProductAsProductnumber(productBean); // Get product as productnumber.
@@ -53,11 +54,10 @@ public class GoodsDetailAction implements Action {
 		}
 		
 		List<List<Option1Bean>> majorBeans = repackagingOption(option1Beans);
-		
-		request.setAttribute("productBean", productBean); // Put the result.
-		request.setAttribute("optionHTML",  listToHTML(majorBeans));
-		request.setAttribute("optionJS", createJSForOption(majorBeans));
-		request.setAttribute("codexBrandBean", codexBrandBean);
+		session.setAttribute("productBean", productBean); // Put the result.
+		session.setAttribute("optionHTML",  listToHTML(majorBeans));
+		session.setAttribute("optionJS", createJSForOption(majorBeans));
+		session.setAttribute("codexBrandBean", codexBrandBean);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
@@ -184,7 +184,7 @@ public class GoodsDetailAction implements Action {
 					minorBeans.get(i).getMinorName();
 			
 			if(!isExistChildOption(minorBeans.get(i), majorBeans)) {
-				html += " " + minorBeans.get(i).getMinorStock() + "개";
+				html += " "+ "&nbsp" + "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp" + minorBeans.get(i).getMinorStock() + "개 재고";
 			}
 			
 			html += "</option>\n";
@@ -197,7 +197,6 @@ public class GoodsDetailAction implements Action {
 				html += "</select>\n"; // Last option.
 			}
 		}
-		
 		return html;
 	}
 	

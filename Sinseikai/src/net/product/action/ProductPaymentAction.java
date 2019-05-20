@@ -2,24 +2,30 @@ package net.product.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.action.Action;
 import net.action.ActionForward;
+import net.member.db.MemberBean;
+import net.member.db.MemberDAO;
 import net.product.db.OrderListBean;
 import net.product.db.OrderListDAO;
+import oracle.net.jdbc.TNSAddress.Address;
 
 public class ProductPaymentAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		OrderListDAO dao = new OrderListDAO();
+				
 		
+		/*OrderListDAO dao = new OrderListDAO();
+		System.out.println("시작");
 		OrderListBean bean = new OrderListBean();
 		
 		boolean result = false;
 		
 		request.setCharacterEncoding("UTF-8");
-		
+		System.out.println("앞");
 		bean.setOrderId(request.getParameter("orderId"));
 		bean.setBuyer(request.getParameter("buyer"));
 		bean.setSeller(request.getParameter("seller"));
@@ -29,17 +35,17 @@ public class ProductPaymentAction implements Action {
 		bean.setOption(request.getParameter("option"));
 		bean.setAmount(Integer.parseInt(request.getParameter("amount")));
 		bean.setStatus(request.getParameter("status"));
-		
+		System.out.println("da");
 		result = dao.insertOrderList(bean); // Insert to orderList using buyer.
 		dao.close();
 		if(!result) {
 			System.err.println("ERROR - Failed insert to orderlist");
-			return null;
-		}
+			//return null;
+		}*/
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/.jsp");
+		forward.setPath("/product/productPay.jsp");
 		return forward;
 	}
 

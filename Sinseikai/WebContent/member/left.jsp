@@ -3,26 +3,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+
 <link rel="stylesheet" href="./css/left.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+<script src="https://members.ellotte.com/members-fo/js/mylotte/mylotteLeft.js"></script>
 <!-- left -->  
 	<div class="nav_set">
-		<script src="https://members.ellotte.com/members-fo/js/mylotte/mylotteLeft.js"></script>
+		<%if(session.getAttribute("name")==null){ %>
+		
 		<ul class="nav_question">
-			<li><a href="https://cca.ellotte.com/cca-fo/custCnsl/regist?bypass" >1:1 문의하기</a></li>
-			<li><a href="https://cca.ellotte.com/cca-fo/custCnsl/inquireList?bypass" >1:1 답변확인 <em class="count" id="qnaCnt"></em ></a>	</li>
+			<li><a href="./login.me" >1:1 문의하기</a></li>
+			<li><a href="./login.me" >1:1 답변확인 <em class="count" id="qnaCnt"></em ></a>	</li>
 		</ul>
+		<%}else{ %>
+		<ul class="nav_question">
+			<li><a href="./cus.cus?contentPage=diedie.cus" >1:1 문의하기</a></li>
+			<li><a href="./cus.cus?contentPage=diedieok.cus" >1:1 답변확인 <em class="count" id="qnaCnt"></em ></a>	</li>
+		</ul>
+		<%} %>
 		<ul class="nav_list">
 			<li>
 				<p class="nav_tit">나의 쇼핑정보</p>
 				<ul class="nav_list-sub">
-					<li><a href="https://order.ellotte.com/order-fo/claim/orderDelivery?bypass" >주문배송조회</a></li>
-					<li><a href="https://order.ellotte.com/order-fo/claim/smartpicks?bypass" >스마트픽 관리</a></li>
-					<li><a href="https://order.ellotte.com/order-fo/claim/claims?bypass" >취소/교환/반품 조회</a></li>
-					<li><a href="https://order.ellotte.com/order-fo/claim/receipt?bypass" >영수증 확인/출력</a></li>
+					<li><a href="./orderDelivery?bypass" >주문배송조회</a></li>
+					<li><a href="./smartpicks?bypass" >스마트픽 관리</a></li>
+					<li><a href="./claims?bypass" >취소/교환/반품 조회</a></li>
+					<li><a href="./receipt?bypass" >영수증 확인/출력</a></li>
 					<li><a href="#" id="showPastOrdListMenu">이전 쇼핑내역<span class="st">(2018.10.31 이전)</span></a></li> <!-- 20181005 추가 -->
 				</ul>
 			</li>
