@@ -11,6 +11,7 @@ public class OverviewAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		return null;
 		
 	}
 

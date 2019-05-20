@@ -20,6 +20,7 @@ public class MemberPullAction implements Action {
 	   	MemberBean memberdata=new MemberBean();
 	   	ActionForward forward=new ActionForward();
 	   	boolean result=false;
+	   	int age = 0;
 	   	try{
 				memberdata.setPhone(request.getParameter("phone"));
 				memberdata.setAddress(request.getParameter("post")+request.getParameter("roadAddress"));
@@ -27,10 +28,14 @@ public class MemberPullAction implements Action {
 				memberdata.setEmail(request.getParameter("email"));
 				memberdata.setName(request.getParameter("name"));
 				memberdata.setNum1(request.getParameter("num1"));
+				
 				memberdata.setAge(age);
 				
+	}catch(Exception e) {
+		e.printStackTrace();
 	}
+		return forward;
 	
 	
-	
+	}
 }

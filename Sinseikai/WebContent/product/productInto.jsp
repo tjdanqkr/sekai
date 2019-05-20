@@ -8,12 +8,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<link rel="stylesheet" href="./product/kaisu.css">
 <%
 	String cp= request.getContextPath();
 	request.setCharacterEncoding("UTF-8");
 	Cookie c= new Cookie("productname",URLEncoder.encode(request.getParameter("productBean.brandName")+" "+ request.getParameter("productBean.modelName") ,"utf-8"));
-	Cookie c1= new Cookie("price",URLEncoder.encode(request.getParameter("productBean.price") ,"utf-8"));	
 	Cookie c2= new Cookie("img",URLEncoder.encode("img/a1.jpg" ,"utf-8"));
 %>
 <%@ page session = "true" %>
