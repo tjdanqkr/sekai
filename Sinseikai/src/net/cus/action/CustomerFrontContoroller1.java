@@ -1,6 +1,9 @@
 
 package net.cus.action;
 
+
+
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -18,7 +21,6 @@ import net.member.loginAction;
 import net.product.action.CategoryMenuAction;
 
 
-
 public class CustomerFrontContoroller1 extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -29,7 +31,11 @@ public class CustomerFrontContoroller1 extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		HttpSession session = request.getSession();
+
 		action = new CategoryMenuAction();
+
+		
+
 		
 		if (command.equals("/cus.cus")) {
 			forward = new ActionForward();
@@ -56,9 +62,7 @@ public class CustomerFrontContoroller1 extends HttpServlet {
 			}
 			
 		} else if(command.equals("/detail.cus")) {
-			System.out.println("디테일");
 			action  = new DetailAction();
-			System.out.println("vava");
 			   try {
 				   forward=action.execute(request, response );
 			   } catch (Exception e) {
@@ -102,26 +106,19 @@ public class CustomerFrontContoroller1 extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doProcess(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doProcess(request, response);
 	}
 
+
 }
+
+
+
+
