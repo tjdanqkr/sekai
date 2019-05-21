@@ -77,6 +77,28 @@ public class MenuDAO implements DAO{
 		return false;
 	}
 	
+	// Update category menu.
+	public Boolean updateMenu(MenuBean bean, MenuBean previousMenuBean) {
+		try {
+			pstmt = con.prepareStatement("update menu set majorname=?, minorname=?, categoryname=?, categorycode=? "
+					+ "where categorycode=?");
+			
+			pstmt.setString(1, bean.getMajorName());
+			pstmt.setString(2, bean.getMinorName());
+			pstmt.setString(3, bean.getCategoryName());
+			pstmt.setInt(4, bean.getCategoryCode());
+			pstmt.setInt(5, previousMenuBean.getCategoryCode());
+			
+			if(pstmt.executeUpdate() == 1) {
+				return true;
+			}
+		} catch (SQLException se) {
+			// TODO Auto-generated catch block
+			se.printStackTrace();
+		}
+		return false;
+	}
+	
 	// Delete category menu.
 	public Boolean deleteMenu(MenuBean bean) {
 		try {

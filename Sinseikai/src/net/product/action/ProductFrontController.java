@@ -96,6 +96,13 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/manageCategoryModify.pr")) { // Insert to category menu.
+			action = new CategoryMenuModifyAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}else if(command.equals("/manageCategoryDelete.pr")) { // Insert to category menu.
 			action = new CategoryMenuDeleteAction();
 			try {
