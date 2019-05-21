@@ -34,7 +34,7 @@ public class CategoryShopAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/.jsp");
+		forward.setPath("/product/categoryProduct.jsp");
 		return forward;
 	}
 

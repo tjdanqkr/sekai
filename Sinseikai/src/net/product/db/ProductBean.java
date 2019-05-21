@@ -64,10 +64,10 @@ public class ProductBean {
 	public void setRating(float rating) {
 		this.rating = rating;
 	}
-	public String getImgAddr() {
+	public String getImgAddr1() {
 		return imgAddr1;
 	}
-	public void setImgAddr(String imgAddr1) {
+	public void setImgAddr1(String imgAddr1) {
 		this.imgAddr1 = imgAddr1;
 	}
 	public String getImgAddr2() {
