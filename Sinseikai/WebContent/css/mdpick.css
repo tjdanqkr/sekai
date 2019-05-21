@@ -1,0 +1,35 @@
+div {
+	
+	font-size: 60px;
+	text-align: center;
+	padding-top: 60px;
+	padding-bottom: 50px;
+	font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic',
+		'AppleSDGothicNeo', 'Helvetica', sans-serif;
+		
+}
+body{
+}
+table {
+	margin-top: 80px;
+	margin-left: 20px;
+	width: 80%;
+	height: 100%;
+	text-align: center;
+	overflow : visible;
+
+}
+
+.md {
+	opacity: .92;
+	width: 25%
+}
+
+.md1, .md2, .md3, .md4 {
+	padding-left: 30px;
+	padding-right: 15px;
+	padding-bottom: 10px;
+	opacity: .92;
+	width: 25%
+}
+
