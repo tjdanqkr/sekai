@@ -10,14 +10,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 <c:set var="adminMenuBeans" value="${adminMenuBeans}"></c:set>
 <c:forEach var="beans" items="${adminMenuBeans}">
 	<h3>${beans.get(0).majorName}</h3>
@@ -25,5 +17,10 @@
 		<a href="${bean.url}">${bean.name}</a><br />
 	</c:forEach>
 </c:forEach>
-</body>
-</html>
+<script>
+	var adminMenuBeans = '${adminMenuBeans}';
+	if(adminMenuBeans == ''){
+		alert('잘못된 경로로 접근됨');
+		location.href = 'admin.ad';
+	}
+</script>
