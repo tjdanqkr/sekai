@@ -48,7 +48,7 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/display-fo/categoryShop.pr")) { // Show the products correct to category.
+		}else if(command.equals("/categoryProduct.pr")) { // Show the products correct to category.
 			action = new CategoryShopAction();
 			try {
 				forward = action.execute(request, response);
@@ -81,17 +81,30 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			}
 		}else if(command.equals("/manageCategory.pr")) { // Admin menu.
 			/*
-			 * Category menu is called always when uri is end as ".pr".
-			 * so call category code additional.
+			 * Manager : category menu.
 			 */
-			action = new ManageCategory();
+
+			request.setAttribute("centerUri", "/admin/manageCategory.jsp"); // Put the result.
+			
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/admin/adminContainer.jsp");
+		}else if(command.equals("/manageCategoryInsert.pr")) { // Insert to category menu.
+			action = new CategoryMenuInsertAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/manageCategoryInsert.pr")) { // Insert to category menu.
-			action = new CategoryMenuInsertAction();
+		}else if(command.equals("/manageCategoryModify.pr")) { // Modify the category menu.
+			action = new CategoryMenuModifyAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/manageCategoryDelete.pr")) { // Delete from category menu.
+			action = new CategoryMenuDeleteAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {

@@ -1,3 +1,4 @@
+@charset "EUC-KR";
 
 body{
    margin: 0;
@@ -91,7 +92,7 @@ body{
    cursor: pointer;
     background: #000000;
 }
-.table input[value="ëŒì•„ê°€ê¸°"]{
+.table input[value="µ¹¾Æ°¡±â"]{
    border: 0;
    background: none;
    display: block;

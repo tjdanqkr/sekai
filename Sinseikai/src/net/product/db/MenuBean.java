@@ -3,6 +3,9 @@ package net.product.db;
 public class MenuBean {
 	private String majorName;
 	private String minorName;
+	private String categoryName;
+	private int categoryCode;
+	
 	public String getMajorName() {
 		return majorName;
 	}
@@ -21,5 +24,11 @@ public class MenuBean {
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
-	private String categoryName;
+	public int getCategoryCode() {
+		return categoryCode;
+	}
+	public void setCategoryCode(int categoryCode) {
+		this.categoryCode = categoryCode;
+	}
+	
 }

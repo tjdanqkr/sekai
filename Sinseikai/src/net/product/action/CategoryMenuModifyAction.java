@@ -8,29 +8,32 @@ import net.action.ActionForward;
 import net.product.db.MenuBean;
 import net.product.db.MenuDAO;
 
-public class CategoryMenuInsertAction implements Action {
+public class CategoryMenuModifyAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		MenuDAO menuDAO = new MenuDAO();
 		
 		MenuBean menuBean = new MenuBean();
+		MenuBean previousMenuBean = new MenuBean();
 		
 		boolean result = false;
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		// Insert to category menu.
+		// Update the category menu.
 		menuDAO = new MenuDAO();
 		menuBean.setMajorName(request.getParameter("majorName"));
 		menuBean.setMinorName(request.getParameter("minorName"));
 		menuBean.setCategoryName(request.getParameter("categoryName"));
 		menuBean.setCategoryCode(Integer.parseInt(request.getParameter("categoryCode")));
 		
-		result = menuDAO.insertMenu(menuBean);
+		previousMenuBean.setCategoryCode(Integer.parseInt(request.getParameter("previousCategoryCode")));
+		
+		result = menuDAO.updateMenu(menuBean, previousMenuBean);
 		menuDAO.close();
 		if(!result) {
-			System.err.println("ERROR - Failed insert to category menu");
+			System.err.println("ERROR - Failed update to category menu");
 			
 			return null;
 		}
