@@ -19,7 +19,7 @@ public class SearchProductAction implements Action {
 		List<ProductBean> productBeans = null;
 		ProductBean productBean = new ProductBean();
 		
-		String search = request.getParameter("search?"); // Get search text.
+		String search = request.getParameter("keyword"); // Get search text.
 		
 		// Set search keyword to bean.
 		try{ // search keyword is number?
