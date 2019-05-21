@@ -72,11 +72,13 @@ function showBig(val) {
 					}
 					
 				$( 'button#jbButton' ).click( function() {		
-					  jb = $("select[name='option1'] option:selected").text();			
+					  jb = $("select[name='option1'] option:selected").text();	
 					document.getElementById("demo").innerHTML = jb;
-					 jb1 = $("select[name='option2'] option:selected").text();	
-					 jb1= jb1.substring(3);
-					 document.getElementById("demo1").innerHTML = jb1;
+					 jb1 = $("select[name='option2'] option:selected ").html();	
+					 
+					 
+					var result = jb1.replace('사이즈',' ');
+					 document.getElementById("demo1").innerHTML = result;
 								
 				$( 'button#jbButton2' ).click( function() {		
 						
@@ -184,9 +186,9 @@ function showBig(val) {
 	<span class="bl"></span><span class="br"></span>
 
 </div>
-	
-			
-	
+			${memberBean.name}안
+			${memberBean.name}나
+			${member.name }와
 			<hr>
 			<a href="./productPay.pr">주문하기</a>
 			<span> 상품 번호 : ${productBean.modelNumber} <br>
@@ -216,9 +218,7 @@ function showBig(val) {
 	
 	
 	<script>
-   
     ${optionJS}
-    
     </script>
 
 

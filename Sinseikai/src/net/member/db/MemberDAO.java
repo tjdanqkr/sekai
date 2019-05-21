@@ -27,8 +27,51 @@ public class MemberDAO implements DAO {
 		}
 	}
 
+
+	public MemberBean kensaku(MemberBean member) {
+		String sql = "";
+		int result = 0;
+		try {
+			sql = "select * from member where email=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, member.getName());
+			pstmt.setString(2, member.getEmail());
+			pstmt.setString(3, member.getPw());
+			pstmt.setString(4, member.getNum1());
+			pstmt.setInt(5, member.getAge());
+			pstmt.setString(6, member.getPhone());
+			pstmt.setString(7, member.getAddress());
+			pstmt.setString(8, member.getName());
+			pstmt.executeUpdate();
+			
+			result = result + 1;
+			if (result == 0) {
+
+				return member;
+			}
+
+			return member;
+		} catch (Exception ex) {
+			System.out.println("boardInsert kensaku: " + ex);
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+		}
+		return member;
+	}
+	
+	
+	
+	
 	public boolean memberInsert(MemberBean member) {
-		int num = 0;
 		String sql = "";
 
 		int result = 0;
