@@ -49,7 +49,7 @@ public class ProductDAO implements DAO{
 				bean.setPrice(rs.getInt("price"));
 				bean.setDiscountRate(rs.getFloat("discountrate"));
 				bean.setRating(rs.getFloat("rating"));
-				bean.setImgAddr(rs.getString("imgaddr1"));
+				bean.setImgAddr1(rs.getString("imgaddr1"));
 				bean.setImgAddr2(rs.getString("imgaddr2"));
 				bean.setImgAddr3(rs.getString("imgaddr3"));
 				bean.setImgAddr4(rs.getString("imgaddr4"));
@@ -71,7 +71,7 @@ public class ProductDAO implements DAO{
 		try {
 			pstmt = con.prepareStatement("select * from product where categorycode=?");
 			pstmt.setInt(1, menuBean.getCategoryCode());
-			
+			System.out.println(menuBean.getCategoryCode());
 			rs = pstmt.executeQuery();
 			
 			beans = new ArrayList<ProductBean>();
@@ -86,7 +86,7 @@ public class ProductDAO implements DAO{
 				bean.setPrice(rs.getInt("price"));
 				bean.setDiscountRate(rs.getFloat("discountrate"));
 				bean.setRating(rs.getFloat("rating"));
-				bean.setImgAddr(rs.getString("imgaddr"));
+				bean.setImgAddr1(rs.getString("imgaddr1"));
 				bean.setImgAddr2(rs.getString("imgaddr2"));
 				bean.setImgAddr3(rs.getString("imgaddr3"));
 				bean.setImgAddr4(rs.getString("imgaddr4"));
@@ -134,7 +134,7 @@ public class ProductDAO implements DAO{
 				bean.setPrice(rs.getInt("price"));
 				bean.setDiscountRate(rs.getFloat("discountrate"));
 				bean.setRating(rs.getFloat("rating"));
-				bean.setImgAddr(rs.getString("imgaddr"));
+				bean.setImgAddr1(rs.getString("imgaddr1"));
 				bean.setImgAddr2(rs.getString("imgaddr2"));
 				bean.setImgAddr3(rs.getString("imgaddr3"));
 				bean.setImgAddr4(rs.getString("imgaddr4"));
