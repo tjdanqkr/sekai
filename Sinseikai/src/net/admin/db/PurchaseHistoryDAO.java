@@ -43,12 +43,12 @@ public class PurchaseHistoryDAO implements DAO{
 			while(rs.next()) {
 				PurchaseHistoryBean bean = new PurchaseHistoryBean();
 
-				bean.setNumber(rs.getInt("number"));
+				bean.setProductNumber(rs.getInt("productnumber"));
 				bean.setBrandName(rs.getString("brandname"));
 				bean.setModelNumber(rs.getString("modelnumber"));
 				bean.setModelName(rs.getString("modelname"));
 				bean.setCoupon(rs.getBoolean("coupon"));
-				bean.setPrice(rs.getInt("price"));
+				bean.setFullPrice(rs.getInt("fullprice"));
 				bean.setDiscountRate(rs.getFloat("discountrate"));
 				bean.setRating(rs.getFloat("rating"));
 				bean.setDeliveryPeriod(rs.getInt("deliveryperiod"));

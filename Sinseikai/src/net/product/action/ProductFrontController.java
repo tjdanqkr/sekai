@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.action.FrontController;
-
+import net.admin.action.PurchaseHistoryAction;
 import net.action.Action;
 import net.action.ActionForward;
 
@@ -107,6 +107,43 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			action = new CategoryMenuDeleteAction();
 			try {
 				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/purchaseHistory.pr")) { // lookup the purchase history.
+			/*
+			 * Manage mode.
+			 */
+			action = new PurchaseHistoryAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/lookupProduct.pr")) { // Lookup the product.
+			/*
+			 * Manage mode.
+			 */
+			request.setAttribute("centerUri", "/admin/lookupProduct.jsp"); // Put the result.
+			
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/admin/adminContainer.jsp");
+		}else if(command.equals("/lookupProductSearch.pr")) { // Search the product for manager.
+			/*
+			 * Manage mode.
+			 */
+			action = new SearchProductAction();
+			try {
+				forward = action.execute(request, response);
+				
+				request.setAttribute("centerUri", "/admin/lookupProductView.jsp");
+				
+				/*
+				 * SearchProductAction is for non-manager mode.
+				 * so set path after execute for manager.
+				 */
+				forward.setPath("/admin/adminContainer.jsp");
 			}catch(Exception e) {
 				e.printStackTrace();
 			}

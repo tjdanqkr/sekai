@@ -1,22 +1,22 @@
 package net.admin.db;
 
 public class PurchaseHistoryBean {
-	private int number;
+	private int productNumber;
 	private String brandName;
 	private String modelNumber;
 	private String modelName;
 	private boolean coupon;
-	private int price;
+	private int fullPrice;
 	private float discountRate;
 	private float rating;
 	private int deliveryPeriod;
 	private int categoryCode;
 	
-	public int getNumber() {
-		return number;
+	public int getProductNumber() {
+		return productNumber;
 	}
-	public void setNumber(int number) {
-		this.number = number;
+	public void setProductNumber(int productNumber) {
+		this.productNumber = productNumber;
 	}
 	public String getBrandName() {
 		return brandName;
@@ -42,11 +42,11 @@ public class PurchaseHistoryBean {
 	public void setCoupon(boolean coupon) {
 		this.coupon = coupon;
 	}
-	public int getPrice() {
-		return price;
+	public int getFullPrice() {
+		return fullPrice;
 	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void setFullPrice(int fullPrice) {
+		this.fullPrice = fullPrice;
 	}
 	public float getDiscountRate() {
 		return discountRate;
