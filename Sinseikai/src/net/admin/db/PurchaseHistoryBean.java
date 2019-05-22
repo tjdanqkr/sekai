@@ -1,5 +1,7 @@
 package net.admin.db;
 
+import java.util.Date;
+
 public class PurchaseHistoryBean {
 	private int productNumber;
 	private String brandName;
@@ -11,6 +13,7 @@ public class PurchaseHistoryBean {
 	private float rating;
 	private int deliveryPeriod;
 	private int categoryCode;
+	private Date purchaseDate;
 	
 	public int getProductNumber() {
 		return productNumber;
@@ -72,4 +75,11 @@ public class PurchaseHistoryBean {
 	public void setCategoryCode(int categoryCode) {
 		this.categoryCode = categoryCode;
 	}
+	public Date getPurchaseDate() {
+		return purchaseDate;
+	}
+	public void setPurchaseDate(Date purchaseDate) {
+		this.purchaseDate = purchaseDate;
+	}
+	
 }
