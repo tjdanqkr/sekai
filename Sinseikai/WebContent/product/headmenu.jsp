@@ -17,6 +17,5 @@
 <div><jsp:include page="open.jsp"></jsp:include></div>
 <a href="./start.jsp"><img alt="" src="./img/elLotte.png" ></a><br>
 <div><%@include file="main.jsp" %></div><!-- 상단 메뉴바 -->
-
 </body>
 </html>
