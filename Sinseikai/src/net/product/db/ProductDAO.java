@@ -110,14 +110,14 @@ public class ProductDAO implements DAO{
 		try {
 			pstmt = con.prepareStatement("select * from product where "
 					+ "productnumber=? or "
-					+ "brandname=? or "
-					+ "modelnumber=? or "
-					+ "modelname=? or "
+					+ "brandname like ? or "
+					+ "modelnumber like ? or "
+					+ "modelname like ? or "
 					+ "categorycode=?");
 			pstmt.setInt(1, keywordBean.getProductNumber());
-			pstmt.setString(2, keywordBean.getBrandName());
-			pstmt.setString(3, keywordBean.getModelNumber());
-			pstmt.setString(4, keywordBean.getModelName());
+			pstmt.setString(2, "%" + keywordBean.getBrandName() + "%");
+			pstmt.setString(3, "%" + keywordBean.getModelNumber() + "%");
+			pstmt.setString(4, "%" + keywordBean.getModelName() + "%");
 			pstmt.setInt(5, keywordBean.getCategorycode());
 			
 			rs = pstmt.executeQuery();

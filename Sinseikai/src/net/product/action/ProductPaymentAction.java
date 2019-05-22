@@ -1,12 +1,12 @@
-package net.product.action;
+﻿package net.product.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import net.action.Action;
 import net.action.ActionForward;
-import net.product.db.OrderListBean;
-import net.product.db.OrderListDAO;
+
 
 public class ProductPaymentAction implements Action {
 

@@ -2,80 +2,22 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-<style>
-	ul{
-		margin: 2.5vh 20px;
-		padding: 0px;
-	}
-	li{
-		list-style-type: none;
-	}
-	#categoryTop{
-		height: 20vh;
-		background-color: skyblue;
-	}
-	#formContainer{
-		position: absolute;
-		transition: all 1s;
-	}
-	#formContainer.modify{
-		margin-top: 20%;
-		padding: 1rem;
-		background-color: skyblue;
-	}
-	#addButton{
-		position: absolute;
-		width: 10vw;
-		height: 10vh;
-		top: 5vh;
-		right: 5vw;
-		border: none;
-		border-radius: 5px;
-		transition: all .2s;
-	}
-	#addButton:hover{
-		border-top: 5px solid;
-		padding-top: 5px;
-	}
-	#categoryContainer{
-		display: flex;
-		margin: 0px;
-	}
-	#noticeCategory, #noticeCode{
-		color: red;
-	}
-	#noticeConfirm{
-		color: green;
-	}
-	.categoryList{
-		flex-grow: 1;
-		height: 75vh;
-	}
-	#minorCategory{
-		background:tomato;
-	}
-	.categoryButton{
-		height: 10rem;
-		border-bottom: hsl(39, 100%, 40%) solid 3px;
-		background-color: hsl(39, 100%, 50%);
-		transition: background-color .2s;
-	}
-	.categoryButton:hover{
-		background-color: hsl(39, 100%, 70%);
-	}
-</style>
+<link rel="stylesheet" type="text/css" href="./css/manageCategory.css" />
 
 <c:set var="majorBeans" value="${menuBeans}"></c:set>
 <c:set var="categoryCodeBeans" value="${categoryCodeBeans}"></c:set>
 
+<!-- 
+Prevent the action that select all category if entered to modify mode.  
+-->
+<div id="blockScreen"></div>
+
 <div id="categoryTop">
 	<div id="formContainer">
 		<button id="backButton">돌아가기</button>
-		<form action="manageCategoryInsert.pr" method="post" onsubmit="return checkValues()">
+		<form action="manage-category-insert.pr" method="post" onsubmit="return checkValues()">
 			MajorName <input type="text" name="majorName" oninput="validate()" />
 			MinorName <input type="text" name="minorName" oninput="validate()" />
 			CategoryName <input type="text" name="categoryName" oninput="validate()" />
@@ -108,6 +50,7 @@
 <script>
 	$(document).ready(function(){
 		$('#backButton').css('display', 'none');
+		$('#blockScreen').css('display', 'none');
 		
 		$('#backButton').on('click', function(){
 			backToView();
@@ -328,7 +271,7 @@
 		var inputs = $('#formContainer > form').children();
 		
 		$('#formContainer').attr('class', 'modify');
-		$('#formContainer > form').attr('action', 'manageCategoryModify.pr');
+		$('#formContainer > form').attr('action', 'manage-category-modify.pr');
 		
 		/*
 		 * inputs[0],[1](major, minor) is already insert data.
@@ -338,6 +281,7 @@
 		inputs[4].value = '수정';
 		
 		$('#backButton').css('display', '');
+		$('#blockScreen').css('display', '');
 		
 		$('input[name=previousCategoryCode]').val(categoryData.categoryCode);
 		
@@ -349,13 +293,14 @@
 		var inputs = $('#formContainer > form').children();
 		
 		$('#formContainer').attr('class', '');
-		$('#formContainer > form').attr('action', 'manageCategoryInsert.pr');
+		$('#formContainer > form').attr('action', 'manage-category-insert.pr');
 		
 		inputs[2].value = '';
 		inputs[3].value = '';
 		inputs[4].value = '등록';
 		
 		$('#backButton').css('display', 'none');
+		$('#blockScreen').css('display', 'none');
 		
 		$('input[name=previousCategoryCode]').val('');
 		
@@ -385,7 +330,7 @@
 			var form = $('<form></form>');
 			var input = $('<input />')
 			
-			form.attr('action', 'manageCategoryDelete.pr');
+			form.attr('action', 'manage-category-delete.pr');
 			form.attr('method', 'post');
 			form.css('display', 'none');
 			

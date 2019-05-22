@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.action.FrontController;
-
+import net.admin.action.PurchaseHistoryAction;
 import net.action.Action;
 import net.action.ActionForward;
 
@@ -37,32 +37,32 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/.jsp");
-		}else if(command.equals("/product_into.pr")) { // Main.
+		}else if(command.equals("/product-into.pr")) { // Main.
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/product/product_into.jsp");
-		}else if(command.equals("/searchProduct.pr")) { // Search the product.
+		}else if(command.equals("/search-product.pr")) { // Search the product.
 			action = new SearchProductAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/categoryProduct.pr")) { // Show the products correct to category.
+		}else if(command.equals("/category-product.pr")) { // Show the products correct to category.
 			action = new CategoryShopAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/productInto.pr")) { // Show the product.
+		}else if(command.equals("/product-into.pr")) { // Show the product.
 			action = new GoodsDetailAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/productPay.pr")) {
+		}else if(command.equals("/product-pay.pr")) {
 			action = new ProductPaymentAction();
 			
 			try {
@@ -70,7 +70,7 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/showOrderList.pr")) {
+		}else if(command.equals("/show-order-list.pr")) {
 			action = new ShowOrderListAction();
 			
 			try {
@@ -79,7 +79,7 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/manageCategory.pr")) { // Admin menu.
+		}else if(command.equals("/manage-category.pr")) { // Admin menu.
 			/*
 			 * Manager : category menu.
 			 */
@@ -89,28 +89,38 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/admin/adminContainer.jsp");
-		}else if(command.equals("/manageCategoryInsert.pr")) { // Insert to category menu.
+		}else if(command.equals("/manage-category-insert.pr")) { // Insert to category menu.
 			action = new CategoryMenuInsertAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/manageCategoryModify.pr")) { // Modify the category menu.
+		}else if(command.equals("/manage-category-modify.pr")) { // Modify the category menu.
 			action = new CategoryMenuModifyAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/manageCategoryDelete.pr")) { // Delete from category menu.
+		}else if(command.equals("/manage-category-delete.pr")) { // Delete from category menu.
 			action = new CategoryMenuDeleteAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/lookupProduct.pr")) { // Lookup the product.
+		}else if(command.equals("/purchase-history.pr")) { // lookup the purchase history.
+			/*
+			 * Manage mode.
+			 */
+			action = new PurchaseHistoryAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/lookup-product.pr")) { // Lookup the product.
 			/*
 			 * Manage mode.
 			 */
@@ -119,7 +129,7 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/admin/adminContainer.jsp");
-		}else if(command.equals("/lookupProductSearch.pr")) { // Search the product for manager.
+		}else if(command.equals("/lookup-product-search.pr")) { // Search the product for manager.
 			/*
 			 * Manage mode.
 			 */

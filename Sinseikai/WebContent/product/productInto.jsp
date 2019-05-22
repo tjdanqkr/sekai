@@ -1,4 +1,3 @@
-
 <%@page import="java.net.URLEncoder"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -12,7 +11,8 @@
 <%
 	String cp= request.getContextPath();
 	request.setCharacterEncoding("UTF-8");
-	Cookie c= new Cookie("productname",URLEncoder.encode(request.getParameter("productBean.brandName")+" "+ request.getParameter("productBean.modelName") ,"utf-8"));
+	Cookie c= new Cookie("productname",URLEncoder.encode(request.getParameter("productBean.brandName")+" "+
+	request.getParameter("productBean.modelName") ,"utf-8"));
 	Cookie c2= new Cookie("img",URLEncoder.encode("img/a1.jpg" ,"utf-8"));
 %>
 <%@ page session = "true" %>
@@ -73,11 +73,13 @@ function showBig(val) {
 					}
 					
 				$( 'button#jbButton' ).click( function() {		
-					  jb = $("select[name='option1'] option:selected").text();			
+					  jb = $("select[name='option1'] option:selected").text();	
 					document.getElementById("demo").innerHTML = jb;
-					 jb1 = $("select[name='option2'] option:selected").text();	
-					 jb1= jb1.substring(3);
-					 document.getElementById("demo1").innerHTML = jb1;
+					 jb1 = $("select[name='option2'] option:selected ").html();	
+					 
+					 
+					var result = jb1.replace('사이즈',' ');
+					 document.getElementById("demo1").innerHTML = result;
 								
 				$( 'button#jbButton2' ).click( function() {		
 						
@@ -185,11 +187,10 @@ function showBig(val) {
 	<span class="bl"></span><span class="br"></span>
 
 </div>
-	
-			
-	
+			${productBean.brandName }
+			${memberBean.name}
 			<hr>
-			<a href="./productPay.pr">주문하기</a>
+			<a href="./productPay.pr?productNumber=${productBean.productNumber}&email=${memberBean.email}">주문하기</a>
 			<span> 상품 번호 : ${productBean.modelNumber} <br>
 				포인트 적립률 :${productBean.rating}% <br> 배송소요기간
 				:${productBean.deliveryPeriod}일
@@ -207,17 +208,17 @@ function showBig(val) {
 			<span>Visitor 2</span> 평점
 		</p>
 		<p>
+		
 			<span>Visitor 3</span> 추가할거있으면 추가
 
 		</p>
 	</div>
-
+			
 	
 	
 	
 	
 	<script>
-   
     ${optionJS}
     
     </script>
@@ -228,4 +229,3 @@ function showBig(val) {
 
 </body>
 </html>
-
