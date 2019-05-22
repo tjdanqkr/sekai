@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 
 <h1>안녕 난 판매 현황이야</h1>
@@ -14,6 +15,7 @@
 	<td>fullPrice</td>
 	<td>deliveryPeriod</td>
 	<td>categoryCode</td>
+	<td>purchaseDate</td>
 </tr>
 <c:forEach var="purchaseHistoryBean" items="${purchaseHistoryBeans}">
 <tr>
@@ -24,9 +26,10 @@
 	<td>${purchaseHistoryBean.fullPrice}</td>
 	<td>${purchaseHistoryBean.deliveryPeriod}</td>
 	<td>${purchaseHistoryBean.categoryCode}</td>
+	<td>${purchaseHistoryBean.purchaseDate.year}</td>
 </tr>
 <tr>
-	<td colspan="7"><hr /></td>
+	<td colspan="8"><hr /></td>
 </tr>
 </c:forEach>
 </table>
