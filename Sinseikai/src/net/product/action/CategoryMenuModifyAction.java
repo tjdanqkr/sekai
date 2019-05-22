@@ -40,7 +40,7 @@ public class CategoryMenuModifyAction implements Action {
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("manageCategory.pr");
+		forward.setPath("manage-category.pr");
 		return forward;
 	}
 
