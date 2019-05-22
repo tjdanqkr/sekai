@@ -24,7 +24,6 @@
 	<div><jsp:include page="left.jsp"></jsp:include></div>
 
 
-<div><jsp:include page="../product/open.jsp"></jsp:include></div>
 
 
 
@@ -45,6 +44,7 @@
 
 
 <div id=footer><%@include file="../product/footer.jsp" %>  </div>
+
 
 </body>
 </html>

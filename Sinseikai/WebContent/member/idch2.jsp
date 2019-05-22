@@ -3,10 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="../css/idch.css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>사용가능한 아이디입니다.</title>
 </head>
 <body>
-cㅊㅋㅊㅋ
+<img src="../images/ok.png" alt="사용가능한 아이디입니다."/>
+<idch class="idd">사용가능한 아이디입니다.</idch>
+
 </body>
 </html>
