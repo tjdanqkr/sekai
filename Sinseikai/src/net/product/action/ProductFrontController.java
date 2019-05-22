@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.action.FrontController;
-
+import net.admin.action.PurchaseHistoryAction;
 import net.action.Action;
 import net.action.ActionForward;
 
@@ -105,6 +105,16 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			}
 		}else if(command.equals("/manageCategoryDelete.pr")) { // Delete from category menu.
 			action = new CategoryMenuDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/purchaseHistory.pr")) { // lookup the purchase history.
+			/*
+			 * Manage mode.
+			 */
+			action = new PurchaseHistoryAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
