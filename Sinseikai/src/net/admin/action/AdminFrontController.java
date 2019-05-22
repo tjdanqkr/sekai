@@ -47,7 +47,7 @@ public class AdminFrontController extends HttpServlet implements FrontController
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/purchaseHistory.ad")) {
+		}else if(command.equals("/purchase-history.ad")) {
 			action = new PurchaseHistoryAction();
 			try {
 				forward = action.execute(request, response);
@@ -58,7 +58,7 @@ public class AdminFrontController extends HttpServlet implements FrontController
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/admin/adminlogin.jsp");
-		}else if(command.equals("/loginAction.ad")) {
+		}else if(command.equals("/login-action.ad")) {
 			action = new LoginAction();
 			try {
 				forward = action.execute(request, response);
