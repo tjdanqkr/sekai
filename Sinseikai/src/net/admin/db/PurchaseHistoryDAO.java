@@ -73,17 +73,15 @@ public class PurchaseHistoryDAO implements DAO{
 				
 				purchasedate_string = rs.getString("purchasedateall");
 				try {
+					/*
+					 * Convert string to date.
+					 */
 					bean.setPurchaseDate(dateFormat.parse(purchasedate_string));
 				} catch (ParseException pE) {
 					// TODO Auto-generated catch block
 					pE.printStackTrace();
+					return null;
 				}
-
-				Calendar c = Calendar.getInstance();
-				c.setTime(parsed);
-				
-				System.out.println(purchasedate_string + " " + c.get(Calendar.YEAR) + "/" + (c.get(Calendar.MONTH)+1) + "/" + c.get(Calendar.DATE) + 
-						" " + c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND));
 				
 				beans.add(bean);
 			}
