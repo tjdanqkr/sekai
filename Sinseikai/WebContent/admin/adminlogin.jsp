@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body >
-<form class="box" action="loginAction.ad" method="post" >
+<form class="box" action="login-action.ad" method="post" >
 <h1>Login</h1>
 <input type="text" name="id" placeholder="id">
 <input type="password" name="pw" placeholder="password">
