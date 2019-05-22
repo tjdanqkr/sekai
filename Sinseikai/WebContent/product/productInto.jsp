@@ -189,7 +189,7 @@ function showBig(val) {
 			${productBean.brandName }
 			${memberBean.name}
 			<hr>
-			<a href="./productPay.pr?productNumber=${productBean.productNumber}&email=${memberBean.email}">주문하기</a>
+			<a href="./product-pay.pr?productNumber=${productBean.productNumber}&email=${memberBean.email}">주문하기</a>
 			<span> 상품 번호 : ${productBean.modelNumber} <br>
 				포인트 적립률 :${productBean.rating}% <br> 배송소요기간
 				:${productBean.deliveryPeriod}일
@@ -225,7 +225,9 @@ function showBig(val) {
 
 </div>
 <div id=footer> <%@include file="footer.jsp" %>  </div>
-
+<% String su =request.getParameter("quantity") ;
+request.getParameter("quantity");
+session.setAttribute("quantity",su ); %>
 </body>
 </html>
 

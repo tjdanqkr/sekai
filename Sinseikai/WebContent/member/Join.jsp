@@ -114,7 +114,7 @@
 
          <td><br /><input type="reset" value="다시입력" style="border-radius: 5px;" /></td>
          <td><br /><input type="button" value="돌아가기" style="border-radius: 5px;"
-                    onclick="location.href='product_into.pr'  " /></td>
+                    onclick="location.href='product-into.pr'  " /></td>
             </tr>
       
  </table>
