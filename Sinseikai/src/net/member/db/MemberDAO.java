@@ -29,43 +29,27 @@ public class MemberDAO implements DAO {
 
 
 	public MemberBean kensaku(MemberBean member) {
-		String sql = "";
-		int result = 0;
 		try {
-			sql = "select * from member where email=?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, member.getName());
-			pstmt.setString(2, member.getEmail());
-			pstmt.setString(3, member.getPw());
-			pstmt.setString(4, member.getNum1());
-			pstmt.setInt(5, member.getAge());
-			pstmt.setString(6, member.getPhone());
-			pstmt.setString(7, member.getAddress());
-			pstmt.setString(8, member.getName());
-			pstmt.executeUpdate();
+			pstmt = con.prepareStatement("select * from member where email=?");
+			pstmt.setString(1, member.getEmail());
 			
-			result = result + 1;
-			if (result == 0) {
-
-				return member;
-			}
-
-			return member;
+			rs = pstmt.executeQuery();
+			System.out.println("e: " + member.getEmail());
+			if(rs.next()) {
+				System.out.println("a : " + rs.getString("name"));
+				member.setName(rs.getString("name"));
+				member.setEmail(rs.getString("email"));
+				member.setPw(rs.getString("pw"));
+				member.setNum1(rs.getString("num1"));
+				member.setPhone(rs.getString("phone"));
+				member.setAge(rs.getInt("age"));
+				member.setAddress(rs.getString("Address"));
+				
+			}	return member;		
 		} catch (Exception ex) {
 			System.out.println("boardInsert kensaku: " + ex);
-		} finally {
-			if (rs != null)
-				try {
-					rs.close();
-				} catch (SQLException ex) {
-				}
-			if (pstmt != null)
-				try {
-					pstmt.close();
-				} catch (SQLException ex) {
-				}
-		}
-		return member;
+		} 
+		return null;
 	}
 	
 	

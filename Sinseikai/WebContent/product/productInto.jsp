@@ -186,11 +186,10 @@ function showBig(val) {
 	<span class="bl"></span><span class="br"></span>
 
 </div>
-			${memberBean.name}안
-			${memberBean.name}나
-			${member.name }와
+			${productBean.brandName }
+			${memberBean.name}
 			<hr>
-			<a href="./productPay.pr">주문하기</a>
+			<a href="./productPay.pr?productNumber=${productBean.productNumber}&email=${memberBean.email}">주문하기</a>
 			<span> 상품 번호 : ${productBean.modelNumber} <br>
 				포인트 적립률 :${productBean.rating}% <br> 배송소요기간
 				:${productBean.deliveryPeriod}일
@@ -208,17 +207,19 @@ function showBig(val) {
 			<span>Visitor 2</span> 평점
 		</p>
 		<p>
+		
 			<span>Visitor 3</span> 추가할거있으면 추가
 
 		</p>
 	</div>
-
+			
 	
 	
 	
 	
 	<script>
     ${optionJS}
+    
     </script>
 
 

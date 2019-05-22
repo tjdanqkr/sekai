@@ -35,11 +35,12 @@ public class loginAction implements Action {
 					forward.setRedirect(true);
 					forward.setPath("./product_into.pr");
 					name= memberdata.getName();
+					email= memberdata.getEmail();
 				}else {
 					forward.setRedirect(true);
 					forward.setPath("./product_into.pr");
 					name= memberdata.getName();
-					
+					email= memberdata.getEmail();
 				}
 				session.setAttribute("id", email);
 				session.setAttribute("name", name);

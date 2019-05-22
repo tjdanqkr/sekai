@@ -33,6 +33,9 @@ public class GoodsDetailAction implements Action {
 		MemberDAO memberDAO = new MemberDAO();
 		
 		
+	
+		
+		memberBean.setEmail(request.getParameter("email"));
 		memberBean = memberDAO.kensaku(memberBean);
 		memberDAO.close();
 		if(memberBean == null) {
@@ -41,7 +44,6 @@ public class GoodsDetailAction implements Action {
 		}
 		
 		productBean.setProductNumber(Integer.parseInt(request.getParameter("productNumber")));
-		
 		productBean = productDAO.getProductAsProductnumber(productBean); // Get product as productnumber.
 		productDAO.close();
 		if(productBean == null) {
@@ -70,7 +72,7 @@ public class GoodsDetailAction implements Action {
 		session.setAttribute("optionHTML",  listToHTML(majorBeans));
 		session.setAttribute("optionJS", createJSForOption(majorBeans));
 		session.setAttribute("codexBrandBean", codexBrandBean);
-		
+		session.setAttribute("memberBean", memberBean);
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("/product/productInto.jsp"); // set at after.

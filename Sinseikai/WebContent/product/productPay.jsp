@@ -6,6 +6,7 @@
 <%
 String name= request.getParameter("name"); 
 pageContext.setAttribute("option1Beans",session.getAttribute("option1Beans"));
+pageContext.setAttribute("memberBean",session.getAttribute("memberBean"));
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="../js/product_into.js"></script>
