@@ -18,17 +18,18 @@ public class PurchaseHistoryAction implements Action {
 		
 		List<PurchaseHistoryBean> beans = null;
 		
-		beans =dao.getHistory(); // Get purchase history.
+		beans = dao.getHistory(); // Get purchase history.
 		dao.close();
 		if(beans == null) {
 			System.err.println("ERROR - Failed get the purchase history");
 			return null;
 		}
-		
+
+		request.setAttribute("centerUri", "/admin/purchaseHistory.jsp");
 		request.setAttribute("purchaseHistoryBeans", beans); // Put the result.
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/.jsp");
+		forward.setPath("/admin/adminContainer.jsp");
 		return forward;
 	}
 

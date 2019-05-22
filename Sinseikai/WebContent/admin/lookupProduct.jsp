@@ -3,6 +3,6 @@
 
 <h1>상품 검색</h1>
 <form action="lookupProductSearch.pr">
-	검색 <input type="text" name="keyword" />
+	검색 <input type="text" name="keyword" autofocus/>
 	<input type="submit" value="검색" />
 </form>
