@@ -22,7 +22,7 @@ Prevent the action that select all category if entered to modify mode.
 			MinorName <input type="text" name="minorName" oninput="validate()" />
 			CategoryName <input type="text" name="categoryName" oninput="validate()" />
 			CategoryCode <input type="text" name="categoryCode" oninput="validate()"/>
-			<input type="submit" value="" class="btn_submit" alt="등록"/>
+			<input type="submit" value="등록" />
 			
 			<!-- Used for modify the category. -->
 			<input type="text" name="previousCategoryCode" value="" />
@@ -139,9 +139,8 @@ Prevent the action that select all category if entered to modify mode.
 				modifyCategoryIfWant(selected.major, selected.minor, event.target.value);
 			})
 			
-			button.attr('class','deleteButton')
 			button.val(i);
-			button.html('');
+			button.html('삭제');
 			button.on('click', function(event){
 				// Delete category.
 				deleteCategoryIfWant(selected.major, selected.minor, event.target.value);

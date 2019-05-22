@@ -18,7 +18,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Admin Page</title>
-<link rel ="stylesheet" href="./css/adminMenu.css" type ="text/css"/>
+<style>
+	body{
+		display: flex;
+		margin: 0px;
+	}
+	#leftContainer{
+		flex-grow: 1;
+		height: 100vh;
+		background:gray;
+	}
+	#centerContainer{
+		flex-grow: 6;
+	}
+</style>
 </head>
 <body>
 	<div id="leftContainer">
