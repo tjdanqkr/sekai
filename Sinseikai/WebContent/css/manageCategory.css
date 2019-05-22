@@ -21,7 +21,7 @@ li{
 }
 #formContainer{
 	position: absolute;
-	transition: all 1s;
+	transition: all .5s;
 }
 #formContainer.modify{
 	margin-top: 20%;
