@@ -146,7 +146,7 @@ public class GoodsDetailAction implements Action {
 					bean.getMinorName();
 			
 			if(!isExistChildOption(bean, majorBeans)) {
-				html += " " + bean.getMinorStock() + "개";
+			//	html += " " + bean.getMinorStock() + "개";
 			}
 			
 			html += "</option>\n";

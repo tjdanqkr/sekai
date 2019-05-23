@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -8,24 +9,28 @@
 pageContext.setAttribute("option1Beans",session.getAttribute("option1Beans"));
 pageContext.setAttribute("memberBean",session.getAttribute("memberBean"));
 %>
+<c:set var="no" value="${Math.round(productBean.price*(1-productBean.discountRate))}" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="../js/product_into.js"></script>
 <<<<<<< HEAD
 <link rel="stylesheet" href="./css/Pay.css">
 </head>
 <body onload="onLoad()">
-
 <div><%@include file="headmenu.jsp" %></div><br>
 <div class="sang">
-<h1>주문결제</h1>
+<h1>주문결제 </h1>
+<div>
+</div>
 <hr class="my-hr1">
 <h2>주문상품</h2>
 <hr class="my-hr2">
-<div align="left" class="imgspan"><img src="./img/test1.png" id="gurim"><!--이미지 -->
-<br><br><br><br><span class="setumei">
+<div align="left" class="imgspan"><img width="350rem" src="./img/${productBean.imgAddr1}" id="gurim"><!--이미지 -->
+<br><br><span class="setumei">
 <h2><b>${productBean.brandName}</b></h2><br><br>
 상품명 : ${productBean.modelName}<br><br>
 모델번호 : ${productBean.modelNumber}<br><br>
+주문갯수 : ${param.su} 개<br><br>
+가격 : ${param.su*no}원<br><br>
 포인트 적립률 : ${productBean.rating}%<br><br>
 </span><br><br><br><br><br>
 

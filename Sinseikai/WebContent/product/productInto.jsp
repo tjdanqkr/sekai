@@ -83,8 +83,9 @@ function showBig(val) {
 						 sessionStorage.setItem( 'color', 'jb' );
 						 sessionStorage.setItem( 'size', 'jb1' );
 						 document.getElementById("nedan").innerHTML = jb3;
-				} );
-				
+						 $('input[name=su]').val(input());
+						 
+				} );		
 			} );
 			 function modifyProductQuantity(id, quantity){
 			        
@@ -107,18 +108,13 @@ function showBig(val) {
 	<div id="main">
 		<div id="content">
 			<h3>상품 이미지</h3>
-
-			<img src="img/a1.jpg" width="100%" height="100%" id="big" /> <br />
-			<br /> <img src="img/a1.jpg" width="15%" height="15%"
-				onmouseover="showBig('a1.jpg');" /> <img src="img/a2.jpg"
-				width="15%" height="15%" onmouseover="showBig('a2.jpg');" /> <img
-				src="img/a3.jpg" width="15%" height="15%"
-				onmouseover="showBig('a3.jpg');" /> <img src="img/a4.jpg"
-				width="15%" height="15%" onmouseover="showBig('a4.jpg');" /> <img
-				src="img/a5.jpg" width="15%" height="15%"
-				onmouseover="showBig('a5.jpg');" /> <span
-				style="float: left; margin: 0 10px 10px 0;"><br /></span>
-
+			  <img src="img/${productBean.imgAddr1}" width="100%" height="100%" id="big" /> <br /><br />
+			  <img src="img/${productBean.imgAddr1}" width="15%" height="15%" onmouseover="showBig('${productBean.imgAddr1}');" /> 
+			  <img src="img/${productBean.imgAddr2}" width="15%" height="15%" onmouseover="showBig('${productBean.imgAddr2}');" /> 
+			  <img src="img/${productBean.imgAddr3}" width="15%" height="15%" onmouseover="showBig('${productBean.imgAddr3}');" /> 
+			  <img src="img/${productBean.imgAddr4}" width="15%" height="15%" onmouseover="showBig('${productBean.imgAddr4}');" />
+			 
+			  <span style="float: left; margin: 0 10px 10px 0;"><br /></span>
 		</div>
 
 		<div align="right" id="sidebar">
@@ -169,14 +165,19 @@ function showBig(val) {
 		물품:<span id ="demo"></span>
 		<span id ="demo1"></span><br>
 		개수:<span id ="demo2"></span><br>
-		가격:<span id = "nedan"> ${no}원</span>
+		가격:<span id = "nedan"> </span>
 	</div>
 	<span class="bl"></span><span class="br"></span>
 
 </div>
 			
 			<hr>
-			<a href="./product-pay.pr?productNumber=${productBean.productNumber}&email=${memberBean.email}">주문하기</a>
+			 
+
+		<form id="getsu" method="post" action="./product-pay.pr?productNumber=${productBean.productNumber}&email=${memberBean.email}">
+		<input type="hidden" name = "su" >
+		<input type="submit"  value ="주문하기">
+		</form>	
 			<span> 상품 번호 : ${productBean.modelNumber} <br>
 				포인트 적립률 :${productBean.rating}% <br> 배송소요기간
 				:${productBean.deliveryPeriod}일
@@ -187,12 +188,11 @@ function showBig(val) {
 	<div id="comments">
 		<h3>Comments</h3>
 		<p>
-			<span>Visitor 1</span> <img src="img/b1.png" width="100%"
-				height="100%" />
+			<span>Visitor 1</span><img src="img/${productBean.imgAddr5}" width="100%" height="100%" />
 		</p>
 		<p>
 			<span>Visitor 2</span> 상품 상제 이미지
-				<img src="img/nikee.gif" width="100%" height="100%" id="big" />
+				 <img src="img/${productBean.imgAddr5}" width="100%" height="100%" />
 		</p>
 		<p>
 		
