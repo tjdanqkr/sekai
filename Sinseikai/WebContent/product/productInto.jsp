@@ -20,8 +20,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<c:set var="no" value="${Math.round(productBean.price*(1-productBean.discountRate))}" />
 <script type="text/javascript">
-
 function checkCookie() {
     var itemID = getCookie("itemID");
 	var thisItem='img/a1.jpg:${productBean.brandName}+${productBean.modelName}:${productBean.price}원';   // 제품 아이디와 이미지 이름을 저장  2차원 배열처럼 쓸려고 짱구를 굴림...  json 형태로 저장도 가능할텐데.... 그건 취향대로 
@@ -45,8 +45,6 @@ function showBig(val) {
  var obj = document.getElementById("big");
   obj.src = "./img/" + val;
 } 
-
-
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>상세물품정보</title>
@@ -66,34 +64,25 @@ function showBig(val) {
 				var jb;
 				var jb1;
 				var jb2;
+				var jb3;
 				var temp;
 				function input(){
 					var input = document.getElementById("quantity").value;
 					return input;
-					}
-					
+					}					
 				$( 'button#jbButton' ).click( function() {		
 					  jb = $("select[name='option1'] option:selected").text();	
 					document.getElementById("demo").innerHTML = jb;
-					 jb1 = $("select[name='option2'] option:selected ").html();	
-					 
-					 
-					var result = jb1.replace('사이즈',' ');
-					 document.getElementById("demo1").innerHTML = result;
-								
-				$( 'button#jbButton2' ).click( function() {		
-						
+					 jb1 = $("select[name='option2'] option:selected ").text();	
+					 document.getElementById("demo1").innerHTML = jb1;																			
 						 jb2=input();
-						 document.getElementById("demo4").innerHTML = jb;		 
-						 document.getElementById("demo5").innerHTML = jb1;
-						 document.getElementById("demo").innerHTML = " ";		 
-						 document.getElementById("demo1").innerHTML = " ";
-						 document.getElementById("demo6").innerHTML = jb2;
-						 
+						 jb3=input()*${no};	 
+						 document.getElementById("demo").innerHTML = jb;		 
+						 document.getElementById("demo1").innerHTML = jb1;			
+						 document.getElementById("demo2").innerHTML = jb2;
 						 sessionStorage.setItem( 'color', 'jb' );
 						 sessionStorage.setItem( 'size', 'jb1' );
-
-				} );			
+						 document.getElementById("nedan").innerHTML = jb3;
 				} );
 				
 			} );
@@ -111,7 +100,6 @@ function showBig(val) {
 		         $("#"+id).val(q);
 		    };
 		   
-
 		   
 			</script>
 </head>
@@ -149,16 +137,15 @@ function showBig(val) {
 				<span style="font-size: 0.7em;"> *카드할인삼성카드 5%청구할인 할인 혜택 내역</span>
 				<hr>
 				<gg>${productBean.price}원</gg>
-				<h2>
-					<c:set var="no"
-						value="${Math.round(productBean.price*(1-productBean.discountRate))}" />${no}원</h2>
+				<h2>${no}원</h2>
 			</ul>
 		</div>
 
 			<div id="sidebar">
 
 
-			<label for="select">색상,사이즈 선택</label>			
+			<label for="select">색상,사이즈 선택</label>		
+			
 			${optionHTML}<!-- 얘가 텍스트박스 생성 -->
 			<!--<button id="jbButton" >Click</button>
 			<div>
@@ -167,23 +154,22 @@ function showBig(val) {
   			주문 개수: -->
   			<div>
     <input name="quantity" id="quantity" style="vertical-align:middle; text-align:right" size="5" maxlength="4" value="1"/>
-    <img style="vertical-align:middle;" alt="수량 증가 감소" src="btn_cnt.gif" usemap="#map_name_quantity"/>
-    <map id="map_name_quantity" name="map_name_quantity">
+    	<img style="vertical-align:middle;" alt="수량 증가 감소" src="btn_cnt.gif" usemap="#map_name_quantity"/>
+   	 <map id="map_name_quantity" name="map_name_quantity">
         <area href="javascript:modifyProductQuantity('quantity',1);" shape="rect" alt="수량 증가" coords="0,0,9,10"/>
         <area href="javascript:modifyProductQuantity('quantity',-1);" shape="rect" alt="수량 감소" coords="0,10,9,20"/>
-    </map>
+    </map><button id="jbButton" >선택</button>	<span id="jaego"> </span>
 			<br>
 			</div>
     			<div>
-			<button id="jbButton2" >추가하기</button>
-	
 			<div class="blue-box">
 	<span class="tl"></span><span class="tr"></span>
 	<div class="box-content">
-		<h2></h2>
-		<p id ="demo4"></p>
-		<p id ="demo5"></p>
-		<p id ="demo6"></p>
+		<h2>주문내용</h2>
+		물품:<span id ="demo"></span>
+		<span id ="demo1"></span><br>
+		개수:<span id ="demo2"></span><br>
+		가격:<span id = "nedan"> ${no}원</span>
 	</div>
 	<span class="bl"></span><span class="br"></span>
 
@@ -221,7 +207,7 @@ function showBig(val) {
 	
 	<script>
     ${optionJS}
-    
+    $('#jaego').html("남은 재고 : ");
     </script>
 
 
@@ -229,6 +215,7 @@ function showBig(val) {
 <div id=footer> <%@include file="footer.jsp" %>  </div>
 <% String su =request.getParameter("quantity") ;
 request.getParameter("quantity");
-session.setAttribute("quantity",su ); %>
+session.setAttribute("quantity",su ); 
+%>
 </body>
 </html>
