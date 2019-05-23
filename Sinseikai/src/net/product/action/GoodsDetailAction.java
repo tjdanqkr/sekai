@@ -138,7 +138,7 @@ public class GoodsDetailAction implements Action {
 		String html = "<select name=\"option" + minorBeans.get(0).getMajorNumber() + "\">\n";
 		
 		// Basic option.
-		html += "<option value=\"0\">" + minorBeans.get(0).getMajorName() + "</option>\n";
+		html += "<option value=\"0\">" + "</option>\n";
 		
 		// Example) <option value="1">first</option>
 		for(Option1Bean bean : minorBeans) {
@@ -169,18 +169,18 @@ public class GoodsDetailAction implements Action {
 		int index = 0;
 		
 		// Basic option.
-		html += "<select name=\"option" + minorBeans.get(0).getMajorNumber()+ "\">\n";
-		html += "<option value=\"0\">" + minorBeans.get(0).getMajorName() + "</option>\n";
+		html += "<select name=\"option" + minorBeans.get(0).getMajorNumber()+"\">\n";
+		html += "<option value=\"0\">"  + "</option>\n";
 		html += "</select>\n";
 		
 		for(int i = 0; i < minorBeans.size(); i++) {
 			if(minorBeans.get(i).getPaMinorNumber() != index) {
 				
 				// Example) <select name="option2">
-				html += "<select name=\"option" + minorBeans.get(0).getMajorNumber()+ "\" " + 
+				html += "<select name=\"option" + minorBeans.get(0).getMajorNumber()+"\" " + 
 						"style=\"display: none;\">\n";
 				
-				html += "<option value=\"0\">" + minorBeans.get(0).getMajorName() + "</option>\n";
+				html += "<option value=\"0\">" + "</option>\n";
 				
 				if(minorBeans.get(i).getPaMinorNumber() != index + 1) {
 					// Sadly, this parent option has no child option at this time.
@@ -198,7 +198,7 @@ public class GoodsDetailAction implements Action {
 					minorBeans.get(i).getMinorName();
 			
 			if(!isExistChildOption(minorBeans.get(i), majorBeans)) {
-				html += " "+ "&nbsp" + "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp" + minorBeans.get(i).getMinorStock() + "개 재고";
+			//	html += " "+minorBeans.get(i).getMinorStock() ;
 			}
 			
 			html += "</option>\n";
