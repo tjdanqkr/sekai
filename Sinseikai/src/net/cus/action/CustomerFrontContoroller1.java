@@ -12,8 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import net.action.Action;
 import net.action.ActionForward;
-import net.member.MemberAddAction;
-import net.member.loginAction;
+import net.member.action.MemberAddAction;
+import net.member.action.loginAction;
 import net.product.action.CategoryMenuAction;
 
 
