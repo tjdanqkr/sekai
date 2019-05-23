@@ -57,7 +57,7 @@ function count(){
 					</button>
 				</p>
 				<div class="list nodata" style="display: none;"
-					id="recent_shopping_infomation_none">최근 본 쇼핑정보가 없습니다.</div>
+					id="recent_shopping_infomation_none"><% %>최근 본 쇼핑정보가 없습니다.</div>
 				<div class="list">
 					<p class="clear_items">
 						<button type="button" id="remove-recent_shopping_infomation">전체
