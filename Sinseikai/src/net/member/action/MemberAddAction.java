@@ -1,4 +1,4 @@
-package net.member;
+package net.member.action;
 
 import java.util.Calendar;
 

@@ -1,11 +1,11 @@
-package net.member;
+package net.member.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import net.member.Action;
-import net.member.ActionForward;
+import net.member.action.Action;
+import net.member.action.ActionForward;
 import net.member.db.*;
 
 
