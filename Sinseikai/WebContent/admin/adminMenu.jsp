@@ -10,8 +10,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<h1><a href="admin-overview.ad">Overview</a></h1>
+<link rel ="stylesheet" href="./css/adminMenu.css" type ="text/css"/>
+<div>
+<h1><a href="admin-overview.ad">Overview</a></h1><!-- Overview -->
 
 <c:set var="adminMenuBeans" value="${adminMenuBeans}"></c:set>
 <c:forEach var="beans" items="${adminMenuBeans}">
@@ -20,6 +21,7 @@
 		<p><a href="${bean.url}">${bean.name}</a></p>
 	</c:forEach>
 </c:forEach>
+
 <script>
 	var adminMenuBeans = '${adminMenuBeans}';
 	if(adminMenuBeans == ''){
@@ -27,3 +29,4 @@
 		location.href = 'admin.ad';
 	}
 </script>
+</div>

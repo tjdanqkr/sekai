@@ -1,31 +1,17 @@
-.detai {
-	width: 700px;
-	border: solid #cccccc;
-	border-spacing: 0px;
-	font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic',
-		'AppleSDGothicNeo', 'Helvetica', sans-serif;
-}
-
+.detai{
+border: solid #ddfdfd;
+	}
 .detai .tp, .detai .ep {
-	background-color: rgba(153, 153, 153, 0.6);
-	padding: 5px;
-	font-style: oblique;
-	color: gray;
-}
-
-.detai .td td {
-	border-collapse: separate;
-	border-color: gray;
-	border: 1px;
+	 background-color: rgba( 153, 153, 153, 0.3 );
+	 padding : 5px;
+	 
+	 
+ 
 }
 
 .detai .ct {
-	height: 100%;
-	color: gray;
-	background-color: rgba(153, 153, 153, 0.3);
+	
 }
-
 .detai .rp {
-	text-align: center;
-	background-color: rgba(153, 153, 153, 0.3);
+	
 }
