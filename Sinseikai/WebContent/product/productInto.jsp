@@ -11,7 +11,8 @@
 <%
 	String cp= request.getContextPath();
 	request.setCharacterEncoding("UTF-8");
-	Cookie c= new Cookie("productname",URLEncoder.encode(request.getParameter("productBean.brandName")+" "+ request.getParameter("productBean.modelName") ,"utf-8"));
+	Cookie c= new Cookie("productname",URLEncoder.encode(request.getParameter("productBean.brandName")+" "+
+	request.getParameter("productBean.modelName") ,"utf-8"));
 	Cookie c2= new Cookie("img",URLEncoder.encode("img/a1.jpg" ,"utf-8"));
 %>
 <%@ page session = "true" %>

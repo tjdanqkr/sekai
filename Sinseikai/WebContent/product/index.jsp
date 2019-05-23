@@ -18,6 +18,8 @@
 
 
 <article id="demo-default" class="demo">
+    <h2>Flipster Flat</h2>
+
     <div id="flat">
         <ul>
             <li data-flip-title="Red">
