@@ -1,6 +1,7 @@
 package net.product.action;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.action.FrontController;
 import net.admin.action.PurchaseHistoryAction;
+import net.admin.db.PurchaseHistoryBean;
+import net.product.util.PurchaseHistoryUtility;
 import net.action.Action;
 import net.action.ActionForward;
 
@@ -55,7 +58,7 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/product-into.pr")) { // Show the product.
+		}else if(command.equals("/productinto.pr")) { // Show the product.
 			action = new GoodsDetailAction();
 			try {
 				forward = action.execute(request, response);
@@ -79,40 +82,77 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/manage-category.pr")) { // Admin menu.
+		}else if(command.equals("/admin-get-overview.pr")) {
+			/*
+			 * Manager : get overview data.
+			 */
+			PurchaseHistoryUtility purchaseHistoryUtility = new PurchaseHistoryUtility();
+			
+			action = new PurchaseHistoryAction();
+			try {
+				forward = action.execute(request, response);
+				
+				/*
+				 * For counting.
+				 */
+				List<PurchaseHistoryBean> beans = 
+						(List<PurchaseHistoryBean>)request.getAttribute("purchaseHistoryBeans");
+				
+				request.getSession().setAttribute("brandNameMap", 
+						purchaseHistoryUtility.counting(beans, "brandName"));
+				
+				forward.setRedirect(true);
+				
+				/*
+				 * End of data collect.
+				 * back to the ~.ad
+				 */
+				forward.setPath("admin-overview-show.ad");
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/manage-category.pr")) {
 			/*
 			 * Manager : category menu.
 			 */
-
-			request.setAttribute("centerUri", "/admin/manageCategory.jsp"); // Put the result.
+			request.setAttribute("centerUri", "/admin/manageCategory.jsp");
 			
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/admin/adminContainer.jsp");
-		}else if(command.equals("/manage-category-insert.pr")) { // Insert to category menu.
+		}else if(command.equals("/manage-category-insert.pr")) {
+			/*
+			 * Manager : category insert.
+			 */
 			action = new CategoryMenuInsertAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/manage-category-modify.pr")) { // Modify the category menu.
+		}else if(command.equals("/manage-category-modify.pr")) {
+			/*
+			 * Manager : category modify.
+			 */
 			action = new CategoryMenuModifyAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/manage-category-delete.pr")) { // Delete from category menu.
+		}else if(command.equals("/manage-category-delete.pr")) {
+			/*
+			 * Manager : category delete.
+			 */
 			action = new CategoryMenuDeleteAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/purchase-history.pr")) { // lookup the purchase history.
+		}else if(command.equals("/purchase-history.pr")) {
 			/*
-			 * Manage mode.
+			 * Manager : purchase history.
 			 */
 			action = new PurchaseHistoryAction();
 			try {
@@ -120,18 +160,18 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/lookup-product.pr")) { // Lookup the product.
+		}else if(command.equals("/lookup-product.pr")) {
 			/*
-			 * Manage mode.
+			 * Manager : lookup product.
 			 */
-			request.setAttribute("centerUri", "/admin/lookupProduct.jsp"); // Put the result.
+			request.setAttribute("centerUri", "/admin/lookupProduct.jsp");
 			
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/admin/adminContainer.jsp");
-		}else if(command.equals("/lookup-product-search.pr")) { // Search the product for manager.
+		}else if(command.equals("/lookup-product-search.pr")) {
 			/*
-			 * Manage mode.
+			 * Manager : search product.
 			 */
 			action = new SearchProductAction();
 			try {

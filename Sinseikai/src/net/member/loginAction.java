@@ -33,12 +33,12 @@ public class loginAction implements Action {
 			} else {
 				if(email.equals("admin")) {
 					forward.setRedirect(true);
-					forward.setPath("./product_into.pr");
+					forward.setPath("./product-into.pr");
 					name= memberdata.getName();
 					email= memberdata.getEmail();
 				}else {
 					forward.setRedirect(true);
-					forward.setPath("./product_into.pr");
+					forward.setPath("./product-into.pr");
 					name= memberdata.getName();
 					email= memberdata.getEmail();
 				}

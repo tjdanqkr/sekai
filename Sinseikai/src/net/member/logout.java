@@ -15,9 +15,9 @@ public class logout implements Action {
 		ActionForward forward = new ActionForward();
 		session.removeAttribute("name");
 		System.out.println("dd");
-		System.out.println("�Խ��� ��� ����");
+		System.out.println("빠이 짜이찌엔");
 		forward.setRedirect(true);
-		forward.setPath("./product_into.pr");
+		forward.setPath("./product-into.pr");
 		 
 			
 		return forward;

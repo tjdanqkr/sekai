@@ -37,7 +37,7 @@ public class naverlo implements Action{
    		}
    		System.out.println("�Խ��� ��� �Ϸ�");
 		   	forward.setRedirect(true);
-   		forward.setPath("./product_into.pr");
+   		forward.setPath("./product-into.pr");
    		
    		return forward;
 			}catch(Exception ex){

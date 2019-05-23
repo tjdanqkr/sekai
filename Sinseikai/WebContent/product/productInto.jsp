@@ -160,11 +160,12 @@ function showBig(val) {
 
 			<label for="select">색상,사이즈 선택</label>			
 			${optionHTML}<!-- 얘가 텍스트박스 생성 -->
-			<button id="jbButton" >Click</button>
+			<!--<button id="jbButton" >Click</button>
 			<div>
-  			주문한 색상: 	<p id="demo"></p>
+  			 주문한 색상: 	<p id="demo"></p>
   			주문한 사이즈:	<p align="left" id="demo1"></p>
-  			주문 개수:
+  			주문 개수: -->
+  			<div>
     <input name="quantity" id="quantity" style="vertical-align:middle; text-align:right" size="5" maxlength="4" value="1"/>
     <img style="vertical-align:middle;" alt="수량 증가 감소" src="btn_cnt.gif" usemap="#map_name_quantity"/>
     <map id="map_name_quantity" name="map_name_quantity">
@@ -179,7 +180,7 @@ function showBig(val) {
 			<div class="blue-box">
 	<span class="tl"></span><span class="tr"></span>
 	<div class="box-content">
-		<h2>제목</h2>
+		<h2></h2>
 		<p id ="demo4"></p>
 		<p id ="demo5"></p>
 		<p id ="demo6"></p>
@@ -187,10 +188,9 @@ function showBig(val) {
 	<span class="bl"></span><span class="br"></span>
 
 </div>
-			${productBean.brandName }
-			${memberBean.name}
+			
 			<hr>
-			<a href="./productPay.pr?productNumber=${productBean.productNumber}&email=${memberBean.email}">주문하기</a>
+			<a href="./product-pay.pr?productNumber=${productBean.productNumber}&email=${memberBean.email}">주문하기</a>
 			<span> 상품 번호 : ${productBean.modelNumber} <br>
 				포인트 적립률 :${productBean.rating}% <br> 배송소요기간
 				:${productBean.deliveryPeriod}일
@@ -205,11 +205,12 @@ function showBig(val) {
 				height="100%" />
 		</p>
 		<p>
-			<span>Visitor 2</span> 평점
+			<span>Visitor 2</span> 상품 상제 이미지
+				<img src="img/nikee.gif" width="100%" height="100%" id="big" />
 		</p>
 		<p>
 		
-			<span>Visitor 3</span> 추가할거있으면 추가
+			<span>Visitor 3</span> 사이즈표 
 
 		</p>
 	</div>
@@ -226,6 +227,8 @@ function showBig(val) {
 
 </div>
 <div id=footer> <%@include file="footer.jsp" %>  </div>
-
+<% String su =request.getParameter("quantity") ;
+request.getParameter("quantity");
+session.setAttribute("quantity",su ); %>
 </body>
 </html>
