@@ -1,4 +1,4 @@
-package net.member;
+package net.member.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
