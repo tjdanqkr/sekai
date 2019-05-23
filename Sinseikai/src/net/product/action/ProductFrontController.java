@@ -2,6 +2,7 @@ package net.product.action;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -88,6 +89,10 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			 */
 			PurchaseHistoryUtility purchaseHistoryUtility = new PurchaseHistoryUtility();
 			
+			List<PurchaseHistoryBean> beans = null;
+			
+			Map<String, Map<String, Integer>> brandNameMaps = null;
+			
 			action = new PurchaseHistoryAction();
 			try {
 				forward = action.execute(request, response);
@@ -95,11 +100,17 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 				/*
 				 * For counting.
 				 */
-				List<PurchaseHistoryBean> beans = 
-						(List<PurchaseHistoryBean>)request.getAttribute("purchaseHistoryBeans");
+				beans = (List<PurchaseHistoryBean>)request.getAttribute("purchaseHistoryBeans");
 				
-				request.getSession().setAttribute("brandNameMap", 
-						purchaseHistoryUtility.counting(beans, "brandName"));
+				/*
+				 * Counting.
+				 */
+				brandNameMaps = purchaseHistoryUtility.counting(beans, "brandName");
+				
+				/*
+				 * Put data to session.
+				 */
+				request.getSession().setAttribute("brandNameMaps", brandNameMaps);
 				
 				forward.setRedirect(true);
 				
