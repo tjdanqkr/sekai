@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <%
 String name= request.getParameter("name"); 
 pageContext.setAttribute("option1Beans",session.getAttribute("option1Beans"));
+pageContext.setAttribute("memberBean",session.getAttribute("memberBean"));
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="../js/product_into.js"></script>
@@ -31,13 +33,13 @@ pageContext.setAttribute("option1Beans",session.getAttribute("option1Beans"));
 <hr class= "my-hr1">
 <h2>주문고객</h2>
 <hr class= "my-hr2">
-이름 : <input type="text" value="">
+이름 : <input type="text" value="${memberBean.name}">
 <br><br>
 <hr class= "my-hr1">
 
 <h2>배송정보</h2>
 <hr class= "my-hr2">
-배송지 : <input type="text" value="나는 배송지야">
+배송지 : <input type="text" size="80" name="juso" value="${memberBean.address}"><br>
 <br><br>
 <hr class= "my-hr1">
 <h2>할인/포인트</h2>
@@ -49,21 +51,28 @@ pageContext.setAttribute("option1Beans",session.getAttribute("option1Beans"));
 <hr class= "my-hr2">
 무통장입금<br>
 
-은행선택  <select name='bank'>
- 		 <option value='gukmin' selected>국민은행</option>
- 		 <option value='sinhan'>신한은행</option>
-  		<option value='nongheyop'>농협은행</option>
- 		 <option value='woori'>우리은헹</option>
- 		 <option value='kakao'>카카오뱅크</option>
-</select><br>
+은행선택  <select name="bank" id="bank" onchange="myFunction()">
+ 		 <option value='신한은행 예금주 : 김기찬    110-371-563730'>신한은행</option>
+ 		 <option value='국민은행 예금주 : 김기찬    110-371-563730' >국민은행</option>
+  		<option value='농협은행 예금주 : 김기찬    110-371-563730'>농협은행</option>
+ 		 <option value='우리은행 예금주 : 김기찬    110-371-563730'>우리은헹</option>
+ 		 <option value='카카오뱅크 예금주 : 김기찬    110-371-563730'>카카오뱅크</option>
+</select><br> 
+<p id ="bbank"></p>
+<script>
+function myFunction() {
+	var a =document.getElementById("bank").value;
+	  document.getElementById("bbank").innerHTML = a;
+	}
+</script>
 
-입급자명 <input type="text" name="donzul" value="돈줄"><br><br>
+입급자명 <input type="text" name="donzul" value="${memberBean.name }"><br><br>
 
 예금주 : 김기찬<br><br>
 
 입금기한 (예정) : 3일(최종 주문일 기준, 다음날까지 미 입금 시 자동취소 됩니다)<br><br>
 
-
+<div align="center"><input type ="button" value = "주문확정" onclick ="alert('주문이 완료되었습니다'); location.href='product-into.pr'"/></div>
 <hr class= "my-hr2">
 
 <h5><b>무통장입금 이용안내</b><br><br>

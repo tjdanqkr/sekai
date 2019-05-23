@@ -58,7 +58,7 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/product-into.pr")) { // Show the product.
+		}else if(command.equals("/productinto.pr")) { // Show the product.
 			action = new GoodsDetailAction();
 			try {
 				forward = action.execute(request, response);

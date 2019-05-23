@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import net.action.Action;
 import net.action.ActionForward;
+import net.member.db.MemberBean;
+import net.member.db.MemberDAO;
 import net.product.db.CodexBrandBean;
 import net.product.db.CodexBrandDAO;
 import net.product.db.Option1Bean;
@@ -27,8 +29,21 @@ public class GoodsDetailAction implements Action {
 		ProductBean productBean = new ProductBean();
 		List<Option1Bean> option1Beans = null;
 		CodexBrandBean codexBrandBean = null;
-		productBean.setProductNumber(Integer.parseInt(request.getParameter("productNumber")));
+		MemberBean memberBean = new MemberBean();
+		MemberDAO memberDAO = new MemberDAO();
 		
+		
+	
+		
+		memberBean.setEmail(request.getParameter("email"));
+		memberBean = memberDAO.kensaku(memberBean);
+		memberDAO.close();
+		if(memberBean == null) {
+			System.err.println("ERROR - Failed get the member");
+			return null;
+		}
+		
+		productBean.setProductNumber(Integer.parseInt(request.getParameter("productNumber")));
 		productBean = productDAO.getProductAsProductnumber(productBean); // Get product as productnumber.
 		productDAO.close();
 		if(productBean == null) {
@@ -57,7 +72,7 @@ public class GoodsDetailAction implements Action {
 		session.setAttribute("optionHTML",  listToHTML(majorBeans));
 		session.setAttribute("optionJS", createJSForOption(majorBeans));
 		session.setAttribute("codexBrandBean", codexBrandBean);
-		
+		session.setAttribute("memberBean", memberBean);
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("/product/productInto.jsp"); // set at after.

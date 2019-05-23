@@ -22,7 +22,7 @@
 	 		<c:forEach var="categoryBeans" items="${minorBeans}">
 				<li><b>${categoryBeans.get(0).minorName}</b><li>
 					<c:forEach var="bean" items="${categoryBeans}">
-						<li><a href="categoryProduct.pr?categoryCode=${bean.categoryCode}&categoryName=${bean.categoryName}">${bean.categoryName}</a></li>
+						<li><a href="category-product.pr?categoryCode=${bean.categoryCode}&categoryName=${bean.categoryName}">${bean.categoryName}</a></li>
 					</c:forEach>
 	 		</c:forEach>
 	 	</li></ul>

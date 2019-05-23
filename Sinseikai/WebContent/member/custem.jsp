@@ -44,7 +44,6 @@
 	%>
 
 
-<div id=footer><%@include file="../product/footer.jsp" %>  </div>
 
 </body>
 </html>
