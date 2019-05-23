@@ -7,7 +7,7 @@ public class OrderListBean {
 	private int productNumber;
 	private boolean coupon;
 	private int price;
-	private String option;
+	private String options;
 	private int amount;
 	private String status;
 	
@@ -47,11 +47,11 @@ public class OrderListBean {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public String getOption() {
-		return option;
+	public String getOptions() {
+		return options;
 	}
-	public void setOption(String option) {
-		this.option = option;
+	public void setOptions(String options) {
+		this.options = options;
 	}
 	public int getAmount() {
 		return amount;
