@@ -1,5 +1,7 @@
 package net.product.action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,19 +15,37 @@ public class ShowOrderListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		OrderListDAO orderListDAO = new OrderListDAO();
+		OrderListDAO dao = new OrderListDAO();
 		
 		MemberBean memberBean = new MemberBean();
-		OrderListBean orderListBean = null;
+		List<OrderListBean> buyerOrderListBeans = null;
+		List<OrderListBean> sellerOrderListBeans = null;
 		
-		memberBean.setEmail(request.getSession().getAttribute("email")+""); // Set the email as that email in session. 
+		/*
+		 * Set the email as that email in session.
+		 * attribute name is 'id'. 
+		 */
+		memberBean.setEmail(request.getSession().getAttribute("id")+""); 
 		
-		
-		orderListDAO.getOrderListForBuyer(memberBean);
+		buyerOrderListBeans = dao.getOrderListForBuyer(memberBean);
+		sellerOrderListBeans = dao.getOrderListForSeller(memberBean);
+		dao.close();
+		if(buyerOrderListBeans == null) {
+			System.err.println("ERROR - Failed get the order list for buyer");
+			return null;
+		}
+		if(sellerOrderListBeans == null) {
+			System.err.println("ERROR - Failed get the order list for seller");
+			return null;
+		}
+
+		request.getSession().setAttribute("buyerOrderListBeans", buyerOrderListBeans);
+		request.getSession().setAttribute("sellerOrderListBeans", sellerOrderListBeans);
 		
 		ActionForward forward = new ActionForward();
-		forward.setRedirect(false);
-		forward.setPath("/.jsp");
+		forward.setRedirect(true);
+		forward.setPath("mypage-show.me");
+		
 		return forward;
 	}
 
