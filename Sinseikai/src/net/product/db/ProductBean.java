@@ -16,6 +16,8 @@ public class ProductBean {
 	private String imgAddr5;
 	private int deliveryPeriod;
 	private int categorycode;
+	private String sellerEmail;
+	
 	public int getProductNumber() {
 		return productNumber;
 	}
@@ -105,6 +107,12 @@ public class ProductBean {
 	}
 	public void setCategorycode(int categorycode) {
 		this.categorycode = categorycode;
+	}
+	public String getSellerEmail() {
+		return sellerEmail;
+	}
+	public void setSellerEmail(String sellerEmail) {
+		this.sellerEmail = sellerEmail;
 	}
 	
 }
