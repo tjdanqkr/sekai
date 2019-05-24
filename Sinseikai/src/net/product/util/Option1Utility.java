@@ -191,4 +191,113 @@ public class Option1Utility {
 		}
 		return false;
 	}
+	
+	/*
+	 * Remove the not selected option.
+	 * use the value 'options' of order list. 
+	 */
+	public List<Option1Bean> removeNotselectedOption(List<List<Option1Bean>> notSelectedBeans, String options) {
+		/*
+		 * Example
+		 * 
+		 * notSelectedBeans (2-dimension)
+		 *  - Major1
+		 *    - minor1
+		 *    - minor2
+		 *  - Major2
+		 *    - minor1
+		 *    - ...
+		 *  
+		 * selectedBeans (1-dimension)
+		 *  - minor2 (in Major1)
+		 *  - minor1 (in Major2)
+		 */
+		List<Option1Bean> selectedBeans = new ArrayList<Option1Bean>();
+
+		/*
+		 * options is String. (ex : "1, 2, 3")
+		 * should convert to int array.
+		 */
+		String[] optionsArr = options.split(",");
+		int[] optionsArrInt = new int[options.length()];
+		
+		/*
+		 * Used that find child option of selected parent option.
+		 * if no child option, index is -1
+		 */
+		int[] parentIndex = new int[options.length()];
+		
+		/*
+		 * convert from string to int.
+		 */
+		for(int i = 0; i < optionsArr.length; i++) {
+			/*
+			 * first number of option is 1.
+			 * but first number of arr is 0.
+			 */
+			optionsArrInt[i] = Integer.parseInt(optionsArr[i].trim()) - 1;
+			
+			parentIndex[i] = -1;
+		}
+		
+		for(int i = 0; i < notSelectedBeans.size(); i++) {
+			List<Option1Bean> option1Beans = notSelectedBeans.get(i);
+			Option1Bean selectedBean = null;
+			
+			if(parentIndex[i] == -1) {
+				/*
+				 * No parent.
+				 */
+				selectedBean = option1Beans.get(optionsArrInt[i]);
+			}else {
+				/*
+				 * Exist parent.
+				 */
+				selectedBean = getChildOption(option1Beans, parentIndex[i], optionsArrInt[i]);
+			}
+			
+			/*
+			 * Add selected option.
+			 */
+			selectedBeans.add(selectedBean);
+			
+			setParentIndex(selectedBeans.get(i), notSelectedBeans, parentIndex);
+		}
+		
+		return selectedBeans;
+	}
+	
+	/*
+	 * Get child option.
+	 */
+	private Option1Bean getChildOption(List<Option1Bean> beans, int parentIndex, int minorNumber) {
+		Option1Bean bean = null;
+		
+		for(int i = 0; i < beans.size(); i++) {
+			if(beans.get(i).getMinorNumber() == minorNumber && 
+					beans.get(i).getPaMajorNumber() == parentIndex) {
+				bean = beans.get(i);
+				
+				break;
+			}
+		}
+		
+		return bean;
+	}
+	
+	/*
+	 * Set parent index.
+	 * for example, child of option3 is option5.
+	 * then set parentIndex[2] = 5 (because option first is 1, array first is 0)
+	 */
+	private void setParentIndex(Option1Bean maybeParent, List<List<Option1Bean>> maybeChildren, int[] parentIndex) {
+		for(List<Option1Bean> maybeChild : maybeChildren) {
+			if(maybeChild.get(0).getPaMajorNumber() == maybeParent.getMajorNumber()) {
+				parentIndex[maybeChild.get(0).getMajorNumber()-1] = maybeParent.getMajorNumber() ;
+				
+				return;
+			}
+		}
+	}
+	
 }
