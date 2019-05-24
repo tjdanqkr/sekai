@@ -1,4 +1,4 @@
-﻿<%@page import="java.net.URLEncoder"%>
+<%@page import="java.net.URLEncoder"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="net.cus.db.OpenBean"%>
@@ -8,39 +8,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="no" value="${Math.round(productBean.price*(1-productBean.discountRate))}" />
-<%
-	String cp= request.getContextPath();
-	request.setCharacterEncoding("UTF-8");
-	Cookie c= new Cookie("productname",URLEncoder.encode(request.getParameter("productBean.brandName")+" "+
-	request.getParameter("productBean.modelName") ,"utf-8"));
-	Cookie c2= new Cookie("img",URLEncoder.encode("img/a1.jpg" ,"utf-8"));
-%>
+
 <%@ page session = "true" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 
-<script type="text/javascript">
-function checkCookie() {
-    var itemID = getCookie("itemID");
-	var thisItem='img/a1.jpg:${productBean.brandName}+${productBean.modelName}:${productBean.price}원';   // 제품 아이디와 이미지 이름을 저장  2차원 배열처럼 쓸려고 짱구를 굴림...  json 형태로 저장도 가능할텐데.... 그건 취향대로 
-	if (thisItem){
-		if (itemID != "" && itemID != null) {
-			if (itemID.indexOf(thisItem) ==-1 ){ //값이 없으면 
-					setCookie("itemID",thisItem+"&"+itemID,1);
-			 }
-		} else {
-			if (itemID == "" || itemID == null) {
-				setCookie("itemID",thisItem+"&",1);
-			}
-		}
-	}
-}
-checkCookie();
-</script>
+
+
 
 <script language="javascript">
+
 function showBig(val) {
  var obj = document.getElementById("big");
   obj.src = "./img/" + val;
@@ -103,6 +82,33 @@ function showBig(val) {
 		   
 		   
 			</script>
+			<script type="text/javascript">
+			
+window.onload=function(){
+	var setCookie = function(name, value, exp) {
+	
+		  var date = new Date();
+		  date.setTime(date.getTime() + exp*60*1000);
+		  document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+		};
+
+		setCookie("productid_url_${productBean.modelNumber}", location.href, 1);
+setCookie("productid_img_${productBean.modelNumber}", "img/${productBean.imgAddr1}", 1);
+setCookie("productid_name_${productBean.modelNumber}", "${productBean.modelName}", 1);
+setCookie("productid_price_${productBean.modelNumber}", "${productBean.price}원", 1);
+
+//2개 변수는 해당 화면에서 조회되는 값 - 각자에 맞게 변경
+
+}
+//productid_${productInfo.id}"  -  productid name 구분
+
+//${productInfo.id} - 해당 제품의 ID값
+
+//별거 없이 java에서 id값 추출하기 위한 부분이다....................
+
+//포인트는 해당 제품의 id값~
+
+		</script>
 </head>
 <body>
 	<div id="main">
@@ -213,6 +219,7 @@ function showBig(val) {
 
 
 </div>
+<a href="./cookie.jsp">쿠키보기</a>
 <div id=footer> <%@include file="footer.jsp" %>  </div>
 <% String su =request.getParameter("quantity") ;
 

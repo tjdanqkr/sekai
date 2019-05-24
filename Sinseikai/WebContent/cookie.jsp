@@ -8,22 +8,25 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+ 
 <head>
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+
 &nbsp;
 <% Cookie[] cook= request.getCookies();
 	if(cook!=null){
 		out.println("첫 이프");
 		for(int i=0;i<cook.length;i++){
-			out.println("폴");
+			
 			String name= cook[i].getName();
+			out.println(name+"<br>");
+			out.println(cook[i].getValue()+"<br>");
 			
-			
-			if(name.indexOf("pro")!=-1){
+			if(name.indexOf("productid_")!=-1){
 				
 				out.println("막이프");
 				String value = cook[i].getValue();
@@ -36,5 +39,14 @@
 	}
 %>
 쿠기 받기 
+<script type="text/javascript">
+var deleteCookie = function(name) {
+	  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+	}
+
+	deleteCookie('name');
+	
+</script>
+<input type="button" onclick="deleteCookie('productid_');">
 </body>
 </html>
