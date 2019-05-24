@@ -25,7 +25,7 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 		String command = RequestURI.substring(contentPath.length());
 		ActionForward forward = null;
 		Action action = null;
-		
+		System.out.println("pr시작");
 		action = new CategoryMenuAction(); // CategoryMenu is call always.
 		try {
 			action.execute(request, response);
@@ -62,8 +62,9 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/productPayment.pr")) {
+		}else if(command.equals("/productPay.pr")) {
 			action = new ProductPaymentAction();
+			
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
@@ -71,8 +72,10 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			}
 		}else if(command.equals("/showOrderList.pr")) {
 			action = new ShowOrderListAction();
+			
 			try {
 				forward = action.execute(request, response);
+				
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
