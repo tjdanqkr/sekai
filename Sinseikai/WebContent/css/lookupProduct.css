@@ -1,0 +1,34 @@
+
+table {
+   text-align: center;
+   color: white;
+   background-color: rgba(0, 0, 0, 0.9);
+   margin-top:3rem;
+   margin-left: 10em;
+   width: 80rem;
+   overflow: scroll;
+   overflow: hidden;
+   border-bottom: none;
+   
+
+   
+}
+_text{
+   margin-left: 30rem;
+   border-bottom: none;
+}
+.btn_submit{
+   background-image: url(../images/regist.png);
+   width: 50px;
+    height: 50px;
+    background-color: black;
+    border: 0px;
+    background-repeat: no-repeat;
+   background-position: center;
+   margin-left:2rem;
+   position :absolute;
+   margin-top: -15px;
+   text-decoration: none;
+   border-style: none;   
+      border-bottom: none;
+}   

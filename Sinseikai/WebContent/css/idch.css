@@ -1,0 +1,11 @@
+img{
+
+	vertical-align:middle;
+}
+.idd{
+	font-size: 25px;
+	text-align: center;
+	font-family: 'Roboto', 'Noto Sans KR',
+         'Malgun Gothic', 'AppleSDGothicNeo',
+          'Helvetica', sans-serif;
+}

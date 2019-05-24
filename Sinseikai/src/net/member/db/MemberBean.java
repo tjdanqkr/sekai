@@ -4,7 +4,7 @@ public class MemberBean {
 	private String name;
 	private String email;
 	private String pw;
-	private String num1;
+	private int num1;
 	private int age;
 	private String phone;
 	private String address;
@@ -26,10 +26,10 @@ public class MemberBean {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
-	public String getNum1() {
+	public int getNum1() {
 		return num1;
 	}
-	public void setNum1(String num1) {
+	public void setNum1(int num1) {
 		this.num1 = num1;
 	}
 	

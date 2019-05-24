@@ -1,0 +1,20 @@
+.table h1{
+   color: white;
+}
+table {
+   text-align: center;
+   color: white;
+   background-color: rgba(0, 0, 0, 0.9);
+   margin-top:3rem;
+   margin-left: 10em;
+   width: 80rem;
+   overflow: scroll;
+   overflow: hidden;
+   border-bottom: solid ffffff;
+}
+table .chistory1{
+   color: gray;
+}
+table .chistory2{
+   color: white;
+}

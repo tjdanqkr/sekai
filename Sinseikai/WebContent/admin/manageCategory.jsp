@@ -2,78 +2,36 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-<style>
-	ul{
-		margin: 2.5vh 20px;
-		padding: 0px;
-	}
-	li{
-		list-style-type: none;
-	}
-	#categoryTop{
-		height: 20vh;
-		background-color: skyblue;
-	}
-	#addButton{
-		position: absolute;
-		width: 10vw;
-		height: 10vh;
-		top: 5vh;
-		right: 5vw;
-		border: none;
-		border-radius: 5px;
-		transition: all .2s;
-	}
-	#addButton:hover{
-		border-top: 5px solid;
-		padding-top: 5px;
-	}
-	#categoryContainer{
-		display: flex;
-		margin: 0px;
-	}
-	#noticeCategory, #noticeCode{
-		color: red;
-	}
-	#noticeConfirm{
-		color: green;
-	}
-	.categoryList{
-		flex-grow: 1;
-		height: 75vh;
-	}
-	#minorCategory{
-		background:tomato;
-	}
-	.categoryButton{
-		height: 10rem;
-		border-bottom: hsl(39, 100%, 40%) solid 3px;
-		background-color: hsl(39, 100%, 50%);
-		transition: background-color .2s;
-	}
-	.categoryButton:hover{
-		background-color: hsl(39, 100%, 70%);
-	}
-</style>
+<link rel="stylesheet" type="text/css" href="./css/manageCategory.css" />
 
 <c:set var="majorBeans" value="${menuBeans}"></c:set>
 <c:set var="categoryCodeBeans" value="${categoryCodeBeans}"></c:set>
 
+<!-- 
+Prevent the action that select all category if entered to modify mode.  
+-->
+<div id="blockScreen"></div>
+
 <div id="categoryTop">
-	<form action="manageCategoryInsert.pr" method="post" onsubmit="return checkValues()">
-		MajorName <input type="text" name="majorName" oninput="validate()" />
-		MinorName <input type="text" name="minorName" oninput="validate()" />
-		CategoryName <input type="text" name="categoryName" oninput="validate()" />
-		CategoryCode <input type="text" name="categorycode" oninput="validate()"/>
-		<input type="submit" value="등록" />
-	</form>
-	<p id="noticeCategory"></p>
-	<p id="noticeCode"></p>
-	<h2 id="noticeConfirm"></h2>
+	<div id="formContainer">
+		<button id="backButton">돌아가기</button>
+		<form action="manage-category-insert.pr" method="post" onsubmit="return checkValues()">
+			MajorName <input type="text" name="majorName" oninput="validate()" />
+			MinorName <input type="text" name="minorName" oninput="validate()" />
+			CategoryName <input type="text" name="categoryName" oninput="validate()" />
+			CategoryCode <input type="text" name="categoryCode" oninput="validate()"/>
+			<input type="submit" value="" class="btn_submit" alt="등록"/>
+			
+			<!-- Used for modify the category. -->
+			<input type="text" name="previousCategoryCode" value="" />
+			
+		</form>
+		<p id="noticeCategory"></p>
+		<p id="noticeCode"></p>
+		<h2 id="noticeConfirm"></h2>
+	</div>
 </div>
 <div id="categoryContainer">
 	<ul id="majorCategory" class="categoryList">
@@ -90,14 +48,25 @@
 </div>
 
 <script>
+	$(document).ready(function(){
+		$('#backButton').css('display', 'none');
+		$('#blockScreen').css('display', 'none');
+		
+		$('#backButton').on('click', function(){
+			backToView();
+		});
+		
+		$('input[name=previousCategoryCode]').css('display', 'none');
+	});
+
 	var selected = {
 		major: -1,
 		minor: -1,
 		category: -1
 	};
 	var majorList = [];
-	var codexCategoryList = [];
-
+	var categoryCodeList = [];
+	
 	<c:forEach var="minorBeans" items="${majorBeans}">
 		var minorList = [];
 		<c:forEach var="categoryBeans" items="${minorBeans}">
@@ -106,20 +75,17 @@
 				var category = {
 					majorName : '${bean.majorName}',
 					minorName : '${bean.minorName}',
-					categoryName : '${bean.categoryName}'
+					categoryName : '${bean.categoryName}',
+					categoryCode : '${bean.categoryCode}'
 				};
+				
+				categoryCodeList.push(category.categoryCode);
 				categoryList.push(category);
 			</c:forEach>
 			minorList.push(categoryList);
 		</c:forEach>
 		majorList.push(minorList);
 	</c:forEach>
-	
-	
-	<c:forEach var="bean" items="${categoryCodeBeans}">
-		codexCategoryList.push('${bean.categorycode}');
-	</c:forEach>	
-	
 	
 	$('#majorCategory').children().on('click', function(event){
 		openMinorCategory(event.target.value);
@@ -130,6 +96,7 @@
 	function openMinorCategory(value){
 		selected.major = value;
 		selected.minor = -1;
+		selected.category = -1;
 		var minorList = majorList[value];
 		
 		$('#minorCategory').empty();
@@ -160,12 +127,27 @@
 		
 		for(var i = 0; i < categoryList.length; i++){
 			var li = $('<li></li>');
+			var button = $('<button></button>');
+			
 			li.attr('class', 'categoryButton');
 			li.val(i);
 			li.html(categoryList[i].categoryName);
 			li.on('click', function(event){
+				selected.category = event.target.value;
 				
+				// Modified.
+				modifyCategoryIfWant(selected.major, selected.minor, event.target.value);
 			})
+			
+			button.attr('class','deleteButton')
+			button.val(i);
+			button.html('');
+			button.on('click', function(event){
+				// Delete category.
+				deleteCategoryIfWant(selected.major, selected.minor, event.target.value);
+			});
+			
+			li.append(button);
 			$('#category').append(li);
 		}
 
@@ -182,7 +164,18 @@
 		}
 	}
 	
-	function checkOverlap(){
+	function checkOverlap(majorName, minorName, categoryName){
+		if($('#formContainer').attr('class') == 'modify'){
+			var categoryData = majorList[selected.major][selected.minor][selected.category];
+			
+			// When only change category code.
+			if(categoryData.majorName == majorName && 
+					categoryData.minorName == minorName && 
+					categoryData.categoryName == categoryName){
+				return true;
+			}
+		}
+		
 		for(var i = 0; i < majorList.length; i++){
 			for(var j = 0; j < majorList[i].length; j++){
 				for(var k = 0; k < majorList[i][j].length; k++){
@@ -201,9 +194,18 @@
 		return true;
 	}
 	
-	function checkOverlapCode(){
-		for(var i = 0; i < codexCategoryList.length; i++){
-			if($('input[name=categorycode]').val() == codexCategoryList[i]){
+	function checkOverlapCode(categoryCode){
+		if($('#formContainer').attr('class') == 'modify'){
+			var categoryData = majorList[selected.major][selected.minor][selected.category];
+			
+			// When change major, minor, category.
+			if(categoryData.categoryCode == categoryCode){
+				return true;
+			}
+		}
+		
+		for(var i = 0; i < categoryCodeList.length; i++){
+			if($('input[name=categoryCode]').val() == categoryCodeList[i]){
 				$('#noticeCode').html('동일한 카테고리 코드가 있습니다');
 				return false;
 			}
@@ -228,9 +230,15 @@
 		var majorName = $('input[name=majorName]').val();
 		var minorName = $('input[name=minorName]').val();
 		var categoryName = $('input[name=categoryName]').val();
-		var categorycode = $('input[name=categorycode]').val();
+		var categoryCode = $('input[name=categoryCode]').val();
 		
-		if((!checkOverlap()) || (!checkOverlapCode())){
+		if((!checkOverlap(majorName, minorName, categoryName)) || 
+				(!checkOverlapCode(categoryCode))){
+			return false;
+		}
+		
+		if($('#formContainer').attr('class') == 'modify' && 
+				isEqualAllCategoryData(majorName, minorName, categoryName, categoryCode)){
 			return false;
 		}
 		
@@ -246,12 +254,99 @@
 		}
 		
 		reg = /^\d{1,}$/; // Check number.
-		if(!reg.test(categorycode)){
+		if(!reg.test(categoryCode)){
 			return false;
 		}
 
-		$('#noticeConfirm').html('추가 가능합니다!');
+		if($('#formContainer').attr('class') == 'modify'){
+			$('#noticeConfirm').html('변경 가능합니다!');
+		}else{
+			$('#noticeConfirm').html('추가 가능합니다!');
+		}
 		return true;
+	}
+	
+	// Change to modify mode.
+	function modifyCategoryIfWant(major, minor, category){
+		var categoryData = majorList[major][minor][category];
+		var inputs = $('#formContainer > form').children();
+		
+		$('#formContainer').attr('class', 'modify');
+		$('#formContainer > form').attr('action', 'manage-category-modify.pr');
+		
+		/*
+		 * inputs[0],[1](major, minor) is already insert data.
+		*/
+		inputs[2].value = categoryData.categoryName;
+		inputs[3].value = categoryData.categoryCode;
+		inputs[4].value = '수정';
+		
+		$('#backButton').css('display', '');
+		$('#blockScreen').css('display', '');
+		
+		$('input[name=previousCategoryCode]').val(categoryData.categoryCode);
+		
+		validate();
+	}
+	
+	// Change to view mode.
+	function backToView(){
+		var inputs = $('#formContainer > form').children();
+		
+		$('#formContainer').attr('class', '');
+		$('#formContainer > form').attr('action', 'manage-category-insert.pr');
+		
+		inputs[2].value = '';
+		inputs[3].value = '';
+		inputs[4].value = '등록';
+		
+		$('#backButton').css('display', 'none');
+		$('#blockScreen').css('display', 'none');
+		
+		$('input[name=previousCategoryCode]').val('');
+		
+		validate();
+	}
+	
+	// Prevent update if not change the data on modify mode.
+	function isEqualAllCategoryData(majorName, minorName, categoryName, categoryCode){
+		var categoryData = majorList[selected.major][selected.minor][selected.category];
+		
+		if(categoryData.majorName == majorName && 
+				categoryData.minorName == minorName && 
+				categoryData.categoryName == categoryName && 
+				categoryData.categoryCode == categoryCode){
+			return true;
+		}
+		
+		return false;
+	}
+	
+	// Question that are you sure delete the category?
+	function deleteCategoryIfWant(major, minor, category){
+		var categoryData = majorList[major][minor][category];
+		
+		if(confirm('정말 삭제?\n' + categoryData.majorName + ' - ' + categoryData.minorName + ' - ' + categoryData.categoryName)){
+			// Request category delete to server.
+			var form = $('<form></form>');
+			var input = $('<input />')
+			
+			form.attr('action', 'manage-category-delete.pr');
+			form.attr('method', 'post');
+			form.css('display', 'none');
+			
+			input.attr('name', 'categoryCode');
+			input.val(categoryData.categoryCode);
+			
+			form.append(input[0]);
+			form.append(input[1]);
+			form.append(input[2]);
+			form.append(input[3]);
+			
+			$('body').append(form);
+			
+			form.submit();
+		}
 	}
 </script>
 	

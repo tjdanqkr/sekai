@@ -1,4 +1,4 @@
-package net.member;
+package net.member.action;
 
 import java.io.IOException;
 
@@ -73,7 +73,24 @@ public class MemberFrontContoroller1 extends HttpServlet {
 				   } catch (Exception e) {
 					   e.printStackTrace();
 				   }
+			   }else if(command.equals("/mypage.me")) {
+				   /*
+				    * My page.
+				    * request order list.
+				    */
+				   forward = new ActionForward();
+				   forward.setRedirect(true);
+				   forward.setPath("show-order-list.pr");
+			   }else if(command.equals("/mypage-show.me")) {
+				   /*
+				    * My page.
+				    * show order list.
+				    */
+				   forward = new ActionForward();
+				   forward.setRedirect(false);
+				   forward.setPath("./member/mypage.jsp");
 			   }
+			 
 			 if(forward.isRedirect()){
 				   response.sendRedirect(forward.getPath());
 			   }else{

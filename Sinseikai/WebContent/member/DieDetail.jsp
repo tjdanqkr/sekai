@@ -5,6 +5,8 @@
 <html>
 <link rel="stylesheet" href="./css/DieDetail.css">
 <head>
+
+
 <!-- 웹 페이지 크기 및 위치 자동 고정하기 -->
 <script>
 	window.onfocus = function() {
@@ -16,14 +18,15 @@
 		window.scrollTo(0, 250); // 페이지 상단 광고를 바로 볼 수 있게 스크롤 위치를 조정
 	}
 </script>
+
 <%
 	DieBean board = (DieBean) session.getAttribute("detailbean");
 %>
-
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+
 	<table class="detai">
 		<tr class="tp">
 			<td>Title <%=board.getTitle()%></td>

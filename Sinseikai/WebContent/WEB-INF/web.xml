@@ -3,7 +3,7 @@
   <servlet>
     <servlet-name>MemberFrontControll</servlet-name>
     <servlet-class>
-		net.member.MemberFrontContoroller1</servlet-class>
+		net.member.action.MemberFrontContoroller1</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>MemberFrontControll</servlet-name>

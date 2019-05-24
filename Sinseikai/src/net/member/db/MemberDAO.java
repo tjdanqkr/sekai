@@ -27,8 +27,35 @@ public class MemberDAO implements DAO {
 		}
 	}
 
+
+	public MemberBean kensaku(MemberBean member) {
+		try {
+			pstmt = con.prepareStatement("select * from member where email=?");
+			pstmt.setString(1, member.getEmail());
+			
+			rs = pstmt.executeQuery();
+			System.out.println("e: " + member.getEmail());
+			if(rs.next()) {
+				System.out.println("a : " + rs.getString("name"));
+				member.setName(rs.getString("name"));
+				member.setEmail(rs.getString("email"));
+				member.setPw(rs.getString("pw"));
+				member.setNum1(rs.getInt("num1"));
+				member.setPhone(rs.getString("phone"));
+				member.setAge(rs.getInt("age"));
+				member.setAddress(rs.getString("Address"));
+				
+			}	return member;		
+		} catch (Exception ex) {
+			System.out.println("boardInsert kensaku: " + ex);
+		} 
+		return null;
+	}
+	
+	
+	
+	
 	public boolean memberInsert(MemberBean member) {
-		int num = 0;
 		String sql = "";
 
 		int result = 0;
@@ -43,7 +70,7 @@ public class MemberDAO implements DAO {
 			pstmt.setString(1, member.getName());
 			pstmt.setString(2, member.getEmail());
 			pstmt.setString(3, member.getPw());
-			pstmt.setString(4, member.getNum1());
+			pstmt.setInt(4, member.getNum1());
 			pstmt.setInt(5, member.getAge());
 			pstmt.setString(6, member.getPhone());
 			pstmt.setString(7, member.getAddress());

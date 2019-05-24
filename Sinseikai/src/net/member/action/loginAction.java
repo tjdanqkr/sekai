@@ -1,4 +1,4 @@
-package net.member;
+package net.member.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,13 +33,14 @@ public class loginAction implements Action {
 			} else {
 				if(email.equals("admin")) {
 					forward.setRedirect(true);
-					forward.setPath("./product_into.pr");
+					forward.setPath("./product-into.pr");
 					name= memberdata.getName();
+					email= memberdata.getEmail();
 				}else {
 					forward.setRedirect(true);
-					forward.setPath("./product_into.pr");
+					forward.setPath("./product-into.pr");
 					name= memberdata.getName();
-					
+					email= memberdata.getEmail();
 				}
 				session.setAttribute("id", email);
 				session.setAttribute("name", name);

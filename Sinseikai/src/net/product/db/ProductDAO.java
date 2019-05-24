@@ -49,13 +49,15 @@ public class ProductDAO implements DAO{
 				bean.setPrice(rs.getInt("price"));
 				bean.setDiscountRate(rs.getFloat("discountrate"));
 				bean.setRating(rs.getFloat("rating"));
-				bean.setImgAddr(rs.getString("imgaddr1"));
+				bean.setImgAddr1(rs.getString("imgaddr1"));
 				bean.setImgAddr2(rs.getString("imgaddr2"));
 				bean.setImgAddr3(rs.getString("imgaddr3"));
 				bean.setImgAddr4(rs.getString("imgaddr4"));
 				bean.setImgAddr5(rs.getString("imgaddr5"));
 				bean.setDeliveryPeriod(rs.getInt("deliveryperiod"));
 				bean.setCategorycode(rs.getInt("categorycode"));
+		//		bean.setSellerEmail(rs.getString("selleremail"));
+				
 				return bean;
 			}
 		} catch (SQLException se) {
@@ -66,12 +68,12 @@ public class ProductDAO implements DAO{
 	}
 	
 	// Get the products correct to category.
-	public List<ProductBean> getProductsAsCategorycode(CodexCategoryBean codexCategoryBean) {
+	public List<ProductBean> getProductsAsCategorycode(MenuBean menuBean) {
 		List<ProductBean> beans = null;
 		try {
 			pstmt = con.prepareStatement("select * from product where categorycode=?");
-			pstmt.setInt(1, codexCategoryBean.getCategorycode());
-			
+			pstmt.setInt(1, menuBean.getCategoryCode());
+			System.out.println(menuBean.getCategoryCode());
 			rs = pstmt.executeQuery();
 			
 			beans = new ArrayList<ProductBean>();
@@ -86,13 +88,14 @@ public class ProductDAO implements DAO{
 				bean.setPrice(rs.getInt("price"));
 				bean.setDiscountRate(rs.getFloat("discountrate"));
 				bean.setRating(rs.getFloat("rating"));
-				bean.setImgAddr(rs.getString("imgaddr"));
+				bean.setImgAddr1(rs.getString("imgaddr1"));
 				bean.setImgAddr2(rs.getString("imgaddr2"));
 				bean.setImgAddr3(rs.getString("imgaddr3"));
 				bean.setImgAddr4(rs.getString("imgaddr4"));
 				bean.setImgAddr5(rs.getString("imgaddr5"));
 				bean.setDeliveryPeriod(rs.getInt("deliveryperiod"));
 				bean.setCategorycode(rs.getInt("categorycode"));
+			//	bean.setSellerEmail(rs.getString("selleremail"));
 				
 				beans.add(bean);
 			}
@@ -110,14 +113,14 @@ public class ProductDAO implements DAO{
 		try {
 			pstmt = con.prepareStatement("select * from product where "
 					+ "productnumber=? or "
-					+ "brandname=? or "
-					+ "modelnumber=? or "
-					+ "modelname=? or "
+					+ "brandname like ? or "
+					+ "modelnumber like ? or "
+					+ "modelname like ? or "
 					+ "categorycode=?");
 			pstmt.setInt(1, keywordBean.getProductNumber());
-			pstmt.setString(2, keywordBean.getBrandName());
-			pstmt.setString(3, keywordBean.getModelNumber());
-			pstmt.setString(4, keywordBean.getModelName());
+			pstmt.setString(2, "%" + keywordBean.getBrandName() + "%");
+			pstmt.setString(3, "%" + keywordBean.getModelNumber() + "%");
+			pstmt.setString(4, "%" + keywordBean.getModelName() + "%");
 			pstmt.setInt(5, keywordBean.getCategorycode());
 			
 			rs = pstmt.executeQuery();
@@ -134,13 +137,14 @@ public class ProductDAO implements DAO{
 				bean.setPrice(rs.getInt("price"));
 				bean.setDiscountRate(rs.getFloat("discountrate"));
 				bean.setRating(rs.getFloat("rating"));
-				bean.setImgAddr(rs.getString("imgaddr"));
+				bean.setImgAddr1(rs.getString("imgaddr1"));
 				bean.setImgAddr2(rs.getString("imgaddr2"));
 				bean.setImgAddr3(rs.getString("imgaddr3"));
 				bean.setImgAddr4(rs.getString("imgaddr4"));
 				bean.setImgAddr5(rs.getString("imgaddr5"));
 				bean.setDeliveryPeriod(rs.getInt("deliveryperiod"));
 				bean.setCategorycode(rs.getInt("categorycode"));
+				bean.setSellerEmail(rs.getString("selleremail"));
 				
 				beans.add(bean);
 			}

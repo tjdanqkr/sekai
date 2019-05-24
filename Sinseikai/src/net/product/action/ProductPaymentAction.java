@@ -1,23 +1,17 @@
-package net.product.action;
+﻿package net.product.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 
 import net.action.Action;
 import net.action.ActionForward;
-import net.member.db.MemberBean;
-import net.member.db.MemberDAO;
-import net.product.db.OrderListBean;
-import net.product.db.OrderListDAO;
-import oracle.net.jdbc.TNSAddress.Address;
+
 
 public class ProductPaymentAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-				
-		
 		/*OrderListDAO dao = new OrderListDAO();
 		System.out.println("시작");
 		OrderListBean bean = new OrderListBean();
@@ -44,6 +38,7 @@ public class ProductPaymentAction implements Action {
 		}*/
 		
 		ActionForward forward = new ActionForward();
+		System.out.println("dd");
 		forward.setRedirect(false);
 		forward.setPath("/product/productPay.jsp");
 		return forward;

@@ -1,15 +1,9 @@
 <!DOCTYPE html>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <html>
   <head>
-  <script>
-  $(document).ready(function(){
-    $('.slider').bxSlider();
-  });
-</script>
     <meta charset="utf-8">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <title>슬라이드 연습</title>
      <style media="screen">
       *{
         margin: 0; padding: 0;
@@ -22,7 +16,7 @@
         margin: 0 auto;
       }
       .slide ul{
-        width: 500%;
+        width: 5000px;
         position: absolute;
         top:0;
         left:0;
@@ -50,7 +44,7 @@
   <body>
     <div class="slide">
       <img id="back" src="./img/back.png" alt="" width="100">
-      <ul class="bxSlider">
+      <ul>
         <li><img src="./img/name1.png" alt="" width="1000" height="600"></li>
         <li><img src="./img/name2.png" alt="" width="1000" height="600"></li>
         <li><img src="./img/name3.png" alt="" width="1000" height="600"></li>
@@ -62,7 +56,7 @@
   </body>
 
   <script type="text/javascript">
-  $(document).ready(function(){
+    $(document).ready(function(){
       var imgs;
       var img_count;
       var img_position = 1;
@@ -97,17 +91,7 @@
 
 
       //이미지 끝까지 가면 버튼 사라지기
-$(document).ready(function () {
-    $('.bxslider').bxSlider({
-        auto: true, // 자동으로 애니메이션 시작
-        speed: 500,  // 애니메이션 속도
-        pause: 5000,  // 애니메이션 유지 시간 (1000은 1초)
-        mode: 'horizontal', // 슬라이드 모드 ('fade', 'horizontal', 'vertical' 이 있음)
-        autoControls: true, // 시작 및 중지버튼 보여짐
-        pager: true, // 페이지 표시 보여짐
-        captions: true, // 이미지 위에 텍스트를 넣을 수 있음
-    });
-});
+
 
       //첫 이미지로 돌아오기
 

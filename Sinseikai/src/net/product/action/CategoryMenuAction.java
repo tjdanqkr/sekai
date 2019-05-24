@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import net.action.Action;
 import net.action.ActionForward;
@@ -17,7 +16,6 @@ public class CategoryMenuAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		MenuDAO dao = new MenuDAO();
-		HttpSession session = request.getSession();
 		List<MenuBean> beans = null;
 		
 		beans = dao.getMenu();
