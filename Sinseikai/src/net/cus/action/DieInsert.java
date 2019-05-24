@@ -22,11 +22,28 @@ public class DieInsert implements Action{
 		ActionForward forward = new ActionForward();
 		boolean result = false;
 		try {
+			String subject;
+			String proch= request.getParameter("cbxNotProductInqry");
+			String emailch= request.getParameter("ansEmailRecvYn");
+			String phonech= request.getParameter("ansSmsRecvYn");
+			System.out.println(proch+"프로"+"이메일"+emailch+"폰"+phonech);
+			if(proch==null) {
+				proch="N";
+			}if(emailch==null) {
+				emailch="N";
+			}if(phonech==null) {
+				phonech="N";
+			}
+			System.out.println(proch+"프로"+"이메일"+emailch+"폰"+phonech);
 			String product= "";
-			String email= session.getAttribute("email")+"";
-			String phone= request.getParameter("ansCellNo");
+			String email= session.getAttribute("email")+" 수신 확인 : "+emailch;
+			String phone= request.getParameter("ansCellNo")+" 수신 확인 : "+phonech;
 			String title= request.getParameter("inqTitl");
-			String subject= request.getParameter("inqCnts");
+			if(proch.equals("N")) {
+				subject= request.getParameter("inqCnts")+"상품 외 문의!";
+				}else {
+					subject= request.getParameter("inqCnts");
+				}
 			dieBean.setId(session.getAttribute("id")+"");
 			dieBean.setEmail(email);
 			dieBean.setPhone(phone);
