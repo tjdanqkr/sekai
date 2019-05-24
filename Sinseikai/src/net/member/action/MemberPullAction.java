@@ -27,7 +27,7 @@ public class MemberPullAction implements Action {
 				memberdata.setPw(request.getParameter("pw"));
 				memberdata.setEmail(request.getParameter("email"));
 				memberdata.setName(request.getParameter("name"));
-				memberdata.setNum1(request.getParameter("num1"));
+				memberdata.setNum1(Integer.parseInt(request.getParameter("num1")));
 				
 				memberdata.setAge(age);
 				
