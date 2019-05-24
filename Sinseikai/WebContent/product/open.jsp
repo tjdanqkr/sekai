@@ -1,4 +1,5 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@page import="java.net.URLDecoder"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -44,8 +45,8 @@ function count(){
 		<div class="sky_bnr">
 			<ul>
 
-				<li class="recently"><a href="javascript:void(0);" onclick="defaultSet()">
-						<span>최근 본 쇼핑</span>
+				<li class="recently"><a href="javascript:void(0);"
+					onclick="defaultSet()"> <span>최근 본 쇼핑</span>
 						<p class="recent_shopping_infomation_count" id="count"></p>
 				</a></li>
 
@@ -62,199 +63,68 @@ function count(){
 						<span class="ico_closer"><span class="a11y_sr-only">닫기</span></span>
 					</button>
 				</p>
-				
-				<div class="list nodata" style="display: none;"
 
+				<div class="list nodata" style="display: none;"
 					id="recent_shopping_infomation_none">최근 본 쇼핑정보가 없습니다.</div>
-				
+
 				<ul>
-				
-				<li></li>
-				
+
+					<li></li>
+
 				</ul>
-				
+
 
 				<div class="list">
 					<p class="clear_items">
 						<button type="button" id="remove-recent_shopping_infomation">전체
 							삭제</button>
 					</p>
-					<template id="recent_shopping_infomation_goods_tmpl">
-					<li class="item">
-						<div class="figure">
-							<p class="photo">
-								<a href="#"><img src="" alt="" /></a>
-							</p>
-						</div> <a href="#" class="info">
-							<p class="seller"></p>
-							<p class="title"></p>
-							<p class="price"></p>
-					</a>
-						<div class="favorite">
-							<button type="button" role="checkbox" aria-checked="false"
-								class="manual_fn">
-								<span class="ico_favorite"><span class="a11y_sr-only">찜하기</span></span>
-							</button>
-						</div>
-					</li>
-					</template>
-					<template id="recent_shopping_infomation_category_tmpl">
-					<li class="item">
-						<div class="figure">
-							<p class="category">
-								<a href="javascript:void(0);">카테고리</a>
-							</p>
-						</div> <a href="#" class="info"></a>
-					</li>
-					</template>
-					<template id="recent_shopping_infomation_search_tmpl">
-					<li class="item">
-						<div class="figure">
-							<p class="search">
-								<a href="javascript:void(0);">검색</a>
-							</p>
-						</div> <a href="#" class="info"></a>
-					</li>
-					</template>
+					
 					<ul id="area_recent_shopping_infomation">
+						<% Cookie[] cook= request.getCookies();
+	if(cook!=null){
+		
+		for(int i=0;i<cook.length;i++){
+			
+			String url= "";
+			String name= cook[i].getName();
+			if(name.indexOf("productid_url_")!=-1){
+				
+				String value = cook[i].getValue();
+				String item = URLDecoder.decode(value,"UTF-8");
+				url=item;
+				
+			}
+			if(name.indexOf("productid_img_")!=-1){
+				out.println("<li class='item'>");
+				out.println("<div class='figure'>");
+				out.println("<p class='photo'>");
+				String value = cook[i].getValue();
+				String item = URLDecoder.decode(value,"UTF-8");
+				out.println("<a href='"+url+"'><img src='"+item+"'></a></p></div>");
+			}
+			
+			if(name.indexOf("productid_name_")!=-1){
+				out.println("<a href='"+url+"' class='info'>");
+				String value = cook[i].getValue();
+				String item = URLDecoder.decode(value,"UTF-8");
+				out.println("<p class='title'>"+item+"</p>");
+			}if(name.indexOf("productid_price_")!=-1){
+				
+				String value = cook[i].getValue();
+				String item = URLDecoder.decode(value,"UTF-8");
+				out.println("<p class='price'>"+item+"</p></a></li>");
+			}
+		}
+	}else{
+		out.println("<li class='item'>쿠키가 없네요</li>");
+	}
+%>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
-	 <script>
 
-	//
-
-	// recent item    
-
-	 var Cpage;   // 현재 페이지 
-
-	var pagingSize = 4;   // 원하는 페이지 사이즈로 조정하세용 
-
-	function chkRecent(a){
-
-	var itemID = getCookie("itemID");
-
-	$("#right_zzim ul").html('');    // 일단 Ul 내용 지우기... 
-
-	if(itemID){
-
-		var totcount = itemID.split('&').length-1;   //
-
-		var totpage = Math.ceil(totcount / pagingSize) *1;
-
-		
-
-		Cpage = (totpage >= a )? a:1;
-
-		Cpage = (Cpage <1)? totpage:Cpage;
-
-		
-
-		var start = (Cpage-1) * pagingSize;    
-
-	
-
-		for (i = start ; i <= start+(pagingSize-1) ;i++){
-
-		var  thisItem = itemID.split('&')[i];
-
-			if(thisItem){
-
-				var itemId = thisItem.split(':')[0];
-
-				var itemImg = thisItem.split(':')[1];
-				var itemPrice = thisItem.split(':')[2];
-				
-
-			$("#right_zzim ul").append('<li><a href="/_detail.php?id='+itemId+'" target="_top"><img src="http://www.xxx.com/images/s'+itemImg+'"  width="75" border=1></a><div class="detail"><a href="javascript:removeRecentItem(\''+thisItem+'\')" class="btn_delete">삭제</a></div></li>')
-
-			}
-
-		}
-
-		
-
-		$("#paging").show();
-
-	}else{
-
-		$("#right_zzim ul").append('<p class="noData">최근 본 상품이<br> 없습니다.</p>');
-
-		$("#paging").hide();$("#recentCnt").text('');
-
-	}
-
-	
-
-	
-
-	updateRecentPage(totcount, Cpage);
-
-	
-
-}
-
-chkRecent(1);
-
-
-
-	function removeRecentItem(itemname){
-
-		var itemID = getCookie("itemID");
-
-		itemID = itemID.replace(itemname+"&","");			
-
-		setCookie("itemID",itemID,1);
-
-		chkRecent(Cpage);
-
-	}
-
-
-
-
-
-	function updateRecentPage(totcount,Cpage){  //  
-
-	
-
-		$("#recentCnt").text(totcount);  //
-
-		
-
-		$("#totalPageCount").text("/"+Math.ceil((totcount / pagingSize) *1)); 
-
-		if(Math.ceil((totcount / pagingSize) *1) < Cpage){
-
-		$("#currentPage").text(Math.ceil((totcount / pagingSize) *1));
-
-		}else{
-
-		$("#currentPage").text(Cpage);  //
-
-		}
-
-	}
-
-
-
-	$(".btn_next").on('click',function(){
-
-	chkRecent(Cpage + 1);
-
-	 
-
-	});
-
-	
-
-	$(".btn_prev").on('click',function(){
-
-	chkRecent(Cpage - 1);
-
-	});
-	 </script>	
 </body>
 </html>
