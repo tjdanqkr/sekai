@@ -76,7 +76,7 @@ function myFunction() {
 
 입금기한 (예정) : 3일(최종 주문일 기준, 다음날까지 미 입금 시 자동취소 됩니다)<br><br>
 
-<div align="center"><input type ="button" value = "주문확정" onclick ="alert('주문이 완료되었습니다'); location.href='product-into.pr'"/></div>
+<div align="center"><input type ="button" value = "주문확정" onclick ="alert('주문이 완료되었습니다'); location.href='product-pay.pr'"/></div>
 <hr class= "my-hr2">
 
 <h5><b>무통장입금 이용안내</b><br><br>
