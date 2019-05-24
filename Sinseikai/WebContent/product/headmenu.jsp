@@ -13,9 +13,9 @@
 <body onload="onLoad()">
 
 
-<div><%@include file="headerside.jsp" %></div><br>
-<div><jsp:include page="open.jsp"></jsp:include></div>
+<div><%@include file="/product/headerside.jsp" %></div><br>
+<div><jsp:include page="/product/open.jsp"></jsp:include></div>
 <a href="./start.jsp"><img alt="" src="./img/elLotte.png" ></a><br>
-<div><%@include file="main.jsp" %></div><!-- 상단 메뉴바 -->
+<div><%@include file="/product/main.jsp" %></div><!-- 상단 메뉴바 -->
 </body>
 </html>
