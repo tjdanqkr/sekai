@@ -175,6 +175,7 @@ function showBig(val) {
 			 
 
 		<form id="getsu" method="post" action="./product-pay.pr?productNumber=${productBean.productNumber}&email=${memberBean.email}">
+		<input type="hidden" name = "price">
 		<input type="hidden" name = "su" >
 		<input type="submit"  value ="주문하기">
 		</form>	
@@ -214,8 +215,10 @@ function showBig(val) {
 </div>
 <div id=footer> <%@include file="footer.jsp" %>  </div>
 <% String su =request.getParameter("quantity") ;
+
 request.getParameter("quantity");
-session.setAttribute("quantity",su ); 
+session.setAttribute("quantity",su );
+session.setAttribute("price",price);
 %>
 </body>
 </html>
