@@ -77,7 +77,7 @@ function myFunction() {
 입금기한 (예정) : 3일(최종 주문일 기준, 다음날까지 미 입금 시 자동취소 됩니다)<br><br>
 
 <div align="center">
-<form id="getsu" method="post" action="./product-pay.pr?productNumber=${productBean.productNumber}&email=${memberBean.email}">
+<form id="getsu" method="post" action="./product-into.pr">
 		<input type="hidden" name = "price"  value="${param.su*no}">
 <input type ="button" value = "주문확정" onclick ="alert('주문이 완료되었습니다'); document.getElementById('getsu').submit()"  />
 </form>	
