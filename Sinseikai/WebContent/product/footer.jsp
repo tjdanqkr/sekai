@@ -12,7 +12,6 @@ float:left;
 margin:auto;
 width:25%;
 height:10%;	
-
 }
 #div_left{
 margin:auto;
@@ -28,8 +27,6 @@ height:10%;
 float:left;
 font-family:'Hanna';
 }
-
-
 </style>
 
 </head>
@@ -63,4 +60,4 @@ font-family:'Hanna';
 <br>
 </div> 
 </body>
-</html>
+</html> 

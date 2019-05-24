@@ -1,0 +1,33 @@
+@charset "EUC-KR";
+
+.my-hr1 {
+    border: 0;
+    height: 2px;
+    background: #111;
+    }
+.my-hr2{border: 0;
+    height: 1px;
+    background: #E6E6E6;}    
+.sang{
+height:10%;
+margin-left:20px;
+padding-top:60px;
+padding-left: 25px;
+}
+#imgspan{
+margin:auto;
+width:30%;
+height:10%;
+float:left;
+}  
+#gurim{
+float:left;
+	
+	
+}
+#setumei{
+margin:auto;
+width:30%;
+height:500px;
+float:center;
+}  

@@ -45,6 +45,7 @@ public class MenuDAO implements DAO{
 				bean.setMajorName(rs.getString("majorname"));
 				bean.setMinorName(rs.getString("minorname"));
 				bean.setCategoryName(rs.getString("categoryname"));
+				bean.setCategoryCode(rs.getInt("categorycode"));
 				beans.add(bean);
 			}
 			
@@ -59,11 +60,51 @@ public class MenuDAO implements DAO{
 	// Insert category menu.
 	public Boolean insertMenu(MenuBean bean) {
 		try {
-			pstmt = con.prepareStatement("insert into menu values(?, ?, ?)");
+			pstmt = con.prepareStatement("insert into menu values(?, ?, ?, ?)");
 			
 			pstmt.setString(1, bean.getMajorName());
 			pstmt.setString(2, bean.getMinorName());
 			pstmt.setString(3, bean.getCategoryName());
+			pstmt.setInt(4, bean.getCategoryCode());
+			
+			if(pstmt.executeUpdate() == 1) {
+				return true;
+			}
+		} catch (SQLException se) {
+			// TODO Auto-generated catch block
+			se.printStackTrace();
+		}
+		return false;
+	}
+	
+	// Update category menu.
+	public Boolean updateMenu(MenuBean bean, MenuBean previousMenuBean) {
+		try {
+			pstmt = con.prepareStatement("update menu set majorname=?, minorname=?, categoryname=?, categorycode=? "
+					+ "where categorycode=?");
+			
+			pstmt.setString(1, bean.getMajorName());
+			pstmt.setString(2, bean.getMinorName());
+			pstmt.setString(3, bean.getCategoryName());
+			pstmt.setInt(4, bean.getCategoryCode());
+			pstmt.setInt(5, previousMenuBean.getCategoryCode());
+			
+			if(pstmt.executeUpdate() == 1) {
+				return true;
+			}
+		} catch (SQLException se) {
+			// TODO Auto-generated catch block
+			se.printStackTrace();
+		}
+		return false;
+	}
+	
+	// Delete category menu.
+	public Boolean deleteMenu(MenuBean bean) {
+		try {
+			pstmt = con.prepareStatement("delete from menu where categorycode=?");
+			
+			pstmt.setInt(1, bean.getCategoryCode());
 			
 			if(pstmt.executeUpdate() == 1) {
 				return true;

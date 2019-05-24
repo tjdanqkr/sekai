@@ -6,6 +6,8 @@
 
 <%
 	String name = request.getParameter("name");
+	String id = request.getParameter("id");
+	String email = request.getParameter("email");
 %>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,11 +24,8 @@
 <div align="center"  ><h1 >5월 선물 BEST</h1></div>	
 <div><%@include file="index.jsp"  %></div><!--이미지슬라이드 타일형  -->
 <div><%@include file="indexslide.html" %></div><!--이미지 슬라이드 창형  -->
-<a href="categoryProduct.pr">ㄱㄱ</a>
 <div id=footer><%@include file="footer.jsp" %>  </div>
 <div></div>
-
-	<%=name %>
 
 
 </div>

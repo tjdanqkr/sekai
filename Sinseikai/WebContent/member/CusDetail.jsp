@@ -7,6 +7,7 @@
 <%
 	cusbean board = (cusbean) request.getAttribute("detailbean");
 %>
+
 <script>
 	window.onfocus = function() {
 	}
@@ -17,6 +18,7 @@
 		window.scrollTo(0, 250); // 페이지 상단 광고를 바로 볼 수 있게 스크롤 위치를 조정
 	}
 </script>
+
 <link rel="stylesheet" href="./css/cusdtail.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>

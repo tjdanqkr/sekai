@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import net.action.Action;
 import net.action.ActionForward;
+import net.member.db.MemberBean;
+import net.member.db.MemberDAO;
 import net.product.db.CodexBrandBean;
 import net.product.db.CodexBrandDAO;
 import net.product.db.Option1Bean;
@@ -27,9 +29,21 @@ public class GoodsDetailAction implements Action {
 		ProductBean productBean = new ProductBean();
 		List<Option1Bean> option1Beans = null;
 		CodexBrandBean codexBrandBean = null;
-		HttpSession session = request.getSession();
-		productBean.setProductNumber(Integer.parseInt(request.getParameter("productNumber")));
+		MemberBean memberBean = new MemberBean();
+		MemberDAO memberDAO = new MemberDAO();
 		
+		
+	
+		
+		memberBean.setEmail(request.getParameter("email"));
+		memberBean = memberDAO.kensaku(memberBean);
+		memberDAO.close();
+		if(memberBean == null) {
+			System.err.println("ERROR - Failed get the member");
+			return null;
+		}
+		
+		productBean.setProductNumber(Integer.parseInt(request.getParameter("productNumber")));
 		productBean = productDAO.getProductAsProductnumber(productBean); // Get product as productnumber.
 		productDAO.close();
 		if(productBean == null) {
@@ -58,7 +72,7 @@ public class GoodsDetailAction implements Action {
 		session.setAttribute("optionHTML",  listToHTML(majorBeans));
 		session.setAttribute("optionJS", createJSForOption(majorBeans));
 		session.setAttribute("codexBrandBean", codexBrandBean);
-		
+		session.setAttribute("memberBean", memberBean);
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("/product/productInto.jsp"); // set at after.
@@ -124,7 +138,7 @@ public class GoodsDetailAction implements Action {
 		String html = "<select name=\"option" + minorBeans.get(0).getMajorNumber() + "\">\n";
 		
 		// Basic option.
-		html += "<option value=\"0\">" + minorBeans.get(0).getMajorName() + "</option>\n";
+		html += "<option value=\"0\">" + "</option>\n";
 		
 		// Example) <option value="1">first</option>
 		for(Option1Bean bean : minorBeans) {
@@ -132,7 +146,7 @@ public class GoodsDetailAction implements Action {
 					bean.getMinorName();
 			
 			if(!isExistChildOption(bean, majorBeans)) {
-				html += " " + bean.getMinorStock() + "개";
+			//	html += " " + bean.getMinorStock() + "개";
 			}
 			
 			html += "</option>\n";
@@ -155,18 +169,18 @@ public class GoodsDetailAction implements Action {
 		int index = 0;
 		
 		// Basic option.
-		html += "<select name=\"option" + minorBeans.get(0).getMajorNumber()+ "\">\n";
-		html += "<option value=\"0\">" + minorBeans.get(0).getMajorName() + "</option>\n";
+		html += "<select name=\"option" + minorBeans.get(0).getMajorNumber()+"\">\n";
+		html += "<option value=\"0\">"  + "</option>\n";
 		html += "</select>\n";
 		
 		for(int i = 0; i < minorBeans.size(); i++) {
 			if(minorBeans.get(i).getPaMinorNumber() != index) {
 				
 				// Example) <select name="option2">
-				html += "<select name=\"option" + minorBeans.get(0).getMajorNumber()+ "\" " + 
+				html += "<select name=\"option" + minorBeans.get(0).getMajorNumber()+"\" " + 
 						"style=\"display: none;\">\n";
 				
-				html += "<option value=\"0\">" + minorBeans.get(0).getMajorName() + "</option>\n";
+				html += "<option value=\"0\">" + "</option>\n";
 				
 				if(minorBeans.get(i).getPaMinorNumber() != index + 1) {
 					// Sadly, this parent option has no child option at this time.
@@ -184,7 +198,7 @@ public class GoodsDetailAction implements Action {
 					minorBeans.get(i).getMinorName();
 			
 			if(!isExistChildOption(minorBeans.get(i), majorBeans)) {
-				html += " "+ "&nbsp" + "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp" + minorBeans.get(i).getMinorStock() + "개 재고";
+			//	html += " "+minorBeans.get(i).getMinorStock() ;
 			}
 			
 			html += "</option>\n";

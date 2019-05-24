@@ -1,4 +1,4 @@
-package net.member;
+package net.member.action;
 
 import java.util.Calendar;
 
@@ -30,7 +30,7 @@ public class MemberAddAction implements Action {
    				memberdata.setPw(request.getParameter("pw"));
    				memberdata.setEmail(request.getParameter("email"));
    				memberdata.setName(request.getParameter("name"));
-   				memberdata.setNum1(request.getParameter("num1"));
+   				memberdata.setNum1(Integer.parseInt(request.getParameter("num1")));
    				memberdata.setAge(age);
    				
    		   		result=memberdao.memberInsert(memberdata);

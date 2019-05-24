@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.action.FrontController;
-import net.admin.db.PurchaseHistoryBean;
-import net.product.action.CategoryMenuAction;
 import net.action.Action;
 import net.action.ActionForward;
 
@@ -36,18 +34,33 @@ public class AdminFrontController extends HttpServlet implements FrontController
 		}
 		 
 		
-		if(command.equals("/admin.ad")) { // Admin main menu.
+		if(command.equals("/admin.ad")) {
+			/*
+			 * Admin index.
+			 * request overview.
+			 */
+			forward = new ActionForward();
+			forward.setRedirect(true);
+			forward.setPath("admin-overview.ad");
+		}else if(command.equals("/admin-overview.ad")) {
+			/*
+			 * Overview page.
+			 * request data to other controller.
+			 */
+			forward = new ActionForward();
+			forward.setRedirect(true);
+			forward.setPath("admin-get-overview.pr");
+		}else if(command.equals("/admin-overview-show.ad")) {
+			/*
+			 * Overview page.
+			 * just show the result. 
+			 */
+			request.setAttribute("centerUri", "/admin/overview.jsp");
+			
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/admin/adminContainer.jsp");
-		}else if(command.equals("/overview.ad")) {
-			action = new OverviewAction();
-			try {
-				forward = action.execute(request, response);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command.equals("/purchaseHistory.ad")) {
+		}else if(command.equals("/purchase-history.ad")) {
 			action = new PurchaseHistoryAction();
 			try {
 				forward = action.execute(request, response);
@@ -58,22 +71,13 @@ public class AdminFrontController extends HttpServlet implements FrontController
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/admin/adminlogin.jsp");
-		}else if(command.equals("/loginAction.ad")) {
+		}else if(command.equals("/login-action.ad")) {
 			action = new LoginAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/manageCategory.ad")) { // Admin menu.
-			/*
-			 * In here, get admin menu.
-			 * and go to ~.pr, will get category menu.
-			 */
-			
-			forward = new ActionForward();
-			forward.setRedirect(true);
-			forward.setPath("manageCategory.pr");
 		}
 		
 		if(forward.isRedirect()) {

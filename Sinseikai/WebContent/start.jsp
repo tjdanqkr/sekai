@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% response.sendRedirect("product_into.pr"); %>
+<% response.sendRedirect("product-into.pr"); %>
 </body>
 </html> 
+

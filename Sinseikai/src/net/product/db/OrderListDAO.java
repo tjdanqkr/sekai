@@ -33,7 +33,9 @@ public class OrderListDAO implements DAO{
 		}
 	}
 	
-	// Get order list for buyer using email of memberBean.
+	/*
+	 * Get order list for buyer using email of memberBean.
+	 */
 	public List<OrderListBean> getOrderListForBuyer(MemberBean memberBean) {
 		List<OrderListBean> orderListBeans = new ArrayList<OrderListBean>();
 		try {
@@ -51,7 +53,7 @@ public class OrderListDAO implements DAO{
 				orderListBean.setProductNumber(rs.getInt("productnumber"));
 				orderListBean.setCoupon(rs.getBoolean("coupon"));
 				orderListBean.setPrice(rs.getInt("price"));
-				orderListBean.setOption(rs.getString("option"));
+				orderListBean.setOptions(rs.getString("options"));
 				orderListBean.setAmount(rs.getInt("amount"));
 				orderListBean.setStatus(rs.getString("status"));
 				
@@ -66,7 +68,44 @@ public class OrderListDAO implements DAO{
 		return null;
 	}
 	
-	// Insert to orderList using buyer.
+	/*
+	 * Get order list for seller using email of memberBean.
+	 */
+	public List<OrderListBean> getOrderListForSeller(MemberBean memberBean) {
+		List<OrderListBean> orderListBeans = new ArrayList<OrderListBean>();
+		try {
+			pstmt = con.prepareStatement("select * from orderlist where seller=?");
+			pstmt.setString(1, memberBean.getEmail());
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				OrderListBean orderListBean = new OrderListBean();
+				
+				orderListBean.setOrderId(rs.getString("orderid"));
+				orderListBean.setBuyer(rs.getString("buyer"));
+				orderListBean.setSeller(rs.getString("seller"));
+				orderListBean.setProductNumber(rs.getInt("productnumber"));
+				orderListBean.setCoupon(rs.getBoolean("coupon"));
+				orderListBean.setPrice(rs.getInt("price"));
+				orderListBean.setOptions(rs.getString("options"));
+				orderListBean.setAmount(rs.getInt("amount"));
+				orderListBean.setStatus(rs.getString("status"));
+				
+				orderListBeans.add(orderListBean);
+			}
+			
+			return orderListBeans;
+		} catch (SQLException se) {
+			// TODO Auto-generated catch block
+			se.printStackTrace();
+		}
+		return null;
+	}
+	
+	/*
+	 * Insert to orderList using buyer.
+	 */
 	public boolean insertOrderList(OrderListBean bean) {
 		try {
 			pstmt = con.prepareStatement(
@@ -78,7 +117,7 @@ public class OrderListDAO implements DAO{
 			pstmt.setInt(4, bean.getProductNumber());
 			pstmt.setBoolean(5, bean.isCoupon());
 			pstmt.setInt(6, bean.getPrice());
-			pstmt.setString(7, bean.getOption());
+			pstmt.setString(7, bean.getOptions());
 			pstmt.setInt(8, bean.getAmount());
 			pstmt.setString(9, bean.getStatus());
 			

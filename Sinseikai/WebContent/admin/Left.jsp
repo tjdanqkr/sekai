@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<!-- adminMenu.jsp is left Menu. -->
 </body>
 </html>
