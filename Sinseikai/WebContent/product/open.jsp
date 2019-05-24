@@ -97,7 +97,7 @@ function count(){
 				
 			}
 			if(name.indexOf("productid_img_")!=-1){
-				out.println("<li class='item'>");
+				out.println("<li class='item'>"+i);
 				out.println("<div class='figure'>");
 				out.println("<p class='photo'>");
 				String value = cook[i].getValue();
