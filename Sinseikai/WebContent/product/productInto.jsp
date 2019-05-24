@@ -1,55 +1,31 @@
+<%@page import="net.product.db.ProductBean"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="net.cus.db.OpenBean"%>
+
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <link rel="stylesheet" href="./product/kaisu.css">
-<%
-	String cp= request.getContextPath();
-	request.setCharacterEncoding("UTF-8");
-	Cookie c= new Cookie("productname",URLEncoder.encode(request.getParameter("productBean.brandName")+" "+ request.getParameter("productBean.modelName") ,"utf-8"));
-	Cookie c1= new Cookie("price",URLEncoder.encode(request.getParameter("productBean.price") ,"utf-8"));	
-	Cookie c2= new Cookie("img",URLEncoder.encode("img/a1.jpg" ,"utf-8"));
-%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type="text/javascript">
-
-function checkCookie() {
-    var itemID = getCookie("itemID");
-	var thisItem='img/a1.jpg:${productBean.brandName}+${productBean.modelName}:${productBean.price}원';   // 제품 아이디와 이미지 이름을 저장  2차원 배열처럼 쓸려고 짱구를 굴림...  json 형태로 저장도 가능할텐데.... 그건 취향대로 
-	if (thisItem){
-		if (itemID != "" && itemID != null) {
-			if (itemID.indexOf(thisItem) ==-1 ){ //값이 없으면 
-					setCookie("itemID",thisItem+"&"+itemID,1);
-			 }
-		} else {
-			if (itemID == "" || itemID == null) {
-				setCookie("itemID",thisItem+"&",1);
-			}
-		}
-	}
-}
-checkCookie();
-</script>
-
 <script language="javascript">
 function showBig(val) {
  var obj = document.getElementById("big");
   obj.src = "./img/" + val;
 } 
-function kessai(){
-	
-	
-}
-
 
 </script>
+
+<!-- <script type="text/javascript">
+setCookie("productid_"+${productBean.modelNumber},${productBean.brandName},${productBean.modelName});
+setCookie("productid_"+${productBean.modelNumber}+"price","가격",${productBean.price});
+setCookie("productid_"+${productBean.modelNumber}+"img","img","img/a2.jpg");
+</script> -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>상세물품정보</title>
 </head>
@@ -190,6 +166,7 @@ function kessai(){
 	
 			<hr>
 			<a href="./payment/productPay.py">주문하기</a>
+			
 			<span> 상품 번호 : ${productBean.modelNumber} <br>
 				포인트 적립률 :${productBean.rating}% <br> 배송소요기간
 				:${productBean.deliveryPeriod}일
@@ -243,9 +220,37 @@ function kessai(){
     </script>
 
 
+<a href="./cookie.jsp">이동</a>
+<script type="text/javascript">
+var setCookie = function(name, value, exp) {
+	var date = new Date();
+	date.setTime(date.getTime() + exp*24*60*60*1000);
+	document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+	};
+
+	// setCookie(변수이름, 변수값, 기간);
+	setCookie("proprice","${productBean.price}원", 1);
+	setCookie("proname","${productBean.brandName}+${productBean.modelName}", 1);
+	setCookie("proimg","img/a1.jpg", 1);
 
 
+</script>
 
+
+<%-- <%
+	String cp= request.getContextPath();
+	request.setCharacterEncoding("UTF-8");
+	var pb =request.getAttribute("productBean");
+	Cookie c = new Cookie("productname",URLEncoder.encode(request.getAttribute("productBean.brandName")+" "+ request.getAttribute("productBean.modelName") ,"utf-8"));
+	Cookie c1= new Cookie("price",pb.price);	
+	Cookie c2= new Cookie("img","img/a1.jpg");
+	c.setMaxAge(60*60);
+	c1.setMaxAge(60*60);
+	c2.setMaxAge(60*60);
+	response.addCookie(c);
+	response.addCookie(c1);
+	response.addCookie(c2);
+%> --%>
 </body>
 </html>
 
