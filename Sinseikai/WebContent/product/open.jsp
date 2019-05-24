@@ -1,4 +1,4 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -7,12 +7,6 @@
 <link rel="stylesheet" href="./css/open.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<%
- String cp = request.getContextPath();
- request.setCharacterEncoding("UTF-8");
- Cookie [] ck= request.getCookies();
- 
-%>
 <script>
 function defaultSet() {
 	
@@ -62,18 +56,8 @@ function count(){
 						<span class="ico_closer"><span class="a11y_sr-only">닫기</span></span>
 					</button>
 				</p>
-				
 				<div class="list nodata" style="display: none;"
-
-					id="recent_shopping_infomation_none">최근 본 쇼핑정보가 없습니다.</div>
-				
-				<ul>
-				
-				<li></li>
-				
-				</ul>
-				
-
+					id="recent_shopping_infomation_none"><% %>최근 본 쇼핑정보가 없습니다.</div>
 				<div class="list">
 					<p class="clear_items">
 						<button type="button" id="remove-recent_shopping_infomation">전체
