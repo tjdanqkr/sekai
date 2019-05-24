@@ -56,7 +56,7 @@ public class ProductDAO implements DAO{
 				bean.setImgAddr5(rs.getString("imgaddr5"));
 				bean.setDeliveryPeriod(rs.getInt("deliveryperiod"));
 				bean.setCategorycode(rs.getInt("categorycode"));
-		//		bean.setSellerEmail(rs.getString("selleremail"));
+				bean.setSellerEmail(rs.getString("selleremail"));
 				
 				return bean;
 			}
@@ -95,7 +95,7 @@ public class ProductDAO implements DAO{
 				bean.setImgAddr5(rs.getString("imgaddr5"));
 				bean.setDeliveryPeriod(rs.getInt("deliveryperiod"));
 				bean.setCategorycode(rs.getInt("categorycode"));
-			//	bean.setSellerEmail(rs.getString("selleremail"));
+				bean.setSellerEmail(rs.getString("selleremail"));
 				
 				beans.add(bean);
 			}
