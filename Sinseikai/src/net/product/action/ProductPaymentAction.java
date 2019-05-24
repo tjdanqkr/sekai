@@ -6,13 +6,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.action.Action;
 import net.action.ActionForward;
+import net.product.db.OrderListBean;
+import net.product.db.OrderListDAO;
 
 
 public class ProductPaymentAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		/*OrderListDAO dao = new OrderListDAO();
+		OrderListDAO dao = new OrderListDAO();
 		System.out.println("시작");
 		OrderListBean bean = new OrderListBean();
 		
@@ -26,7 +28,7 @@ public class ProductPaymentAction implements Action {
 		bean.setProductNumber(Integer.parseInt(request.getParameter("productNumber")));
 		bean.setCoupon(!request.getParameter("coupon").equals("0"));
 		bean.setPrice(Integer.parseInt(request.getParameter("price")));
-		bean.setOption(request.getParameter("option"));
+		bean.setOptions(request.getParameter("options"));
 		bean.setAmount(Integer.parseInt(request.getParameter("amount")));
 		bean.setStatus(request.getParameter("status"));
 		System.out.println("da");
@@ -35,7 +37,7 @@ public class ProductPaymentAction implements Action {
 		if(!result) {
 			System.err.println("ERROR - Failed insert to orderlist");
 			//return null;
-		}*/
+		}
 		
 		ActionForward forward = new ActionForward();
 		System.out.println("dd");
