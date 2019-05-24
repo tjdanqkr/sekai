@@ -231,11 +231,7 @@ public class Option1Utility {
 		 * convert from string to int.
 		 */
 		for(int i = 0; i < optionsArr.length; i++) {
-			/*
-			 * first number of option is 1.
-			 * but first number of arr is 0.
-			 */
-			optionsArrInt[i] = Integer.parseInt(optionsArr[i].trim()) - 1;
+			optionsArrInt[i] = Integer.parseInt(optionsArr[i].trim());
 			
 			parentIndex[i] = -1;
 		}
@@ -247,8 +243,11 @@ public class Option1Utility {
 			if(parentIndex[i] == -1) {
 				/*
 				 * No parent.
+				 * 
+				 * first number of option is 1.
+				 * but first number of arr is 0.
 				 */
-				selectedBean = option1Beans.get(optionsArrInt[i]);
+				selectedBean = option1Beans.get(optionsArrInt[i]-1);
 			}else {
 				/*
 				 * Exist parent.
@@ -293,7 +292,7 @@ public class Option1Utility {
 	private void setParentIndex(Option1Bean maybeParent, List<List<Option1Bean>> maybeChildren, int[] parentIndex) {
 		for(List<Option1Bean> maybeChild : maybeChildren) {
 			if(maybeChild.get(0).getPaMajorNumber() == maybeParent.getMajorNumber()) {
-				parentIndex[maybeChild.get(0).getMajorNumber()-1] = maybeParent.getMajorNumber() ;
+				parentIndex[maybeChild.get(0).getMajorNumber()-1] = maybeParent.getMajorNumber();
 				
 				return;
 			}
