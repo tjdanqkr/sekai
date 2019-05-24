@@ -51,9 +51,11 @@ function showBig(val) {
 					}					
 				$( 'button#jbButton' ).click( function() {		
 					  jb = $("select[name='option1'] option:selected").text();	
-					document.getElementById("demo").innerHTML = jb;
-					 jb1 = $("select[name='option2'] option:selected ").text();	
-					 document.getElementById("demo1").innerHTML = jb1;																			
+					  jb1 = $("select[name='option2'] option:selected ").text();
+					  jbv= $("select[name='option1'] option:selected").val();	
+					  jbv1=$("select[name='option2'] option:selected ").val();
+					  document.getElementById("demo").innerHTML = jb;
+					  document.getElementById("demo1").innerHTML = jb1;																			
 						 jb2=input();
 						 jb3=input()*${no};	 
 						 document.getElementById("demo").innerHTML = jb;		 
@@ -62,8 +64,11 @@ function showBig(val) {
 						 sessionStorage.setItem( 'color', 'jb' );
 						 sessionStorage.setItem( 'size', 'jb1' );
 						 document.getElementById("nedan").innerHTML = jb3;
-						 $('input[name=su]').val(input());
 						 
+						 $('input[name=no]').val(${no});
+						 $('input[name=su]').val(input());
+						 $('input[name=option1]').val(jbv);
+						 $('input[name=option2]').val(jbv2);	 
 				} );		
 			} );
 			 function modifyProductQuantity(id, quantity){
@@ -180,10 +185,12 @@ setCookie("productid_price_${productBean.modelNumber}", "${productBean.price}원
 			<hr>
 			 
 
-		<form id="getsu" method="post" action="./product-pay.pr?productNumber=${productBean.productNumber}&email=${memberBean.email}">
-		<input type="hidden" name = "price">
-		<input type="hidden" name = "su" >
-		<input type="submit"  value ="주문하기">
+		<form id="getsu" method="post" action="./product-pay.pr?productNumber=${productBean.productNumber}&email=${memberBean.email}">		
+			<input type="hidden" name = "su" >
+			<input type="hidden" name = "option1">
+			<input type="hidden" name = "option2">
+			<input type="hidden" name = "no">
+			<input type="submit"  value ="주문하기">
 		</form>	
 			<span> 상품 번호 : ${productBean.modelNumber} <br>
 				포인트 적립률 :${productBean.rating}% <br> 배송소요기간
@@ -222,10 +229,9 @@ setCookie("productid_price_${productBean.modelNumber}", "${productBean.price}원
 <a href="./cookie.jsp">쿠키보기</a>
 <div id=footer> <%@include file="footer.jsp" %>  </div>
 <% String su =request.getParameter("quantity") ;
-
 request.getParameter("quantity");
 session.setAttribute("quantity",su );
-session.setAttribute("price",price);
+
 %>
 </body>
 </html>

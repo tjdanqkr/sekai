@@ -83,10 +83,10 @@ function count(){
 					<ul id="area_recent_shopping_infomation">
 						<% Cookie[] cook= request.getCookies();
 	if(cook!=null){
-		
+		String url= "";
 		for(int i=0;i<cook.length;i++){
 			
-			String url= "";
+			
 			String name= cook[i].getName();
 			if(name.indexOf("productid_url_")!=-1){
 				
@@ -94,9 +94,10 @@ function count(){
 				String item = URLDecoder.decode(value,"UTF-8");
 				url=item;
 				
+				
 			}
 			if(name.indexOf("productid_img_")!=-1){
-				out.println("<li class='item'>");
+				out.println("<li class='item'>"+i);
 				out.println("<div class='figure'>");
 				out.println("<p class='photo'>");
 				String value = cook[i].getValue();
