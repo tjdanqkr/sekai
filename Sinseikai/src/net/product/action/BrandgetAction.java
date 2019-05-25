@@ -19,30 +19,32 @@ import net.product.db.ProductBean;
 import net.product.db.ProductDAO;
 
 public class BrandgetAction implements Action{
-	
+
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		List<ProductBean> list ;
+		List<CodexBrandBean> list ;
 		boolean result = false;
 		request.setCharacterEncoding("UTF-8");
 		CodexBrandBean cdbean= new CodexBrandBean();
-		ProductDAO productdao = new ProductDAO();
+		CodexBrandDAO cddao  =new CodexBrandDAO();
 		ActionForward forward = new ActionForward();
 		
 		try {
-			productbean.getBrandName();
-			list=productdao.brandpull(productbean);
-			productdao.close();				
+			cdbean.getBrandName();
+			list=cddao.brandpull(cdbean);
+			cddao.close();				
 		}catch(Exception ex){
    			ex.printStackTrace();
-   			productdao.close();
+   			cddao.close();
    			System.out.println("브랜드가져오기에러 ㅅㄱ");
    			return null;
    		}	
 			
 			
-		request.setAttribute("productlist",list) ;
+		request.setAttribute("brandolist",list) ;
 			
+		
+		
 	   	forward.setRedirect(false);
    		forward.setPath("/product/productInput.jsp");
    		

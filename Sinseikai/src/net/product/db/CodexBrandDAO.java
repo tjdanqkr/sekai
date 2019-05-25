@@ -31,16 +31,16 @@ public class CodexBrandDAO implements DAO{
 			return;
 		}
 	}
-	public List brandpull(ProductBean bean) throws SQLException {
-		List<ProductBean> list = new ArrayList<ProductBean>();
+	public List<CodexBrandBean> brandpull(CodexBrandBean bean) throws SQLException {
+		List<CodexBrandBean> list = new ArrayList<CodexBrandBean>();
 		
 		stmt = con.createStatement();
-		rs = stmt.executeQuery("select * from product ");
+		rs = stmt.executeQuery("select * from codexBrand ");
 		while(rs.next()) {
-			ProductBean Bean1 = new ProductBean();
-			Bean1.setBrandName(rs.getString("brandName"));
+			CodexBrandBean bean1 = new CodexBrandBean();
+			bean1.setBrandName(rs.getString("brandName"));
 			
-			list.add(Bean1);
+			list.add(bean1);
 		}
 		return list;
 	}

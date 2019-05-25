@@ -12,8 +12,11 @@
 <h2>${name}님의 판매등록 페이지입니다.</h2><hr>
 브랜드 선택하기 :
 
-<select name = "brando">
-<c:forEach var="brando" items="${productlist}"><option value="${brando.brandName}">${brando.brandName}</option></c:forEach>
+
+<select name = "sadsad">
+<c:forEach var="brando" items="${brandolist}">
+	<option value="${brando.brandName}">     ${brando.brandName}    </option>
+</c:forEach>
 </select>
  
 
