@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import net.member.db.MemberDAO;
+import net.action.Action;
+import net.action.ActionForward;
 import net.member.db.MemberBean;
 
 
