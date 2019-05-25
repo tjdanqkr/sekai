@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head><!-- 상단 헤더관련은 여기에 붙이세요 -->
-<body onload="onLoad()">
+<body>
 
 
 <div><%@include file="/product/headerside.jsp" %></div><br>

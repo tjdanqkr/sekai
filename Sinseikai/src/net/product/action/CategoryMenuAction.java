@@ -26,7 +26,7 @@ public class CategoryMenuAction implements Action {
 			return null;
 		}		
     
-		request.setAttribute("menuBeans", repackaging(beans)); // Put the result.
+		request.getSession().setAttribute("menuBeans", repackaging(beans)); // Put the result.
 		
 		return null;
 	}
