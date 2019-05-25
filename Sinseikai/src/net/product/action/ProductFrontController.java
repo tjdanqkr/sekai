@@ -79,9 +79,20 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			}
 		}else if(command.equals("/show-order-list.pr")) {
 			/*
-			 * show order list of user.
+			 * Show order list of user.
 			 */
 			action = new ShowOrderListAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/modify-order-list.pr")) {
+			/*
+			 * Modify order list of user.
+			 */
+			action = new ModifyOrderListAction();
 			
 			try {
 				forward = action.execute(request, response);
