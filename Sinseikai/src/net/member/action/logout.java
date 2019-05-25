@@ -14,6 +14,7 @@ public class logout implements Action {
 		HttpSession session = request.getSession();
 		ActionForward forward = new ActionForward();
 		session.removeAttribute("name");
+		session.removeAttribute("id");
 		System.out.println("dd");
 		System.out.println("빠이 짜이찌엔");
 		forward.setRedirect(true);
