@@ -16,9 +16,13 @@
 		background-color: skyblue;
 	}
 </style>
-
+<script>
+	if('${id}' == ''){
+		location.href = 'login.me';
+	}
+</script>
 </head>
-<body onload="onLoad()" >
+<body>
 
 
 <div><%@include file="/product/headmenu.jsp" %></div><br>
@@ -33,6 +37,7 @@
 		<td>상품 번호</td>
 		<td>상품 명</td>
 		<td>옵션</td>
+		<td>갯수</td>
 		<td>상태</td>
 	</tr>
 <c:forEach var="buyerOrderListBean" items="${buyerOrderListBeans}" varStatus="status">
@@ -41,9 +46,10 @@
 		<td><a href="productinto.pr?productNumber=${buyerOrderListBean.productNumber}&email=${id}">${buyerProductBeans.get(status.index).modelName}</a></td>
 		<td>
 			<c:forEach var="buyerOptionBean" items="${buyerOption1Beans.get(status.index)}">
-			${buyerOptionBean.minorName}
+			${buyerOptionBean.minorName}<br />
 			</c:forEach>
 		</td>
+		<td>${buyerOrderListBean.amount}</td>
 		<td>${buyerOrderListBean.status}</td>
 	</tr>
 	<tr>
