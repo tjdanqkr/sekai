@@ -31,6 +31,54 @@ public class ProductDAO implements DAO{
 			return;
 		}
 	}
+	public boolean  productInsert(ProductBean bean) {
+		int result = 0;
+		try {	
+			String sql = "insert into member values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1,bean.getProductNumber());
+			pstmt.setString(2,bean.getBrandName());
+			pstmt.setString(3,bean.getModelNumber());
+			pstmt.setString(4,bean.getModelName());
+			pstmt.setString(5,bean.getCoupon());
+			pstmt.setInt(6,bean.getPrice());
+			pstmt.setFloat(7,bean.getDiscountRate());
+			pstmt.setFloat(8,bean.getRating());
+			pstmt.setString(9,bean.getImgAddr1());
+			pstmt.setString(10,bean.getImgAddr2());
+			pstmt.setString(11,bean.getImgAddr3());
+			pstmt.setString(12,bean.getImgAddr4());
+			pstmt.setString(13,bean.getImgAddr5());
+			pstmt.setInt(14,bean.getDeliveryPeriod());
+			pstmt.setInt(15,bean.getCategorycode());
+			pstmt.setString(16,bean.getSellerEmail());
+			
+			result = result + 1;
+			if (result == 0) {
+
+				return false;
+			}
+
+			return true;
+		} catch (Exception ex) {
+			System.out.println("상품DAO : " + ex);
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+		}
+		return false;
+	}
+	
+	
 	
 	// Call the information about one product. 
 	public ProductBean getProductAsProductnumber(ProductBean bean) {
