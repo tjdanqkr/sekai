@@ -101,6 +101,72 @@ public class DieDAO implements DAO{
 		} catch (Exception ex) {
 			System.out.println("getListCount ����: " + ex);
 		} return null;
+	}public List<DieBean> adminList(DieBean bean) {
+
+		List<DieBean> list = new ArrayList<DieBean>();
+		try {
+			pstmt = con.prepareStatement("select * from diedie");
+			
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				DieBean bean1= new DieBean();
+				bean1.setId(rs.getString("id"));
+				bean1.setTitle(rs.getString("title"));
+				bean1.setEmail(rs.getString("email"));
+				bean1.setPhone(rs.getString("phone"));
+				bean1.setProduct(rs.getString("product"));
+				bean1.setSubject(rs.getString("subject"));
+				bean1.setReple(rs.getString("reple"));
+				list.add(bean1);
+
+			}
+			return list;
+		} catch (Exception ex) {
+			System.out.println("문의가 없어요: " + ex);
+		}return null;
+	}public DieBean adminDetaildie(DieBean bean) {
+
+		
+		try {
+			pstmt = con.prepareStatement("select * from diedie where title=? and id=? and email=?");
+			pstmt.setString(1, bean.getTitle());
+			pstmt.setString(2, bean.getId());
+			pstmt.setString(3, bean.getEmail());
+			rs = pstmt.executeQuery();
+			System.out.println("ㅇㅇㅇ"+bean.getId());
+			
+			while (rs.next()) {
+				
+				bean.setTitle(rs.getString("title"));
+				bean.setEmail(rs.getString("email"));
+				bean.setPhone(rs.getString("phone"));
+				bean.setReple(rs.getString("reple"));
+				bean.setSubject(rs.getString("subject"));
+				bean.setProduct(rs.getString("product"));
+				System.out.println(rs.getString("phone"));
+			}
+			return bean;
+		} catch (Exception ex) {
+			System.out.println("getListCount ����: " + ex);
+		} return null;
+	}public boolean Updatedie(DieBean bean) {
+
+			
+		try {
+			pstmt = con.prepareStatement("update diedie set reple=? where title=? and phone=? and email=?");
+			System.out.println("리플"+bean.getReple()+" 타이틀"+bean.getTitle()+" 폰"+bean.getPhone()+" 이메일"+bean.getEmail());
+			pstmt.setString(1, bean.getReple());
+			pstmt.setString(2, bean.getTitle());
+			pstmt.setString(3, bean.getPhone());
+			pstmt.setString(4, bean.getEmail());
+			int r=pstmt.executeUpdate();
+			System.out.println(r);
+			
+			
+		} catch (Exception ex) {
+			System.out.println("getListCount ����: " + ex);
+			return false;
+		} return true;
 	}
 
 	

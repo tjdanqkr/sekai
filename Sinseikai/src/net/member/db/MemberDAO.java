@@ -446,8 +446,10 @@ public class MemberDAO implements DAO {
 			sql = "select*from naver";
 			stmt = con.createStatement();
 			 rs = stmt.executeQuery(sql);
+			 
 			 List<NaverBean> list = new ArrayList<NaverBean>();
 			 while(rs.next()) {
+				 
 				 NaverBean member = new NaverBean();
 				 member.setEmail(rs.getString("email"));
 				 member.setId(rs.getString("id"));

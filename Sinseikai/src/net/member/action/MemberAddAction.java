@@ -24,7 +24,6 @@ public class MemberAddAction implements Action {
 	   	MemberBean memberdata=new MemberBean();
 	   	ActionForward forward=new ActionForward();
 	   	boolean result=false;
-	   	System.out.println("ddd");
    		int age= Integer.parseInt(request.getParameter("age"));
    			try{
    				memberdata.setPhone(request.getParameter("phone"));
