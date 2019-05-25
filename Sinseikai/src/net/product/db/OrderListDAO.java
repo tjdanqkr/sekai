@@ -131,6 +131,26 @@ public class OrderListDAO implements DAO{
 		return false;
 	}
 	
+	/*
+	 * Update status of one order list.
+	 */
+	public boolean updateOrderListStatus(OrderListBean bean) {
+		try {
+			pstmt = con.prepareStatement("update orderlist set status=? where orderid=?");
+			
+			pstmt.setString(1, bean.getStatus());
+			pstmt.setString(2, bean.getOrderId());
+			
+			if(pstmt.executeUpdate() != 0) {
+				return true;
+			}
+		} catch (SQLException se) {
+			// TODO Auto-generated catch block
+			se.printStackTrace();
+		}
+		return false;
+	}
+	
 	public void close() {
 		if(con != null) {
 			try {
