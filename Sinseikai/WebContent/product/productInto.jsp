@@ -40,6 +40,7 @@ function showBig(val) {
 <script>
 			// var sel = $("#selectbox option:selected").text(); //전체, 제목, 작성자
 			$( document ).ready( function() {
+				 $('input[name=seller]').val('${productBean.sellerEmail}');
 				var jb;
 				var jb1;
 				var jb2;
@@ -49,11 +50,18 @@ function showBig(val) {
 					var input = document.getElementById("quantity").value;
 					return input;
 					}					
-				$( 'button#jbButton' ).click( function() {		
-					  jb = $("select[name='option1'] option:selected").text();	
-					  jb1 = $("select[name='option2'] option:selected ").text();
+				$( 'button#jbButton' ).click( function() {
+					 jb = $("select[name='option1'] option:selected").text();	
+					  jb1 = $("select[name='option2'] option:selected").text();
 					  jbv= $("select[name='option1'] option:selected").val();	
-					  jbv1=$("select[name='option2'] option:selected ").val();
+					  jbv1=$("select[name='option2'] option:selected");					
+					  for(var i=0;i<jbv1.length;i++){
+						  var vv = jbv1[i].value;						 
+						  if(vv!=0){     
+							jbv1=vv;
+							break;
+						  }
+					  }
 					  document.getElementById("demo").innerHTML = jb;
 					  document.getElementById("demo1").innerHTML = jb1;																			
 						 jb2=input();
@@ -64,11 +72,14 @@ function showBig(val) {
 						 sessionStorage.setItem( 'color', 'jb' );
 						 sessionStorage.setItem( 'size', 'jb1' );
 						 document.getElementById("nedan").innerHTML = jb3;
-						 
+					
 						 $('input[name=no]').val(${no});
 						 $('input[name=su]').val(input());
 						 $('input[name=option1]').val(jbv);
-						 $('input[name=option2]').val(jbv2);	 
+						 $('input[name=option2]').val(jbv1);
+						 
+
+						
 				} );		
 			} );
 			 function modifyProductQuantity(id, quantity){
@@ -190,6 +201,7 @@ setCookie("productid_price_${productBean.modelNumber}", "${productBean.price}원
 			<input type="hidden" name = "option1">
 			<input type="hidden" name = "option2">
 			<input type="hidden" name = "no">
+			<input type="hidden" name = "seller">
 			<input type="submit"  value ="주문하기">
 		</form>	
 			<span> 상품 번호 : ${productBean.modelNumber} <br>

@@ -6,6 +6,7 @@ import net.action.Action;
 import net.action.ActionForward;
 import net.product.db.OrderListBean;
 import net.product.db.OrderListDAO;
+import net.product.db.ProductBean;
 
 public class ProductPaymentAction implements Action {
 
@@ -14,22 +15,18 @@ public class ProductPaymentAction implements Action {
 		OrderListDAO dao = new OrderListDAO();
 		OrderListBean bean = new OrderListBean();
 		boolean result = false;
-		System.out.println(request.getSession().getAttribute("id")+"");
-		
-		
-		
+		int i= (int)(Math.random()*1000000000);
 		request.setCharacterEncoding("UTF-8");
-		bean.setOrderId("orderId");
+		System.out.println(request.getParameter("option2"));
+		bean.setOrderId(Integer.toString(i));
 		bean.setBuyer(request.getSession().getAttribute("id")+"");
-		bean.setSeller(request.getParameter("sellerEmail"));
+		bean.setSeller(request.getParameter("seller"));
 		bean.setProductNumber(Integer.parseInt(request.getParameter("productNumber").trim()));
 	//	bean.setCoupon(!request.getParameter("coupon").equals("0"));
 		bean.setPrice(Integer.parseInt(request.getParameter("no")));
-		bean.setOptions(request.getParameter("options"));
+		bean.setOptions(request.getParameter("option1")+","+request.getParameter("option2"));
 		bean.setAmount(Integer.parseInt(request.getParameter("su")));
-		System.out.println("시작14");
 		bean.setStatus("결제대기");
-		System.out.println("시작15");
 		result = dao.insertOrderList(bean); // Insert to orderList using buyer.
 		dao.close();
 		if(!result) {
@@ -38,7 +35,6 @@ public class ProductPaymentAction implements Action {
 		}
 		
 		ActionForward forward = new ActionForward();
-		System.out.println("dd");
 		forward.setRedirect(false);
 		forward.setPath("/product/productPay.jsp");
 		return forward;
