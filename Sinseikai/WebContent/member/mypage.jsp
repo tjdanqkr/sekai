@@ -96,7 +96,7 @@
 		<td>${sellerOrderListBean.buyer}</td>
 		
 		<td>
-			<form action="modify-order-list.pr" method="post">
+			<form action="modify-order-list.me" method="post">
 				<input type="hidden" name="seller" value="${sellerOrderListBean.seller}" />
 				<input type="hidden" name="orderId" value="${sellerOrderListBean.orderId}" />
 				<select name="status" onchange="submit();">

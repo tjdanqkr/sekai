@@ -37,7 +37,7 @@ public class CategoryMenuInsertAction implements Action {
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("manage-category.pr");
+		forward.setPath("manage-category.ad");
 		return forward;
 	}
 

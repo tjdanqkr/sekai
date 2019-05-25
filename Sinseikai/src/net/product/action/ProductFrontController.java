@@ -1,8 +1,6 @@
 package net.product.action;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,9 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.action.FrontController;
-import net.admin.action.PurchaseHistoryAction;
-import net.admin.db.PurchaseHistoryBean;
-import net.product.util.PurchaseHistoryUtility;
 import net.action.Action;
 import net.action.ActionForward;
 
@@ -81,143 +76,6 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			
 			try {
 				forward = action.execute(request, response);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command.equals("/show-order-list.pr")) {
-			/*
-			 * Show order list of user.
-			 */
-			action = new ShowOrderListAction();
-			
-			try {
-				forward = action.execute(request, response);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command.equals("/modify-order-list.pr")) {
-			/*
-			 * Modify order list of user.
-			 */
-			action = new ModifyOrderListAction();
-			
-			try {
-				forward = action.execute(request, response);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command.equals("/admin-get-overview.pr")) {
-			/*
-			 * Manager : get overview data.
-			 */
-			PurchaseHistoryUtility purchaseHistoryUtility = new PurchaseHistoryUtility();
-			
-			List<PurchaseHistoryBean> beans = null;
-			
-			Map<String, Map<String, Integer>> brandNameMaps = null;
-			
-			action = new PurchaseHistoryAction();
-			try {
-				forward = action.execute(request, response);
-				
-				/*
-				 * For counting.
-				 */
-				beans = (List<PurchaseHistoryBean>)request.getAttribute("purchaseHistoryBeans");
-				
-				/*
-				 * Counting.
-				 */
-				brandNameMaps = purchaseHistoryUtility.counting(beans, "brandName");
-				
-				/*
-				 * Put data to session.
-				 */
-				request.getSession().setAttribute("brandNameMaps", brandNameMaps);
-				
-				forward.setRedirect(true);
-				
-				/*
-				 * End of data collect.
-				 * back to the ~.ad
-				 */
-				forward.setPath("admin-overview-show.ad");
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command.equals("/manage-category.pr")) {
-			/*
-			 * Manager : category menu.
-			 */
-			request.setAttribute("centerUri", "/admin/manageCategory.jsp");
-			
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("/admin/adminContainer.jsp");
-		}else if(command.equals("/manage-category-insert.pr")) {
-			/*
-			 * Manager : category insert.
-			 */
-			action = new CategoryMenuInsertAction();
-			try {
-				forward = action.execute(request, response);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command.equals("/manage-category-modify.pr")) {
-			/*
-			 * Manager : category modify.
-			 */
-			action = new CategoryMenuModifyAction();
-			try {
-				forward = action.execute(request, response);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command.equals("/manage-category-delete.pr")) {
-			/*
-			 * Manager : category delete.
-			 */
-			action = new CategoryMenuDeleteAction();
-			try {
-				forward = action.execute(request, response);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command.equals("/purchase-history.pr")) {
-			/*
-			 * Manager : purchase history.
-			 */
-			action = new PurchaseHistoryAction();
-			try {
-				forward = action.execute(request, response);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command.equals("/lookup-product.pr")) {
-			/*
-			 * Manager : lookup product.
-			 */
-			request.setAttribute("centerUri", "/admin/lookupProduct.jsp");
-			
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("/admin/adminContainer.jsp");
-		}else if(command.equals("/lookup-product-search.pr")) {
-			/*
-			 * Manager : search product.
-			 */
-			action = new SearchProductAction();
-			try {
-				forward = action.execute(request, response);
-				
-				request.setAttribute("centerUri", "/admin/lookupProductView.jsp");
-				
-				/*
-				 * SearchProductAction is for non-manager mode.
-				 * so set path after execute for manager.
-				 */
-				forward.setPath("/admin/adminContainer.jsp");
 			}catch(Exception e) {
 				e.printStackTrace();
 			}

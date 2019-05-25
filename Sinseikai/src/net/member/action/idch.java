@@ -3,6 +3,8 @@ package net.member.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.action.Action;
+import net.action.ActionForward;
 import net.member.db.MemberBean;
 import net.member.db.MemberDAO;
 
