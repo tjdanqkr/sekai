@@ -22,7 +22,7 @@ System.out.println(session.getAttribute("email"));
 <%=session.getAttribute("name") %>
 
 
-<%response.sendRedirect("http://localhost:8090/Sinseikai/naverlogin.me"); %>
+<%response.sendRedirect("./Sinseikai/naverlogin.me"); %>
 
 </body>
 </html>
