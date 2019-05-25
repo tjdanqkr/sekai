@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.action.Action;
 import net.action.ActionForward;
+import net.product.action.ModifyOrderListAction;
 import net.product.action.ShowOrderListAction;
 
 /**
@@ -100,7 +101,18 @@ public class MemberFrontContoroller1 extends HttpServlet {
 					forward = new ActionForward();
 					forward.setRedirect(false);
 					forward.setPath("./member/mypage.jsp");
-			   }
+			   }else if(command.equals("/modify-order-list.me")) {
+					/*
+					 * Mypage : Modify order list of user.
+					 */
+					action = new ModifyOrderListAction();
+					
+					try {
+						forward = action.execute(request, response);
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+				}
 			 
 			 if(forward.isRedirect()){
 				   response.sendRedirect(forward.getPath());

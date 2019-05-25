@@ -17,7 +17,7 @@ Prevent the action that select all category if entered to modify mode.
 <div id="categoryTop">
 	<div id="formContainer">
 		<button id="backButton">돌아가기</button>
-		<form action="manage-category-insert.pr" method="post" onsubmit="return checkValues()">
+		<form action="manage-category-insert.ad" method="post" onsubmit="return checkValues()">
 			MajorName <input type="text" name="majorName" oninput="validate()" />
 			MinorName <input type="text" name="minorName" oninput="validate()" />
 			CategoryName <input type="text" name="categoryName" oninput="validate()" />
@@ -272,7 +272,7 @@ Prevent the action that select all category if entered to modify mode.
 		var inputs = $('#formContainer > form').children();
 		
 		$('#formContainer').attr('class', 'modify');
-		$('#formContainer > form').attr('action', 'manage-category-modify.pr');
+		$('#formContainer > form').attr('action', 'manage-category-modify.ad');
 		
 		/*
 		 * inputs[0],[1](major, minor) is already insert data.
@@ -294,7 +294,7 @@ Prevent the action that select all category if entered to modify mode.
 		var inputs = $('#formContainer > form').children();
 		
 		$('#formContainer').attr('class', '');
-		$('#formContainer > form').attr('action', 'manage-category-insert.pr');
+		$('#formContainer > form').attr('action', 'manage-category-insert.ad');
 		
 		inputs[2].value = '';
 		inputs[3].value = '';
@@ -331,7 +331,7 @@ Prevent the action that select all category if entered to modify mode.
 			var form = $('<form></form>');
 			var input = $('<input />')
 			
-			form.attr('action', 'manage-category-delete.pr');
+			form.attr('action', 'manage-category-delete.ad');
 			form.attr('method', 'post');
 			form.css('display', 'none');
 			
