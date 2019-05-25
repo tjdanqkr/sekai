@@ -3,8 +3,8 @@ package net.product.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.member.action.Action;
-import net.member.action.ActionForward;
+import net.action.Action;
+import net.action.ActionForward;
 import net.product.db.*;
 
 public class registProductAction implements Action{
