@@ -53,7 +53,7 @@
 		<td>${buyerOrderListBean.status}</td>
 	</tr>
 	<tr>
-		<td colspan="4"><hr /></td>
+		<td colspan="5"><hr /></td>
 	</tr>
 </c:forEach>
 </table>
@@ -66,6 +66,7 @@
 		<td>상품 번호</td>
 		<td>상품 명</td>
 		<td>옵션</td>
+		<td>갯수</td>
 		<td>상태</td>
 	</tr>
 <c:forEach var="sellerOrderListBean" items="${sellerOrderListBeans}" varStatus="status">
@@ -77,10 +78,11 @@
 			${sellerOptionBean.minorName}
 			</c:forEach>
 		</td>
+		<td>${sellerOrderListBean.amount}</td>
 		<td>${sellerOrderListBean.status}</td>
 	</tr>
 	<tr>
-		<td colspan="4"><hr /></td>
+		<td colspan="5"><hr /></td>
 	</tr>
 </c:forEach>
 </table>
