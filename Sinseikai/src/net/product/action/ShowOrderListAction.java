@@ -164,11 +164,11 @@ public class ShowOrderListAction implements Action {
 		request.getSession().setAttribute("sellerProductBeans", sellerProductBeans);
 		request.getSession().setAttribute("sellerOption1Beans", sellerOption1Beans);
 		
-		ActionForward forward = new ActionForward();
-		forward.setRedirect(true);
-		forward.setPath("mypage-show.me");
-		
-		return forward;
+		/*
+		 * Order list is called with other data.
+		 * so not return ActionForward.
+		 */
+		return null;
 	}
 
 }
