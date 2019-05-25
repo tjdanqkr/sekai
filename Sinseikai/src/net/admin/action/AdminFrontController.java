@@ -78,7 +78,15 @@ public class AdminFrontController extends HttpServlet implements FrontController
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/member-lookup.ad")) {
+			action = new Member_Lookup();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
 		
 		if(forward.isRedirect()) {
 			response.sendRedirect(forward.getPath());
