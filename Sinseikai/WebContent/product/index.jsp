@@ -24,6 +24,7 @@
         <ul>
             <li data-flip-title="Red">
                <a href="productinto.pr?productNumber=1&email=<%=session.getAttribute("id") %>">
+              
                <img src="./img/test1.png" width="100%" height="100%"></a><br>
                 	<h2>나이키</h2>	나이키 반팔티<br><br>           	
                 	36,000원                        
@@ -44,22 +45,33 @@
                 	30,000 원         
             </li>
             <li data-flip-title="Cerulean Blue" data-flip-category="Blues">
-                <img src="./img/text5.gif">
+                <img src="./img/main5.jpg" width="100%" height="100%">
+                	<h2>레노마</h2>레노마 캐주얼 바지<br><br>
+                	43,660원 
             </li>
             <li data-flip-title="Dodger Blue" data-flip-category="Blues">
-                <img src="./img/text6.gif">
+                <img src="./img/main6.jpg" width="100%" height="100%">
+                	<h2>엠메부띠끄</h2>오프화이어 뱀파이어 루즈핏<br><br> 
+                	536,200원
+                	
             </li>
             <li data-flip-title="Cyan" data-flip-category="Blues">
-                <img src="./img/text7.jpg">
+                <img src="./img/main7.jpg" width="100%" height="100%">
+                	<h2>올리브데올리브</h2>에스닉 자수 술포인트 블라우스<br><br> 
+                	63.200원
             </li>
             <li data-flip-title="Robin's Egg" data-flip-category="Blues">
-                <img src="./img/text8.gif">
+                <img src="./img/main8.jpg" width="100%" height="100%">
+                	<h2>플라스틱 아일랜드</h2>예쁜 카라변형 블라우스<br><br> 
+                	50,930원
             </li>
             <li data-flip-title="Deep Sea" data-flip-category="Greens">
-                <img src="./img/text9.gif">
+                <img src="./img/main9.jpg" width="100%" height="100%">
+                	<h2>체리코코</h2>막스 블라우스/셔츠/퍼프소매/시스루/오버핏<br><br>
+                	21,850원 
             </li>
             <li data-flip-title="Apple" data-flip-category="Greens">
-                <img src="./img/text10.gif">
+                <img src="./img/main10.jpg" width="100%" height="100%">
             </li>
         </ul>
         
