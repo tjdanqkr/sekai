@@ -10,6 +10,8 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import net.member.db.MemberDAO;
+import net.action.Action;
+import net.action.ActionForward;
 import net.member.db.MemberBean;
 
 public class MemberAddAction implements Action {

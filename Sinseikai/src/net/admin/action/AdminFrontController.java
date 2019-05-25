@@ -1,6 +1,8 @@
 package net.admin.action;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.action.FrontController;
+import net.admin.db.PurchaseHistoryBean;
+import net.product.action.CategoryMenuAction;
+import net.product.action.CategoryMenuDeleteAction;
+import net.product.action.CategoryMenuInsertAction;
+import net.product.action.CategoryMenuModifyAction;
+import net.product.action.SearchProductAction;
+import net.product.util.PurchaseHistoryUtility;
 import net.action.Action;
 import net.action.ActionForward;
 
@@ -36,34 +45,135 @@ public class AdminFrontController extends HttpServlet implements FrontController
 		
 		if(command.equals("/admin.ad")) {
 			/*
-			 * Admin index.
+			 * Admin page and Overview page.
 			 * request overview.
 			 */
-			forward = new ActionForward();
-			forward.setRedirect(true);
-			forward.setPath("admin-overview.ad");
-		}else if(command.equals("/admin-overview.ad")) {
+			
 			/*
-			 * Overview page.
-			 * request data to other controller.
+			 * Manager : get overview data.
 			 */
-			forward = new ActionForward();
-			forward.setRedirect(true);
-			forward.setPath("admin-get-overview.pr");
-		}else if(command.equals("/admin-overview-show.ad")) {
+			PurchaseHistoryUtility purchaseHistoryUtility = new PurchaseHistoryUtility();
+			List<PurchaseHistoryBean> beans = null;
+			Map<String, Map<String, Integer>> brandNameMaps = null;
+			
+			action = new PurchaseHistoryAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
 			/*
-			 * Overview page.
-			 * just show the result. 
+			 * For counting.
+			 */
+			beans = (List<PurchaseHistoryBean>)request.getAttribute("purchaseHistoryBeans");
+			
+			/*
+			 * Counting.
+			 */
+			brandNameMaps = purchaseHistoryUtility.counting(beans, "brandName");
+			
+			/*
+			 * Put data to session.
+			 */
+			request.setAttribute("brandNameMaps", brandNameMaps);
+			
+			/*
+			 * Done get the data.
+			 * 
+			 * show overview page.
 			 */
 			request.setAttribute("centerUri", "/admin/overview.jsp");
 			
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/admin/adminContainer.jsp");
+		}else if(command.equals("/manage-category.ad")) {
+			/*
+			 * Manager : category menu.
+			 */
+			action = new CategoryMenuAction();
+			try {
+				/*
+				 * CategoryMenuAction.execute() is not return ActionForward.
+				 * Because this Action is originally used on ProductController.
+				 */
+				action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			request.setAttribute("centerUri", "/admin/manageCategory.jsp");
+			
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/admin/adminContainer.jsp");
+		}else if(command.equals("/manage-category-insert.ad")) {
+			/*
+			 * Manager : category insert.
+			 */
+			action = new CategoryMenuInsertAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/manage-category-modify.ad")) {
+			/*
+			 * Manager : category modify.
+			 */
+			action = new CategoryMenuModifyAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/manage-category-delete.ad")) {
+			/*
+			 * Manager : category delete.
+			 */
+			action = new CategoryMenuDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}else if(command.equals("/purchase-history.ad")) {
+			/*
+			 * Manager : purchase history.
+			 */
 			action = new PurchaseHistoryAction();
 			try {
 				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/lookup-product.ad")) {
+			/*
+			 * Manager : lookup product.
+			 */
+			request.setAttribute("centerUri", "/admin/lookupProduct.jsp");
+			
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/admin/adminContainer.jsp");
+		}else if(command.equals("/lookup-product-search.ad")) {
+			/*
+			 * Manager : search product.
+			 */
+			action = new SearchProductAction();
+			try {
+				forward = action.execute(request, response);
+				
+				request.setAttribute("centerUri", "/admin/lookupProductView.jsp");
+				
+				/*
+				 * SearchProductAction is for non-manager mode.
+				 * so set path after execute for manager.
+				 */
+				forward.setRedirect(false);
+				forward.setPath("/admin/adminContainer.jsp");
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
@@ -85,7 +195,29 @@ public class AdminFrontController extends HttpServlet implements FrontController
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/member-question.ad")) {
+			action = new Member_Question();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/member-qan-reple.ad")) {
+			action = new Member_Question_Detail();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/member_reple_update.ad")) {
+			action = new Member_Reple_Update();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
 		
 		
 		if(forward.isRedirect()) {

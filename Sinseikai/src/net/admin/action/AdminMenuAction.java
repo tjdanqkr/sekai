@@ -26,11 +26,8 @@ public class AdminMenuAction implements Action {
 			System.err.println("ERROR - Failed get the admin menu");
 			return null;
 		}		
-    
-		/*
-		 * Admin menu is need always. so set to session.
-		 */
-		request.getSession().setAttribute("adminMenuBeans", repackaging(beans)); // Put the result.
+
+		request.setAttribute("adminMenuBeans", repackaging(beans)); // Put the result.
 
 		return null;
 	}
