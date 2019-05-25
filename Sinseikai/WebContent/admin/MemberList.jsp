@@ -11,12 +11,18 @@ List<MemberBean> memberlist =(List)request.getAttribute("memberlist");
 %>
 <style type="text/css">
 table {
-	padding-top: 50px;
-
+	width:70%;
+	position:relative;
+	top: 40px;
+	background:white;
 	font-size: 15px;
+	border-bottom: 70px;
 }
-div{
- color: red;
+.memberlist div{
+	color: black;
+}
+.member .list{
+	background: #ffa500;
 }
 </style>
 <meta charset="UTF-8">
@@ -24,9 +30,9 @@ div{
 </head>
 <body>
 <div class="memberlist">
-		<table width=70% border="0" cellpadding="0" cellspacing="0">
-			<tr align="center" valign="middle" bordercolor="#333333" class="list" >
-				<td width="10%">
+		<table  border="0" cellpadding="0" cellspacing="0" class="member">
+			<tr align="center" valign="middle" bordercolor="red" class="list" >
+				<td >
 					<div align="left">Number</div>
 				</td>
 				<td >
@@ -55,7 +61,7 @@ div{
 			<%for(int i=0; i<memberlist.size();i++){
 				MemberBean ml=(MemberBean)memberlist.get(i);%>
 			<tr align="center" valign="middle" bordercolor="#333333" class="bol">
-				<td width="30%">
+				<td >
 					<div class="o" align="left" ><%=i+1 %></div>
 				</td>
 				<td >
@@ -82,6 +88,68 @@ div{
 			</tr>
 			<%}%>
 			</table>
+			
+			
+			<table  border="0" cellpadding="0" cellspacing="0" class="member">
+			<tr align="center" valign="middle" bordercolor="red" class="list" >
+				<td >
+					<div align="left">Number</div>
+				</td>
+				<td >
+					<div align="left">Email</div>
+				</td>
+				<td >
+					<div align="left">Pw</div>
+				</td>
+				<td >
+					<div align="left">Name</div>
+				</td>
+				<td >
+					<div align="left">Num1</div>
+				</td>
+				<td >
+					<div align="left">Age</div>
+				</td>
+				<td >
+					<div align="left">Phone</div>
+				</td>
+				<td >
+					<div align="left">Address</div>
+				</td>
+
+			</tr>
+			<%for(int i=0; i<memberlist.size();i++){
+				MemberBean ml=(MemberBean)memberlist.get(i);%>
+			<tr align="center" valign="middle" bordercolor="#333333" class="bol">
+				<td >
+					<div class="o" align="left" ><%=i+1 %></div>
+				</td>
+				<td >
+					<div align="left" class="iii"><%=ml.getEmail()%></div>
+				</td>
+				<td >
+					<div align="left" class="iii"><%=ml.getPw()%></div>
+				</td>
+				<td >
+					<div align="left" class="iii"><%=ml.getName()%></div>
+				</td>
+				<td >
+					<div align="left" class="iii"><%=ml.getNum1()%></div>
+				</td>
+				<td >
+					<div align="left" class="iii"><%=ml.getAge()%></div>
+				</td>
+				<td >
+					<div align="left" class="iii"><%=ml.getPhone()%></div>
+				</td>
+				<td >
+					<div align="left" class="iii"><%=ml.getAddress()%></div>
+				</td>
+			</tr>
+			<%}%>
+			</table>
+			
+			
 			</div>
 
 </body>
