@@ -17,36 +17,35 @@ public class RegistProductAction implements Action{
 		ProductDAO productdao = new ProductDAO();
 		ActionForward forward = new ActionForward();
 		boolean result=false;	
-		try {
-			int productNumber = Integer.parseInt(request.getParameter("productNumer"));
-			int price = Integer.parseInt(request.getParameter("productNumer"));
-			int discountRate=Integer.parseInt(request.getParameter("productNumer"));
-			int rating=Integer.parseInt(request.getParameter("productNumer"));
-			int deliberyPeriod=Integer.parseInt(request.getParameter("productNumer"));
-			productbean.setBrandName(request.getParameter("brandName"));
-			productbean.setModelNumber(request.getParameter("modelNumber"));
-			productbean.setModelName(request.getParameter("modelName"));
-			productbean.setCoupon(request.getParameter("coupon"));			
-			productbean.setImgAddr1(request.getParameter("imgAdd1"));
-			productbean.setImgAddr2(request.getParameter("imgAdd2"));
-			productbean.setImgAddr3(request.getParameter("imgAdd3"));
-			productbean.setImgAddr4(request.getParameter("imgAdd4"));
-			productbean.setImgAddr5(request.getParameter("imgAdd5"));
-			productbean.setSellerEmail(request.getParameter("sellerEmail"));
-			productbean.setProductNumber(productNumber);
-			productbean.setProductNumber(price);
-			productbean.setProductNumber(discountRate);
-			productbean.setProductNumber(rating);
-			productbean.setProductNumber(deliberyPeriod);
+		int productNumber = Integer.parseInt(request.getParameter("productNumer"));
+		int price = Integer.parseInt(request.getParameter("price"));
+		int discountRate=Integer.parseInt(request.getParameter("discountRate"));
+		int rating=Integer.parseInt(request.getParameter("rating"));
+		int deliberyPeriod=Integer.parseInt(request.getParameter("deliberyPeriod"));
+			try {
+				productbean.setBrandName(request.getParameter("brandName"));
+				productbean.setModelNumber(request.getParameter("modelNumber"));
+				productbean.setModelName(request.getParameter("modelName"));
+				productbean.setCoupon(request.getParameter("coupon"));			
+				productbean.setImgAddr1(request.getParameter("imgAdd1"));
+				productbean.setImgAddr2(request.getParameter("imgAdd2"));
+				productbean.setImgAddr3(request.getParameter("imgAdd3"));
+				productbean.setImgAddr4(request.getParameter("imgAdd4"));
+				productbean.setImgAddr5(request.getParameter("imgAdd5"));
+				productbean.setSellerEmail(request.getParameter("sellerEmail"));
+				productbean.setProductNumber(productNumber);
+				productbean.setPrice(price);
+				productbean.setDiscountRate(discountRate);
+				productbean.setRating(rating);
+				productbean.setDeliveryPeriod(deliberyPeriod);
 			
 			result=productdao.productInsert(productbean);
 			if(result==false){
-	   			System.out.println("�Խ��� ��� ����");
+	   			System.out.println("레지스트 에러남 ㅅㄱ");
 	   			return null;
 	   		}
-	   		System.out.println("�Խ��� ��� �Ϸ�");
    		   	forward.setRedirect(true);
-	   		forward.setPath("login.me");
+	   		forward.setPath("/product/registProduct.jsp");
 	   		
 	   		return forward;
    			}catch(Exception ex){
