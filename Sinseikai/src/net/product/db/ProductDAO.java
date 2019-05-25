@@ -156,6 +156,43 @@ public class ProductDAO implements DAO{
 		return null;
 	}
 	
+	/*
+	 * Insert product.
+	 */
+	public boolean insertProduct(ProductBean bean) {
+		try {
+			pstmt = con.prepareStatement("insert into product values(?, ?, ?, ?, "
+					+ "?, ?, ?, ?, "
+					+ "?, ?, ?, ?, "
+					+ "?, ?, ?, ?)");
+			pstmt.setInt(1, bean.getProductNumber());
+			pstmt.setString(2, bean.getBrandName());
+			pstmt.setString(3, bean.getModelNumber());
+			pstmt.setString(4, bean.getModelName());
+			pstmt.setString(5, bean.getCoupon());
+			pstmt.setInt(6, bean.getPrice());
+			pstmt.setFloat(7, bean.getDiscountRate());
+			pstmt.setFloat(8, bean.getRating());
+			pstmt.setString(9, bean.getImgAddr1());
+			pstmt.setString(10, bean.getImgAddr2());
+			pstmt.setString(11, bean.getImgAddr3());
+			pstmt.setString(12, bean.getImgAddr4());
+			pstmt.setString(13, bean.getImgAddr5());
+			pstmt.setInt(14, bean.getDeliveryPeriod());
+			pstmt.setInt(15, bean.getCategorycode());
+			pstmt.setString(16, bean.getSellerEmail());
+			
+			if(pstmt.executeUpdate() == 1) {
+				return true;
+			}
+		} catch (SQLException se) {
+			// TODO Auto-generated catch block
+			se.printStackTrace();
+		}
+		
+		return false;
+	}
+	
 	public void close() {
 		if(con != null) {
 			try {
