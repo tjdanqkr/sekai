@@ -123,7 +123,7 @@
 </table>
 
 <h3>판매등록</h3>
-<form action="product-input.pr?${memberBean.Email}" id="regist" method="post">
+<form action="product-input.pr" id="regist" method="post">
 <input type="submit" value="상품 등록하러 가기" > 
 </form>
 <div id=footer><%@include file="/product/footer.jsp" %></div>

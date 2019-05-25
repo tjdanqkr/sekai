@@ -41,13 +41,14 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/product/product_into.jsp");
+			
 		}else if(command.equals("/product-input.pr")) { 
-			action =new RegistProductAction();
+			action =new BrandgetAction();
 			try {
 				forward = action .execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
-			}						
+			}					
 		}else if(command.equals("/regist-product.pr")) {//상품등록할거야
 			action =new RegistProductAction();
 			try {
