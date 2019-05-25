@@ -15,6 +15,9 @@
 	.header{
 		background-color: skyblue;
 	}
+	.regist{
+		
+	}
 </style>
 <script>
 	if('${id}' == ''){
@@ -87,6 +90,10 @@
 </c:forEach>
 </table>
 
+<h3>판매등록</h3>
+<form action="regist-product.pr" id="regiset" method="get">
+<input type="submit" value="상품 등록하러 가기" > 
+</form>
 <div id=footer><%@include file="/product/footer.jsp" %></div>
 </body>
 </html>
