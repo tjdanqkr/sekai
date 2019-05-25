@@ -85,7 +85,29 @@ public class AdminFrontController extends HttpServlet implements FrontController
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/member-question.ad")) {
+			action = new Member_Question();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/member-qan-reple.ad")) {
+			action = new Member_Question_Detail();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/member_reple_update.ad")) {
+			action = new Member_Reple_Update();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
 		
 		
 		if(forward.isRedirect()) {

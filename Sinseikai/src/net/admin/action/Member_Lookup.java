@@ -26,11 +26,15 @@ public class Member_Lookup implements Action{
 	   			return null;
 	   		}
 	   		request.setAttribute("memberlist", list);
-			/*
-			 * list1=memberdao.Naberlookup(); if(list1==null) {
-			 * System.out.println("네이버 멤버 오류"); return null; }
-			 * request.setAttribute("naverlist", list);
-			 */
+	   		memberdao=new MemberDAO();
+			  list1=memberdao.Naberlookup(); 
+			  memberdao.close();
+			  if(list1==null) {
+				  System.out.println("네이버 멤버 오류"); 
+				  return null; 
+				  }
+			  request.setAttribute("naverlist", list1);
+			  
 	   		
 	   		request.setAttribute("centerUri", "/admin/MemberList.jsp");
 			
