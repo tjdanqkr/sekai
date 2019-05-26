@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -29,7 +31,20 @@ public class CodexBrandDAO implements DAO{
 			return;
 		}
 	}
-	
+	public List<CodexBrandBean> brandpull(CodexBrandBean bean) throws SQLException {
+		List<CodexBrandBean> list = new ArrayList<CodexBrandBean>();
+		
+		stmt = con.createStatement();
+		rs = stmt.executeQuery("select * from codexBrand ");
+		while(rs.next()) {
+			CodexBrandBean bean1 = new CodexBrandBean();
+			bean1.setBrandName(rs.getString("brandName"));
+			
+			list.add(bean1);
+		}
+		return list;
+	}
+		
 	// Get brandcode as brandname in bean.
 	public CodexBrandBean getBrandcodeAsBrandname(ProductBean productBean) {
 		CodexBrandBean codexBrandBean = new CodexBrandBean();

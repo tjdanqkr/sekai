@@ -45,7 +45,7 @@ public class RegistProductAction implements Action{
 	   			return null;
 	   		}
    		   	forward.setRedirect(true);
-	   		forward.setPath("/product/registProduct.jsp");
+	   		forward.setPath("/product/regist-product.pr");
 	   		
 	   		return forward;
    			}catch(Exception ex){

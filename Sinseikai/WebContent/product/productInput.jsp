@@ -10,20 +10,16 @@
 <div><%@include file="headmenu.jsp" %></div><br>
 
 <h2>${name}님의 판매등록 페이지입니다.</h2><hr>
+브랜드 선택하기 :
 
-<select >
 
+<select name = "sadsad">
+<c:forEach var="brando" items="${brandolist}">
+	<option value="${brando.brandName}">     ${brando.brandName}    </option>
+</c:forEach>
 </select>
-브랜드 선택하기 : <select>
-<c:forEach var="sd" item="${memberBean.Email}" >  </c:forEach>
+ 
 
-
-</select>
-
-String[] numbers = {"one", "two", "three"};
-for(String number: numbers) {
-    System.out.println(number);
-}
 
 
 

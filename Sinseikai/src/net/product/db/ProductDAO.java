@@ -10,6 +10,8 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.apache.taglibs.standard.lang.jstl.test.Bean1;
+
 import net.db.DAO;
 
 import javax.naming.Context;
@@ -31,10 +33,13 @@ public class ProductDAO implements DAO{
 			return;
 		}
 	}
+	
+	
+	
 	public boolean  productInsert(ProductBean bean) {
 		int result = 0;
 		try {	
-			String sql = "insert into member values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into product values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setInt(1,bean.getProductNumber());
