@@ -13,6 +13,8 @@ import net.member.db.MemberBean;
 import net.member.db.MemberDAO;
 import net.product.db.CodexBrandBean;
 import net.product.db.CodexBrandDAO;
+import net.product.db.MenuBean;
+import net.product.db.MenuDAO;
 import net.product.db.Option1Bean;
 import net.product.db.Option1DAO;
 import net.product.db.ProductBean;
@@ -23,26 +25,35 @@ public class BrandgetAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		List<CodexBrandBean> list ;
+		List<MenuBean> clist;
 		boolean result = false;
 		request.setCharacterEncoding("UTF-8");
 		CodexBrandBean cdbean= new CodexBrandBean();
 		CodexBrandDAO cddao  =new CodexBrandDAO();
 		ActionForward forward = new ActionForward();
+		MenuBean menubean = new  MenuBean();
+		MenuDAO menudao = new MenuDAO();
+		
 		
 		try {
 			cdbean.getBrandName();
+			menubean.getCategoryCode();
+			
 			list=cddao.brandpull(cdbean);
-			cddao.close();				
+			clist=menudao.categoryPull(menubean);
+			cddao.close();
+			menudao.close();
 		}catch(Exception ex){
    			ex.printStackTrace();
    			cddao.close();
-   			System.out.println("브랜드가져오기에러 ㅅㄱ");
+   			menudao.close();
+   			System.out.println("카테고리코드, 브랜드 가져오기 에러 ㅅㄱ");
    			return null;
    		}	
 			
 			
 		request.setAttribute("brandolist",list) ;
-			
+		request.setAttribute("categorycodelist", clist);
 		
 		
 	   	forward.setRedirect(false);

@@ -38,9 +38,13 @@ public class ProductDAO implements DAO{
 	
 	public boolean  productInsert(ProductBean bean) {
 		int result = 0;
+		
 		try {	
-			String sql = "insert into product values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into product values(?,?,?,?,?, "
+					+ "?,?,?,?,?, "
+					+ "?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
+			System.out.println("이미지 2" +bean.getImgAddr2());
 			
 			pstmt.setInt(1,bean.getProductNumber());
 			pstmt.setString(2,bean.getBrandName());
@@ -58,12 +62,11 @@ public class ProductDAO implements DAO{
 			pstmt.setInt(14,bean.getDeliveryPeriod());
 			pstmt.setInt(15,bean.getCategorycode());
 			pstmt.setString(16,bean.getSellerEmail());
+			System.out.println(sql);
 			
-			result = result + 1;
-			if (result == 0) {
-
-				return false;
-			}
+			pstmt.executeUpdate();
+			System.out.println("성공");
+			
 
 			return true;
 		} catch (Exception ex) {
