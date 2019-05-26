@@ -51,7 +51,7 @@ public class OrderListDAO implements DAO{
 				orderListBean.setBuyer(rs.getString("buyer"));
 				orderListBean.setSeller(rs.getString("seller"));
 				orderListBean.setProductNumber(rs.getInt("productnumber"));
-				orderListBean.setCoupon(rs.getBoolean("coupon"));
+				orderListBean.setCoupon(rs.getString("coupon"));
 				orderListBean.setPrice(rs.getInt("price"));
 				orderListBean.setOptions(rs.getString("options"));
 				orderListBean.setAmount(rs.getInt("amount"));
@@ -86,7 +86,7 @@ public class OrderListDAO implements DAO{
 				orderListBean.setBuyer(rs.getString("buyer"));
 				orderListBean.setSeller(rs.getString("seller"));
 				orderListBean.setProductNumber(rs.getInt("productnumber"));
-				orderListBean.setCoupon(rs.getBoolean("coupon"));
+				orderListBean.setCoupon(rs.getString("coupon"));
 				orderListBean.setPrice(rs.getInt("price"));
 				orderListBean.setOptions(rs.getString("options"));
 				orderListBean.setAmount(rs.getInt("amount"));
@@ -115,7 +115,7 @@ public class OrderListDAO implements DAO{
 			pstmt.setString(2, bean.getBuyer());
 			pstmt.setString(3, bean.getSeller());
 			pstmt.setInt(4, bean.getProductNumber());
-			pstmt.setBoolean(5, bean.isCoupon());
+			pstmt.setString(5, bean.getCoupon());
 			pstmt.setInt(6, bean.getPrice());
 			pstmt.setString(7, bean.getOptions());
 			pstmt.setInt(8, bean.getAmount());
