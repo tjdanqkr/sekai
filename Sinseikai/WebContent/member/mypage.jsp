@@ -22,6 +22,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
+<!-- Check login -->
 <script>
 	if('${id}' == ''){
 		location.href = 'login.me';
@@ -123,7 +124,7 @@
 </table>
 
 <h3>판매등록</h3>
-<form action="product-input.pr?${memberBean.Email}" id="regist" method="post">
+<form action="product-input.pr?${memberBean.email}" id="regist" method="post">
 <input type="submit" value="상품 등록하러 가기" > 
 </form>
 <div id=footer><%@include file="/product/footer.jsp" %></div>
