@@ -7,7 +7,7 @@ public class PurchaseHistoryBean {
 	private String brandName;
 	private String modelNumber;
 	private String modelName;
-	private boolean coupon;
+	private String coupon;
 	private int fullPrice;
 	private float discountRate;
 	private float rating;
@@ -39,10 +39,10 @@ public class PurchaseHistoryBean {
 	public void setModelName(String modelName) {
 		this.modelName = modelName;
 	}
-	public boolean isCoupon() {
+	public String getCoupon() {
 		return coupon;
 	}
-	public void setCoupon(boolean coupon) {
+	public void setCoupon(String coupon) {
 		this.coupon = coupon;
 	}
 	public int getFullPrice() {
