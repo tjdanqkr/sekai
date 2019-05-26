@@ -11,7 +11,7 @@
 <ul class="util_list">
 <% if(session.getAttribute("name")!=null){ %>
 							<li class="login"><a href="logout.me"><%=session.getAttribute("name") %>님 로그아웃</a></li>
-							
+							<li class="login"><a href="mypage.me">마이페이지</a></li>
 						<%}else {%>
 							<li class="login"><a href="login.me">로그인</a></li><li class="join"><a href="join.me">회원가입</a></li>
 						<%} %>

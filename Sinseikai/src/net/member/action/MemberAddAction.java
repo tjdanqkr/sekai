@@ -10,6 +10,8 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import net.member.db.MemberDAO;
+import net.action.Action;
+import net.action.ActionForward;
 import net.member.db.MemberBean;
 
 public class MemberAddAction implements Action {
@@ -22,7 +24,6 @@ public class MemberAddAction implements Action {
 	   	MemberBean memberdata=new MemberBean();
 	   	ActionForward forward=new ActionForward();
 	   	boolean result=false;
-	   	System.out.println("ddd");
    		int age= Integer.parseInt(request.getParameter("age"));
    			try{
    				memberdata.setPhone(request.getParameter("phone"));
@@ -30,7 +31,7 @@ public class MemberAddAction implements Action {
    				memberdata.setPw(request.getParameter("pw"));
    				memberdata.setEmail(request.getParameter("email"));
    				memberdata.setName(request.getParameter("name"));
-   				memberdata.setNum1(request.getParameter("num1"));
+   				memberdata.setNum1(Integer.parseInt(request.getParameter("num1")));
    				memberdata.setAge(age);
    				
    		   		result=memberdao.memberInsert(memberdata);
@@ -40,7 +41,7 @@ public class MemberAddAction implements Action {
 	   		}
 	   		System.out.println("�Խ��� ��� �Ϸ�");
    		   	forward.setRedirect(true);
-	   		forward.setPath("/login.me");
+	   		forward.setPath("login.me");
 	   		
 	   		return forward;
    			}catch(Exception ex){

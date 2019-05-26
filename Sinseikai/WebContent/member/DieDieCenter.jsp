@@ -71,8 +71,8 @@
 						<th scope="row">이메일 수신</th>
 						<td colspan="2"><input type="checkbox"
 							id="custCnsl_ansEmailRecvYn" name="ansEmailRecvYn" value="Y"></input>
-							<label for="custCnsl_ansEmailRecvYn"><%=session.getAttribute("email") %></label> <input
-							type="hidden" name="ansEmailAddr" value="<%=session.getAttribute("email") %>"></input>
+							<label for="custCnsl_ansEmailRecvYn"><%=session.getAttribute("email1") %></label> <input
+							type="hidden" name="ansEmailAddr" value="<%=session.getAttribute("email1") %>"></input>
 						</td>
 					</tr>
 				</tbody>

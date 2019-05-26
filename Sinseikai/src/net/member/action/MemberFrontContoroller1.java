@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.action.Action;
+import net.action.ActionForward;
+import net.product.action.ModifyOrderListAction;
+import net.product.action.ShowOrderListAction;
+
 /**
  * Servlet implementation class MemberFrontContoroller1
  */
@@ -73,7 +78,42 @@ public class MemberFrontContoroller1 extends HttpServlet {
 				   } catch (Exception e) {
 					   e.printStackTrace();
 				   }
-			   }
+			   }else if(command.equals("/mypage.me")) {
+				   /*
+				    * My page.
+				    */
+				   
+				   /*
+				    * show order list.
+				    */
+					action = new ShowOrderListAction();
+					
+					try {
+						forward = action.execute(request, response);
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+					
+					/*
+					 * Done Action.
+					 * go to mypage.
+					 */
+					forward = new ActionForward();
+					forward.setRedirect(false);
+					forward.setPath("./member/mypage.jsp");
+			   }else if(command.equals("/modify-order-list.me")) {
+					/*
+					 * Mypage : Modify order list of user.
+					 */
+					action = new ModifyOrderListAction();
+					
+					try {
+						forward = action.execute(request, response);
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+				}
+			 
 			 if(forward.isRedirect()){
 				   response.sendRedirect(forward.getPath());
 			   }else{

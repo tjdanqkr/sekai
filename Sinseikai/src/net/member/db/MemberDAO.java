@@ -4,18 +4,22 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import net.db.DAO;
+import net.member.action.naver;
 
 public class MemberDAO implements DAO {
 	Connection con;
 	PreparedStatement pstmt;
 	ResultSet rs;
-
+	Statement stmt;
 	public MemberDAO() {
 		try {
 			Context init = new InitialContext();
@@ -40,7 +44,7 @@ public class MemberDAO implements DAO {
 				member.setName(rs.getString("name"));
 				member.setEmail(rs.getString("email"));
 				member.setPw(rs.getString("pw"));
-				member.setNum1(rs.getString("num1"));
+				member.setNum1(rs.getInt("num1"));
 				member.setPhone(rs.getString("phone"));
 				member.setAge(rs.getInt("age"));
 				member.setAddress(rs.getString("Address"));
@@ -70,7 +74,7 @@ public class MemberDAO implements DAO {
 			pstmt.setString(1, member.getName());
 			pstmt.setString(2, member.getEmail());
 			pstmt.setString(3, member.getPw());
-			pstmt.setString(4, member.getNum1());
+			pstmt.setInt(4, member.getNum1());
 			pstmt.setInt(5, member.getAge());
 			pstmt.setString(6, member.getPhone());
 			pstmt.setString(7, member.getAddress());
@@ -396,6 +400,76 @@ public class MemberDAO implements DAO {
 				}
 		}
 		return false;
+	}public List<MemberBean> Memberlookup() {
+		String sql = "";
+		
+		int result = 0;
+		
+		try {
+			
+
+			sql = "select*from member";
+			stmt = con.createStatement();
+			 rs = stmt.executeQuery(sql);
+			 List<MemberBean> list = new ArrayList<MemberBean>();
+			 while(rs.next()) {
+				 MemberBean member = new MemberBean();
+				 member.setEmail(rs.getString("email"));
+				 member.setPw(rs.getString("pw"));
+				 member.setName(rs.getString("name"));
+				 member.setNum1(rs.getInt("num1"));
+				 member.setAge(rs.getInt("age"));
+				 member.setPhone(rs.getString("phone"));
+				 member.setAddress(rs.getString("address"));
+				 list.add(member);
+				 result = result + 1;
+			 }
+			
+			if (result == 0) {
+
+				return null;
+			}
+
+			return list;
+		} catch (Exception ex) {
+			System.out.println("멤버가 없나봐 : " + ex);
+		}
+		return null;
+	}public List<NaverBean> Naberlookup() {
+		String sql = "";
+		
+		int result = 0;
+		
+		try {
+			
+
+			sql = "select*from naver";
+			stmt = con.createStatement();
+			 rs = stmt.executeQuery(sql);
+			 
+			 List<NaverBean> list = new ArrayList<NaverBean>();
+			 while(rs.next()) {
+				 
+				 NaverBean member = new NaverBean();
+				 member.setEmail(rs.getString("email"));
+				 member.setId(rs.getString("id"));
+				 member.setName(rs.getString("name"));
+				 member.setAge(rs.getString("age"));
+				 member.setPhone(rs.getString("phone"));
+				 list.add(member);
+				 result = result + 1;
+			 }
+			
+			if (result == 0) {
+
+				return null;
+			}
+
+			return list;
+		} catch (Exception ex) {
+			System.out.println("네이버 멤버가 없나봐 : " + ex);
+		}
+		return null;
 	}
 
 	@Override

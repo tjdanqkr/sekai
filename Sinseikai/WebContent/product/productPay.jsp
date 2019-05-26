@@ -1,31 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<%
-pageContext.setAttribute("option1Beans",session.getAttribute("option1Beans"));
-pageContext.setAttribute("memberBean",session.getAttribute("memberBean"));
-%>
+
+<c:set var="no" value="${Math.round(productBean.price*(1-productBean.discountRate))}" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="../js/product_into.js"></script>
-<<<<<<< HEAD
+
 <link rel="stylesheet" href="./css/Pay.css">
+
+<!-- Check login -->
+<script>
+	if('${id}' == ''){
+		location.href = 'login.me';
+	}
+</script>
+
+</head>
+
 </head>
 <body onload="onLoad()">
-
 <div><%@include file="headmenu.jsp" %></div><br>
 <div class="sang">
-<h1>주문결제</h1>
+<h1>주문결제 </h1>
+<div>
+</div>
 <hr class="my-hr1">
 <h2>주문상품</h2>
 <hr class="my-hr2">
-<div align="left" class="imgspan"><img src="./img/test1.png" id="gurim"><!--이미지 -->
-<br><br><br><br><span class="setumei">
+<div align="left" class="imgspan"><img width="350rem" src="./img/${productBean.imgAddr1}" id="gurim"><!--이미지 -->
+<br><br><span class="setumei">
 <h2><b>${productBean.brandName}</b></h2><br><br>
 상품명 : ${productBean.modelName}<br><br>
 모델번호 : ${productBean.modelNumber}<br><br>
+주문갯수 : ${param.su} 개<br><br>
+가격 : ${param.su*no}원<br><br>
 포인트 적립률 : ${productBean.rating}%<br><br>
 </span><br><br><br><br><br>
 
@@ -44,29 +56,6 @@ pageContext.setAttribute("memberBean",session.getAttribute("memberBean"));
 <hr class= "my-hr1">
 <h2>할인/포인트</h2>
 <hr class= "my-hr2">
-=======
-
-</head>
-<body onload="onLoad()">
-<div id="container">
-<div><%@include file="headmenu.jsp" %></div><br>
-
-<h2>주문결제</h2>
-<hr>
-주문상품
-<hr>
-<div align="left"><img src="./img/test1.png" width="200px" height="200px"><!--이미지 -->
-<span>${productBean.brandName}</span>
-<span>${productBean.modelNumber }</span>
-<span> ${productBean.rating}%</span>
-<span>${productBean.modelName}</span>
-</div>
-<hr>
-<h2>주문고객</h2>
-이름 : <input type="text" value="${productBean.modelName}">
-
->>>>>>> parent of 29805cb... Revert "d"
-
 적용가능한 할인 포인트가 없습니다.
 <hr class= "my-hr1">
 <h2>결제수단</h2>
@@ -94,7 +83,16 @@ function myFunction() {
 
 입금기한 (예정) : 3일(최종 주문일 기준, 다음날까지 미 입금 시 자동취소 됩니다)<br><br>
 
-<div align="center"><input type ="button" value = "주문확정" onclick ="alert('주문이 완료되었습니다'); location.href='product-into.pr'"/></div>
+<div align="center">
+<form id="getsu" method="post" action="./product-pay-action.pr">
+		<input type="hidden" name = "productNumber" value = "${param.productNumber}" />
+		<input type="hidden" name = "su" value="${param.su}">
+		<input type="hidden" name = "options" value="${param.options}">
+		<input type="hidden" name = "no" value="${param.no}">
+		<input type="hidden" name = "seller" value="${param.seller}">
+<input type ="button" value = "주문확정" onclick ="alert('주문이 완료되었습니다'); document.getElementById('getsu').submit()"  />
+</form>	
+</div>
 <hr class= "my-hr2">
 
 <h5><b>무통장입금 이용안내</b><br><br>

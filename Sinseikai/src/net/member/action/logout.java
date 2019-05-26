@@ -4,6 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.action.Action;
+import net.action.ActionForward;
+
 
 public class logout implements Action {
 
@@ -14,6 +17,7 @@ public class logout implements Action {
 		HttpSession session = request.getSession();
 		ActionForward forward = new ActionForward();
 		session.removeAttribute("name");
+		session.removeAttribute("id");
 		System.out.println("dd");
 		System.out.println("빠이 짜이찌엔");
 		forward.setRedirect(true);

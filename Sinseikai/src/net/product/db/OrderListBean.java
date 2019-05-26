@@ -5,9 +5,9 @@ public class OrderListBean {
 	private String buyer;
 	private String seller;
 	private int productNumber;
-	private boolean coupon;
+	private String coupon;
 	private int price;
-	private String option;
+	private String options;
 	private int amount;
 	private String status;
 	
@@ -35,10 +35,10 @@ public class OrderListBean {
 	public void setProductNumber(int productNumber) {
 		this.productNumber = productNumber;
 	}
-	public boolean isCoupon() {
+	public String getCoupon() {
 		return coupon;
 	}
-	public void setCoupon(boolean coupon) {
+	public void setCoupon(String coupon) {
 		this.coupon = coupon;
 	}
 	public int getPrice() {
@@ -47,11 +47,11 @@ public class OrderListBean {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public String getOption() {
-		return option;
+	public String getOptions() {
+		return options;
 	}
-	public void setOption(String option) {
-		this.option = option;
+	public void setOptions(String options) {
+		this.options = options;
 	}
 	public int getAmount() {
 		return amount;

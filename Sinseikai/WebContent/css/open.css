@@ -365,7 +365,7 @@ img {
     color: inherit;
 }
 .sky_cont .sky_wrap .item .info .price {
-    padding-bottom: 6px;
+    padding-bottom: 20px;
 }
 .sky_cont .sky_wrap .item .favorite .ico_favorite {
     width: 30px;
@@ -390,6 +390,19 @@ img {
     border-radius: 20px;
     font-size: 12px;
     line-height: 15px;
+}
+.list a{
+
+    text-decoration: none;
+    color: inherit;
+    
+
+}
+.list li{
+
+    display: block;
+    
+
 }
 
 

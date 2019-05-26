@@ -61,8 +61,11 @@
     background-image: url(../images/el_icons.png);
     background-size: 480px auto;
     background-repeat: no-repeat;
-    background-position: -9px -9px;
+    
      }
+     input[type="checkbox"]:checked+label:before {
+    background-position: -49px -9px;
+}
 .information_table table td .btn_normal-medium {
     min-width: 130px;
     height: 40px;

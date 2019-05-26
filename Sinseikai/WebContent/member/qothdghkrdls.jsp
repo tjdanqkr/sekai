@@ -39,11 +39,9 @@ String title;
 					<div class="o" align="left" ><h2><%=i+1 %></h2></div>
 				</td>
 				<td >
-<<<<<<< HEAD
+
 					<div align="left" class="iii"><a target="_blank" href="./detail.cus?title=<%=URLEncoder.encode(bl.getTitle(), "UTF-8")%>"><%=bl.getTitle()%></a></div>
-=======
-					<div  align="left" class="iii"><a target="_blank" href="./detail.cus?title=<%=URLEncoder.encode(bl.getTitle(), "UTF-8")%>"><%=bl.getTitle()%></a></div>
->>>>>>> branch 'master' of https://github.com/kgc815/sekai.git
+
 				</td>
 
 			</tr>

@@ -68,6 +68,34 @@ public class Option1DAO implements DAO{
 		return null;
 	}
 	
+	/*
+	 * Insert product option.
+	 */
+	public boolean insertOption(Option1Bean bean) {
+		try {
+			pstmt = con.prepareStatement("insert into option1 values(?, ?, ?, ?, ?, "
+					+ "?, ?, ?, ?, ?)"); // Sort by major, paminor, minor number.
+			pstmt.setInt(1, bean.getProductNumber());
+			pstmt.setString(2, bean.getMajorName());
+			pstmt.setInt(3, bean.getMajorNumber());
+			pstmt.setInt(4, bean.getMinorNumber());
+			pstmt.setString(5, bean.getMinorName());
+			pstmt.setString(6, bean.getMinorImg());
+			pstmt.setInt(7, bean.getMinorPrice());
+			pstmt.setInt(8, bean.getMinorStock());
+			pstmt.setInt(9, bean.getPaMajorNumber());
+			pstmt.setInt(10, bean.getPaMinorNumber());
+			
+			if(pstmt.executeUpdate() == 1) {
+				return true;
+			}
+		} catch (SQLException se) {
+			// TODO Auto-generated catch block
+			se.printStackTrace();
+		}
+		return false;
+	}
+	
 	public void close() {
 		if(con != null) {
 			try {
