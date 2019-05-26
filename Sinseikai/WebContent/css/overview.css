@@ -1,0 +1,13 @@
+table{
+   background-color: white;
+   margin-top:10rem;
+   margin-left: 20rem;
+}
+.overviewcontent{
+
+   padding:1rem;
+   background-color: rgba(051, 153, 255, 0.4);
+   color: white;
+   font-size: 2rem;
+   
+}
