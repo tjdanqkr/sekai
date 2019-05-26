@@ -8,5 +8,7 @@
 </head>
 <body>
 레지스트에요
+
+<% response.sendRedirect("product-into.pr"); %>
 </body>
 </html>

@@ -52,6 +52,7 @@ public class DieInsert implements Action{
 			dieBean.setTitle(title);
 			System.out.println("시작");
 			result=dieDAO.DieInsert(dieBean);
+			dieDAO.close();
 			if(result==false) {
 				return null;
 			}

@@ -222,12 +222,12 @@ setCookie("productid_price_${productBean.modelNumber}", "${productBean.price}원
 			</div>
 			
 	<div id="comments">
-		<h3>Comments</h3>
+		<h3>상품상세설명</h3>
 		<p>
-			<span>Visitor 1</span><img src="img/${productBean.imgAddr5}" width="100%" height="100%" />
+			<span>상세이미지</span><img src="img/${productBean.imgAddr5}" width="100%" height="100%" />
 		</p>
 		<p>
-			<span>Visitor 2</span> 상품 상제 이미지
+			<span>상세정보</span> 
 				 <img src="img/${productBean.imgAddr5}" width="100%" height="100%" />
 		</p>
 		<p>
@@ -243,7 +243,7 @@ setCookie("productid_price_${productBean.modelNumber}", "${productBean.price}원
 	
 	<script>
     ${optionJS}
-    $('#jaego').html("남은 재고 : ");
+   
     </script>
 
 

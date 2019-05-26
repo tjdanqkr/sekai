@@ -20,6 +20,7 @@ public class idch implements Action {
 			String email = request.getParameter("id");
 			memberdata.setEmail(email);
 			result = memberdao.idCheck(memberdata);
+			memberdao.close();
 			if (result == false) {
 				System.out.println("�Խ��� ��� ����");
 				forward.setRedirect(true);

@@ -218,7 +218,17 @@ public class Option1Utility {
 		 * options is String. (ex : "1, 2, 3")
 		 * should convert to int array.
 		 */
-		String[] optionsArr = options.split(",");
+		String[] optionsArr; 
+		
+		try{
+			/*
+			 * No option.
+			 */
+			optionsArr = options.split(",");
+		}catch (NullPointerException npe) {
+			return null;
+		}
+		
 		int[] optionsArrInt = new int[options.length()];
 		
 		/*
