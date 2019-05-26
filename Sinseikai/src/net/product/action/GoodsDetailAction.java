@@ -31,9 +31,6 @@ public class GoodsDetailAction implements Action {
 		MemberBean memberBean = new MemberBean();
 		MemberDAO memberDAO = new MemberDAO();
 		
-		
-	
-		
 		memberBean.setEmail(request.getParameter("email"));
 		memberBean = memberDAO.kensaku(memberBean);
 		memberDAO.close();
