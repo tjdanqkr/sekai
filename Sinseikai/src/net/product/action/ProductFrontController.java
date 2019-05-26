@@ -72,6 +72,14 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 				e.printStackTrace();
 			}
 		}else if(command.equals("/product-pay.pr")) {
+			/*
+			 * Show pay page.
+			 */
+			forward = new ActionForward();
+			
+			forward.setRedirect(false);
+			forward.setPath("/product/productPay.jsp");
+		}else if(command.equals("/product-pay-action.pr")) {
 			action = new ProductPaymentAction();
 			
 			try {
@@ -80,6 +88,7 @@ public class ProductFrontController extends HttpServlet implements FrontControll
 				e.printStackTrace();
 			}
 		}
+		
 		if(forward.isRedirect()) {
 			response.sendRedirect(forward.getPath());
 		}else {
