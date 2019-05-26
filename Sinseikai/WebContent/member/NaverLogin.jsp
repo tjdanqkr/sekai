@@ -9,8 +9,8 @@ session.setAttribute("age", request.getParameter("age"));
 String Name= request.getParameter("name");
 String name = URLDecoder.decode(Name, "UTF-8") ;
 session.setAttribute("name", name);
-session.setAttribute("Email", request.getParameter("email"));
-System.out.println(session.getAttribute("email"));
+session.setAttribute("Email", request.getParameter("Email"));
+System.out.println(session.getAttribute("Email"));
 %>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -22,7 +22,7 @@ System.out.println(session.getAttribute("email"));
 <%=session.getAttribute("name") %>
 
 
-<%response.sendRedirect("./Sinseikai/naverlogin.me"); %>
+<%response.sendRedirect("../naverlogin.me"); %>
 
 </body>
 </html>
