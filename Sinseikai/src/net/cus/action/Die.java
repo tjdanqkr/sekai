@@ -30,7 +30,7 @@ public class Die implements Action{
 		
 		try {
 			
-			mebean.setEmail(session.getAttribute("Email")+"");
+			mebean.setEmail(session.getAttribute("id")+"");
 			result= medao.dieinf(mebean);
 			session.setAttribute("email1", mebean.getEmail());
 			session.setAttribute("phone", mebean.getPhone());
