@@ -30,6 +30,22 @@ public class MenuDAO implements DAO{
 			return;
 		}
 	}
+	public List<MenuBean> categoryPull(MenuBean bean) throws SQLException {
+		List<MenuBean> clist = new ArrayList<MenuBean>();
+		
+		stmt = con.createStatement();
+		rs = stmt.executeQuery("select * from menu ");
+		while(rs.next()) {
+			MenuBean bean1 = new MenuBean();
+			bean1.setCategoryCode(rs.getInt("categoryCode"));
+			bean1.setCategoryName(rs.getString("categoryName"));
+			bean1.setMajorName(rs.getString("majorName"));
+			bean1.setMinorName(rs.getString("minorName"));
+			clist.add(bean1);
+		}
+		return clist;
+	}
+	
 	
 	// Get category menu.
 	public List<MenuBean> getMenu() {

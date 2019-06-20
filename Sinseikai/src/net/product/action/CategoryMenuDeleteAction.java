@@ -27,12 +27,15 @@ public class CategoryMenuDeleteAction implements Action {
 		if(!result) {
 			System.err.println("ERROR - Failed delete from category menu");
 			
-			return null;
+			ActionForward forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./admin/categoryFail.html");
+			return forward;
 		}
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("manage-category.pr");
+		forward.setPath("manage-category.ad");
 		return forward;
 	}
 

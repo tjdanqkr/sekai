@@ -1,4 +1,4 @@
-<%@page import="java.net.URLEncoder"%>
+﻿<%@page import="java.net.URLEncoder"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="net.cus.db.OpenBean"%>
@@ -35,42 +35,64 @@ function showBig(val) {
 
 
 <link href="css/productInto.css" rel="stylesheet">
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+
+<!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
 <script>
 			// var sel = $("#selectbox option:selected").text(); //전체, 제목, 작성자
 			$( document ).ready( function() {
-				var jb;
-				var jb1;
-				var jb2;
-				var jb3;
-				var temp;
+				 $('input[name=seller]').val('${productBean.sellerEmail}');
+			
 				function input(){
 					var input = document.getElementById("quantity").value;
 					return input;
 					}					
-				$( 'button#jbButton' ).click( function() {		
-					  jb = $("select[name='option1'] option:selected").text();	
-					  jb1 = $("select[name='option2'] option:selected ").text();
-					  jbv= $("select[name='option1'] option:selected").val();	
-					  jbv1=$("select[name='option2'] option:selected ").val();
-					  document.getElementById("demo").innerHTML = jb;
-					  document.getElementById("demo1").innerHTML = jb1;																			
-						 jb2=input();
-						 jb3=input()*${no};	 
-						 document.getElementById("demo").innerHTML = jb;		 
-						 document.getElementById("demo1").innerHTML = jb1;			
-						 document.getElementById("demo2").innerHTML = jb2;
-						 sessionStorage.setItem( 'color', 'jb' );
-						 sessionStorage.setItem( 'size', 'jb1' );
-						 document.getElementById("nedan").innerHTML = jb3;
-						 
-						 $('input[name=no]').val(${no});
-						 $('input[name=su]').val(input());
-						 $('input[name=option1]').val(jbv);
-						 $('input[name=option2]').val(jbv2);	 
-				} );		
-			} );
+				$( 'button#jbButton' ).click( function() {	
+					/*
+					 * options innerHTML
+					 */
+					var jbs = [];
+					
+					/*
+					 * options value
+					 */
+					var jbvs = [];
+					
+					var amount;
+					var price;
+					
+					for(var i = 0; i < ${optionAmount}; i++){
+						/*
+						 * Guess the each option is child option(multiple).
+						 */
+						var options = $('select[name="option'+(i+1)+'"] option:selected');
+						var option;
+						for(var j = 0; j < options.length; j++){
+							if(options[j].value != 0){
+								/*
+								 * Found right option.
+								 */
+								option = options[j];
+							}
+						}
+						
+						jbs += option.innerHTML + ' ';
+						jbvs.push(option.value);
+					}
+					
+					amount=input();
+					price=input()*${no};	
+					
+					$('#options').text(jbs);
+					$('#amount').text(amount);
+					$('#nedan').text(price);
+				
+					$('input[name=no]').val(${no});
+					$('input[name=su]').val(input());
+					$('input[name=options]').val(jbvs);
+				});		
+			});
 			 function modifyProductQuantity(id, quantity){
 			        
 		         if(isNaN($("#"+id).val())){
@@ -156,8 +178,7 @@ setCookie("productid_price_${productBean.modelNumber}", "${productBean.price}원
 			${optionHTML}<!-- 얘가 텍스트박스 생성 -->
 			<!--<button id="jbButton" >Click</button>
 			<div>
-  			 주문한 색상: 	<p id="demo"></p>
-  			주문한 사이즈:	<p align="left" id="demo1"></p>
+  			 주문한 색상: 	<p id="options"></p>
   			주문 개수: -->
   			<div>
     <input name="quantity" id="quantity" style="vertical-align:middle; text-align:right" size="5" maxlength="4" value="1"/>
@@ -173,9 +194,8 @@ setCookie("productid_price_${productBean.modelNumber}", "${productBean.price}원
 	<span class="tl"></span><span class="tr"></span>
 	<div class="box-content">
 		<h2>주문내용</h2>
-		물품:<span id ="demo"></span>
-		<span id ="demo1"></span><br>
-		개수:<span id ="demo2"></span><br>
+		물품:<span id ="options"></span><br>
+		개수:<span id ="amount"></span><br>
 		가격:<span id = "nedan"> </span>
 	</div>
 	<span class="bl"></span><span class="br"></span>
@@ -185,11 +205,13 @@ setCookie("productid_price_${productBean.modelNumber}", "${productBean.price}원
 			<hr>
 			 
 
-		<form id="getsu" method="post" action="./product-pay.pr?productNumber=${productBean.productNumber}&email=${memberBean.email}">		
+		<form id="getsu" method="post" action="./product-pay.pr">	
+			<input type="hidden" name = "productNumber" value = "${productBean.productNumber}" />
+			<input type="hidden" name = "email" value = "${memberBean.email}" />
 			<input type="hidden" name = "su" >
-			<input type="hidden" name = "option1">
-			<input type="hidden" name = "option2">
+			<input type="hidden" name = "options">
 			<input type="hidden" name = "no">
+			<input type="hidden" name = "seller">
 			<input type="submit"  value ="주문하기">
 		</form>	
 			<span> 상품 번호 : ${productBean.modelNumber} <br>
@@ -200,12 +222,12 @@ setCookie("productid_price_${productBean.modelNumber}", "${productBean.price}원
 			</div>
 			
 	<div id="comments">
-		<h3>Comments</h3>
+		<h3>상품상세설명</h3>
 		<p>
-			<span>Visitor 1</span><img src="img/${productBean.imgAddr5}" width="100%" height="100%" />
+			<span>상세이미지</span><img src="img/${productBean.imgAddr5}" width="100%" height="100%" />
 		</p>
 		<p>
-			<span>Visitor 2</span> 상품 상제 이미지
+			<span>상세정보</span> 
 				 <img src="img/${productBean.imgAddr5}" width="100%" height="100%" />
 		</p>
 		<p>
@@ -221,7 +243,7 @@ setCookie("productid_price_${productBean.modelNumber}", "${productBean.price}원
 	
 	<script>
     ${optionJS}
-    $('#jaego').html("남은 재고 : ");
+   
     </script>
 
 

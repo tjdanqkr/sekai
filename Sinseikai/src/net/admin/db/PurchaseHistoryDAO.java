@@ -37,7 +37,9 @@ public class PurchaseHistoryDAO implements DAO{
 		}
 	}
 	
-	// Get purchase history.
+	/*
+	 *  Get purchase history.
+	 */
 	public List<PurchaseHistoryBean> getHistory() {
 		List<PurchaseHistoryBean> beans = new ArrayList<PurchaseHistoryBean>();
 		
@@ -64,7 +66,7 @@ public class PurchaseHistoryDAO implements DAO{
 				bean.setBrandName(rs.getString("brandname"));
 				bean.setModelNumber(rs.getString("modelnumber"));
 				bean.setModelName(rs.getString("modelname"));
-				bean.setCoupon(rs.getBoolean("coupon"));
+				bean.setCoupon(rs.getString("coupon"));
 				bean.setFullPrice(rs.getInt("fullprice"));
 				bean.setDiscountRate(rs.getFloat("discountrate"));
 				bean.setRating(rs.getFloat("rating"));
@@ -92,6 +94,58 @@ public class PurchaseHistoryDAO implements DAO{
 			se.printStackTrace();
 		}
 		return null;
+	}
+	
+	/*
+	 *  Insert purchase history.
+	 */
+	public boolean insertHistory(PurchaseHistoryBean bean) {
+		Calendar calendar = Calendar.getInstance();
+		
+		/*
+		 * Used that set purchase date.
+		 */
+		String purchaseDate = "";
+		
+		/*
+		 * Current time
+		 */
+		calendar.setTime(bean.getPurchaseDate());
+		
+		/*
+		 * Set as format "yyyy/mm/dd hh24:mi:ss"
+		 */
+		purchaseDate += calendar.get(Calendar.YEAR) + "/";
+		purchaseDate += (calendar.get(Calendar.MONTH)+1) + "/";
+		purchaseDate += calendar.get(Calendar.DATE) + " ";
+		purchaseDate += calendar.get(Calendar.HOUR_OF_DAY) + ":";
+		purchaseDate += calendar.get(Calendar.MINUTE) + ":";
+		purchaseDate += calendar.get(Calendar.SECOND);
+		
+		try {
+			pstmt = con.prepareStatement("insert into purchasehistory values(?, ?, ?, ?, ?, "
+					+ "?, ?, ?, ?, ?, TO_DATE(?, 'yyyy/mm/dd hh24:mi:ss'))");
+
+			pstmt.setInt(1, bean.getProductNumber());
+			pstmt.setString(2, bean.getBrandName());
+			pstmt.setString(3, bean.getModelNumber());
+			pstmt.setString(4, bean.getModelName());
+			pstmt.setString(5, bean.getCoupon());
+			pstmt.setInt(6, bean.getFullPrice());
+			pstmt.setFloat(7, bean.getDiscountRate());
+			pstmt.setFloat(8, bean.getRating());
+			pstmt.setInt(9, bean.getDeliveryPeriod());
+			pstmt.setInt(10, bean.getCategoryCode());
+			pstmt.setString(11, purchaseDate);
+			
+			if(pstmt.executeUpdate() != 0) {
+				return true;
+			}
+		} catch (SQLException se) {
+			// TODO Auto-generated catch block
+			se.printStackTrace();
+		}
+		return false;
 	}
 	
 	public void close() {

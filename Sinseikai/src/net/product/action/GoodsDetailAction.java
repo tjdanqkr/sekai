@@ -25,15 +25,11 @@ public class GoodsDetailAction implements Action {
 		ProductDAO productDAO = new ProductDAO();
 		Option1DAO option1DAO = null;
 		CodexBrandDAO codexBrandDAO = null;
-		HttpSession session = request.getSession();
 		ProductBean productBean = new ProductBean();
 		List<Option1Bean> option1Beans = null;
 		CodexBrandBean codexBrandBean = null;
 		MemberBean memberBean = new MemberBean();
 		MemberDAO memberDAO = new MemberDAO();
-		
-		
-	
 		
 		memberBean.setEmail(request.getParameter("email"));
 		memberBean = memberDAO.kensaku(memberBean);
@@ -68,11 +64,12 @@ public class GoodsDetailAction implements Action {
 		}
 		
 		List<List<Option1Bean>> majorBeans = repackagingOption(option1Beans);
-		session.setAttribute("productBean", productBean); // Put the result.
-		session.setAttribute("optionHTML",  listToHTML(majorBeans));
-		session.setAttribute("optionJS", createJSForOption(majorBeans));
-		session.setAttribute("codexBrandBean", codexBrandBean);
-		session.setAttribute("memberBean", memberBean);
+		request.getSession().setAttribute("productBean", productBean); // Put the result.
+		request.setAttribute("optionAmount", majorBeans.size());
+		request.setAttribute("optionHTML",  listToHTML(majorBeans));
+		request.setAttribute("optionJS", createJSForOption(majorBeans));
+		request.setAttribute("codexBrandBean", codexBrandBean);
+		request.getSession().setAttribute("memberBean", memberBean);
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("/product/productInto.jsp"); // set at after.

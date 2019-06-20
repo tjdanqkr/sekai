@@ -3,6 +3,8 @@ package net.member.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.action.Action;
+import net.action.ActionForward;
 import net.member.db.MemberBean;
 import net.member.db.MemberDAO;
 
@@ -18,6 +20,7 @@ public class idch implements Action {
 			String email = request.getParameter("id");
 			memberdata.setEmail(email);
 			result = memberdao.idCheck(memberdata);
+			memberdao.close();
 			if (result == false) {
 				System.out.println("�Խ��� ��� ����");
 				forward.setRedirect(true);

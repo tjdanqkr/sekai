@@ -122,7 +122,7 @@ body, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, img, button {
     position: fixed;
     bottom: 0;
     width: 465px;
-    height: 100%;
+    height: auto;
     min-height: 360px;
     z-index: 110;
     transition: right 0.3s ease-in-out;

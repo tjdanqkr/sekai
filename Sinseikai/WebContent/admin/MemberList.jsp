@@ -118,10 +118,10 @@ table {
 					<div align="left">Name</div>
 				</td>
 				<td >
-					<div align="left">Age</div>
+					<div align="left">Phone</div>
 				</td>
 				<td >
-					<div align="left">Phone</div>
+					<div align="left">Age</div>
 				</td>
 
 			</tr>

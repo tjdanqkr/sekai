@@ -1,19 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<%
-pageContext.setAttribute("option1Beans",session.getAttribute("option1Beans"));
-pageContext.setAttribute("memberBean",session.getAttribute("memberBean"));
-%>
+
 <c:set var="no" value="${Math.round(productBean.price*(1-productBean.discountRate))}" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="../js/product_into.js"></script>
 
 <link rel="stylesheet" href="./css/Pay.css">
+
+<!-- Check login -->
+<script>
+	if('${id}' == ''){
+		location.href = 'login.me';
+	}
+</script>
+
+</head>
+
 </head>
 <body onload="onLoad()">
 <div><%@include file="headmenu.jsp" %></div><br>
@@ -77,8 +84,12 @@ function myFunction() {
 입금기한 (예정) : 3일(최종 주문일 기준, 다음날까지 미 입금 시 자동취소 됩니다)<br><br>
 
 <div align="center">
-<form id="getsu" method="post" action="./product-pay.pr?productNumber=${productBean.productNumber}&email=${memberBean.email}">
-		<input type="hidden" name = "price"  value="${param.su*no}">
+<form id="getsu" method="post" action="./product-pay-action.pr">
+		<input type="hidden" name = "productNumber" value = "${param.productNumber}" />
+		<input type="hidden" name = "su" value="${param.su}">
+		<input type="hidden" name = "options" value="${param.options}">
+		<input type="hidden" name = "no" value="${param.no}">
+		<input type="hidden" name = "seller" value="${param.seller}">
 <input type ="button" value = "주문확정" onclick ="alert('주문이 완료되었습니다'); document.getElementById('getsu').submit()"  />
 </form>	
 </div>

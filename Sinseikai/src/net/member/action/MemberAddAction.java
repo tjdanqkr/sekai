@@ -10,6 +10,8 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import net.member.db.MemberDAO;
+import net.action.Action;
+import net.action.ActionForward;
 import net.member.db.MemberBean;
 
 public class MemberAddAction implements Action {
@@ -22,7 +24,6 @@ public class MemberAddAction implements Action {
 	   	MemberBean memberdata=new MemberBean();
 	   	ActionForward forward=new ActionForward();
 	   	boolean result=false;
-	   	System.out.println("ddd");
    		int age= Integer.parseInt(request.getParameter("age"));
    			try{
    				memberdata.setPhone(request.getParameter("phone"));
